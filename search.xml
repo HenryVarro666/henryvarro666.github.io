@@ -27,6 +27,21 @@
       </tags>
   </entry>
   <entry>
+    <title>搭建hexo博客的第四天</title>
+    <url>/2020/04/09/%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BA%8A%EF%BC%8C%E4%BB%A5%E5%90%8E%E5%8F%AF%E4%BB%A5%E6%96%B9%E4%BE%BF%E8%B4%B4%E7%85%A7%E7%89%87%E4%BA%86/</url>
+    <content><![CDATA[<h1 id="使用图床，以后可以方便贴照片了"><a href="#使用图床，以后可以方便贴照片了" class="headerlink" title="使用图床，以后可以方便贴照片了"></a>使用图床，以后可以方便贴照片了</h1><a id="more"></a>
+<p>与其他一些博客上教的不太一样，我没有贪图国内网盘的速度而选择那个什么七牛图床，为了稳定依然是跟着Wonz大佬选择用GitHub+PicGo，除了隐私差一点因为GitHub人人可访问，但是不会出现什么域名变更，背后也是微软，稳定性毋庸置疑。</p>
+<p>实际上昨天有点忙也没来得及搞，发现还是挺简单的，以后很多图可以直接上传了。</p>
+<p>还有一个好处就是会自动生成markdown链接，需要的时候复制一下就好了。过一会儿写一篇随笔贴几个图。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>4.6 周一</title>
     <url>/2020/04/06/4-6-%E5%91%A8%E4%B8%80/</url>
     <content><![CDATA[<h1 id="周一记"><a href="#周一记" class="headerlink" title="周一记"></a>周一记</h1><a id="more"></a>
@@ -49,35 +64,13 @@
       </tags>
   </entry>
   <entry>
-    <title>搭建hexo博客的第二天</title>
-    <url>/2020/04/05/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
-    <content><![CDATA[<h2 id="关于博客的搭建"><a href="#关于博客的搭建" class="headerlink" title="关于博客的搭建"></a>关于博客的搭建</h2><p>今天尝试把themes从yilia换成了Next，理由是自由度更高，有更多的插件。</p>
-<a id="more"></a>   
-<p>这同时也是王舟大佬Wonz的选择。<br>大佬的博客分类详细而且很具体，虽然出现了一部分细小的差错，但是以大佬的博客为基础，结合百度的资源，总体来说不是很麻烦。</p>
-<hr>
-<h2 id="改进与不足"><a href="#改进与不足" class="headerlink" title="改进与不足"></a>改进与不足</h2><p>今天相较昨天，增加了分类项和标签项,然后尝试优化了动态壁纸、增加点击出现爱心的操作、去除了底部的主题宣传标语和增加了访问统计和字数统计。<br>但是，在各个指导博客中也提到了照片的引用，如果照片保存在本地，以后的迁移会很麻烦。之后的几天也许会改进一下云空间保存照片。其他的许多功能暂时用不到，后续会慢慢留意。</p>
-<hr>
-<h2 id="Markdown语言"><a href="#Markdown语言" class="headerlink" title="Markdown语言"></a>Markdown语言</h2><p>Markdown语言是很简单的一种用于普通文本编辑器的标记语言。简洁明了、容易学习，功能比纯文本强，<br>但是，对于我来说，还是一种全新的文本编辑语言，有着自身的特色。还是需要学习的。<br>包括照片的引用、代码的引用、加粗、斜体、高亮等等。慢慢学吧</p>
-<hr>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/wonz5130/category_9280211.html" target="_blank" rel="noopener">https://blog.csdn.net/wonz5130/category_9280211.html</a><br><a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">https://www.jianshu.com/p/f054333ac9e6</a><br><a href="https://www.zhihu.com/question/20409634/answer/90728572" target="_blank" rel="noopener">https://www.zhihu.com/question/20409634/answer/90728572</a></p>
+    <title>四月八日</title>
+    <url>/2020/04/09/%E5%9B%9B%E6%9C%88%E5%85%AB%E6%97%A5/</url>
+    <content><![CDATA[<h1 id="图-5张"><a href="#图-5张" class="headerlink" title="图 5张"></a>图 5张</h1><a id="more"></a>
+<p>（第一次用图床，试试效果吧）<br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/%E5%9B%BE%E7%89%87Screenshot_2020-04-08-06-56-21-41.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/%E5%9B%BE%E7%89%87img-f4420e71e64906460a61ce8d7d310741.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/%E5%9B%BE%E7%89%87img-27d585278c6709e0a7e01857fc358904.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/%E5%9B%BE%E7%89%87img-9fd5961769c80d3f16c5ea3b11625a4f.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/%E5%9B%BE%E7%89%871586174278815.jpeg" alt></p>
 ]]></content>
       <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建hexo博客的第三天</title>
-    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
-    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
-<a id="more"></a>
-<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
-<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
+        <category>尘世间</category>
       </categories>
       <tags>
         <tag>随笔</tag>
@@ -101,6 +94,41 @@
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第三天</title>
+    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
+    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
+<a id="more"></a>
+<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第二天</title>
+    <url>/2020/04/05/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
+    <content><![CDATA[<h2 id="关于博客的搭建"><a href="#关于博客的搭建" class="headerlink" title="关于博客的搭建"></a>关于博客的搭建</h2><p>今天尝试把themes从yilia换成了Next，理由是自由度更高，有更多的插件。</p>
+<a id="more"></a>   
+<p>这同时也是王舟大佬Wonz的选择。<br>大佬的博客分类详细而且很具体，虽然出现了一部分细小的差错，但是以大佬的博客为基础，结合百度的资源，总体来说不是很麻烦。</p>
+<hr>
+<h2 id="改进与不足"><a href="#改进与不足" class="headerlink" title="改进与不足"></a>改进与不足</h2><p>今天相较昨天，增加了分类项和标签项,然后尝试优化了动态壁纸、增加点击出现爱心的操作、去除了底部的主题宣传标语和增加了访问统计和字数统计。<br>但是，在各个指导博客中也提到了照片的引用，如果照片保存在本地，以后的迁移会很麻烦。之后的几天也许会改进一下云空间保存照片。其他的许多功能暂时用不到，后续会慢慢留意。</p>
+<hr>
+<h2 id="Markdown语言"><a href="#Markdown语言" class="headerlink" title="Markdown语言"></a>Markdown语言</h2><p>Markdown语言是很简单的一种用于普通文本编辑器的标记语言。简洁明了、容易学习，功能比纯文本强，<br>但是，对于我来说，还是一种全新的文本编辑语言，有着自身的特色。还是需要学习的。<br>包括照片的引用、代码的引用、加粗、斜体、高亮等等。慢慢学吧</p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://blog.csdn.net/wonz5130/category_9280211.html" target="_blank" rel="noopener">https://blog.csdn.net/wonz5130/category_9280211.html</a><br><a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="noopener">https://www.jianshu.com/p/f054333ac9e6</a><br><a href="https://www.zhihu.com/question/20409634/answer/90728572" target="_blank" rel="noopener">https://www.zhihu.com/question/20409634/answer/90728572</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
