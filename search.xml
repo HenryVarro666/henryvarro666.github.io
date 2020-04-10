@@ -23,6 +23,65 @@
       </tags>
   </entry>
   <entry>
+    <title>四四月九日</title>
+    <url>/2020/04/09/%E5%9B%9B%E6%9C%88%E4%B9%9D%E6%97%A5/</url>
+    <content><![CDATA[<h1 id="图-六张"><a href="#图-六张" class="headerlink" title="图 六张"></a>图 六张</h1><a id="more"></a>
+<p><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170728.PNG" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170727.PNG" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170726.PNG" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170724.JPG" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170723.JPG" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170722.JPG" alt></p>
+<h1 id="老王"><a href="#老王" class="headerlink" title="老王"></a>老王</h1><p>王思予是一个很优秀很优秀的女孩子，有幸和她初中高中都在同一所学校，虽然她高考发挥不理想，但是她的实力还是很恐怖。<br>陈子奇选择过年给她表白，毫不意外被拒了，搞得现在他觉得他见到她就很尴尬，都不能想过去一样好好吃饭了。而我问了老王，老王比他成熟太多了，朋友还是可以当的。怎么说呢，陈子奇过不去的坎只有他自己。<br>陈子奇的选择说实话在我看来非常奇怪。目前大三，双方读研抑或出国尚未决定，前途未卜；再者，双方一个广东一个南京，不能真的指望异地恋吧。虽然我八卦了，但仍然不知道老王是如何发好人卡的。<br>陈子奇说自己喜欢了老王好久好久了。为什么高考之后不选择同一个学校，好歹同一个地区或者省份啊。明知道被拒，为什么现在把关系搞得这么僵。<br>老王在我看来很优秀，家庭背景也好，长得也可，虽然性格上可能还是有那么一点傲娇，但不妨碍她成为一个白月光/红玫瑰。也许我自己都有一点心动。<br>老王怎么想是个值得思考的好问题。高中时期听闻她与乔丹一点点八卦，说不定人家早已度过了青春期那躁动懵懂的时刻，看我和陈子奇像两个傻傻的憨憨。<br>有一说一，她和陈子奇的关系可能更紧密一点。比如DS160她就问过陈子奇的地址，微信聊天跨时空聊天估计也只有我一个了。<br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170731.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170730.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170729.jpg" alt><br><img src="https://cdn.jsdelivr.net/gh/HenryVarro666/PictureBed/img/20200409170725.jpg" alt></p>
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第四天</title>
+    <url>/2020/04/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9/</url>
+    <content><![CDATA[<h1 id="使用图床，以后可以方便贴照片了"><a href="#使用图床，以后可以方便贴照片了" class="headerlink" title="使用图床，以后可以方便贴照片了"></a>使用图床，以后可以方便贴照片了</h1><a id="more"></a>
+<p>与其他一些博客上教的不太一样，我没有贪图国内网盘的速度而选择那个什么七牛图床，为了稳定依然是跟着Wonz大佬选择用GitHub+PicGo，除了隐私差一点因为GitHub人人可访问，但是不会出现什么域名变更，背后也是微软，稳定性毋庸置疑。</p>
+<p>实际上昨天有点忙也没来得及搞，发现还是挺简单的，以后很多图可以直接上传了。</p>
+<p>还有一个好处就是会自动生成markdown链接，需要的时候复制一下就好了。过一会儿写一篇随笔贴几个图。</p>
+<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>下一步是想给博客增加一个虚拟人物，动漫动物都可以，可以跟着鼠标转动的，感觉挺有意思的。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第三天</title>
+    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
+    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
+<a id="more"></a>
+<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第五天</title>
+    <url>/2020/04/10/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%94%E5%A4%A9/</url>
+    <content><![CDATA[<a id="more"></a>
+<h1 id="往博客里面放图出现的一些问题"><a href="#往博客里面放图出现的一些问题" class="headerlink" title="往博客里面放图出现的一些问题"></a>往博客里面放图出现的一些问题</h1><p>图确实可以云端上传了，但是呢我发现这个图比我预计的大小实在大太多了，这也需要改一改。</p>
+<h1 id="如何加密某些特定博客"><a href="#如何加密某些特定博客" class="headerlink" title="如何加密某些特定博客"></a>如何加密某些特定博客</h1><p>随着我写一些东西，可能涉及隐私或者敏感话题，我可能也需要学着加密一部分博客了。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/04/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -79,37 +138,6 @@
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建hexo博客的第三天</title>
-    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
-    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
-<a id="more"></a>
-<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
-<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建hexo博客的第四天</title>
-    <url>/2020/04/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9/</url>
-    <content><![CDATA[<h1 id="使用图床，以后可以方便贴照片了"><a href="#使用图床，以后可以方便贴照片了" class="headerlink" title="使用图床，以后可以方便贴照片了"></a>使用图床，以后可以方便贴照片了</h1><a id="more"></a>
-<p>与其他一些博客上教的不太一样，我没有贪图国内网盘的速度而选择那个什么七牛图床，为了稳定依然是跟着Wonz大佬选择用GitHub+PicGo，除了隐私差一点因为GitHub人人可访问，但是不会出现什么域名变更，背后也是微软，稳定性毋庸置疑。</p>
-<p>实际上昨天有点忙也没来得及搞，发现还是挺简单的，以后很多图可以直接上传了。</p>
-<p>还有一个好处就是会自动生成markdown链接，需要的时候复制一下就好了。过一会儿写一篇随笔贴几个图。</p>
-<h1 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h1><p>下一步是想给博客增加一个虚拟人物，动漫动物都可以，可以跟着鼠标转动的，感觉挺有意思的。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
