@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="RandomSampling.ipynb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="01242022 Data606">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/01/24/01242022-Data606/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="RandomSampling.ipynb">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Discrete_probability_distrib.svg/440px-Discrete_probability_distrib.svg.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Discrete_probability_distribution.svg/440px-Discrete_probability_distribution.svg.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Quantile_distribution_function.svg/440px-Quantile_distribution_function.svg.png">
+<meta property="og:image" content="https://qph.fs.quoracdn.net/main-qimg-f7053445ffad6cc469aa9276b91c9153-c">
+<meta property="og:image" content="http://work.thaslwanter.at/Stats/html/_images/PDF.png">
+<meta property="og:image" content="https://d3i71xaburhd42.cloudfront.net/971ee627f5514239531865dcb862f915bde5cae5/2-Figure34.1-1.png">
+<meta property="og:image" content="https://www.onlinemathlearning.com/image-files/binomial-distribution-formula.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/7/78/PDF_of_the_Beta_distribution.gif">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dirichlet.pdf/page1-1500px-Dirichlet.pdf.jpg">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Pi_30K.gif/440px-Pi_30K.gif">
+<meta property="og:image" content="https://henryvarro666.github.io/output_31_1.png">
+<meta property="og:image" content="https://theclevermachine.files.wordpress.com/2012/09/rejectionsamplingcriterion.png?w=584">
+<meta property="og:image" content="https://www.researchgate.net/profile/Christine-Strauss-2/publication/220669034/figure/fig1/AS:341401574363140@1458407886431/Probability-Shift-in-Importance-Sampling-4-Importance-Sampling-The-estimate-4-is.png">
+<meta property="article:published_time" content="2022-01-24T23:43:42.000Z">
+<meta property="article:modified_time" content="2022-01-25T00:35:24.917Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="DATA606">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Discrete_probability_distrib.svg/440px-Discrete_probability_distrib.svg.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/01/24/01242022-Data606/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>01242022 Data606 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/01/24/01242022-Data606/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          01242022 Data606
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-01-24 18:43:42 / Modified: 19:35:24" itemprop="dateCreated datePublished" datetime="2022-01-24T18:43:42-05:00">2022-01-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">课程学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>RandomSampling.ipynb</p>
+<span id="more"></span>
+
+<h2 id="Discrete-Probability-Distribution"><a href="#Discrete-Probability-Distribution" class="headerlink" title="Discrete Probability Distribution"></a>Discrete Probability Distribution</h2><p>A discrete probability distribution is a probability distribution that can take on a countable number of values.In the case where the range of values is countably infinite, these values have to decline to zero fast enough for the probabilities to add up to 1. For example, if ${\displaystyle \operatorname {P} (X&#x3D;n)&#x3D;{\tfrac {1}{2^{n}}}}$ for n &#x3D; 1, 2, …, the sum of probabilities would be 1&#x2F;2 + 1&#x2F;4 + 1&#x2F;8 + … &#x3D; 1  </p>
+<p>Examples include the Poisson distribution, the Bernoulli distribution, and the binomial distribution.</p>
+<p>When a sample (a set of observations) is drawn from a larger population, the sample points have an empirical distribution that is discrete, and which provides information about the population distribution.</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Probability_distribution">Wikipedia</a></p>
+<h2 id="Probability-Mass-Function-PMF"><a href="#Probability-Mass-Function-PMF" class="headerlink" title="Probability Mass Function (PMF)"></a>Probability Mass Function (PMF)</h2><p> A probability mass function (PMF) is a function that gives the probability that a discrete random variable is exactly equal to some value. Sometimes it is also known as the discrete density function.</p>
+<p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Discrete_probability_distrib.svg/440px-Discrete_probability_distrib.svg.png" alt="Pmd"></p>
+<h2 id="Cumulative-Distribution-Function-CDF"><a href="#Cumulative-Distribution-Function-CDF" class="headerlink" title="Cumulative Distribution Function (CDF)"></a>Cumulative Distribution Function (CDF)</h2><p> A cumulative distribution function (CDF) of a random variable ${\displaystyle X}$ , or just distribution function of ${\displaystyle X}$, evaluated at ${\displaystyle x}$, is the probability that ${\displaystyle X}$ will take a value less than or equal to ${\displaystyle x}$.</p>
+<p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Discrete_probability_distribution.svg/440px-Discrete_probability_distribution.svg.png" alt="CDF"></p>
+<h2 id="Inverse-distribution-function-quantile-function"><a href="#Inverse-distribution-function-quantile-function" class="headerlink" title="Inverse distribution function (quantile function)"></a>Inverse distribution function (quantile function)</h2><p> The quantile function, associated with a probability distribution of a random variable, specifies the value of the random variable such that the probability of the variable being less than or equal to that value equals the given probability. It is also called the percent-point function or inverse cumulative distribution function.</p>
+<p> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Quantile_distribution_function.svg/440px-Quantile_distribution_function.svg.png" alt="Quantile function"></p>
+<p> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Quantile_function">Wikipedia</a></p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p> Here is an intuitive explanation:<br> <a target="_blank" rel="noopener" href="https://www.quora.com/What-is-an-intuitive-explanation-of-inverse-transform-sampling-method-in-statistics-and-how-does-it-relate-to-cumulative-distribution-function">Quora</a></p>
+<p> P(Weak)&#x3D;0.2 ,  P(Standard)&#x3D;0.7,   P(Strong) &#x3D; 0.1</p>
+<p> <img src="https://qph.fs.quoracdn.net/main-qimg-f7053445ffad6cc469aa9276b91c9153-c" alt="image"></p>
+<h2 id="Continuous-Probability-Distribution"><a href="#Continuous-Probability-Distribution" class="headerlink" title="Continuous Probability Distribution"></a>Continuous Probability Distribution</h2><p> A continuous probability distribution is a probability distribution whose support is an uncountable set, such as an interval in the real line. They are uniquely characterized by a cumulative distribution function that can be used to calculate the probability for each subset of the support. There are many examples of continuous probability distributions: normal, uniform, chi-squared, and others.</p>
+<h2 id="Probability-Density-Function-PDF"><a href="#Probability-Density-Function-PDF" class="headerlink" title="Probability Density Function (PDF)"></a>Probability Density Function (PDF)</h2><p> A probability density function (PDF), or density of a continuous random variable, is a function whose value at any given sample (or point) in the sample space (the set of possible values taken by the random variable) can be interpreted as providing a relative likelihood that the value of the random variable would equal that sample. (Wikipedia)</p>
+<p> <img src="http://work.thaslwanter.at/Stats/html/_images/PDF.png" alt="image"></p>
+<h1 id="Inverse-Transform-Sampling"><a href="#Inverse-Transform-Sampling" class="headerlink" title="Inverse Transform Sampling"></a>Inverse Transform Sampling</h1><p> Inverse transform sampling is a basic method for pseudo-random number sampling, i.e., for generating sample numbers at random from any probability distribution given its cumulative distribution function.</p>
+<p> <img src="https://d3i71xaburhd42.cloudfront.net/971ee627f5514239531865dcb862f915bde5cae5/2-Figure34.1-1.png" alt="image"></p>
+<h2 id="Example-Bernoulli-Distribution"><a href="#Example-Bernoulli-Distribution" class="headerlink" title="Example: Bernoulli Distribution"></a>Example: Bernoulli Distribution</h2><h2 id="Theorem"><a href="#Theorem" class="headerlink" title="Theorem"></a>Theorem</h2><p>Reference: Machine Learning - A Probabilistic Perspective, Kevin P. Murphy, Page 818</p>
+<p>If $U\sim U(0,1)$ is a uniform random variable, then $F^{-1}(U)\sim F$</p>
+<p>Proof: </p>
+<p>$Pr(F^{-1}(U) \le x) &#x3D; Pr(U \le F(x))$, applying F to both sides</p>
+<p>$&#x3D;F(x)$, because $Pr(U \le y)&#x3D;y$</p>
+<p>The first line follows since F is a monotonic function and the second line follows since U is uniform on the unit interval.</p>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><p>The probability density function (pdf) of an exponential distribution is</p>
+<p>${\displaystyle f(x;\lambda )&#x3D;{\begin{cases}\lambda e^{-\lambda x}&amp;x\geq 0,\0&amp;x&lt;0.\end{cases}}}$</p>
+<p>Here λ &gt; 0 is the parameter of the distribution</p>
+<p>The cumulative distribution function is given by</p>
+<p>${\displaystyle F(x;\lambda )&#x3D;{\begin{cases}1-e^{-\lambda x}&amp;x\geq 0,\0&amp;x&lt;0.\end{cases}}}$</p>
+<p>The inverse cumulative function is</p>
+<p>${\displaystyle F^{-1}(p)&#x3D;{\begin{cases} {\tfrac {-ln(1-p)}{\lambda}} &amp;x\geq 0,\0&amp;x&lt;0.\end{cases}}}$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">                                     </span><br><span class="line">lambda_1 = <span class="number">2</span>                                 </span><br><span class="line">U=np.random.random(<span class="number">10000</span>)            </span><br><span class="line">X=-np.log(<span class="number">1</span>-U)/lambda_1</span><br><span class="line">np.mean(X)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.49518234988983334
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Exercise.         </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># is f(x) = 4*x on the interval [0,1] a density function? if not, what is the normalizing factor?</span></span><br><span class="line"><span class="comment"># What is the CDF?</span></span><br><span class="line"><span class="comment"># What is the inverse CDF?</span></span><br><span class="line"><span class="comment"># Use inverse sampling to estimate the expectation of the distribution</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># random numbers from a Bernoulli distribution (binary outcome) e.g., tossing a  coin heads/tails 10 times</span></span><br><span class="line"></span><br><span class="line"> <span class="comment"># 0----------p---1</span></span><br><span class="line">                                 <span class="comment">#.....</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bern</span>(<span class="params">p</span>):</span><br><span class="line">  r = np.random.uniform(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> r &lt; p:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">size = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  coin = bern(<span class="number">0.5</span>)  <span class="comment"># fair coin</span></span><br><span class="line">  <span class="built_in">print</span>(coin)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+0
+0
+1
+1
+0
+1
+0
+1
+0
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># off-the-shelf use of a library</span></span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> bernoulli</span><br><span class="line">size = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  coin = bernoulli.rvs(<span class="number">0.5</span>)  <span class="comment"># fair coin</span></span><br><span class="line">  <span class="built_in">print</span>(coin)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+1
+0
+0
+0
+0
+0
+1
+0
+0
+</code></pre>
+<h2 id="Example-Binomial-Distribution"><a href="#Example-Binomial-Distribution" class="headerlink" title="Example: Binomial Distribution"></a>Example: Binomial Distribution</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Binomial distribution: binomial random variable counts the number of heads or positives or successes x in n repeated trials of a binomial experiment</span></span><br><span class="line"><span class="comment"># Example: simulation of the number of heads and tails by tossing a fair coin 10 times</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bern</span>(<span class="params">p</span>):</span><br><span class="line">  r = np.random.uniform(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> r &lt; p:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>                     </span><br><span class="line"></span><br><span class="line">size = <span class="number">10</span></span><br><span class="line">x = [<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line">y = [<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  index = bern(<span class="number">0.5</span>)</span><br><span class="line">  y[index] +=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[4, 6]
+</code></pre>
+<img src='https://www.onlinemathlearning.com/image-files/binomial-distribution-formula.png'>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bernoulli as a special case of Binomial                     </span></span><br><span class="line">                                                             </span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> binom</span><br><span class="line"></span><br><span class="line">size = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  coin = binom.rvs(<span class="number">1</span>,<span class="number">0.5</span>, size=<span class="number">1</span>)  <span class="comment"># fair coin       </span></span><br><span class="line">  <span class="built_in">print</span>(coin)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]
+[0]
+[0]
+[0]
+[1]
+[0]
+[1]
+[1]
+[1]
+[0]
+</code></pre>
+<h2 id="Example-Categorical-Distribution"><a href="#Example-Categorical-Distribution" class="headerlink" title="Example: Categorical Distribution"></a>Example: Categorical Distribution</h2><p>A categorical distribution (also called a generalized Bernoulli distribution, multinoulli distribution) is a discrete probability distribution that describes the possible results of a random variable that can take on one of K possible categories, with the probability of each category separately specified.(Wikipedia)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example: random outcomes of a die tossed 10 times</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 0-------p1--p1+p2------p1+p2+p3-------p1+p2+p3+p4----p1+p2+p3+p4+p5------1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">categ</span>(<span class="params">p1,p2,p3,p4,p5,p6</span>):</span><br><span class="line">  r = np.random.uniform(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> r &lt; p1:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> r &lt; p1 + p2:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">  <span class="keyword">elif</span> r &lt; p1 + p2 + p3:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">  <span class="keyword">elif</span> r &lt; p1 + p2 + p3 + p4:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span></span><br><span class="line">  <span class="keyword">elif</span> r &lt; p1 + p2 + p3 + p4 + p5:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">  <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line"></span><br><span class="line">size = <span class="number">10</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  dice = categ(<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>)  <span class="comment"># fair die</span></span><br><span class="line">  <span class="built_in">print</span>(dice)</span><br></pre></td></tr></table></figure>
+
+<pre><code>5
+2
+3
+4
+3
+3
+4
+2
+5
+3
+</code></pre>
+<h2 id="Multinomial-Distribution"><a href="#Multinomial-Distribution" class="headerlink" title="Multinomial Distribution"></a>Multinomial Distribution</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Multinomial distribution is the generalization of the binomial distribution when the categorical variable has more than two outcomes</span></span><br><span class="line"><span class="comment"># Example: Simulation of the number  of times each side of a fair die shows up if the die is tossed 10 times</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>] <span class="comment"># initialize count to zero</span></span><br><span class="line">size = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">  dice = categ(<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>)</span><br><span class="line">  y[dice] += <span class="number">1</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span>(y[<span class="number">1</span>:])</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0, 4, 2, 1, 1, 2]
+</code></pre>
+<p>Probability of multinomial distribution</p>
+<h1 id="frac-n-x-1-cdots-x-k-p-1-x-1-cdots-p-k-x-k"><a href="#frac-n-x-1-cdots-x-k-p-1-x-1-cdots-p-k-x-k" class="headerlink" title="$\frac{n!}{x_1!\cdots x_k!} p_1^{x_1} \cdots p_k^{x_k}$"></a>$\frac{n!}{x_1!\cdots x_k!} p_1^{x_1} \cdots p_k^{x_k}$</h1><h2 id="Beta-Distribution"><a href="#Beta-Distribution" class="headerlink" title="Beta Distribution"></a>Beta Distribution</h2><p>The beta distribution is a family of continuous probability distributions defined on the interval [0, 1] parameterized by two positive shape parameters, denoted by α and β, that appear as exponents of the random variable and control the shape of the distribution. The generalization to multiple variables is called a Dirichlet distribution.</p>
+<p>In Bayesian inference, the beta distribution is the conjugate prior probability distribution for the Bernoulli, binomial, negative binomial and geometric distributions. The beta distribution is a suitable model for the random behavior of percentages and proportions.</p>
+<p>The probability density function (pdf) of the beta distribution, for 0 ≤ x ≤ 1, and shape parameters α, β &gt; 0, is a power function of the variable x and of its reflection (1 − x) as follows:</p>
+<p>${\displaystyle {\begin{aligned}f(x;\alpha ,\beta )&amp;&#x3D;\mathrm {constant} \cdot x^{\alpha -1}(1-x)^{\beta -1}\[3pt]&amp;&#x3D;{\frac {x^{\alpha -1}(1-x)^{\beta -1}}{\displaystyle \int _{0}^{1}u^{\alpha -1}(1-u)^{\beta -1},du}}\[6pt]&amp;&#x3D;{\frac {\Gamma (\alpha +\beta )}{\Gamma (\alpha )\Gamma (\beta )}},x^{\alpha -1}(1-x)^{\beta -1}\[6pt]&amp;&#x3D;{\frac {1}{\mathrm {B} (\alpha ,\beta )}}x^{\alpha -1}(1-x)^{\beta -1}\end{aligned}}}$</p>
+<p>where Γ(z) is the gamma function.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/PDF_of_the_Beta_distribution.gif" alt="image"></p>
+<h2 id="numpy-random-beta"><a href="#numpy-random-beta" class="headerlink" title="numpy.random.beta"></a>numpy.random.beta</h2><h2 id="Dirichlet-distribution"><a href="#Dirichlet-distribution" class="headerlink" title="Dirichlet distribution"></a>Dirichlet distribution</h2><p>The Dirichlet distribution  ${\displaystyle \operatorname {Dir} ({\boldsymbol {\alpha }})})$, is a family of continuous multivariate probability distributions parameterized by a vector ${\displaystyle {\boldsymbol {\alpha }}}$ of positive reals.</p>
+<p>The Dirichlet distribution of order K ≥ 2 with parameters α1, …, αK &gt; 0 has a probability density function  given by</p>
+<p>${\displaystyle f\left(x_{1},\ldots ,x_{K};\alpha <em>{1},\ldots ,\alpha <em>{K}\right)&#x3D;{\frac {1}{\mathrm {B} ({\boldsymbol {\alpha }})}}\prod <em>{i&#x3D;1}^{K}x</em>{i}^{\alpha <em>{i}-1}}$<br>where ${\displaystyle {x</em>{k}}</em>{k&#x3D;1}^{k&#x3D;K}}$ belong to the standard ${\displaystyle K-1}$ simplex, or in other words: ${\displaystyle \sum <em>{i&#x3D;1}^{K}x</em>{i}&#x3D;1{\mbox{ and }}x</em>{i}\geq 0{\mbox{ for all }}i\in {1,\dots ,K}}$<br>The normalizing constant is the multivariate beta function, which can be expressed in terms of the gamma function:</p>
+<p>${\displaystyle \mathrm {B} ({\boldsymbol {\alpha }})&#x3D;{\frac {\prod _{i&#x3D;1}^{K}\Gamma (\alpha _{i})}{\Gamma \left(\sum _{i&#x3D;1}^{K}\alpha _{i}\right)}},\qquad {\boldsymbol {\alpha }}&#x3D;(\alpha _{1},\ldots ,\alpha _{K}).}$</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Dirichlet.pdf/page1-1500px-Dirichlet.pdf.jpg" alt="image"></p>
+<h2 id="np-random-dirichlet"><a href="#np-random-dirichlet" class="headerlink" title="np.random.dirichlet()"></a>np.random.dirichlet()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Exercise</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">categ3</span>(<span class="params">p1,p2,p3</span>):</span><br><span class="line">  r = np.random.uniform(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> r &lt; p1:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">elif</span> r &lt; p1 + p2:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">  <span class="keyword">else</span>: <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line">d1 = np.random.dirichlet((<span class="number">1</span>/<span class="number">100</span>, <span class="number">1</span>/<span class="number">100</span>, <span class="number">1</span>/<span class="number">100</span>), <span class="number">1</span>) <span class="comment">## one die/dice</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get 10 samples from d1 using the function categ3</span></span><br><span class="line"></span><br><span class="line">d2 = np.random.dirichlet((<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>), <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get 10 samples from d2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># What is the difference between the samples from d1 and the samples from d2? </span></span><br><span class="line"><span class="comment"># How is it related to the parameters of the dirichlet distribution?</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Bernoulli has two outcomes, e.g., Success(1) with probaility p and Failure(0) with probabilty 1- p. </p>
+<p>Binomial is about the count of number of successes in N trials. It is the sum of the Bernoullis (ones and zeros)</p>
+<p>Categorical has more than two discrete outcomes with probabilities p1, p2, p3, ….</p>
+<p>Multinomial is about the count of each category.</p>
+<p>Bernoulli is a special case of categorical </p>
+<p>Binomial is a special case of multinomial</p>
+<p>Beta is a distribution on distributions (Bernoulli)</p>
+<p>Dirichlet is a distribution on distributions (Categorical)</p>
+<p>Beta is a special case of Dirichlet</p>
+<h2 id="Monte-Carlo-Methods"><a href="#Monte-Carlo-Methods" class="headerlink" title="Monte Carlo Methods"></a>Monte Carlo Methods</h2><p>Monte Carlo methods, or Monte Carlo experiments, are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. </p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Wikipedia</a></p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h3><p>For example, consider a quadrant (circular sector) inscribed in a unit square. Given that the ratio of their areas is<br>π<br>&#x2F;<br>4<br>, the value of π can be approximated using a Monte Carlo method:</p>
+<ol>
+<li>Draw a square, then inscribe a quadrant within it</li>
+<li>Uniformly scatter a given number of points over the square</li>
+<li>Count the number of points inside the quadrant, i.e. having a distance from the origin of less than 1</li>
+</ol>
+<p>The ratio of the inside-count and the total-sample-count is an estimate of the ratio of the two areas,<br>π<br>&#x2F;<br>4<br>. Multiply the result by 4 to estimate π.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Pi_30K.gif/440px-Pi_30K.gif" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy</span><br><span class="line"></span><br><span class="line">N = <span class="number">100000</span></span><br><span class="line">x_array = scipy.random.rand(N)</span><br><span class="line">y_array = scipy.random.rand(N)</span><br><span class="line"><span class="comment"># generate N pseudorandom independent x and y-values on interval [0,1)</span></span><br><span class="line">N_qtr_circle = <span class="built_in">sum</span>(x_array ** <span class="number">2</span> + y_array ** <span class="number">2</span> &lt; <span class="number">1</span>)</span><br><span class="line"><span class="comment"># Number of pts within the quarter circle x^2 + y^2 &lt; 1 centered at the origin with radius r=1.</span></span><br><span class="line"><span class="comment"># True area of quarter circle is pi/4 and has N_qtr_circle points within it.</span></span><br><span class="line"><span class="comment"># True area of the square is 1 and has N points within it, hence we approximate pi with</span></span><br><span class="line">pi_approx = <span class="number">4</span> * <span class="built_in">float</span>(N_qtr_circle) / N  <span class="comment"># Typical values: 3.13756, 3.15156</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Integration-Issues"><a href="#Integration-Issues" class="headerlink" title="Integration Issues"></a>Integration Issues</h2><p>If an elementary function is differentiable, we can explicitly output its derivative (e.g., autodiff). Most integrable functions don’t have elementary antiderivative (e.g., $exp(-x^2)$ ). If the denominator in Bayes formula is an integral, it could be intractable</p>
+<h2 id="Monte-Carlo-approaches"><a href="#Monte-Carlo-approaches" class="headerlink" title="Monte Carlo approaches"></a>Monte Carlo approaches</h2><p>$$E_p[f(x)] &#x3D; \int f(x)p(x) dx \approx \frac{1}{n}\sum_{i} f(x_i)$$   $$x_i \sim p(x)$$</p>
+<h2 id="Rejection-Sampling"><a href="#Rejection-Sampling" class="headerlink" title="Rejection Sampling"></a>Rejection Sampling</h2><p>If we don’t have CDF or cannot invert the CDF, then rejection sampling can be used, at least for lower dimensional spaces.</p>
+<p>The algorithm (used by John von Neumann and dating back to Buffon and his needle) to obtain a sample from distribution ${\displaystyle X}$ with density ${\displaystyle f}$ using samples from distribution ${\displaystyle Y}$ with density ${\displaystyle g}$ is as follows:</p>
+<p>Obtain a sample ${\displaystyle y}$ from distribution ${\displaystyle Y}$ and a sample ${\displaystyle u}$ from ${\displaystyle \mathrm {Unif} (0,1)}$  (the uniform distribution over the unit interval).<br>Check whether or not ${\textstyle u&lt;f(y)&#x2F;Mg(y)}$.<br>If this holds, accept ${\displaystyle y}$ as a sample drawn from ${\displaystyle f}$;<br>if not, reject the value of ${\displaystyle y}$ and return to the sampling step.<br>The algorithm will take an average of ${\displaystyle M}$ iterations to obtain a sample.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> pearsonr</span><br></pre></td></tr></table></figure>
+
+<h2 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h2><p>Standard Normal Distribution $\tilde{p}(x)&#x3D;e^{-x^{2}&#x2F;2}$ without the normalizing denominator $Z&#x3D;{\frac {1}{\sqrt {2\pi }}}$</p>
+<p>$p(x)&#x3D;{\frac {\tilde{p}(x)} {Z}}$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># We want to sample from this distribution, assuming the denominator is difficult to integrate</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">p_tilde</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> np.exp(-x**<span class="number">2</span>/<span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Here is a function (standard normal) easy to sample from. It gives us proposals</span></span><br><span class="line"><span class="comment"># For simplicity we chose p_tilde / Z as q</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">q</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> np.exp(-x**<span class="number">2</span>/<span class="number">2</span>)/np.sqrt(<span class="number">2</span>*np.pi)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h1 id="Target-Distribution"><a href="#Target-Distribution" class="headerlink" title="Target Distribution"></a>Target Distribution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">10</span></span><br><span class="line">denominator = np.sqrt(<span class="number">2</span>*np.pi)</span><br><span class="line"></span><br><span class="line">xvals = np.arange(-<span class="number">4</span>,<span class="number">4</span>,<span class="number">.1</span>)</span><br><span class="line">p_tilde_vals = [p_tilde(x) <span class="keyword">for</span> x <span class="keyword">in</span> xvals]</span><br><span class="line">qvals = [M*p/denominator <span class="keyword">for</span> p <span class="keyword">in</span> p_tilde_vals]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>))</span><br><span class="line">plt.plot(xvals, p_tilde_vals)</span><br><span class="line">plt.plot(xvals, qvals)</span><br><span class="line">plt.legend([<span class="string">&#x27;p_tilde(x)&#x27;</span>, <span class="string">&#x27;Mq(x)&#x27;</span>], fontsize=<span class="number">15</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>, fontsize=<span class="number">15</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;p_tilde(x)&#x27;</span>, fontsize=<span class="number">15</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Text(0, 0.5, &#39;p_tilde(x)&#39;)
+</code></pre>
+<p>​<br><img src="/output_31_1.png" alt="png"><br>​    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">denominator = np.sqrt(<span class="number">2</span>*np.pi) <span class="comment"># we know it this time but it could be an intractable integral</span></span><br><span class="line">M=<span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># proposals accepted</span></span><br><span class="line">accepted = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span> <span class="comment"># proposals</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    proposal = np.random.normal(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    prob_accept = p_tilde(proposal) / (M*q(proposal))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> np.random.random() &lt; prob_accept:</span><br><span class="line">        accepted.append(proposal)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.mean(accepted))</span><br><span class="line"><span class="built_in">print</span>(np.var(accepted))</span><br><span class="line"><span class="built_in">len</span>(accepted)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.002990957644427239
+1.00051595341158
+
+
+
+
+
+250428
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">len</span>(accepted) / N)*<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>25.0428
+</code></pre>
+<h2 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h2><p>Rejection sampling can lead to a lot of unwanted samples being taken if the function being sampled is highly concentrated in a certain region, for example a function that has a spike at some location. </p>
+<p>Large M –&gt; few accepted</p>
+<p><img src="https://theclevermachine.files.wordpress.com/2012/09/rejectionsamplingcriterion.png?w=584" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Exercises:</span></span><br><span class="line"><span class="comment">## f(1) = 1, f(2) =2, f(3) = 3. Is f(x) a pmf? if not, what is the normalizing constant?</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## is f(x) = 4*x on the interval [0,1] a density function? if not, what is the normalizing factor?</span></span><br><span class="line"><span class="comment">## choose g(x) = 1 as the proposal distribution</span></span><br><span class="line"><span class="comment">## Choose M=4 and M=10 to compare the wasted samples</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># proposals accepted</span></span><br><span class="line">accepted = []</span><br><span class="line"></span><br><span class="line">M=<span class="number">10</span></span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span> <span class="comment"># proposals</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    proposal = np.random.random()</span><br><span class="line">    </span><br><span class="line">    prob_accept = <span class="number">4</span>*proposal / M*<span class="number">1</span> <span class="comment"># y ~ q(y), prop_accept = 𝑓(𝑦)/𝑀𝑔(𝑦)</span></span><br><span class="line">                                   <span class="comment"># f(y) = 4*y, g(y)=1, M =10</span></span><br><span class="line">    u = np.random.random()</span><br><span class="line">    <span class="keyword">if</span> u  &lt; prob_accept:</span><br><span class="line">        accepted.append(proposal)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.mean(accepted))</span><br><span class="line"><span class="built_in">print</span>(np.var(accepted))</span><br><span class="line"><span class="built_in">len</span>(accepted)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.6675852172604363
+0.055471605869961006
+
+
+
+
+
+199125
+</code></pre>
+<h2 id="Importance-Sampling"><a href="#Importance-Sampling" class="headerlink" title="Importance Sampling"></a>Importance Sampling</h2><p>Importance sampling is a general technique for estimating properties of a particular distribution, while only having samples generated from a different distribution than the distribution of interest. </p>
+<p>The basic idea of importance sampling is to sample the states from a different distribution to lower the variance of the estimation of E[X;P], or when sampling from P is difficult.</p>
+<p>$$E_p[f(x)] &#x3D; \int f(x)p(x) dx &#x3D; \int f(x)\frac{p(x)}{q(x)}q(x) dx \approx \frac{1}{n} \sum_{i} f(x_i)\frac{p(x_i)}{q(x_i)}$$</p>
+<p>$$ x_i \sim q(x)$$</p>
+<h2 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h2><p>Let the dashed curve be standard normal N(0,1) with density p(x) and t_1 &#x3D; 1.96, then p(t&gt;t_1) &#x3D; 0.025. Let f(x) &#x3D; 1 if x &gt; 1.96 and 0 otherwise</p>
+<p>The solid curve is N(3,1) with density q(x).</p>
+<p><img src="https://www.researchgate.net/profile/Christine-Strauss-2/publication/220669034/figure/fig1/AS:341401574363140@1458407886431/Probability-Shift-in-Importance-Sampling-4-Importance-Sampling-The-estimate-4-is.png" alt="image">  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sampling from the p(x)</span></span><br><span class="line">values = []</span><br><span class="line">N = <span class="number">1000000</span> <span class="comment"># proposals</span></span><br><span class="line"></span><br><span class="line">f = <span class="keyword">lambda</span> x:x&gt;<span class="number">1.96</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Sample from p</span></span><br><span class="line">proposals = np.random.normal(loc=<span class="number">0</span>,scale=<span class="number">1</span>,size=N)</span><br><span class="line">values = f(proposals)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;average &#123;&#125; variance &#123;&#125;&quot;</span>.<span class="built_in">format</span>(np.mean(values), np.var(values)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>average 0.025196 variance 0.024561161584
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sampling from q(x) results less variance</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line">f = <span class="keyword">lambda</span> x:x&gt;<span class="number">1.96</span></span><br><span class="line">p = <span class="keyword">lambda</span> x : stats.norm().pdf(x)</span><br><span class="line">q = <span class="keyword">lambda</span> x : stats.norm(loc=<span class="number">3</span>,scale=<span class="number">1</span>).pdf(x)</span><br><span class="line"></span><br><span class="line">values = []</span><br><span class="line">N = <span class="number">1000000</span> <span class="comment"># proposals</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Sample from q</span></span><br><span class="line">proposals = np.random.normal(loc=<span class="number">3</span>,scale=<span class="number">1</span>,size=N)</span><br><span class="line">    </span><br><span class="line">values = f(proposals)*p(proposals)/q(proposals) </span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;average &#123;&#125; variance &#123;&#125;&quot;</span>.<span class="built_in">format</span>(np.mean(values), np.var(values)))</span><br></pre></td></tr></table></figure>
+
+<pre><code>average 0.025031757655900575 variance 0.0022310917341863755
+</code></pre>
+<h2 id="Confusion-of-multinomial-vs-categorical"><a href="#Confusion-of-multinomial-vs-categorical" class="headerlink" title="Confusion of multinomial vs categorical"></a>Confusion of multinomial vs categorical</h2><p>In some fields such as natural language processing, categorical and multinomial distributions are synonymous and it is common to speak of a multinomial distribution when a categorical distribution is actually meant. This stems from the fact that it is sometimes convenient to express the outcome of a categorical distribution as a “1-of-K” vector (a vector with one element containing a 1 and all other elements containing a 0) rather than as an integer in the range ${\displaystyle 1\dots K}$; in this form, a categorical distribution is equivalent to a multinomial distribution over a single trial.</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multinomial_distribution">Reference</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> multinomial</span><br><span class="line"><span class="comment">#rv = multinomial(1, [1/6,1/6,1/6,1/6,1/6,1/6])</span></span><br><span class="line"><span class="comment">#rv.rvs(1)</span></span><br><span class="line">multinomial.rvs(n=<span class="number">1</span>, p=[<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>], size=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[0, 1, 0, 0, 0, 0]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">z=np.random.multinomial(<span class="number">1</span>, [<span class="number">1</span>/<span class="number">6.</span>]*<span class="number">6</span>, size=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(np.argmax(z))</span><br><span class="line">z</span><br></pre></td></tr></table></figure>
+
+<pre><code>0
+
+
+
+
+
+array([[1, 0, 0, 0, 0, 0]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## We&#x27;ve defined the function categ() above</span></span><br><span class="line">categ(<span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>) </span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>6
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice( a=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],  size=<span class="number">1</span>  , p=[<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>,<span class="number">1</span>/<span class="number">6</span>, <span class="number">1</span>/<span class="number">6</span>]  )                         </span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([4])
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DATA606/" rel="tag"># DATA606</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/22/Email-writing/" rel="prev" title="Email writing">
+      <i class="fa fa-chevron-left"></i> Email writing
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/24/Letter-of-thanks-TA-requrest/" rel="next" title="Letter of thanks & TA requrest">
+      Letter of thanks & TA requrest <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Discrete-Probability-Distribution"><span class="nav-number">1.</span> <span class="nav-text">Discrete Probability Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Mass-Function-PMF"><span class="nav-number">2.</span> <span class="nav-text">Probability Mass Function (PMF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cumulative-Distribution-Function-CDF"><span class="nav-number">3.</span> <span class="nav-text">Cumulative Distribution Function (CDF)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inverse-distribution-function-quantile-function"><span class="nav-number">4.</span> <span class="nav-text">Inverse distribution function (quantile function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">5.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Continuous-Probability-Distribution"><span class="nav-number">6.</span> <span class="nav-text">Continuous Probability Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probability-Density-Function-PDF"><span class="nav-number">7.</span> <span class="nav-text">Probability Density Function (PDF)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inverse-Transform-Sampling"><span class="nav-number"></span> <span class="nav-text">Inverse Transform Sampling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Bernoulli-Distribution"><span class="nav-number">1.</span> <span class="nav-text">Example: Bernoulli Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Theorem"><span class="nav-number">2.</span> <span class="nav-text">Theorem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Binomial-Distribution"><span class="nav-number">4.</span> <span class="nav-text">Example: Binomial Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Categorical-Distribution"><span class="nav-number">5.</span> <span class="nav-text">Example: Categorical Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multinomial-Distribution"><span class="nav-number">6.</span> <span class="nav-text">Multinomial Distribution</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#frac-n-x-1-cdots-x-k-p-1-x-1-cdots-p-k-x-k"><span class="nav-number"></span> <span class="nav-text">$\frac{n!}{x_1!\cdots x_k!} p_1^{x_1} \cdots p_k^{x_k}$</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Beta-Distribution"><span class="nav-number">1.</span> <span class="nav-text">Beta Distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numpy-random-beta"><span class="nav-number">2.</span> <span class="nav-text">numpy.random.beta</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dirichlet-distribution"><span class="nav-number">3.</span> <span class="nav-text">Dirichlet distribution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-random-dirichlet"><span class="nav-number">4.</span> <span class="nav-text">np.random.dirichlet()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">5.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Monte-Carlo-Methods"><span class="nav-number">6.</span> <span class="nav-text">Monte Carlo Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">6.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Integration-Issues"><span class="nav-number">7.</span> <span class="nav-text">Integration Issues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Monte-Carlo-approaches"><span class="nav-number">8.</span> <span class="nav-text">Monte Carlo approaches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rejection-Sampling"><span class="nav-number">9.</span> <span class="nav-text">Rejection Sampling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-3"><span class="nav-number">10.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Target-Distribution"><span class="nav-number"></span> <span class="nav-text">Target Distribution</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawbacks"><span class="nav-number">1.</span> <span class="nav-text">Drawbacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Importance-Sampling"><span class="nav-number">2.</span> <span class="nav-text">Importance Sampling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-4"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Confusion-of-multinomial-vs-categorical"><span class="nav-number">4.</span> <span class="nav-text">Confusion of multinomial vs categorical</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

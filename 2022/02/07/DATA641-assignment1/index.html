@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Assignment 1：Normalizing text and exploring a corpus 规范化文本和探索语料库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DATA641 assignment1">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/02/07/DATA641-assignment1/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="Assignment 1：Normalizing text and exploring a corpus 规范化文本和探索语料库">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202071304966.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202071524069.png">
+<meta property="article:published_time" content="2022-02-07T17:31:59.000Z">
+<meta property="article:modified_time" content="2022-02-07T20:36:09.503Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="DATA641">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202071304966.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/02/07/DATA641-assignment1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>DATA641 assignment1 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/02/07/DATA641-assignment1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DATA641 assignment1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-07 12:31:59 / Modified: 15:36:09" itemprop="dateCreated datePublished" datetime="2022-02-07T12:31:59-05:00">2022-02-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">课程学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Assignment 1：Normalizing text and exploring a corpus</p>
+<p>规范化文本和探索语料库</p>
+<span id="more"></span>
+
+<h2 id="Assignment-1"><a href="#Assignment-1" class="headerlink" title="Assignment 1"></a>Assignment 1</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li><p>Starting with a typical “raw” dataset</p>
+<p>从一个典型的 “原始 “数据集开始</p>
+<p> a dataset of speeches from the U.S. Congressional Record during 2020</p>
+<p>We’ll be using a dataset of speeches from the U.S. Congressional Record during 2020, acquired using code at <a target="_blank" rel="noopener" href="https://github.com/ahoho/congressional-record">https://github.com/ahoho/congressional-record</a>. This is publicly available material.</p>
+<p>2020年期间美国国会记录中的演讲数据集</p>
+</li>
+<li><p>Extracting relevant text to create one or more corpora</p>
+<p>提取相关文本以创建一个或多个语料库</p>
+<p>We’ll restrict ourselves to the Senate, and create subcorpora of speeches by Democrats and Republicans.</p>
+<p>我们将把自己限制在参议院，并创建民主党人和共和党人的演讲的子体。</p>
+</li>
+<li><p>Tokenizing text</p>
+<p>符号化文本</p>
+<p>We’ll use the <u><strong>spaCy tokenizer</strong></u></p>
+<p>我们将使用<u><strong>spaCy标记器</strong></u>。</p>
+</li>
+<li><p>Normalizing text</p>
+<p>正常化文本</p>
+<p>Well use case folding and also a stopword list</p>
+<p>我们将使用案例折叠法和一个停顿词列表。</p>
+</li>
+<li><p>Extracting potentially useful ngrams</p>
+<p>提取潜在的有用的ngrams</p>
+<p>In this assignment we’ll focus on bigrams</p>
+<p>在这项任务中，我们将专注于大词</p>
+</li>
+</ul>
+<h3 id="The-files-you’ll-be-working-with"><a href="#The-files-you’ll-be-working-with" class="headerlink" title="The files you’ll be working with"></a>The files you’ll be working with</h3><p>You’ll be working with the following:</p>
+<ul>
+<li>Files in <a target="_blank" rel="noopener" href="https://jsonlines.org/">jsonlines</a> format containing raw data<ul>
+<li><code>test_speeches.jsonl.gz</code> - small example data for testing</li>
+<li><code>speeches2020_jan_to_jun.jsonl.gz</code> - main data you’ll run on</li>
+</ul>
+</li>
+<li>Files containing code<ul>
+<li><code>assignment.py</code> - code skeleton that you’ll fill in</li>
+<li><code>public_tests_obj.py</code> - code to run for unit testing</li>
+</ul>
+</li>
+<li>Other resources<ul>
+<li><code>mallet_en_stoplist.txt</code> - the stopword list from the widely used <a target="_blank" rel="noopener" href="http://mallet.cs.umass.edu/">Mallet</a> toolkit</li>
+</ul>
+</li>
+</ul>
+<h3 id="What-you-should-do"><a href="#What-you-should-do" class="headerlink" title="What you should do"></a>What you should do</h3><ul>
+<li><p>Check out this repo</p>
+</li>
+<li><p>Execute <code>python assignment.py</code></p>
+<ul>
+<li><p>It should run successfully from end to end with progress messages on the output</p>
+</li>
+<li><p>If it does not, most likely it’s because it is using packages you don’t have installed. Install them (see: requirements.txt)</p>
+<ul>
+<li><p>If you use conda, we recommend installing a fresh conda env and putting your classwork dependencies there.</p>
+</li>
+<li><p>Execute </p>
+<pre><code>conda create --name YOURCONDAENVIRONMENT python=3.8
+conda activate YOURCONDAENVIRONMENT
+which pip
+</code></pre>
+</li>
+<li><p>Ensure that your <code>pip</code> lives in its own env, like: <code>/anaconda3/envs/YOURCONDANEVIRONMENT/bin/pip</code></p>
+</li>
+<li><p>Execute <code>pip install -r requirements.txt</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Execute <code>python public_tests_obj.py -v</code></p>
+<ul>
+<li>The code should run, but will report on tests that have failed.</li>
+</ul>
+</li>
+<li><p>Read and modify <code>assignment.py</code>.  </p>
+<ul>
+<li><p>Each function has a detailed comment about input, output, and what it does.</p>
+</li>
+<li><p>You can look at <code>public_tests_obj.py</code> for examples of the function calls.</p>
+</li>
+<li><p>You will find a comment like <code># ASSIGNMENT: replace this with your code</code> everywhere you have work to do.</p>
+<p>​	<u>Line：41；57；67；81；92；122</u></p>
+</li>
+<li><p>Keep working until all the tests pass when you run <code>public_tests_obj.py</code>.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Code to be graded.</strong> Once all tests pass, submit <code>assignment.py</code> to the Canvas. This will be the basis for grading your code.</p>
+</li>
+<li><p><strong>Analysis to be graded.</strong> For the analysis part of the assignment, look at the output of <code>assignment.py</code> and submit a brief but clear written response in a PDF file, named <code>writeup.pdf</code>.  (Note that, particularly if you are not very familiar with U.S. politics, you are welcome to discuss the data you’re looking at with other other people – as long as you state explicitly in your writeup that you have done so, and of course you need to write your answers in your own words.)</p>
+<p>– <em>Looking at frequency.</em> The first set of outputs are lists of the top Democratic and Republican bigrams by frequency.  Looking at these lists, how similar or different are the most-frequent bigrams used by members of the two parties?  Are there any generalizations you can make about the two parties, at least during this time period, based on this information? If yes, discuss. If you think the answer is no, clearly explain why. Support your answer with examples.</p>
+<p>看频率。第一组输出是按频率排列的民主党和共和党的前几位大词的列表。看一下这些列表，两党成员最常使用的重词有多大的相似或不同？<br>两党成员所使用的大词有多大的相似或不同？你是否可以对这两个政党做出任何概括关于这两个党，至少在这一时期，根据这些信息，你能做出什么概括吗？如果有的话。讨论一下。如果你认为答案是否定的，请明确解释原因。请用实例支持你的答案。</p>
+</li>
+</ul>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>运行assignment.py</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202071304966.png" alt="image-20220207130436907"></p>
+<p>*:</p>
+<p>​	一开始 speeches_dem.txt和speeches_rep.txt两个文件都是0kb</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Processing text <span class="keyword">from</span> <span class="built_in">input</span> file ./speeches2020_jan_to_jun.jsonl.gz</span><br><span class="line">(base) PS E:\My Drive\DATA641\Assignment1&gt; &amp; C:/ProgramData/Anaconda3/python.exe <span class="string">&quot;e:/My Drive/DATA641/Assignment1/assignment.py&quot;</span></span><br><span class="line"></span><br><span class="line">Processing text <span class="keyword">from</span> <span class="built_in">input</span> file ./speeches2020_jan_to_jun.jsonl.gz</span><br><span class="line"></span><br><span class="line">Reading <span class="keyword">and</span> cleaning text <span class="keyword">from</span> ./speeches2020_jan_to_jun.jsonl.gz</span><br><span class="line">13964it [<span class="number">00</span>:<span class="number">00</span>, <span class="number">38118.32</span>it/s]</span><br><span class="line"></span><br><span class="line">Writing Democrats<span class="string">&#x27; speeches to ./speeches_dem.txt</span></span><br><span class="line"><span class="string">Democrat speeches being written to ./speeches_dem.txt</span></span><br><span class="line"><span class="string">0it [00:00, ?it/s]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Writing Republicans&#x27;</span> speeches to ./speeches_rep.txt</span><br><span class="line">Republican speeches being written to ./speeches_rep.txt</span><br><span class="line">0it [<span class="number">00</span>:<span class="number">00</span>, ?it/s]</span><br><span class="line"></span><br><span class="line">Getting Dem unigram <span class="keyword">and</span> bigram counts</span><br><span class="line">Collecting bigram counts <span class="keyword">with</span> stopword-filtered bigrams</span><br><span class="line">Initializing spacy</span><br><span class="line">0it [<span class="number">00</span>:<span class="number">00</span>, ?it/s]</span><br><span class="line"></span><br><span class="line">Top Dem bigrams by frequency</span><br><span class="line"></span><br><span class="line">Getting Rep unigram <span class="keyword">and</span> bigram counts</span><br><span class="line">Collecting bigram counts <span class="keyword">with</span> stopword-filtered bigrams</span><br><span class="line">Initializing spacy</span><br><span class="line">0it [<span class="number">00</span>:<span class="number">00</span>, ?it/s]</span><br><span class="line"></span><br><span class="line">Top Rep bigrams by frequency</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>#Read in congressional speeches jsonlines, i.e. a file with one well formed json element per line.</p>
+<p>#Limiting to just speeches where the chamber was the Senate, return a list of strings</p>
+<p>in the following format:</p>
+<p>​	‘<party>TAB<text>‘</p>
+<p>where <party> and <text> refer to the elements of those names in the json.</p>
+<p>Make sure to replace line-internal whitespace (one or more newlines, tabs, spaces, etc.) in text with a single space.</p>
+<p>#For information on how to read from a gzipped file, rather than uncompressing and reading, see</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/10566558/python-read-lines-from-compressed-text-files#30868178">https://stackoverflow.com/questions/10566558/python-read-lines-from-compressed-text-files#30868178</a></p>
+<p>#For info on parsing jsonlines, see <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/json-loads-in-python/">https://www.geeksforgeeks.org/json-loads-in-python/</a>.</p>
+<p>(There are other ways of doing it, of course.)</p>
+<p>#读取国会演讲的jsonlines，即一个文件，每行有一个成型的json元素。</p>
+<p>#只限于参议院的演讲，返回一个字符串的列表</p>
+<p>以下列格式。</p>
+<p>​	‘<party>TAB<text>‘</p>
+<p>其中<party>和<text>指的是json中这些名字的元素。</p>
+<p>确保将文本中的行内空白（一个或多个换行符、制表符、空格等）替换为一个空格。</p>
+<p>#关于如何从压缩文件中读取，而不是解压后读取的信息，见<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/10566558/python-read-lines-from-compressed-text-files#30868178">https://stackoverflow.com/questions/10566558/python-read-lines-from-compressed-text-files#30868178</a></p>
+<p>#关于解析jsonlines的信息, 请看 <a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/json-loads-in-python/">https://www.geeksforgeeks.org/json-loads-in-python/</a>.</p>
+<p>(当然，还有其他的方法)。</p>
+</blockquote>
+<h3 id="运行public-tests-obj-py"><a href="#运行public-tests-obj-py" class="headerlink" title="运行public_tests.obj.py"></a>运行public_tests.obj.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">(base) PS E:\My Drive\DATA641\Assignment1&gt; &amp; C:/ProgramData/Anaconda3/python.exe <span class="string">&quot;e:/My Drive/DATA641/Assignment1/public_tests_obj.py&quot;</span></span><br><span class="line">FFFF</span><br><span class="line">Reading <span class="keyword">and</span> cleaning text <span class="keyword">from</span> ./test_speeches.jsonl.gz</span><br><span class="line">1000it [<span class="number">00</span>:<span class="number">00</span>, <span class="number">33302.40</span>it/s]</span><br><span class="line">F</span><br><span class="line">======================================================================</span><br><span class="line">FAIL: test_filter_stopword_bigrams (__main__.TestBigramPublic)</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\My Drive\DATA641\Assignment1\public_tests_obj.py&quot;</span>, line <span class="number">56</span>, <span class="keyword">in</span> test_filter_stopword_bigrams</span><br><span class="line">    self.assertCountEqual(filtered_bigrams, output_bigrams,</span><br><span class="line">AssertionError: Element counts were <span class="keyword">not</span> equal:</span><br><span class="line">First has <span class="number">2</span>, Second has <span class="number">0</span>:  [<span class="string">&#x27;the&#x27;</span>, <span class="string">&#x27;pretty&#x27;</span>]</span><br><span class="line">First has <span class="number">1</span>, Second has <span class="number">0</span>:  [<span class="string">&#x27;fox&#x27;</span>, <span class="string">&#x27;in&#x27;</span>]</span><br><span class="line">First has <span class="number">1</span>, Second has <span class="number">0</span>:  [<span class="string">&#x27;in&#x27;</span>, <span class="string">&#x27;the&#x27;</span>] : Test failed: test_filter_stopword_bigrams</span><br><span class="line"></span><br><span class="line">======================================================================</span><br><span class="line">FAIL: test_load_stopwords (__main__.TestBigramPublic)</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\My Drive\DATA641\Assignment1\public_tests_obj.py&quot;</span>, line <span class="number">29</span>, <span class="keyword">in</span> test_load_stopwords</span><br><span class="line">    self.assertTrue(<span class="built_in">all</span>(x <span class="keyword">in</span> stopwords <span class="keyword">for</span> x <span class="keyword">in</span> correct_stopwords))</span><br><span class="line">AssertionError: <span class="literal">False</span> <span class="keyword">is</span> <span class="keyword">not</span> true</span><br><span class="line"></span><br><span class="line">======================================================================</span><br><span class="line">FAIL: test_ngrams (__main__.TestBigramPublic)</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\My Drive\DATA641\Assignment1\public_tests_obj.py&quot;</span>, line <span class="number">39</span>, <span class="keyword">in</span> test_ngrams</span><br><span class="line">    self.assertEqual(bigrams, correct_bigrams,</span><br><span class="line">AssertionError: Lists differ: [] != [[<span class="string">&#x27;the&#x27;</span>, <span class="string">&#x27;pretty&#x27;</span>], [<span class="string">&#x27;pretty&#x27;</span>, <span class="string">&#x27;brown&#x27;</span>], [[<span class="number">81</span> chars]ds<span class="string">&#x27;]]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Second list contains 7 additional elements.</span></span><br><span class="line"><span class="string">First extra element 0:</span></span><br><span class="line"><span class="string">+  [&#x27;</span>fox<span class="string">&#x27;, &#x27;</span><span class="keyword">in</span><span class="string">&#x27;],</span></span><br><span class="line"><span class="string">+  [&#x27;</span><span class="keyword">in</span><span class="string">&#x27;, &#x27;</span>the<span class="string">&#x27;],</span></span><br><span class="line"><span class="string">+  [&#x27;</span>the<span class="string">&#x27;, &#x27;</span>pretty<span class="string">&#x27;],</span></span><br><span class="line"><span class="string">+  [&#x27;</span>pretty<span class="string">&#x27;, &#x27;</span>woods<span class="string">&#x27;]] : Test failed: test_ngrams got the wrong bigrams</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">======================================================================</span></span><br><span class="line"><span class="string">FAIL: test_normalize_tokens (__main__.TestBigramPublic)</span></span><br><span class="line"><span class="string">----------------------------------------------------------------------</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;e:\My Drive\DATA641\Assignment1\public_tests_obj.py&quot;, line 67, in test_normalize_tokens</span></span><br><span class="line"><span class="string">    self.assertListEqual(normalized_toks, correct_output,</span></span><br><span class="line"><span class="string">AssertionError: Lists differ: [&#x27;</span>I<span class="string">&#x27;, &#x27;</span>saw<span class="string">&#x27;, &#x27;</span>@psresnik<span class="string">&#x27;, &quot;&#x27;</span>s<span class="string">&quot;, &#x27;page&#x27;, &#x27;at[39 chars]url&#x27;] != [&#x27;i&#x27;, &#x27;saw&#x27;, &quot;</span><span class="string">&#x27;s&quot;, &#x27;</span>page<span class="string">&#x27;, &#x27;</span>at<span class="string">&#x27;, &#x27;</span>http://um[<span class="number">26</span> chars]url<span class="string">&#x27;]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">First differing element 0:</span></span><br><span class="line"><span class="string">&#x27;</span>I<span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span>i<span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">First list contains 1 additional elements.</span></span><br><span class="line"><span class="string">First extra element 6:</span></span><br><span class="line"><span class="string">&#x27;</span>http://umiacs.umd.edu/~resnik/this_url<span class="string">&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">+ [&#x27;</span>i<span class="string">&#x27;, &#x27;</span>saw<span class="string">&#x27;, &quot;&#x27;</span>s<span class="string">&quot;, &#x27;page&#x27;, &#x27;at&#x27;, &#x27;http://umiacs.umd.edu/~resnik/this+url&#x27;]</span></span><br><span class="line"><span class="string">- [&#x27;I&#x27;,</span></span><br><span class="line"><span class="string">-  &#x27;saw&#x27;,</span></span><br><span class="line"><span class="string">-  &#x27;@psresnik&#x27;,</span></span><br><span class="line"><span class="string">-  &quot;</span><span class="string">&#x27;s&quot;,</span></span><br><span class="line"><span class="string">-  &#x27;</span>page<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">-  &#x27;</span>at<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">-  &#x27;</span>http://umiacs.umd.edu/~resnik/this_url<span class="string">&#x27;] : Test failed: test_normalize_tokens</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">======================================================================</span></span><br><span class="line"><span class="string">FAIL: test_read_and_clean_lines (__main__.TestBigramPublic)</span></span><br><span class="line"><span class="string">----------------------------------------------------------------------</span></span><br><span class="line"><span class="string">Traceback (most recent call last):</span></span><br><span class="line"><span class="string">  File &quot;e:\My Drive\DATA641\Assignment1\public_tests_obj.py&quot;, line 20, in test_read_and_clean_lines</span></span><br><span class="line"><span class="string">    self.assertEqual(len(lines), correct_lines,</span></span><br><span class="line"><span class="string">AssertionError: 0 != 317 : Test failed: Count of Senate speeches in ./test_speeches.jsonl.gz is incorrect, should be 317</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">----------------------------------------------------------------------</span></span><br><span class="line"><span class="string">Ran 5 tests in 0.156s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FAILED (failures=5)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><h3 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202071524069.png" alt="image-20220207152429011"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DATA641/" rel="tag"># DATA641</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/05/%E5%87%BA%E8%A1%8C%E7%91%9E%E5%85%B8/" rel="prev" title="出行Sweden">
+      <i class="fa fa-chevron-left"></i> 出行Sweden
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/08/02082022/" rel="next" title="2082022">
+      2082022 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Assignment-1"><span class="nav-number">1.</span> <span class="nav-text">Assignment 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-files-you%E2%80%99ll-be-working-with"><span class="nav-number">1.2.</span> <span class="nav-text">The files you’ll be working with</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-you-should-do"><span class="nav-number">1.3.</span> <span class="nav-text">What you should do</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cpublic-tests-obj-py"><span class="nav-number">2.1.</span> <span class="nav-text">运行public_tests.obj.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">3.</span> <span class="nav-text">Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pass"><span class="nav-number">3.1.</span> <span class="nav-text">pass</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

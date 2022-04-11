@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基于Docker Tutorial的Docker 实操 https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;3c-iBn73dDE&amp;t&#x3D;4967s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker实操">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/03/05/Docker%E5%AE%9E%E6%93%8D/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="基于Docker Tutorial的Docker 实操 https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;3c-iBn73dDE&amp;t&#x3D;4967s">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png">
+<meta property="article:published_time" content="2022-03-05T06:08:05.000Z">
+<meta property="article:modified_time" content="2022-03-05T14:25:51.882Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/03/05/Docker%E5%AE%9E%E6%93%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Docker实操 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/03/05/Docker%E5%AE%9E%E6%93%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker实操
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-05 01:08:05 / Modified: 09:25:51" itemprop="dateCreated datePublished" datetime="2022-03-05T01:08:05-05:00">2022-03-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>基于Docker Tutorial的Docker 实操</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s">https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s</a></p>
+<span id="more"></span>
+
+<h4 id="Workflow-with-Docker"><a href="#Workflow-with-Docker" class="headerlink" title="Workflow with Docker"></a>Workflow with Docker</h4><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png" alt="image-20220305025005217"></p>
+<h4 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h4><h5 id="docker-pull"><a href="#docker-pull" class="headerlink" title="docker pull"></a>docker pull</h5><p>抓取镜像（默认最新）</p>
+<h5 id="docker-run-postgres-9-6"><a href="#docker-run-postgres-9-6" class="headerlink" title="docker run postgres:9.6"></a>docker run postgres:9.6</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png" alt="image-20220305013150795"></p>
+<p>如果本地没有镜像，则自动下载最新版</p>
+<h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png" alt="image-20220305013748490"></p>
+<h5 id="docker-run-redis"><a href="#docker-run-redis" class="headerlink" title="docker run redis"></a>docker run redis</h5><p>docker run &#x3D; starts <strong><u>new container</u></strong> with a command</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png" alt="image-20220305014302107"></p>
+<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>ps 相当于 list running containers</p>
+<p><u><strong>列举出运行中的容器</strong></u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png" alt="image-20220305014419761"></p>
+<h5 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h5><p>用于终止容器</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png" alt="image-20220305014629139"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png" alt="image-20220305014740934"></p>
+<h5 id="docker-run-d"><a href="#docker-run-d" class="headerlink" title="docker run -d"></a>docker run -d</h5><p>-d : in a detached mode</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png" alt="image-20220305015032043"></p>
+<h5 id="docker-stop-ID"><a href="#docker-stop-ID" class="headerlink" title="docker stop + ID"></a>docker stop + ID</h5><p>docker stop &#x3D; stops the container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png" alt="image-20220305015154120"></p>
+<h5 id="docker-start-ID"><a href="#docker-start-ID" class="headerlink" title="docker start + ID"></a>docker start + ID</h5><p>docker start &#x3D; starts <strong><u>stopped</u></strong> container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png" alt="image-20220305015259641"></p>
+<h5 id="docker-ps-a"><a href="#docker-ps-a" class="headerlink" title="docker ps -a"></a>docker ps -a</h5><p>Docker ps -a &#x3D; <strong><u>lists running and stopped container</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png" alt="image-20220305015547588"></p>
+<h5 id="docker-run-redis-4-0"><a href="#docker-run-redis-4-0" class="headerlink" title="docker run redis:4.0"></a>docker run redis:4.0</h5><p>和pull的小区别：</p>
+<p>​	docker run &#x3D; pulls images <strong><u>and starts containers</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png" alt="image-20220305020133021"></p>
+<p>同一景象不同版本，</p>
+<p>ports </p>
+<p><strong>CIONTAINER Port vs HOST Port</strong></p>
+<ul>
+<li>multiple container can run on host machine</li>
+<li>laptop has only certain ports available</li>
+<li>Conflict when same port on host machine</li>
+</ul>
+<p>具体ports信息在logs里面可以看到</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png" alt="image-20220305020438704"></p>
+<p><strong>占用相同端口之后需要人为修改绑定的端口</strong></p>
+<h5 id="docker-run-p6000-6379-redis"><a href="#docker-run-p6000-6379-redis" class="headerlink" title="docker run -p6000:6379 redis"></a>docker run -p6000:6379 redis</h5><p><strong><u>主机端口绑定容器端口</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png" alt="image-20220305021250249"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png" alt="image-20220305021307536"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png" alt="image-20220305021717734"></p>
+<p><strong><u>当绑定新端口，就会创造新容器</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png" alt="image-20220305021814569"></p>
+<h5 id="docker-run-p6001-6379-redis4-0"><a href="#docker-run-p6001-6379-redis4-0" class="headerlink" title="docker run -p6001:6379 redis4.0"></a>docker run -p6001:6379 redis4.0</h5><p>不能使用同一端口了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png" alt="image-20220305021923857"></p>
+<h5 id="docker-logs-ID-x2F-Name"><a href="#docker-logs-ID-x2F-Name" class="headerlink" title="docker logs + ID&#x2F;Name"></a>docker logs + ID&#x2F;<strong><u>Name</u></strong></h5><p>搭配docker ps（查看docker ID）就可以查看logs</p>
+<h5 id="docker-run-d-p-6001-6379-–name-redis-older-redis-4-0"><a href="#docker-run-d-p-6001-6379-–name-redis-older-redis-4-0" class="headerlink" title="docker run -d -p 6001:6379 –name redis-older redis:4.0"></a>docker run -d -p 6001:6379 –name redis-older redis:4.0</h5><p>–name 重命名</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png" alt="image-20220305022928557"></p>
+<p>重命名之后查看logs会简单很多</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png" alt="image-20220305023106728"></p>
+<h5 id="docker-exec-it-ID或者name-x2F-bin-x2F-bash"><a href="#docker-exec-it-ID或者name-x2F-bin-x2F-bash" class="headerlink" title="docker exec -it ID或者name &#x2F;bin&#x2F;bash"></a>docker exec -it ID或者name &#x2F;bin&#x2F;bash</h5><p>*: bash后面没有&#x2F;</p>
+<p>docker exec 命令用于在运行容器中运行命令。 该命令开始使用 docker exec 只在容器的主进程(PID 1)运行时运行，并且如果容器重新启动，则不重新启动该命令。</p>
+<p>如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
+<ul>
+<li>-i : 交互式操作。</li>
+<li>-t : 终端</li>
+<li>&#x2F;bin&#x2F;bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png" alt="image-20220305023755035"></p>
+<p>退出exec</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png" alt="image-20220305023900771"></p>
+<h5 id="docker-run-vs-start"><a href="#docker-run-vs-start" class="headerlink" title="docker run vs start"></a>docker run vs start</h5><ul>
+<li>docker run will take an image with a specific version(attributes)</li>
+</ul>
+<p>​		<strong><u>is used to create a new container</u></strong></p>
+<p>​	docker run -d -p –name </p>
+<ul>
+<li>docker start is working with container</li>
+</ul>
+<p>​		<strong><u>is used to restart a stopped container</u></strong></p>
+<h5 id="docker-rm-f-ID"><a href="#docker-rm-f-ID" class="headerlink" title="docker rm -f ID"></a>docker rm -f ID</h5><p>删除container</p>
+<p>*： </p>
+<p>docker container prune</p>
+<p>清理掉所有处于终止状态的容器。</p>
+<h5 id="docker-network-ls"><a href="#docker-network-ls" class="headerlink" title="docker network ls"></a>docker network ls</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png" alt="image-20220305045344896"></p>
+<h5 id="docker-network-create-Name"><a href="#docker-network-create-Name" class="headerlink" title="docker network create Name"></a>docker network create Name</h5><p>创建docker网络</p>
+<p>-e: 设置环境变量</p>
+<p>可以在docker hub上找到<a target="_blank" rel="noopener" href="https://hub.docker.com/_/mongo">https://hub.docker.com/_/mongo</a></p>
+<h5 id="start-mongodb"><a href="#start-mongodb" class="headerlink" title="start mongodb"></a>start mongodb</h5><p>docker run -d \</p>
+<p>-p 27017:27017 \</p>
+<p>-e MONGO_INITDB_ROOT_USERNAME&#x3D;admin \</p>
+<p>-e MONGO_INITDB_ROOT_PASSWORD&#x3D;password \</p>
+<p>–net mongo-network \</p>
+<p>–name mongodb \</p>
+<p>mongo</p>
+<h5 id="start-mongo-express"><a href="#start-mongo-express" class="headerlink" title="start mongo-express"></a>start mongo-express</h5><p>docker run -d \</p>
+<p>-p 8081:8081 \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password \</p>
+<p>-e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb \</p>
+<p>–net mongo-network \</p>
+<p>–name mongo-express\</p>
+<p>mongo-express</p>
+<p>docker run -d  -p 8081:8081  -e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin  -e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password -e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb –net mongo-network –name mongo-express mongo-express</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png" alt="image-20220305051359394"></p>
+<p><strong><u>用\换行</u></strong></p>
+<h5 id="mongodb报错"><a href="#mongodb报错" class="headerlink" title="mongodb报错"></a>mongodb报错</h5><p>(base) caochao  ~   &gt; docker logs mongodb<br>about to fork child process, waiting until server is ready for connections.<br>forked process: 31</p>
+<p>如何进入？docker desktop</p>
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h4><h5 id="mongo-docker-compose-yaml"><a href="#mongo-docker-compose-yaml" class="headerlink" title="mongo-docker-compose.yaml"></a>mongo-docker-compose.yaml</h5><p>version:’3’</p>
+<p>services:</p>
+<p>​	mongoldb:</p>
+<p>​		image: mongo</p>
+<p>​		ports:</p>
+<p>​			- 27017:27017</p>
+<p>​		environment:</p>
+<p>​			- MONGO_INITDB_ROOT_USERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;	</p>
+<p>mongo-express:</p>
+<p>​		image: mongo-express</p>
+<p>​		ports:</p>
+<p>​			- 8080:8080</p>
+<p>​		environment:</p>
+<p>​			- ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;</p>
+<p>*: <strong><u>the network configuration is not in the docker compose</u></strong></p>
+<h5 id="mongo-yaml"><a href="#mongo-yaml" class="headerlink" title="mongo.yaml"></a>mongo.yaml</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="docker-compose-f-mongo-yaml-up"><a href="#docker-compose-f-mongo-yaml-up" class="headerlink" title="docker-compose -f mongo.yaml up"></a>docker-compose -f mongo.yaml up</h5><p>up: start all the containers</p>
+<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><h5 id="Image-Environment-Blueprint"><a href="#Image-Environment-Blueprint" class="headerlink" title="Image Environment Blueprint"></a>Image Environment Blueprint</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">install node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set MONGO_DB_USERNAME=admin</span><br><span class="line"></span><br><span class="line">set MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create /home/app folder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> curent folder files to /home/app</span><br><span class="line"></span><br><span class="line">start the app with: <span class="string">&quot;node server.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Dockerfile-1"><a href="#Dockerfile-1" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><p><strong><u>COPY - executes on the HOST machine!</u></strong></p>
+<p><u><strong>CMD - entrypoint command</strong></u></p>
+<p>​		<u><strong>We can have multiple RUN commands</strong></u></p>
+<p><strong><u>Every image is always based on another image.</u></strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line">COPY ./home/app</span><br><span class="line"></span><br><span class="line">CMD[<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><a href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile" class="headerlink" title="docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile"></a>docker-node&#x2F;<a target="_blank" rel="noopener" href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17">17</a>&#x2F;<a target="_blank" rel="noopener" href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15">alpine3.15</a>&#x2F;Dockerfile</h5><p><a target="_blank" rel="noopener" href="https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile">https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile</a></p>
+<h5 id="Create-a-dockerfile-old"><a href="#Create-a-dockerfile-old" class="headerlink" title="Create a dockerfile (old)"></a>Create a dockerfile (old)</h5><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FROM node:<span class="number">13</span>-alpine</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line"><span class="comment">% . /home/app 有间隔</span></span><br><span class="line">COPY . /home/app</span><br><span class="line"></span><br><span class="line">CMD [<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><em>:**<u>Name must be “Dockerfile”!</u>*</em></p>
+<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
+<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
+<p><strong>解析</strong>：由于 docker 的运行模式是 C&#x2F;S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
+<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
+<h4 id="Build-docker-image-based-on-dockerfile"><a href="#Build-docker-image-based-on-dockerfile" class="headerlink" title="Build docker image based on dockerfile"></a>Build docker image based on dockerfile</h4><h5 id="docker-build-t-my-app-1-0"><a href="#docker-build-t-my-app-1-0" class="headerlink" title="docker build -t  my-app:1.0 ."></a>docker build -t  my-app:1.0 .</h5><p><strong><u>-t: tag</u></strong></p>
+<p>Q: <strong>.</strong> 代表本次执行的上下文路径</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png" alt="image-20220305062139173"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png" alt="image-20220305062234611"></p>
+<p>App including Dockerfile is comitted to Git</p>
+<p>Jenkins builds image from Dockerfile(like what we did)</p>
+<h5 id="docker-run-my-app-1-0"><a href="#docker-run-my-app-1-0" class="headerlink" title="docker run my-app:1.0"></a>docker run my-app:1.0</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png" alt="image-20220305062604551"></p>
+<h5 id="docker-rmi-ID"><a href="#docker-rmi-ID" class="headerlink" title="docker rmi ID"></a>docker rmi ID</h5><ul>
+<li><p><u><strong>rmi删容器</strong></u></p>
+</li>
+<li><p><u><strong>rm删镜像</strong></u></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png" alt="image-20220305062917171"></p>
+<p><strong><u>When you adjust the Dockerfile, you MUSt rebuild the Image</u></strong></p>
+<h5 id="docker-build-t-my-app-1-0-1"><a href="#docker-build-t-my-app-1-0-1" class="headerlink" title="docker build -t my-app:1.0 ."></a>docker build -t my-app:1.0 .</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png" alt="image-20220305064916518"></p>
+<h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws">https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws</a></p>
+<h5 id="AWS-—-gt-ECR-Fully-managed-Docker-container-registry"><a href="#AWS-—-gt-ECR-Fully-managed-Docker-container-registry" class="headerlink" title="AWS —&gt; ECR (Fully-managed Docker container registry)"></a>AWS —&gt; ECR (Fully-managed Docker container registry)</h5><p>Amazon Elastic Container Registry<br>Share and deploy container software, publicly or privately   </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png" alt="image-20220305070458043"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png" alt="image-20220305070542683"></p>
+<p>Save different tags (versions) of the sane image</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png" alt="image-20220305070707952"></p>
+<h5 id="how-to-push"><a href="#how-to-push" class="headerlink" title="how to push"></a>how to push</h5><p>view push command </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png" alt="image-20220305070832743"></p>
+<h5 id="push-command"><a href="#push-command" class="headerlink" title="push command"></a>push command</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png" alt="image-20220305070901902"></p>
+<p> <strong><u>You always have to login to private repo! &#x3D; docker login</u></strong></p>
+<p>Q: jenkin’s server?</p>
+<h5 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites"></a>Pre-Requisites</h5><ol>
+<li><p>AWS Cli needs to be installed</p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
+</li>
+<li><p>Credentials configured</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png" alt="image-20220305071337433"></p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">Set up AWS Credentials and Region for Development</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png" alt="image-20220305074140673"></p>
+<p>Solution:</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png" alt="image-20220305081827581"></p>
+<p>两个权限加上：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess">AdministratorAccess</a></li>
+<li><a target="_blank" rel="noopener" href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess">AmazonEC2FullAccess</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png" alt="image-20220305081917401"></p>
+<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png" alt="image-20220305082321830"><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png" alt="image-20220305082338677"></p>
+<p>push一个更新的版本</p>
+<ol>
+<li>docker tag my-app:1.1 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+<li>docker push 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+</ol>
+<h5 id="如何从私人库pull一个image"><a href="#如何从私人库pull一个image" class="headerlink" title="如何从私人库pull一个image"></a>如何从私人库pull一个image</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">my-app:</span></span><br><span class="line">		<span class="attr">image:</span> <span class="number">429996114549.</span><span class="string">dkr.ecr.us-east-1.amazonaws.com/my-app:1.0</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/02/DATA605-Final-Project/" rel="prev" title="DATA605 Final Project">
+      <i class="fa fa-chevron-left"></i> DATA605 Final Project
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/06/DATA606-Presentation/" rel="next" title="DATA606 Presentation">
+      DATA606 Presentation <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Workflow-with-Docker"><span class="nav-number">1.</span> <span class="nav-text">Workflow with Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Command"><span class="nav-number">2.</span> <span class="nav-text">Command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-pull"><span class="nav-number">2.1.</span> <span class="nav-text">docker pull</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-postgres-9-6"><span class="nav-number">2.2.</span> <span class="nav-text">docker run postgres:9.6</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-images"><span class="nav-number">2.3.</span> <span class="nav-text">docker images</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-redis"><span class="nav-number">2.4.</span> <span class="nav-text">docker run redis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-ps"><span class="nav-number">2.5.</span> <span class="nav-text">docker ps</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ctrl-c"><span class="nav-number">2.6.</span> <span class="nav-text">ctrl + c</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-d"><span class="nav-number">2.7.</span> <span class="nav-text">docker run -d</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-stop-ID"><span class="nav-number">2.8.</span> <span class="nav-text">docker stop + ID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-start-ID"><span class="nav-number">2.9.</span> <span class="nav-text">docker start + ID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-ps-a"><span class="nav-number">2.10.</span> <span class="nav-text">docker ps -a</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-redis-4-0"><span class="nav-number">2.11.</span> <span class="nav-text">docker run redis:4.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-p6000-6379-redis"><span class="nav-number">2.12.</span> <span class="nav-text">docker run -p6000:6379 redis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-p6001-6379-redis4-0"><span class="nav-number">2.13.</span> <span class="nav-text">docker run -p6001:6379 redis4.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-logs-ID-x2F-Name"><span class="nav-number">2.14.</span> <span class="nav-text">docker logs + ID&#x2F;Name</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-d-p-6001-6379-%E2%80%93name-redis-older-redis-4-0"><span class="nav-number">2.15.</span> <span class="nav-text">docker run -d -p 6001:6379 –name redis-older redis:4.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-exec-it-ID%E6%88%96%E8%80%85name-x2F-bin-x2F-bash"><span class="nav-number">2.16.</span> <span class="nav-text">docker exec -it ID或者name &#x2F;bin&#x2F;bash</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-vs-start"><span class="nav-number">2.17.</span> <span class="nav-text">docker run vs start</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-rm-f-ID"><span class="nav-number">2.18.</span> <span class="nav-text">docker rm -f ID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-network-ls"><span class="nav-number">2.19.</span> <span class="nav-text">docker network ls</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-network-create-Name"><span class="nav-number">2.20.</span> <span class="nav-text">docker network create Name</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#start-mongodb"><span class="nav-number">2.21.</span> <span class="nav-text">start mongodb</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#start-mongo-express"><span class="nav-number">2.22.</span> <span class="nav-text">start mongo-express</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mongodb%E6%8A%A5%E9%94%99"><span class="nav-number">2.23.</span> <span class="nav-text">mongodb报错</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-Compose"><span class="nav-number">3.</span> <span class="nav-text">Docker Compose</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#mongo-docker-compose-yaml"><span class="nav-number">3.1.</span> <span class="nav-text">mongo-docker-compose.yaml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#mongo-yaml"><span class="nav-number">3.2.</span> <span class="nav-text">mongo.yaml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-compose-f-mongo-yaml-up"><span class="nav-number">3.3.</span> <span class="nav-text">docker-compose -f mongo.yaml up</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dockerfile"><span class="nav-number">4.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Image-Environment-Blueprint"><span class="nav-number">4.1.</span> <span class="nav-text">Image Environment Blueprint</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dockerfile-1"><span class="nav-number">4.2.</span> <span class="nav-text">Dockerfile</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><span class="nav-number">4.3.</span> <span class="nav-text">docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Create-a-dockerfile-old"><span class="nav-number">4.4.</span> <span class="nav-text">Create a dockerfile (old)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Build-docker-image-based-on-dockerfile"><span class="nav-number">5.</span> <span class="nav-text">Build docker image based on dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-build-t-my-app-1-0"><span class="nav-number">5.1.</span> <span class="nav-text">docker build -t  my-app:1.0 .</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-run-my-app-1-0"><span class="nav-number">5.2.</span> <span class="nav-text">docker run my-app:1.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-rmi-ID"><span class="nav-number">5.3.</span> <span class="nav-text">docker rmi ID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docker-build-t-my-app-1-0-1"><span class="nav-number">5.4.</span> <span class="nav-text">docker build -t my-app:1.0 .</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker-Registry"><span class="nav-number">6.</span> <span class="nav-text">Docker Registry</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AWS-%E2%80%94-gt-ECR-Fully-managed-Docker-container-registry"><span class="nav-number">6.1.</span> <span class="nav-text">AWS —&gt; ECR (Fully-managed Docker container registry)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#how-to-push"><span class="nav-number">6.2.</span> <span class="nav-text">how to push</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#push-command"><span class="nav-number">6.3.</span> <span class="nav-text">push command</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pre-Requisites"><span class="nav-number">6.4.</span> <span class="nav-text">Pre-Requisites</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#push"><span class="nav-number">6.5.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BB%8E%E7%A7%81%E4%BA%BA%E5%BA%93pull%E4%B8%80%E4%B8%AAimage"><span class="nav-number">6.6.</span> <span class="nav-text">如何从私人库pull一个image</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

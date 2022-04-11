@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Q1 + Q6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DATA641 Midterm">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/03/07/DATA641-Midterm/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="Q1 + Q6">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg">
+<meta property="article:published_time" content="2022-03-08T00:29:57.000Z">
+<meta property="article:modified_time" content="2022-03-08T00:31:54.065Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="DATA641">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/03/07/DATA641-Midterm/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>DATA641 Midterm | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/03/07/DATA641-Midterm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DATA641 Midterm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-07 19:29:57 / Modified: 19:31:54" itemprop="dateCreated datePublished" datetime="2022-03-07T19:29:57-05:00">2022-03-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">课程学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Q1 + Q6</p>
+<span id="more"></span>
+
+<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h2 id="i-Inflectional-morphology"><a href="#i-Inflectional-morphology" class="headerlink" title="i.Inflectional morphology"></a>i.Inflectional morphology</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the inflections of words. Inflection produces grammatical variants of the same word. Languages that add inflectional morphemes to words are sometimes called inflectional languages. It can be done by serveral ways: affixation, reduplication, alternation, suprasegmental variations. Inflection is most typically realized by adding an inflectional morpheme (that is, affixation) to the base form (either the root or a stem).</p>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(adj) [some gets good news can be called he is good newsed]</p>
+<h2 id="ii-Derivational-morphology"><a href="#ii-Derivational-morphology" class="headerlink" title="ii.Derivational morphology"></a>ii.Derivational morphology</h2><h3 id="Def-1"><a href="#Def-1" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the derivation of words. Derivation produces a new word by adding affixes to existing words or stem occurs. Affixes are bound morphemes which can only attach to word or stem. The process changes the new semantically and grammatically.</p>
+<h3 id="Explanation-1"><a href="#Explanation-1" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(v)	[sth good news sb]</p>
+<h2 id="iii-Constituents"><a href="#iii-Constituents" class="headerlink" title="iii.Constituents"></a>iii.Constituents</h2><h3 id="Def-2"><a href="#Def-2" class="headerlink" title="Def:"></a>Def:</h3><p>In syntactic analysis, a constituent is a word or a group of words that function(s) as a single unit within a hierarchical structure. The analysis of constituent structure is associated mainly with phrase structure grammars, although dependency grammars also allow sentence structure to be broken down into constituent parts. The constituent structure of sentences is identified using constituency tests. These tests manipulate some portion of a sentence and based on the result, clues are delivered about the immediate constituent structure of the sentence. Many constituents are phrases. A phrase is a sequence of one or more words (in some theories two or more) built around a head lexical item and working as a unit within a sentence. A word sequence is shown to be a phrase&#x2F;constituent if it exhibits one or more of the behaviors discussed below.</p>
+<h3 id="Explanation-2"><a href="#Explanation-2" class="headerlink" title="Explanation:"></a>Explanation:</h3><p><u>i</u> <u>talked to</u> <u>my dad’s second cousin</u> [like: <u>sb</u> <u>do something to</u> <u>sb</u>]</p>
+<h2 id="iv-Multi-wordunits-x2F-collocations"><a href="#iv-Multi-wordunits-x2F-collocations" class="headerlink" title="iv.Multi-wordunits&#x2F;collocations"></a>iv.Multi-wordunits&#x2F;collocations</h2><h3 id="Def-3"><a href="#Def-3" class="headerlink" title="Def:"></a>Def:</h3><p>A multiword is a lexical unit formed by two or more words to yield a new concept, different from the composition of the meaning of its elements.</p>
+<p>There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.</p>
+<h3 id="Explanation-3"><a href="#Explanation-3" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i <u>talked to</u> my dad’s second cousin <u>in toronto</u> <u>on (good) friday</u></p>
+<h2 id="v-Coreference"><a href="#v-Coreference" class="headerlink" title="v.Coreference"></a>v.Coreference</h2><h3 id="Def-4"><a href="#Def-4" class="headerlink" title="Def:"></a>Def:</h3><p>In linguistics, coreference, sometimes written co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent</p>
+<h3 id="Explanation-4"><a href="#Explanation-4" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u>my dad’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (he &lt;—&gt; my dad’s second cousin)</p>
+<h2 id="vi-Syntactic-ambiguity"><a href="#vi-Syntactic-ambiguity" class="headerlink" title="vi.Syntactic ambiguity"></a>vi.Syntactic ambiguity</h2><h3 id="Def-5"><a href="#Def-5" class="headerlink" title="Def:"></a>Def:</h3><p>Syntactic ambiguity, also called amphiboly or amphibology, is a situation where a sentence may be interpreted in more than one way due to ambiguous sentence structure.</p>
+<h3 id="Explanation-5"><a href="#Explanation-5" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u><strong>my dad</strong>’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (Who is good newsed? My dad or my dad’s second cousin)</p>
+<h2 id="vii-Number-agreement"><a href="#vii-Number-agreement" class="headerlink" title="vii.Number agreement"></a>vii.Number agreement</h2><h3 id="Def-6"><a href="#Def-6" class="headerlink" title="Def:"></a>Def:</h3><p>agreement in number between words in the same grammatical construction (e.g., between adjectives and the nouns they modify)</p>
+<h3 id="Explanation-6"><a href="#Explanation-6" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and <u>he</u> <u>was</u> just good newsed! (“he” is single, so “was” is used)</p>
+<h2 id="viii-“Infinite-capacity-from-finite-means”"><a href="#viii-“Infinite-capacity-from-finite-means”" class="headerlink" title="viii.“Infinite capacity from finite means”"></a>viii.“Infinite capacity from finite means”</h2><h3 id="Def-7"><a href="#Def-7" class="headerlink" title="Def:"></a>Def:</h3><p>Some information can indicated by the sentence we saw, even though it is said in the sentence.</p>
+<h3 id="Explanation-7"><a href="#Explanation-7" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and he was just good newsed! —&gt;</p>
+<p>Her dad has cousins more than two.</p>
+<p>Toronto on that Friday had a good weather.</p>
+<p>Her dad’s second cousin was in toronto on that Friday.</p>
+<hr>
+<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><h2 id="1-True"><a href="#1-True" class="headerlink" title="1. True"></a>1. True</h2><p>Susan and Mary enjoyed the spaghetti they served with her brother.</p>
+<p>There are only two forms of ambiguity: lexical ambiguity and syntactic ambiguity.</p>
+<p>For this sentence, there are three ambiguities:</p>
+<ul>
+<li>Who served the spaghetti?</li>
+<li>Whose brother? Susan’s or Mary’s?</li>
+<li>Did the brother eat the spaghetti? Or he just went to accompany those two girls?</li>
+</ul>
+<h2 id="2-False"><a href="#2-False" class="headerlink" title="2. False"></a>2. False</h2><p>Zipf’s law is a relation between rank order and frequency of occurrence: it states that when observations (e.g., words) are ranked by their frequency, the frequency of a particular observation is inversely proportional to its rank, Frequency ∝ 1 Rank .</p>
+<h2 id="3-False"><a href="#3-False" class="headerlink" title="3. False"></a>3. False</h2><p>Byte pair encoding or digram coding is a simple form of data compression in which <u>the most common pair of consecutive bytes of data</u> is replaced with <u>a byte that does not occur within that data</u>. A table of the replacements is required to rebuild the original data. </p>
+<h2 id="4-True"><a href="#4-True" class="headerlink" title="4. True"></a>4. True</h2><p>Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space.</p>
+<p>Each word will not be represented by a discrete and sparse vector, but by a d-dimension continuous vector, and the meaning of each word will be captured by its relation to other words </p>
+<h2 id="5-True"><a href="#5-True" class="headerlink" title="5. True"></a>5. True</h2><p>“frame” + “er” + “s” &#x3D; “framers”</p>
+<p>framer —&gt;framer —&gt;framers</p>
+<p>(ex: drive —&gt;driver —&gt; drivers &#x2F; office —&gt;officer —&gt;officers)</p>
+<h2 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h2><h2 id="7-False"><a href="#7-False" class="headerlink" title="7.False"></a>7.False</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg" alt="笔记 2022年3月7日 19"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DATA641/" rel="tag"># DATA641</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/06/DATA606-Presentation/" rel="prev" title="DATA606 Presentation">
+      <i class="fa fa-chevron-left"></i> DATA606 Presentation
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/" rel="next" title="Helm学习">
+      Helm学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#i-Inflectional-morphology"><span class="nav-number">1.1.</span> <span class="nav-text">i.Inflectional morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def"><span class="nav-number">1.1.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation"><span class="nav-number">1.1.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ii-Derivational-morphology"><span class="nav-number">1.2.</span> <span class="nav-text">ii.Derivational morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iii-Constituents"><span class="nav-number">1.3.</span> <span class="nav-text">iii.Constituents</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iv-Multi-wordunits-x2F-collocations"><span class="nav-number">1.4.</span> <span class="nav-text">iv.Multi-wordunits&#x2F;collocations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-Coreference"><span class="nav-number">1.5.</span> <span class="nav-text">v.Coreference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-4"><span class="nav-number">1.5.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vi-Syntactic-ambiguity"><span class="nav-number">1.6.</span> <span class="nav-text">vi.Syntactic ambiguity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-5"><span class="nav-number">1.6.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vii-Number-agreement"><span class="nav-number">1.7.</span> <span class="nav-text">vii.Number agreement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-6"><span class="nav-number">1.7.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#viii-%E2%80%9CInfinite-capacity-from-finite-means%E2%80%9D"><span class="nav-number">1.8.</span> <span class="nav-text">viii.“Infinite capacity from finite means”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Def-7"><span class="nav-number">1.8.1.</span> <span class="nav-text">Def:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Explanation-7"><span class="nav-number">1.8.2.</span> <span class="nav-text">Explanation:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6"><span class="nav-number">2.</span> <span class="nav-text">6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-True"><span class="nav-number">2.1.</span> <span class="nav-text">1. True</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-False"><span class="nav-number">2.2.</span> <span class="nav-text">2. False</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-False"><span class="nav-number">2.3.</span> <span class="nav-text">3. False</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-True"><span class="nav-number">2.4.</span> <span class="nav-text">4. True</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-True"><span class="nav-number">2.5.</span> <span class="nav-text">5. True</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1"><span class="nav-number">2.6.</span> <span class="nav-text">6.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-False"><span class="nav-number">2.7.</span> <span class="nav-text">7.False</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

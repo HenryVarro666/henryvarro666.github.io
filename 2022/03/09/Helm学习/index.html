@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Helm 3的学习 官网：https:&#x2F;&#x2F;helm.sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Helm学习">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="Helm 3的学习 官网：https:&#x2F;&#x2F;helm.sh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311145650121.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220309233820458.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220309233753099.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311142518343.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311143842518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311144048799.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203121810581.png">
+<meta property="article:published_time" content="2022-03-09T14:55:21.000Z">
+<meta property="article:modified_time" content="2022-03-13T01:49:06.606Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="Helm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311145650121.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Helm学习 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Helm学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-09 09:55:21" itemprop="dateCreated datePublished" datetime="2022-03-09T09:55:21-05:00">2022-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 20:49:06" itemprop="dateModified" datetime="2022-03-12T20:49:06-05:00">2022-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Helm 3的学习</p>
+<p>官网：<a target="_blank" rel="noopener" href="https://helm.sh/">https://helm.sh</a></p>
+<span id="more"></span>
+
+<h1 id="什么是Helm？"><a href="#什么是Helm？" class="headerlink" title="什么是Helm？"></a>什么是Helm？</h1><p><u><strong>Helm is a tool for managing Kubernetes packages called <em>charts</em>.</strong></u> </p>
+<p>Kubernetes包管理器，是查找、分享和使用软件构建Kubernetes的最优方式</p>
+<blockquote>
+<p>Helm 安装 <em>charts</em> 到 Kubernetes 集群中，每次安装都会创建一个新的 <em>release</em>。你可以在 Helm 的 chart <em>repositories</em> 中寻找新的 chart。</p>
+</blockquote>
+<p>The package manager for Kubernetes</p>
+<p>Helm is the best way to find, share, and use software built for Kubernetes</p>
+<p>(something like pip, wegt)</p>
+<blockquote>
+<p>Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.</p>
+</blockquote>
+<p>Charts are easy to create, version, share, and publish — so start using Helm and stop the copy-and-paste.</p>
+<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><h2 id="Manage-Complexity"><a href="#Manage-Complexity" class="headerlink" title="Manage Complexity"></a>Manage Complexity</h2><p>Charts describe even the most complex apps, provide repeatable application installation, and serve as a single point of authority.</p>
+<h2 id="Easy-Updates"><a href="#Easy-Updates" class="headerlink" title="Easy Updates"></a>Easy Updates</h2><p>Take the pain out of updates with in-place upgrades and custom hooks.</p>
+<h2 id="Simple-Sharing"><a href="#Simple-Sharing" class="headerlink" title="Simple Sharing"></a>Simple Sharing</h2><p>Charts are easy to version, share, and host on public or private servers.</p>
+<h2 id="Rollbacks"><a href="#Rollbacks" class="headerlink" title="Rollbacks"></a>Rollbacks</h2><p>Use <code>helm rollback</code> to roll back to an older version of a release with ease.</p>
+<h1 id="Helm-Architecture"><a href="#Helm-Architecture" class="headerlink" title="Helm Architecture"></a><a target="_blank" rel="noopener" href="https://helm.sh/zh/docs/topics/architecture/">Helm Architecture</a></h1><p>Helm管理名为chart的Kubernetes包的工具</p>
+<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><ul>
+<li><p>Create new charts from scratch</p>
+<p>从头开始创建新的chart</p>
+</li>
+<li><p>Package charts into chart archive (tgz) files</p>
+<p>将chart打包成归档(tgz)文件</p>
+</li>
+<li><p>Interact with chart repositories where charts are stored</p>
+<p>与存储chart的仓库进行交互</p>
+</li>
+<li><p>Install and uninstall charts into an existing Kubernetes cluster</p>
+<p>在现有的Kubernetes集群中安装和卸载chart</p>
+</li>
+<li><p>Manage the release cycle of charts that have been installed with Helm</p>
+<p>管理与Helm一起安装的chart的发布周期</p>
+</li>
+</ul>
+<h2 id="Important-concepts"><a href="#Important-concepts" class="headerlink" title="Important concepts"></a>Important concepts</h2><h3 id="Chart"><a href="#Chart" class="headerlink" title="Chart"></a><a target="_blank" rel="noopener" href="https://helm.sh/zh/docs/topics/charts/">Chart</a></h3><p>The <em>chart</em> is a bundle of information necessary to create an instance of a Kubernetes application.</p>
+<p><em>chart</em> 创建Kubernetes应用程序所必需的一组信息</p>
+<blockquote>
+<p><em>Chart</em> 代表着 Helm 包。它包含在 Kubernetes 集群内部运行应用程序，工具或服务所需的所有资源定义。你可以把它看作是 Homebrew formula，Apt dpkg，或 Yum RPM 在Kubernetes 中的等价物。</p>
+</blockquote>
+<hr>
+<p>Helm使用的包格式称为 <em>chart</em>。 **<u>chart就是一个描述Kubernetes相关资源的文件集合</u>**。单个chart可以用来部署一些简单的， 类似于memcache pod，或者某些复杂的HTTP服务器以及web全栈应用、数据库、缓存等等。</p>
+<p>Chart是作为特定目录布局的文件被创建的。它们可以打包到要部署的版本存档中。</p>
+<p>如果你想下载和查看一个发布的chart，但不安装它，你可以用这个命令： </p>
+<p><code>helm pull chartrepo/chartname</code></p>
+<h4 id="chart文件结构"><a href="#chart文件结构" class="headerlink" title="chart文件结构"></a>chart文件结构</h4><p>chart是一个组织在文件目录中的集合。目录名称就是chart名称（没有版本信息）。因而描述WordPress的chart可以存储在<code>wordpress/</code>目录中。</p>
+<p>在这个目录中，Helm 期望可以匹配以下结构：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">wordpress/</span></span><br><span class="line">  <span class="string">Chart.yaml</span>          <span class="comment"># 包含了chart信息的YAML文件</span></span><br><span class="line">  <span class="string">LICENSE</span>             <span class="comment"># 可选: 包含chart许可证的纯文本文件</span></span><br><span class="line">  <span class="string">README.md</span>           <span class="comment"># 可选: 可读的README文件</span></span><br><span class="line">  <span class="string">values.yaml</span>         <span class="comment"># chart 默认的配置值</span></span><br><span class="line">  <span class="string">values.schema.json</span>  <span class="comment"># 可选: 一个使用JSON结构的values.yaml文件</span></span><br><span class="line">  <span class="string">charts/</span>             <span class="comment"># 包含chart依赖的其他chart</span></span><br><span class="line">  <span class="string">crds/</span>               <span class="comment"># 自定义资源的定义</span></span><br><span class="line">  <span class="string">templates/</span>          <span class="comment"># 模板目录， 当和values 结合时，可生成有效的Kubernetes manifest文件</span></span><br><span class="line">  <span class="string">templates/NOTES.txt</span> <span class="comment"># 可选: 包含简要使用说明的纯文本文件</span></span><br></pre></td></tr></table></figure>
+
+<p>Helm保留使用 <code>charts/</code>，<code>crds/</code>， <code>templates/</code>目录，以及列举出的文件名。其他文件保持原样。</p>
+<h4 id="chart-yaml"><a href="#chart-yaml" class="headerlink" title="chart.yaml"></a>chart.yaml</h4><p><code>Chart.yaml</code>文件是chart必需的。包含了以下字段：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">chart</span> <span class="string">API</span> <span class="string">版本</span> <span class="string">（必需）</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">chart名称</span> <span class="string">（必需）</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">语义化2</span> <span class="string">版本（必需）</span></span><br><span class="line"><span class="attr">kubeVersion:</span> <span class="string">兼容Kubernetes版本的语义化版本（可选）</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">一句话对这个项目的描述（可选）</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">chart类型</span> <span class="string">（可选）</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">关于项目的一组关键字（可选）</span></span><br><span class="line"><span class="attr">home:</span> <span class="string">项目home页面的URL</span> <span class="string">（可选）</span></span><br><span class="line"><span class="attr">sources:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">项目源码的URL列表（可选）</span></span><br><span class="line"><span class="attr">dependencies:</span> <span class="comment"># chart 必要条件列表 （可选）</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">chart名称</span> <span class="string">(nginx)</span></span><br><span class="line">    <span class="attr">version:</span> <span class="string">chart版本</span> <span class="string">(&quot;1.2.3&quot;)</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">（可选）仓库URL</span> <span class="string">(&quot;https://example.com/charts&quot;)</span> <span class="string">或别名</span> <span class="string">(&quot;@repo-name&quot;)</span></span><br><span class="line">    <span class="attr">condition:</span> <span class="string">（可选）</span> <span class="string">解析为布尔值的yaml路径，用于启用/禁用chart</span> <span class="string">(e.g.</span> <span class="string">subchart1.enabled</span> <span class="string">)</span></span><br><span class="line">    <span class="attr">tags:</span> <span class="comment"># （可选）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">用于一次启用/禁用</span> <span class="string">一组chart的tag</span></span><br><span class="line">    <span class="attr">import-values:</span> <span class="comment"># （可选）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ImportValue</span> <span class="string">保存源值到导入父键的映射。每项可以是字符串或者一对子/父列表项</span></span><br><span class="line">    <span class="attr">alias:</span> <span class="string">（可选）</span> <span class="string">chart中使用的别名。当你要多次添加相同的chart时会很有用</span></span><br><span class="line"><span class="attr">maintainers:</span> <span class="comment"># （可选）</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">维护者名字</span> <span class="string">（每个维护者都需要）</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">维护者邮箱</span> <span class="string">（每个维护者可选）</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">维护者URL</span> <span class="string">（每个维护者可选）</span></span><br><span class="line"><span class="attr">icon:</span> <span class="string">用做icon的SVG或PNG图片URL</span> <span class="string">（可选）</span></span><br><span class="line"><span class="attr">appVersion:</span> <span class="string">包含的应用版本（可选）。不需要是语义化，建议使用引号</span></span><br><span class="line"><span class="attr">deprecated:</span> <span class="string">不被推荐的chart</span> <span class="string">（可选，布尔值）</span></span><br><span class="line"><span class="attr">annotations:</span></span><br><span class="line">  <span class="attr">example:</span> <span class="string">按名称输入的批注列表</span> <span class="string">（可选）.</span></span><br></pre></td></tr></table></figure>
+
+<p>从 <a target="_blank" rel="noopener" href="https://github.com/helm/helm/releases/tag/v3.3.2">v3.3.2</a>，不再允许额外的字段。推荐的方法是在 <code>annotations</code> 中添加自定义元数据</p>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>The <em>config</em> contains configuration information that can be merged into a packaged chart to create a releasable object.</p>
+<p><em>config</em> 包含了可以合并到打包的chart中的配置信息，用于创建一个可发布的对象。</p>
+<h3 id="Repository"><a href="#Repository" class="headerlink" title="Repository"></a>Repository</h3><blockquote>
+<p><em>Repository（仓库）</em> 是用来存放和共享 charts 的地方。它就像 Perl 的 <a target="_blank" rel="noopener" href="https://www.cpan.org/">CPAN 档案库网络</a> 或是 Fedora 的 <a target="_blank" rel="noopener" href="https://src.fedoraproject.org/">软件包仓库</a>，只不过它是供 Kubernetes 包所使用的。</p>
+</blockquote>
+<h3 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h3><p>A <em>release</em> is <u>a running instanc</u>e of a <em>chart</em>, combined with a specific<em>config</em>.</p>
+<p><em>release</em> 是一个与特定配置相结合的chart的<u>运行实例</u></p>
+<blockquote>
+<p><em>Release</em> 是运行在 Kubernetes 集群中的 chart 的实例。一个 chart 通常可以在同一个集群中安装多次。每一次安装都会创建一个新的 <em>release</em>。以 MySQL chart为例，如果你想在你的集群中运行两个数据库，你可以安装该chart两次。每一个数据库都会拥有它自己的 <em>release</em> 和 <em>release name</em>。</p>
+</blockquote>
+<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><p>Helm是一个可执行文件</p>
+<p>Helm is an executable which is implemented into two distinct parts:</p>
+<h3 id="Helm-Client"><a href="#Helm-Client" class="headerlink" title="Helm Client"></a>Helm Client</h3><p><strong>Helm客户端</strong> 是终端用户的命令行客户端</p>
+<p>The Helm Client is a command-line client for end users. The client is responsible for the following:</p>
+<ul>
+<li>Local chart development 本地chart开发</li>
+<li>Managing repositories 管理仓库</li>
+<li>Managing releases 管理发布</li>
+<li>Interfacing with the Helm library 与Helm库建立接口<ol>
+<li>Sending charts to be installed 发送安装的chart</li>
+<li>Requesting upgrading or uninstalling of existing releases 发送升级或卸载现有发布的请求</li>
+</ol>
+</li>
+</ul>
+<h3 id="Helm-Library"><a href="#Helm-Library" class="headerlink" title="Helm Library"></a>Helm Library</h3><p><strong>Helm库</strong> 提供执行所有Helm操作的逻辑。</p>
+<p>The Helm Library provides the logic for executing all Helm operations. It interfaces with the Kubernetes API server and provides the following capability:</p>
+<ul>
+<li>Combining a chart and configuration to build a release 结合chart和配置来构建版本</li>
+<li>Installing charts into Kubernetes, and providing the subsequent release object 将chart安装到Kubernetes中，并提供后续发布对象</li>
+<li>Upgrading and uninstalling charts by interacting with Kubernetes 与Kubernetes交互升级和卸载chart</li>
+</ul>
+<p>The standalone Helm library encapsulates the Helm logic so that it can be leveraged by different clients.</p>
+<p>独立的Helm库封装了Helm逻辑以便不同的客户端可以使用它</p>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>The Helm client and library is written in the <strong>Go</strong> programming language.</p>
+<p>The library uses the Kubernetes client library to communicate with Kubernetes. Currently, that library uses REST+JSON. It stores information in Secrets located inside of Kubernetes. It does not need its own database.</p>
+<p>Configuration files are, when possible, written in YAML.</p>
+<p>Helm客户端和库是使用Go编程语言编写的</p>
+<p>这个库使用Kubernetes客户端库与Kubernetes通信。现在，这个库使用REST+JSON。它将信息存储在Kubernetes的密钥中。 不需要自己的数据库。</p>
+<p>如果可能，配置文件是用YAML编写的。</p>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p><a target="_blank" rel="noopener" href="https://helm.sh/zh/docs/intro/quickstart/">快速入门</a></p>
+<h2 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h2><p>想成功和正确地使用Helm，需要以下前置条件。</p>
+<ol>
+<li>一个 Kubernetes 集群</li>
+<li>确定你安装版本的安全配置</li>
+<li>安装和配置Helm。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311145650121.png" alt="image-20220311145650121"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>脚本、源码、包管理器等</p>
+<p>mac：</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220309233820458.png" alt="image-20220309233820458"></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">helm</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220309233753099.png" alt="image-20220309233753099"></p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>安装好helm后，可以添加一个chart库。（可以从Artifact Hub中查找）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="string">add</span> <span class="string">bitnami</span> <span class="string">https://charts.bitnami.com/bitnami</span></span><br><span class="line"><span class="string">helm</span> <span class="string">search</span> <span class="string">repo</span> <span class="string">bitnami</span></span><br><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="string">update</span> <span class="comment">#拿到最新的charts列表</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311142518343.png" alt="image-20220311142518343"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311143842518.png" alt="image-20220311143842518"></p>
+<h2 id="安装chart"><a href="#安装chart" class="headerlink" title="安装chart"></a>安装chart</h2><p>您可以通过<code>helm install</code> 命令安装chart。 Helm可以通过多种途径查找和安装chart， 但最简单的是安装官方的<code>bitnami</code>chart</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311144048799.png" alt="image-20220311144048799"></p>
+<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203121810581.png" alt="image-20220312181042463"></p>
+<h2 id="常用指令："><a href="#常用指令：" class="headerlink" title="常用指令："></a>常用指令：</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">helm search:</span>   <span class="string">搜索chart</span></span><br><span class="line"><span class="attr">helm pull:</span>    <span class="string">下载chart到本地目录查看</span></span><br><span class="line"><span class="attr">helm install:</span>   <span class="string">上传chart到Kubernetes</span></span><br><span class="line"><span class="attr">helm list:</span>     <span class="string">列出已发布的chart</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">helm</span> <span class="string">completion</span> <span class="bullet">-</span> <span class="string">为指定的shell生成自动补全脚本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">create</span> <span class="bullet">-</span> <span class="string">使用给定的名称创建chart</span></span><br><span class="line"><span class="string">helm</span> <span class="string">dependency</span> <span class="bullet">-</span> <span class="string">管理chart依赖</span></span><br><span class="line"><span class="string">helm</span> <span class="string">env</span> <span class="bullet">-</span> <span class="string">helm客户端环境信息</span></span><br><span class="line"><span class="string">helm</span> <span class="string">get</span> <span class="bullet">-</span> <span class="string">下载命名版本的扩展信息</span></span><br><span class="line"><span class="string">helm</span> <span class="string">history</span> <span class="bullet">-</span> <span class="string">检索发布历史</span></span><br><span class="line"><span class="string">helm</span> <span class="string">install</span> <span class="bullet">-</span> <span class="string">安装chart</span></span><br><span class="line"><span class="string">helm</span> <span class="string">lint</span> <span class="bullet">-</span> <span class="string">验证chart是否存在问题</span></span><br><span class="line"><span class="string">helm</span> <span class="string">list</span> <span class="bullet">-</span> <span class="string">列举发布版本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">package</span> <span class="bullet">-</span> <span class="string">将chart目录打包</span></span><br><span class="line"><span class="string">helm</span> <span class="string">plugin</span> <span class="bullet">-</span> <span class="string">安装、列举或卸载Helm插件</span></span><br><span class="line"><span class="string">helm</span> <span class="string">pull</span> <span class="bullet">-</span> <span class="string">从仓库下载chart并（可选）在本地目录中打开</span></span><br><span class="line"><span class="string">helm</span> <span class="string">push</span> <span class="bullet">-</span> <span class="string">推送chart到远程</span></span><br><span class="line"><span class="string">helm</span> <span class="string">registry</span> <span class="bullet">-</span> <span class="string">从注册表登录或登出</span></span><br><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="bullet">-</span> <span class="string">添加、列出、删除、更新和索引chart仓库</span></span><br><span class="line"><span class="string">helm</span> <span class="string">rollback</span> <span class="bullet">-</span> <span class="string">回滚发布到上一个版本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">search</span> <span class="bullet">-</span> <span class="string">helm中搜索关键字</span></span><br><span class="line"><span class="string">helm</span> <span class="string">show</span> <span class="bullet">-</span> <span class="string">显示chart信息</span></span><br><span class="line"><span class="string">helm</span> <span class="string">status</span> <span class="bullet">-</span> <span class="string">显示命名版本的状态</span></span><br><span class="line"><span class="string">helm</span> <span class="string">template</span> <span class="bullet">-</span> <span class="string">本地渲染模板</span></span><br><span class="line"><span class="string">helm</span> <span class="string">test</span> <span class="bullet">-</span> <span class="string">执行发布的测试</span></span><br><span class="line"><span class="string">helm</span> <span class="string">uninstall</span> <span class="bullet">-</span> <span class="string">卸载版本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">upgrade</span> <span class="bullet">-</span> <span class="string">升级版本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">verify</span> <span class="bullet">-</span> <span class="string">验证给定路径的chart已经被签名且是合法的</span></span><br><span class="line"><span class="string">helm</span> <span class="string">version</span> <span class="bullet">-</span> <span class="string">打印客户端版本信息</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="操作示范"><a href="#操作示范" class="headerlink" title="操作示范"></a>操作示范</h2><p>Helm 搜索使用模糊字符串匹配算法，可以只输入名字的一部分</p>
+<p>用–keep-history甚至可以回滚版本</p>
+<p>helm install <u>你命名的release名字</u>&#x2F;<u>你想安装的chart的名称</u></p>
+<p>安装chart时创建了一个新的 <em>release</em> 对象。上述发布被命名为 <code>happy-panda</code>。 （如果想让Helm生成一个名称，删除发布名称并使用<code>--generate-name</code>。）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">helm</span> <span class="string">version</span> <span class="comment"># 检查版本</span></span><br><span class="line"><span class="string">helm</span> <span class="string">search</span> <span class="string">hub</span> <span class="comment">#从 Artifact Hub 中查找并列出 helm charts</span></span><br><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="string">add</span> <span class="string">bitnami</span> <span class="string">https://charts.bitnami.com/bitnami</span> <span class="comment">#添加chart仓库，可以从Artifact Hub中查找（Artifact Hub中会列出说明）</span></span><br><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="string">list</span> <span class="comment">#查看配置的仓库</span></span><br><span class="line"><span class="string">helm</span> <span class="string">search</span> <span class="string">repo</span> <span class="string">bitnami</span> <span class="comment">#查看安装的charts列表</span></span><br><span class="line"><span class="string">helm</span> <span class="string">search</span> <span class="string">repo</span> <span class="comment">#从所添加的仓库中查找chart·</span></span><br><span class="line"><span class="string">helm</span> <span class="string">repo</span> <span class="string">update</span> <span class="comment">#拿到最新的charts列表</span></span><br><span class="line"><span class="string">helm</span> <span class="string">install</span> <span class="string">bitnami/mysql</span> <span class="string">--generate-name</span> <span class="comment">#安装chart,生成名字</span></span><br><span class="line"><span class="string">helm</span> <span class="string">show</span> <span class="string">chart</span> <span class="string">bitnami/mysql</span> <span class="comment">#显示基本信息</span></span><br><span class="line"><span class="string">helm</span> <span class="string">show</span> <span class="string">all</span> <span class="string">bitnami/mysql</span> <span class="comment">#显示全部信息</span></span><br><span class="line"><span class="string">helm</span> <span class="string">list</span> <span class="comment">#查看被发布的chart</span></span><br><span class="line"><span class="string">helm</span> <span class="string">ls</span> <span class="comment">#同上</span></span><br><span class="line"><span class="string">helm</span> <span class="string">uninstall</span> <span class="string">mysql-1612624192</span> <span class="comment">#卸载chart版本（上一条列出来的）</span></span><br><span class="line"><span class="string">helm</span> <span class="string">uninstall</span> <span class="string">mysql-1612624192</span> <span class="string">--keep-history</span> <span class="comment">#也是卸载但是会保存版本历史，甚至可以用helm roll把车开回滚历史</span></span><br><span class="line"><span class="string">helm</span> <span class="string">show</span> <span class="string">values</span> <span class="string">mysql-1612624192</span> <span class="comment">#查看chart中的可配置选项</span></span><br><span class="line"><span class="string">helm</span> <span class="string">rollback</span> <span class="string">happy-panda</span> <span class="number">1</span> <span class="comment">#第一次 revision 的值永远是1</span></span><br><span class="line"><span class="string">helm</span> <span class="string">history</span> <span class="comment">#查看特定release 的修订版本号</span></span><br><span class="line"><span class="string">helm</span> <span class="string">list</span> <span class="string">--all</span> <span class="comment">#展示 Helm 保留的所有 release 记录，包括失败或删除的条目（指定了 --keep-history）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">helm</span> <span class="string">create</span> <span class="comment">#开发chart</span></span><br><span class="line"><span class="string">helm</span> <span class="string">lint</span> <span class="comment">#验证格式是否正确</span></span><br><span class="line"><span class="string">helm</span> <span class="string">package</span> <span class="comment">#将 chart 打包分发</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Helm/" rel="tag"># Helm</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/07/DATA641-Midterm/" rel="prev" title="DATA641 Midterm">
+      <i class="fa fa-chevron-left"></i> DATA641 Midterm
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/09/Spring-Break-Plan/" rel="next" title="Spring Break Plan">
+      Spring Break Plan <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFHelm%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是Helm？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">优点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Manage-Complexity"><span class="nav-number">2.1.</span> <span class="nav-text">Manage Complexity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Easy-Updates"><span class="nav-number">2.2.</span> <span class="nav-text">Easy Updates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-Sharing"><span class="nav-number">2.3.</span> <span class="nav-text">Simple Sharing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rollbacks"><span class="nav-number">2.4.</span> <span class="nav-text">Rollbacks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Helm-Architecture"><span class="nav-number">3.</span> <span class="nav-text">Helm Architecture</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions"><span class="nav-number">3.1.</span> <span class="nav-text">Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Important-concepts"><span class="nav-number">3.2.</span> <span class="nav-text">Important concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chart"><span class="nav-number">3.2.1.</span> <span class="nav-text">Chart</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chart%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">chart文件结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chart-yaml"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">chart.yaml</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Config"><span class="nav-number">3.2.2.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repository"><span class="nav-number">3.2.3.</span> <span class="nav-text">Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Release"><span class="nav-number">3.2.4.</span> <span class="nav-text">Release</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Components"><span class="nav-number">3.3.</span> <span class="nav-text">Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Helm-Client"><span class="nav-number">3.3.1.</span> <span class="nav-text">Helm Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Helm-Library"><span class="nav-number">3.3.2.</span> <span class="nav-text">Helm Library</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation"><span class="nav-number">3.4.</span> <span class="nav-text">Implementation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">先决条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">4.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.3.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85chart"><span class="nav-number">4.4.</span> <span class="nav-text">安装chart</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">5.</span> <span class="nav-text">命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">5.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%9A"><span class="nav-number">5.2.</span> <span class="nav-text">常用指令：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%A4%BA%E8%8C%83"><span class="nav-number">5.3.</span> <span class="nav-text">操作示范</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

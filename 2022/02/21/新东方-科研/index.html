@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="大数据存储技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新东方 科研">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/02/21/%E6%96%B0%E4%B8%9C%E6%96%B9-%E7%A7%91%E7%A0%94/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="大数据存储技术">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-21T05:36:11.000Z">
+<meta property="article:modified_time" content="2022-02-23T02:18:23.167Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="新东方">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/02/21/%E6%96%B0%E4%B8%9C%E6%96%B9-%E7%A7%91%E7%A0%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>新东方 科研 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/02/21/%E6%96%B0%E4%B8%9C%E6%96%B9-%E7%A7%91%E7%A0%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          新东方 科研
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-02-21 00:36:11" itemprop="dateCreated datePublished" datetime="2022-02-21T00:36:11-05:00">2022-02-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-02-22 21:18:23" itemprop="dateModified" datetime="2022-02-22T21:18:23-05:00">2022-02-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>大数据存储技术</p>
+<span id="more"></span>
+
+<h2 id="上课时间"><a href="#上课时间" class="headerlink" title="上课时间"></a>上课时间</h2><p>️ 项目每周1次课，一次1小时，共8周，【北京时间】每周一上课。</p>
+<p>️ 第一次上课时间：<br>【北京时间】（1月21日）周一晚22:00-23:00</p>
+<p>【美东时间】（1月21日）周一早上 9:00-10:00</p>
+<p>如果在后期课程时间上同学和导师有调整，我们可以及时沟通协调～如有项目上的其他问题都可以第一时间和我反馈解决</p>
+<hr>
+<p>8次固定讨论</p>
+<h2 id="预习资料"><a href="#预习资料" class="headerlink" title="预习资料"></a>预习资料</h2><ol>
+<li><h3 id="Runoob教程"><a href="#Runoob教程" class="headerlink" title="Runoob教程"></a>Runoob教程</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-tutorial.html"><strong>Python教程</strong></a></p>
+<p><a target="_blank" rel="noopener" href="http://www.runoob.com/docker/docker-tutorial.html"><strong>docker</strong> 教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.runoob.com/w3cnote/yaml-intro.html"><strong>yaml</strong> 入门教程</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.runoob.com/json/json-tutorial.html"><strong>json</strong> 教程 </a></p>
+</li>
+<li><h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p><a target="_blank" rel="noopener" href="https://www.anaconda.com/">https://www.anaconda.com/</a></p>
+</li>
+<li><h3 id="Intellij"><a href="#Intellij" class="headerlink" title="Intellij"></a>Intellij</h3><p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a></p>
+<p>pycharm 和 vscode都可以</p>
+</li>
+<li><h3 id="JSON、-YAML"><a href="#JSON、-YAML" class="headerlink" title="JSON、 YAML"></a>JSON、 YAML</h3><p>这部分内容可以自行百度或者谷歌</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.baidu.com/link?url=8s9TUV6tuMsTOmEPrdl1Cua8hqNmT1FnjVIznx9sri3OBjObaon6j-UvP_2x-dTtr5KcsBDBvsOWR1xJPOOct_&wd=&eqid=e60f193100035b720000000662132c74"><em>yaml和json</em>区别 - Parallax - 博客园</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.baidu.com/link?url=PUAR-jyiXqK516dLpit_A44L7SHaEeYp3tc1S6xjztr_MwOGoQP3_Cz4m6-l2Cy2AWDadeN4o9bl4dUUFAr6KS1aCXU_0kw43cC9_gk6Q2a&wd=&eqid=e60f193100035b720000000662132c74">深入对比TOML,<em>JSON和YAML</em>_行知致简的专栏-CSDN博客</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/what-is-the-difference-between-yaml-and-json/">What is the difference between YAML and JSON?</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1726802/what-is-the-difference-between-yaml-and-json"><strong>What is the difference between YAML and JSON? - Stackflow</strong> </a></p>
+<h4 id="YAML"><a href="#YAML" class="headerlink" title="YAML"></a>YAML</h4><blockquote>
+<p>YAML 是 “YAML Ain’t a Markup Language”（YAML 不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）。</p>
+<p>YAML 的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等数据形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。</p>
+<p>YAML 的配置文件后缀为 <strong>.yml</strong>，如：<strong>runoob.yml</strong> </p>
+</blockquote>
+<h4 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h4><blockquote>
+<ul>
+<li>JSON 指的是 JavaScript 对象表示法（<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation）</li>
+<li>JSON 是轻量级的文本数据交换格式</li>
+<li>JSON 独立于语言：JSON 使用 Javascript语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 目前非常多的动态（PHP，JSP，.NET）编程语言都支持JSON。</li>
+<li>JSON 具有自我描述性，更易理解</li>
+</ul>
+<p>JSON 是存储和交换文本信息的语法，类似 XML。</p>
+<p>JSON 比 XML 更小、更快，更易解析。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><h3 id="RESTful-API"><a href="#RESTful-API" class="headerlink" title="RESTful API"></a>RESTful API</h3><p><a target="_blank" rel="noopener" href="https://restfulapi.net/">https://restfulapi.net/</a></p>
+<blockquote>
+<p>“<strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer and an architectural style for <strong>distributed hypermedia systems</strong>“</p>
+<blockquote>
+<p>A Web API (or Web Service) conforming to the REST architectural style is a <em>REST API</em>.</p>
+<p>符合 REST 体系结构风格的 Web API (或 Web 服务)是 REST API。</p>
+</blockquote>
+</blockquote>
+<p>*：大致4个命令</p>
+</li>
+<li><h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p><a target="_blank" rel="noopener" href="https://www.palletsprojects.com/p/flask/">https://www.palletsprojects.com/p/flask/</a></p>
+<blockquote>
+<p>Flask is a lightweight <a target="_blank" rel="noopener" href="https://wsgi.readthedocs.io/">WSGI</a> web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around <a target="_blank" rel="noopener" href="https://www.palletsprojects.com/p/werkzeug">Werkzeug</a> and <a target="_blank" rel="noopener" href="https://www.palletsprojects.com/p/jinja">Jinja</a> and has become one of the most popular Python web application frameworks.</p>
+<p>是一个轻量级的 WSGI web 应用框架。它的设计目的是使入门快速和容易，能够扩展到复杂的应用程序。它最初只是一个围绕 Werkzeug 和Jinja的简单包装器，现在已经成为最流行的 Python web 应用框架之一。</p>
+<p>Flask offers suggestions, but doesn’t enforce any dependencies or project layout. It is up to the developer to choose the tools and libraries they want to use. There are many extensions provided by the community that make adding new functionality easy.</p>
+<p>提供了建议，但并不强制任何依赖项或项目布局。这取决于开发人员选择他们想要使用的工具和库。社区提供了许多扩展，使得添加新功能变得容易。</p>
+</blockquote>
+</li>
+<li><h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><p><a target="_blank" rel="noopener" href="https://www.docker.com/">https://www.docker.com/</a></p>
+<blockquote>
+<p>Docker 是一个开源的应用容器引擎，基于 <a target="_blank" rel="noopener" href="https://www.runoob.com/go/go-tutorial.html">Go 语言</a> 并遵从 Apache2.0 协议开源。</p>
+<p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
+<p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
+<p>Docker 的可移植性和轻量级的特性，还可以使您轻松地完成动态管理的工作负担，并根据业务需求指示，实时扩展或拆除应用程序和服务。</p>
+<ul>
+<li>Web 应用的自动化打包和发布。</li>
+<li>自动化测试和持续集成、发布。</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用。</li>
+<li>从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。</li>
+</ul>
+</blockquote>
+</li>
+<li><h3 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h3><p><a target="_blank" rel="noopener" href="https://kubernetes.io/">https://kubernetes.io/</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p>​	Kubernetes，也称为 K8s，是一个用于自动部署、扩展和管理集装箱化应用程序的开放源码系统。</p>
+<p>It groups containers that make up an application into logical units for easy management and discovery</p>
+<p>​	它将组成应用程序的容器分组为逻辑单元，以便于管理和发现</p>
+</blockquote>
+</li>
+</ol>
+<p>​		<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/setup/">Getting started</a></p>
+<p>​			<a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/">Install and Set Up kubectl on Windows</a></p>
+<p>​			The officially supported tool for deploying Kubernetes is <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/">kubeadm</a></p>
+<h2 id="02212022"><a href="#02212022" class="headerlink" title="02212022"></a>02212022</h2><p>​	“东数西算”：高延时低延时</p>
+<p>Lv.5 operator</p>
+<ol>
+<li>配置检查</li>
+<li>（不掉线）更新</li>
+<li>实现整个生命周期的管理</li>
+<li>对性能指标进行观测</li>
+<li>自我修复</li>
+</ol>
+<hr>
+<p>任务：</p>
+<ul>
+<li><input disabled="" type="checkbox"> docker tutorial 深度剖析</li>
+</ul>
+<p>​	讲解流程知识点 image&#x2F;container，带来什么，image是什么结构，什么文件系统，什么网络，什么volume</p>
+<p>*： <strong>多看YouTube上讲的关于docker tutorial的视频，系统学习</strong></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+整理Movie Recommendation System(<u>算法</u>和数据库) + Web crawler</p>
+<p>Example：2 mins ++</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Mac安装Docker</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%96%B0%E4%B8%9C%E6%96%B9/" rel="tag"># 新东方</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/19/%E6%96%B0%E4%B8%9C%E6%96%B9-%E5%85%88%E5%AF%BC%E8%AF%BE%E7%A8%8B/" rel="prev" title="新东方 先导课程">
+      <i class="fa fa-chevron-left"></i> 新东方 先导课程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/21/%E6%80%BB%E4%BD%93%E8%AF%BE%E7%A8%8B%E5%A4%A7%E7%BA%B2/" rel="next" title="总体课程大纲">
+      总体课程大纲 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E8%AF%BE%E6%97%B6%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">上课时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E4%B9%A0%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">预习资料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runoob%E6%95%99%E7%A8%8B"><span class="nav-number">2.1.</span> <span class="nav-text">Runoob教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda"><span class="nav-number">2.2.</span> <span class="nav-text">Anaconda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intellij"><span class="nav-number">2.3.</span> <span class="nav-text">Intellij</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E3%80%81-YAML"><span class="nav-number">2.4.</span> <span class="nav-text">JSON、 YAML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#YAML"><span class="nav-number">2.4.1.</span> <span class="nav-text">YAML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON"><span class="nav-number">2.4.2.</span> <span class="nav-text">JSON</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful-API"><span class="nav-number">2.5.</span> <span class="nav-text">RESTful API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask"><span class="nav-number">2.6.</span> <span class="nav-text">Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-number">2.7.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kubernetes"><span class="nav-number">2.8.</span> <span class="nav-text">Kubernetes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02212022"><span class="nav-number">3.</span> <span class="nav-text">02212022</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

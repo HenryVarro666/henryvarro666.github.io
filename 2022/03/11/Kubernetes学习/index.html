@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications. Tutorials">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes学习">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications. Tutorials">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png">
+<meta property="article:published_time" content="2022-03-11T19:58:51.000Z">
+<meta property="article:modified_time" content="2022-03-12T23:42:06.542Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="k8s">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Kubernetes学习 | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kubernetes学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-11 14:58:51" itemprop="dateCreated datePublished" datetime="2022-03-11T14:58:51-05:00">2022-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 18:42:06" itemprop="dateModified" datetime="2022-03-12T18:42:06-05:00">2022-03-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
+<span id="more"></span>
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
+<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
+<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
+<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
+<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
+<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
+<li><p>Core Kubernetes components</p>
+</li>
+<li><p>kubectl</p>
+<p>The Kubernetes command-line tool, <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
+<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
+<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
+<p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
+<blockquote>
+<p>brew install minikube</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
+<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
+<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
+<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
+<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
+<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
+<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
+<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
+<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
+<p>（docker桌面版本一般自带kubectl命令）</p>
+<blockquote>
+<p>CLI &#x3D; command -line interface</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
+<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
+<hr>
+<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
+<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
+<p>[类似dockerfile，当作一个自动化脚本]</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/k8s/" rel="tag"># k8s</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/09/Spring-Break-Plan/" rel="prev" title="Spring Break Plan">
+      <i class="fa fa-chevron-left"></i> Spring Break Plan
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/16/%E5%BD%B1%E8%A7%86%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2/" rel="next" title="影视资源搜索">
+      影视资源搜索 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-x2F-%E8%8A%82%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">Node&#x2F;节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pod"><span class="nav-number">1.2.</span> <span class="nav-text">pod</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Control-Plane"><span class="nav-number">1.3.</span> <span class="nav-text">Control Plane</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Replica-Set"><span class="nav-number">1.4.</span> <span class="nav-text">Replica Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cluster-x2F-%E9%9B%86%E7%BE%A4"><span class="nav-number">1.5.</span> <span class="nav-text">Cluster&#x2F;集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Services-x2F-%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.6.</span> <span class="nav-text">Services&#x2F;服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NodePort"><span class="nav-number">1.6.1.</span> <span class="nav-text">NodePort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Download-Kubernetes"><span class="nav-number">2.</span> <span class="nav-text">Download Kubernetes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Minikube"><span class="nav-number">2.1.</span> <span class="nav-text">Minikube</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Layers-of-Docker"><span class="nav-number">2.1.1.</span> <span class="nav-text">2 Layers of Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#minikube%E5%90%AF%E5%8A%A8"><span class="nav-number">2.1.2.</span> <span class="nav-text">minikube启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kubectl"><span class="nav-number">2.2.</span> <span class="nav-text">kubectl</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">3.</span> <span class="nav-text">应用的部署</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/images/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>
