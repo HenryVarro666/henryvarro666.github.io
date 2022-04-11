@@ -378,6 +378,22 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
+    <title>4.11 随笔</title>
+    <url>/2020/04/11/4-11-%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<p>金三角风云之泰北孤军，一支没有祖国的华人军队的异域征程</p>
+<span id="more"></span>
+<p>谁能想到金三角的起源竟然和一支打不过共产党的国民党残军有关呢？<br>在云南地区边境的雨林里，被败退台湾的国民党蒋介石之流抛弃，与泰国缅甸政府存在摩擦，为了谋生开始种罂粟，当不了云南王当了缅甸王。一众将领却也能服从命令，最终却只能终老台湾。<br>（不过这几个将领毕业于黄埔军校，着实让人想一探当年这个中国军校的风采与渊源。）<br>剩下的残兵老将被泰国利用却不能获得合法国籍，在边境游荡。<br>“一群被遗忘的人，他们战死便与草木同朽，他们战胜仍是天机不容。”<br>着实可悲可叹。</p>
+<p>参考资料</p>
+<p><a href="https://www.youtube.com/watch?v=25w1rNC_PZ0">https://www.youtube.com/watch?v=25w1rNC_PZ0</a></p>
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>4.6 周一</title>
     <url>/2020/04/06/4-6-%E5%91%A8%E4%B8%80/</url>
     <content><![CDATA[<h1 id="周一记"><a href="#周一记" class="headerlink" title="周一记"></a>周一记</h1><span id="more"></span>
@@ -397,22 +413,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>课程学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>4.11 随笔</title>
-    <url>/2020/04/11/4-11-%E9%9A%8F%E7%AC%94/</url>
-    <content><![CDATA[<p>金三角风云之泰北孤军，一支没有祖国的华人军队的异域征程</p>
-<span id="more"></span>
-<p>谁能想到金三角的起源竟然和一支打不过共产党的国民党残军有关呢？<br>在云南地区边境的雨林里，被败退台湾的国民党蒋介石之流抛弃，与泰国缅甸政府存在摩擦，为了谋生开始种罂粟，当不了云南王当了缅甸王。一众将领却也能服从命令，最终却只能终老台湾。<br>（不过这几个将领毕业于黄埔军校，着实让人想一探当年这个中国军校的风采与渊源。）<br>剩下的残兵老将被泰国利用却不能获得合法国籍，在边境游荡。<br>“一群被遗忘的人，他们战死便与草木同朽，他们战胜仍是天机不容。”<br>着实可悲可叹。</p>
-<p>参考资料</p>
-<p><a href="https://www.youtube.com/watch?v=25w1rNC_PZ0">https://www.youtube.com/watch?v=25w1rNC_PZ0</a></p>
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -611,48 +611,6 @@ array([[1, 0, 0, 0, 0, 0]])
 <p>如果一个矩阵A满足条件A T A &#x3D; AA T，那么这样的矩阵就有一个由相互正交的特征向量组成的特征基。这意味着，特征空间是成对正交的。</p>
 <p>这意味着对于这样一个A，EVD中的矩阵Q是一个正交矩阵，即，这样的矩阵</p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220330200600270.png" alt="image-20220330200600270"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA604</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DATA604 hw3</title>
-    <url>/2022/04/09/DATA604-hw3/</url>
-    <content><![CDATA[<p>DATA604 hw3</p>
-<span id="more"></span>
-
-<p>population:</p>
-<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
-<hr>
-<ol>
-<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
-<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
-<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
-<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
-<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
-</ol>
-<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
-<hr>
-<ul>
-<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
-<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
-</ul>
-<hr>
-<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
-<hr>
-<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
-<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
-<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -923,6 +881,48 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
+    <title>DATA604 hw3</title>
+    <url>/2022/04/09/DATA604-hw3/</url>
+    <content><![CDATA[<p>DATA604 hw3</p>
+<span id="more"></span>
+
+<p>population:</p>
+<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
+<hr>
+<ol>
+<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
+<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
+<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
+<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
+<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
+</ol>
+<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
+<hr>
+<ul>
+<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
+<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
+</ul>
+<hr>
+<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
+<hr>
+<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
+<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
+<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA604</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DATA605 Final Project</title>
     <url>/2022/03/02/DATA605-Final-Project/</url>
     <content><![CDATA[<p>Notes about DATA605 Big Data System</p>
@@ -1031,109 +1031,9 @@ array([[1, 0, 0, 0, 0, 0]])
 <p><a href="https://cord-19-data.s3.amazonaws.com/-">https://cord-19-data.s3.amazonaws.com/-</a></p>
 <p>s3:&#x2F;&#x2F;cord-19-data&#x2F;-</p>
 <p>ssh -i <filename>.pem ec2-user@<public-ip></p>
-<p>ssh -i labsuser.pem <a href="mailto:&#x65;&#x63;&#50;&#45;&#x75;&#x73;&#x65;&#114;&#64;&#x35;&#x34;&#46;&#49;&#53;&#57;&#x2e;&#x32;&#x38;&#x2e;&#50;&#49;&#x37;">&#x65;&#x63;&#50;&#45;&#x75;&#x73;&#x65;&#114;&#64;&#x35;&#x34;&#46;&#49;&#53;&#57;&#x2e;&#x32;&#x38;&#x2e;&#50;&#49;&#x37;</a></p>
+<p>ssh -i labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#x2d;&#x75;&#x73;&#101;&#x72;&#64;&#53;&#52;&#46;&#x31;&#53;&#x39;&#46;&#50;&#56;&#x2e;&#x32;&#49;&#55;">&#x65;&#99;&#x32;&#x2d;&#x75;&#x73;&#101;&#x72;&#64;&#53;&#52;&#46;&#x31;&#53;&#x39;&#46;&#50;&#56;&#x2e;&#x32;&#49;&#55;</a></p>
 <p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem ec2-user@<public-ip></p>
-<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#x63;&#x32;&#x2d;&#117;&#x73;&#101;&#x72;&#64;&#53;&#52;&#x2e;&#x31;&#53;&#57;&#x2e;&#50;&#x38;&#46;&#x32;&#49;&#55;">&#x65;&#x63;&#x32;&#x2d;&#117;&#x73;&#101;&#x72;&#64;&#53;&#52;&#x2e;&#x31;&#53;&#57;&#x2e;&#50;&#x38;&#46;&#x32;&#49;&#55;</a></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DATA605 Reading Material 1</title>
-    <url>/2022/02/02/DATA605-Reading-Material-1/</url>
-    <content><![CDATA[<p>“Big_Data_Concepts_Techniques_and_Technologies”</p>
-<span id="more"></span>
-
-<h3 id="2-1-BIG-DATA-RELEVANCE"><a href="#2-1-BIG-DATA-RELEVANCE" class="headerlink" title="2.1. BIG DATA RELEVANCE"></a>2.1. BIG DATA RELEVANCE</h3><p>Organizations need to understand and  analyze relevant data flows, join data analytics with  product&#x2F;process development, and move it closer to  the core business (Davenport et al., 2012).</p>
-<h4 id="Possible-Applications"><a href="#Possible-Applications" class="headerlink" title="Possible Applications:"></a>Possible Applications:</h4><p>healthcare, public sector, retail, manufacturing, and personal-location contexts, stating that value can be generated in each one of them.</p>
-<h4 id="Concept"><a href="#Concept" class="headerlink" title="Concept:"></a>Concept:</h4><p>The concept of Big Data is about leveraging access to a vast volume of data, which<br>can help retrieving value for organizations, with minimal human intervention, due to the<br>advancements made in data processing technologies.</p>
-<h4 id="Usage："><a href="#Usage：" class="headerlink" title="Usage："></a>Usage：</h4><ul>
-<li>The use of Big Data can make information more transparent and usable across the<br>organization</li>
-<li>Business performance can be increased with more accurate and detailed facts, turned<br>possible by collecting and processing more transactional data</li>
-<li>Better management decisions can be made through data analysis</li>
-<li>Better management decisions can be made through data analysis</li>
-</ul>
-<p>Big Data will have a significant impact in value creation and competitive  advantage for organizations, such as new ways to interact with customers or to develop  products, services, and strategies, consequently raising profitability. Another area where  the concept of Big Data is of major relevance is the <u><strong>Internet of Things (IoT)</strong></u>, seen as a network of sensors embedded into several devices (e.g., appliances, smartphones, cars),  which is a significant source of Big Data, bringing many business environments (e.g.,  cities) into the era of Big Data (M. Chen et al., 2014).</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021910103.png" alt="image-20220202191034054"></p>
-<h3 id="2-2-BIG-DATA-CHARACTERISTICS"><a href="#2-2-BIG-DATA-CHARACTERISTICS" class="headerlink" title="2.2. BIG DATA CHARACTERISTICS"></a>2.2. BIG DATA CHARACTERISTICS</h3><p><u>There is no widely accepted threshold for classifying data as Big Data</u></p>
-<p>“big” implies significance, complexity, and challenge</p>
-<ul>
-<li>characteristics</li>
-<li>the augmentation of traditional data with more unstructured data sources</li>
-<li>quantitative thresholds</li>
-</ul>
-<p>(size, complexity, or techniques and technologies to process large<br>and complex datasets.)</p>
-<h4 id="Variety"><a href="#Variety" class="headerlink" title="Variety:"></a>Variety:</h4><p>Regarding variety, Big Data can be classified as structured (e.g., transactional data,<br>spreadsheets, and relational databases), semi-structured (e.g., Web server logs, Extensible Markup Language – XML, and JavaScript Object Notation – JSON), and unstructured (e.g., social media posts, audio, video, and images) (Chandarana &amp; Vijayalakshmi, 2014; Gandomi &amp; Haider, 2015). Traditional technologies can have significant difficulties storing and processing Big Data, such as content from Web pages, click-stream data, search indexes, social media posts, emails, documents, and sensor data. Most of this data does not fit well in traditional databases, hence, there must be a paradigm shift in the way organizations perform analyzes to accommodate raw structured, semi-structured, and unstructured data, in order to take advantage of the value in Big Data (Zikopoulos &amp; Eaton, 2011).</p>
-<p>The final characteristic covered by the 3Vs model is velocity, which refers either to the<br>rate at which data is generated or to the required speed of analysis and decision support<br>(Gandomi &amp; Haider, 2015). Data can be generated at different rates, ranging from batch<br>to real-time (streaming) (Chandarana &amp; Vijayalakshmi, 2014; Zikopoulos &amp; Eaton, 2011).<br>It is preferable to apply the definition of velocity to data in motion, instead of the rate at<br>which data is collected, stored, and retrieved from storage. Continuous data streams can<br>create competitive advantages in contexts where the identification of trends must occur<br>in short periods of time, as in financial markets, for example (Zikopoulos &amp; Eaton, 2011).</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021922214.png"></p>
-<h4 id="Q"><a href="#Q" class="headerlink" title="Q:"></a>Q:</h4><p>Hardware &#x2F; good database</p>
-<p>Other characteristics, which according to the literature often go unnoticed, are the variability and complexity, introduced by SAS (Gandomi &amp; Haider, 2015). Variability is related to the different rates at which data flows, according to different peaks and inconsistent data velocity. Complexity highlights the challenges of dealing with data from multiple sources, namely connecting, matching, cleaning, and transforming them. Besides the former, Krishnan (2013) also proposes three other characteristics: ambiguity, concerning the lack of appropriate metadata, resulting from the combination of volume and variety; viscosity, when the volume and velocity of data cause resistance in data flows; virality, which measures the time of data propagation among peers in a network.</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021924846.png" alt="image-20220202192431788"></p>
-<h3 id="2-3-BIG-DATA-CHALLENGES"><a href="#2-3-BIG-DATA-CHALLENGES" class="headerlink" title="2.3. BIG DATA CHALLENGES"></a>2.3. BIG DATA CHALLENGES</h3><p>General dilemmas may include challenges such as the lack of consensus and rigor in<br>Big Data’ s definition, models, and architectures.</p>
-<p> In fact, the lack of standard benchmarks to compare different technologies is seriously aggravated by the constant technological evolution of Big Data environments</p>
-<h4 id="Q-1"><a href="#Q-1" class="headerlink" title="Q:"></a>Q:</h4><p>anyway to set a standard</p>
-<p>How to take full advantage of Big Data in areas such as scientific research, engineering,<br>medicine, finance, education, government, retail, transportation, or telecommunications<br>remains an open question  </p>
-<p>Discussions about how to select the most appropriate data from several sources or how to estimate their value are major issues (Chandarana &amp; Vijayalakshmi, 2014). </p>
-<p>Another issue regularly discussed is how Big Data helps representing the population better than a small dataset does . The answer obviously depends on the context, but the authors make the important point that one should not assume that more data is always better</p>
-<p>Data throughout its life cycle can potentially create severe bottlenecks in networks,<br>storage devices, and relational databases. </p>
-<p>take significant time, as it is challenging to sequentially iterate through the whole dataset in a short amount of time. Consequently, the authors highlight the importance of designing indexes and implementing adequate preprocessing technologies. Hashem et al. (2015) identify the need to study adequate models to store and retrieve data as a crucial factor to successfully implement Big Data solutions. Models and algorithms for scalable data analysis also remain an open research issue, as well as the integration and analysis of data arriving continuously from streams</p>
-<p>Mining data streams has been identified as an emergent research topic in Big Data analytics (H. Chen, Chiang, &amp; Storey, 2012).</p>
-<p>one of the challenges lies in guaranteeing adequate monitoring and security without<br>exposing users’ data when processing it.</p>
-<h3 id="2-4-TECHNIQUES-FOR-BIG-DATA-SOLUTIONS"><a href="#2-4-TECHNIQUES-FOR-BIG-DATA-SOLUTIONS" class="headerlink" title="2.4. TECHNIQUES FOR BIG DATA SOLUTIONS"></a>2.4. TECHNIQUES FOR BIG DATA SOLUTIONS</h3>]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA605</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DATA641 Midterm</title>
-    <url>/2022/03/07/DATA641-Midterm/</url>
-    <content><![CDATA[<p>Q1 + Q6</p>
-<span id="more"></span>
-
-<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h2 id="i-Inflectional-morphology"><a href="#i-Inflectional-morphology" class="headerlink" title="i.Inflectional morphology"></a>i.Inflectional morphology</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the inflections of words. Inflection produces grammatical variants of the same word. Languages that add inflectional morphemes to words are sometimes called inflectional languages. It can be done by serveral ways: affixation, reduplication, alternation, suprasegmental variations. Inflection is most typically realized by adding an inflectional morpheme (that is, affixation) to the base form (either the root or a stem).</p>
-<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(adj) [some gets good news can be called he is good newsed]</p>
-<h2 id="ii-Derivational-morphology"><a href="#ii-Derivational-morphology" class="headerlink" title="ii.Derivational morphology"></a>ii.Derivational morphology</h2><h3 id="Def-1"><a href="#Def-1" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the derivation of words. Derivation produces a new word by adding affixes to existing words or stem occurs. Affixes are bound morphemes which can only attach to word or stem. The process changes the new semantically and grammatically.</p>
-<h3 id="Explanation-1"><a href="#Explanation-1" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(v)	[sth good news sb]</p>
-<h2 id="iii-Constituents"><a href="#iii-Constituents" class="headerlink" title="iii.Constituents"></a>iii.Constituents</h2><h3 id="Def-2"><a href="#Def-2" class="headerlink" title="Def:"></a>Def:</h3><p>In syntactic analysis, a constituent is a word or a group of words that function(s) as a single unit within a hierarchical structure. The analysis of constituent structure is associated mainly with phrase structure grammars, although dependency grammars also allow sentence structure to be broken down into constituent parts. The constituent structure of sentences is identified using constituency tests. These tests manipulate some portion of a sentence and based on the result, clues are delivered about the immediate constituent structure of the sentence. Many constituents are phrases. A phrase is a sequence of one or more words (in some theories two or more) built around a head lexical item and working as a unit within a sentence. A word sequence is shown to be a phrase&#x2F;constituent if it exhibits one or more of the behaviors discussed below.</p>
-<h3 id="Explanation-2"><a href="#Explanation-2" class="headerlink" title="Explanation:"></a>Explanation:</h3><p><u>i</u> <u>talked to</u> <u>my dad’s second cousin</u> [like: <u>sb</u> <u>do something to</u> <u>sb</u>]</p>
-<h2 id="iv-Multi-wordunits-x2F-collocations"><a href="#iv-Multi-wordunits-x2F-collocations" class="headerlink" title="iv.Multi-wordunits&#x2F;collocations"></a>iv.Multi-wordunits&#x2F;collocations</h2><h3 id="Def-3"><a href="#Def-3" class="headerlink" title="Def:"></a>Def:</h3><p>A multiword is a lexical unit formed by two or more words to yield a new concept, different from the composition of the meaning of its elements.</p>
-<p>There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.</p>
-<h3 id="Explanation-3"><a href="#Explanation-3" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i <u>talked to</u> my dad’s second cousin <u>in toronto</u> <u>on (good) friday</u></p>
-<h2 id="v-Coreference"><a href="#v-Coreference" class="headerlink" title="v.Coreference"></a>v.Coreference</h2><h3 id="Def-4"><a href="#Def-4" class="headerlink" title="Def:"></a>Def:</h3><p>In linguistics, coreference, sometimes written co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent</p>
-<h3 id="Explanation-4"><a href="#Explanation-4" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u>my dad’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (he &lt;—&gt; my dad’s second cousin)</p>
-<h2 id="vi-Syntactic-ambiguity"><a href="#vi-Syntactic-ambiguity" class="headerlink" title="vi.Syntactic ambiguity"></a>vi.Syntactic ambiguity</h2><h3 id="Def-5"><a href="#Def-5" class="headerlink" title="Def:"></a>Def:</h3><p>Syntactic ambiguity, also called amphiboly or amphibology, is a situation where a sentence may be interpreted in more than one way due to ambiguous sentence structure.</p>
-<h3 id="Explanation-5"><a href="#Explanation-5" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u><strong>my dad</strong>’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (Who is good newsed? My dad or my dad’s second cousin)</p>
-<h2 id="vii-Number-agreement"><a href="#vii-Number-agreement" class="headerlink" title="vii.Number agreement"></a>vii.Number agreement</h2><h3 id="Def-6"><a href="#Def-6" class="headerlink" title="Def:"></a>Def:</h3><p>agreement in number between words in the same grammatical construction (e.g., between adjectives and the nouns they modify)</p>
-<h3 id="Explanation-6"><a href="#Explanation-6" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and <u>he</u> <u>was</u> just good newsed! (“he” is single, so “was” is used)</p>
-<h2 id="viii-“Infinite-capacity-from-finite-means”"><a href="#viii-“Infinite-capacity-from-finite-means”" class="headerlink" title="viii.“Infinite capacity from finite means”"></a>viii.“Infinite capacity from finite means”</h2><h3 id="Def-7"><a href="#Def-7" class="headerlink" title="Def:"></a>Def:</h3><p>Some information can indicated by the sentence we saw, even though it is said in the sentence.</p>
-<h3 id="Explanation-7"><a href="#Explanation-7" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and he was just good newsed! —&gt;</p>
-<p>Her dad has cousins more than two.</p>
-<p>Toronto on that Friday had a good weather.</p>
-<p>Her dad’s second cousin was in toronto on that Friday.</p>
-<hr>
-<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><h2 id="1-True"><a href="#1-True" class="headerlink" title="1. True"></a>1. True</h2><p>Susan and Mary enjoyed the spaghetti they served with her brother.</p>
-<p>There are only two forms of ambiguity: lexical ambiguity and syntactic ambiguity.</p>
-<p>For this sentence, there are three ambiguities:</p>
-<ul>
-<li>Who served the spaghetti?</li>
-<li>Whose brother? Susan’s or Mary’s?</li>
-<li>Did the brother eat the spaghetti? Or he just went to accompany those two girls?</li>
-</ul>
-<h2 id="2-False"><a href="#2-False" class="headerlink" title="2. False"></a>2. False</h2><p>Zipf’s law is a relation between rank order and frequency of occurrence: it states that when observations (e.g., words) are ranked by their frequency, the frequency of a particular observation is inversely proportional to its rank, Frequency ∝ 1 Rank .</p>
-<h2 id="3-False"><a href="#3-False" class="headerlink" title="3. False"></a>3. False</h2><p>Byte pair encoding or digram coding is a simple form of data compression in which <u>the most common pair of consecutive bytes of data</u> is replaced with <u>a byte that does not occur within that data</u>. A table of the replacements is required to rebuild the original data. </p>
-<h2 id="4-True"><a href="#4-True" class="headerlink" title="4. True"></a>4. True</h2><p>Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space.</p>
-<p>Each word will not be represented by a discrete and sparse vector, but by a d-dimension continuous vector, and the meaning of each word will be captured by its relation to other words </p>
-<h2 id="5-True"><a href="#5-True" class="headerlink" title="5. True"></a>5. True</h2><p>“frame” + “er” + “s” &#x3D; “framers”</p>
-<p>framer —&gt;framer —&gt;framers</p>
-<p>(ex: drive —&gt;driver —&gt; drivers &#x2F; office —&gt;officer —&gt;officers)</p>
-<h2 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h2><h2 id="7-False"><a href="#7-False" class="headerlink" title="7.False"></a>7.False</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg" alt="笔记 2022年3月7日 19"></p>
+<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#x63;&#50;&#x2d;&#117;&#115;&#x65;&#114;&#x40;&#53;&#52;&#46;&#x31;&#x35;&#57;&#x2e;&#50;&#x38;&#46;&#x32;&#x31;&#x37;">&#x65;&#x63;&#50;&#x2d;&#117;&#115;&#x65;&#114;&#x40;&#53;&#52;&#46;&#x31;&#x35;&#57;&#x2e;&#50;&#x38;&#46;&#x32;&#x31;&#x37;</a></p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -1201,6 +1101,55 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>DATA606</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DATA605 Reading Material 1</title>
+    <url>/2022/02/02/DATA605-Reading-Material-1/</url>
+    <content><![CDATA[<p>“Big_Data_Concepts_Techniques_and_Technologies”</p>
+<span id="more"></span>
+
+<h3 id="2-1-BIG-DATA-RELEVANCE"><a href="#2-1-BIG-DATA-RELEVANCE" class="headerlink" title="2.1. BIG DATA RELEVANCE"></a>2.1. BIG DATA RELEVANCE</h3><p>Organizations need to understand and  analyze relevant data flows, join data analytics with  product&#x2F;process development, and move it closer to  the core business (Davenport et al., 2012).</p>
+<h4 id="Possible-Applications"><a href="#Possible-Applications" class="headerlink" title="Possible Applications:"></a>Possible Applications:</h4><p>healthcare, public sector, retail, manufacturing, and personal-location contexts, stating that value can be generated in each one of them.</p>
+<h4 id="Concept"><a href="#Concept" class="headerlink" title="Concept:"></a>Concept:</h4><p>The concept of Big Data is about leveraging access to a vast volume of data, which<br>can help retrieving value for organizations, with minimal human intervention, due to the<br>advancements made in data processing technologies.</p>
+<h4 id="Usage："><a href="#Usage：" class="headerlink" title="Usage："></a>Usage：</h4><ul>
+<li>The use of Big Data can make information more transparent and usable across the<br>organization</li>
+<li>Business performance can be increased with more accurate and detailed facts, turned<br>possible by collecting and processing more transactional data</li>
+<li>Better management decisions can be made through data analysis</li>
+<li>Better management decisions can be made through data analysis</li>
+</ul>
+<p>Big Data will have a significant impact in value creation and competitive  advantage for organizations, such as new ways to interact with customers or to develop  products, services, and strategies, consequently raising profitability. Another area where  the concept of Big Data is of major relevance is the <u><strong>Internet of Things (IoT)</strong></u>, seen as a network of sensors embedded into several devices (e.g., appliances, smartphones, cars),  which is a significant source of Big Data, bringing many business environments (e.g.,  cities) into the era of Big Data (M. Chen et al., 2014).</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021910103.png" alt="image-20220202191034054"></p>
+<h3 id="2-2-BIG-DATA-CHARACTERISTICS"><a href="#2-2-BIG-DATA-CHARACTERISTICS" class="headerlink" title="2.2. BIG DATA CHARACTERISTICS"></a>2.2. BIG DATA CHARACTERISTICS</h3><p><u>There is no widely accepted threshold for classifying data as Big Data</u></p>
+<p>“big” implies significance, complexity, and challenge</p>
+<ul>
+<li>characteristics</li>
+<li>the augmentation of traditional data with more unstructured data sources</li>
+<li>quantitative thresholds</li>
+</ul>
+<p>(size, complexity, or techniques and technologies to process large<br>and complex datasets.)</p>
+<h4 id="Variety"><a href="#Variety" class="headerlink" title="Variety:"></a>Variety:</h4><p>Regarding variety, Big Data can be classified as structured (e.g., transactional data,<br>spreadsheets, and relational databases), semi-structured (e.g., Web server logs, Extensible Markup Language – XML, and JavaScript Object Notation – JSON), and unstructured (e.g., social media posts, audio, video, and images) (Chandarana &amp; Vijayalakshmi, 2014; Gandomi &amp; Haider, 2015). Traditional technologies can have significant difficulties storing and processing Big Data, such as content from Web pages, click-stream data, search indexes, social media posts, emails, documents, and sensor data. Most of this data does not fit well in traditional databases, hence, there must be a paradigm shift in the way organizations perform analyzes to accommodate raw structured, semi-structured, and unstructured data, in order to take advantage of the value in Big Data (Zikopoulos &amp; Eaton, 2011).</p>
+<p>The final characteristic covered by the 3Vs model is velocity, which refers either to the<br>rate at which data is generated or to the required speed of analysis and decision support<br>(Gandomi &amp; Haider, 2015). Data can be generated at different rates, ranging from batch<br>to real-time (streaming) (Chandarana &amp; Vijayalakshmi, 2014; Zikopoulos &amp; Eaton, 2011).<br>It is preferable to apply the definition of velocity to data in motion, instead of the rate at<br>which data is collected, stored, and retrieved from storage. Continuous data streams can<br>create competitive advantages in contexts where the identification of trends must occur<br>in short periods of time, as in financial markets, for example (Zikopoulos &amp; Eaton, 2011).</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021922214.png"></p>
+<h4 id="Q"><a href="#Q" class="headerlink" title="Q:"></a>Q:</h4><p>Hardware &#x2F; good database</p>
+<p>Other characteristics, which according to the literature often go unnoticed, are the variability and complexity, introduced by SAS (Gandomi &amp; Haider, 2015). Variability is related to the different rates at which data flows, according to different peaks and inconsistent data velocity. Complexity highlights the challenges of dealing with data from multiple sources, namely connecting, matching, cleaning, and transforming them. Besides the former, Krishnan (2013) also proposes three other characteristics: ambiguity, concerning the lack of appropriate metadata, resulting from the combination of volume and variety; viscosity, when the volume and velocity of data cause resistance in data flows; virality, which measures the time of data propagation among peers in a network.</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202021924846.png" alt="image-20220202192431788"></p>
+<h3 id="2-3-BIG-DATA-CHALLENGES"><a href="#2-3-BIG-DATA-CHALLENGES" class="headerlink" title="2.3. BIG DATA CHALLENGES"></a>2.3. BIG DATA CHALLENGES</h3><p>General dilemmas may include challenges such as the lack of consensus and rigor in<br>Big Data’ s definition, models, and architectures.</p>
+<p> In fact, the lack of standard benchmarks to compare different technologies is seriously aggravated by the constant technological evolution of Big Data environments</p>
+<h4 id="Q-1"><a href="#Q-1" class="headerlink" title="Q:"></a>Q:</h4><p>anyway to set a standard</p>
+<p>How to take full advantage of Big Data in areas such as scientific research, engineering,<br>medicine, finance, education, government, retail, transportation, or telecommunications<br>remains an open question  </p>
+<p>Discussions about how to select the most appropriate data from several sources or how to estimate their value are major issues (Chandarana &amp; Vijayalakshmi, 2014). </p>
+<p>Another issue regularly discussed is how Big Data helps representing the population better than a small dataset does . The answer obviously depends on the context, but the authors make the important point that one should not assume that more data is always better</p>
+<p>Data throughout its life cycle can potentially create severe bottlenecks in networks,<br>storage devices, and relational databases. </p>
+<p>take significant time, as it is challenging to sequentially iterate through the whole dataset in a short amount of time. Consequently, the authors highlight the importance of designing indexes and implementing adequate preprocessing technologies. Hashem et al. (2015) identify the need to study adequate models to store and retrieve data as a crucial factor to successfully implement Big Data solutions. Models and algorithms for scalable data analysis also remain an open research issue, as well as the integration and analysis of data arriving continuously from streams</p>
+<p>Mining data streams has been identified as an emergent research topic in Big Data analytics (H. Chen, Chiang, &amp; Storey, 2012).</p>
+<p>one of the challenges lies in guaranteeing adequate monitoring and security without<br>exposing users’ data when processing it.</p>
+<h3 id="2-4-TECHNIQUES-FOR-BIG-DATA-SOLUTIONS"><a href="#2-4-TECHNIQUES-FOR-BIG-DATA-SOLUTIONS" class="headerlink" title="2.4. TECHNIQUES FOR BIG DATA SOLUTIONS"></a>2.4. TECHNIQUES FOR BIG DATA SOLUTIONS</h3>]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
       </tags>
   </entry>
   <entry>
@@ -1343,6 +1292,97 @@ which pip
       </categories>
       <tags>
         <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DATA641 Midterm</title>
+    <url>/2022/03/07/DATA641-Midterm/</url>
+    <content><![CDATA[<p>Q1 + Q6</p>
+<span id="more"></span>
+
+<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h2 id="i-Inflectional-morphology"><a href="#i-Inflectional-morphology" class="headerlink" title="i.Inflectional morphology"></a>i.Inflectional morphology</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the inflections of words. Inflection produces grammatical variants of the same word. Languages that add inflectional morphemes to words are sometimes called inflectional languages. It can be done by serveral ways: affixation, reduplication, alternation, suprasegmental variations. Inflection is most typically realized by adding an inflectional morpheme (that is, affixation) to the base form (either the root or a stem).</p>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(adj) [some gets good news can be called he is good newsed]</p>
+<h2 id="ii-Derivational-morphology"><a href="#ii-Derivational-morphology" class="headerlink" title="ii.Derivational morphology"></a>ii.Derivational morphology</h2><h3 id="Def-1"><a href="#Def-1" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the derivation of words. Derivation produces a new word by adding affixes to existing words or stem occurs. Affixes are bound morphemes which can only attach to word or stem. The process changes the new semantically and grammatically.</p>
+<h3 id="Explanation-1"><a href="#Explanation-1" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(v)	[sth good news sb]</p>
+<h2 id="iii-Constituents"><a href="#iii-Constituents" class="headerlink" title="iii.Constituents"></a>iii.Constituents</h2><h3 id="Def-2"><a href="#Def-2" class="headerlink" title="Def:"></a>Def:</h3><p>In syntactic analysis, a constituent is a word or a group of words that function(s) as a single unit within a hierarchical structure. The analysis of constituent structure is associated mainly with phrase structure grammars, although dependency grammars also allow sentence structure to be broken down into constituent parts. The constituent structure of sentences is identified using constituency tests. These tests manipulate some portion of a sentence and based on the result, clues are delivered about the immediate constituent structure of the sentence. Many constituents are phrases. A phrase is a sequence of one or more words (in some theories two or more) built around a head lexical item and working as a unit within a sentence. A word sequence is shown to be a phrase&#x2F;constituent if it exhibits one or more of the behaviors discussed below.</p>
+<h3 id="Explanation-2"><a href="#Explanation-2" class="headerlink" title="Explanation:"></a>Explanation:</h3><p><u>i</u> <u>talked to</u> <u>my dad’s second cousin</u> [like: <u>sb</u> <u>do something to</u> <u>sb</u>]</p>
+<h2 id="iv-Multi-wordunits-x2F-collocations"><a href="#iv-Multi-wordunits-x2F-collocations" class="headerlink" title="iv.Multi-wordunits&#x2F;collocations"></a>iv.Multi-wordunits&#x2F;collocations</h2><h3 id="Def-3"><a href="#Def-3" class="headerlink" title="Def:"></a>Def:</h3><p>A multiword is a lexical unit formed by two or more words to yield a new concept, different from the composition of the meaning of its elements.</p>
+<p>There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.</p>
+<h3 id="Explanation-3"><a href="#Explanation-3" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i <u>talked to</u> my dad’s second cousin <u>in toronto</u> <u>on (good) friday</u></p>
+<h2 id="v-Coreference"><a href="#v-Coreference" class="headerlink" title="v.Coreference"></a>v.Coreference</h2><h3 id="Def-4"><a href="#Def-4" class="headerlink" title="Def:"></a>Def:</h3><p>In linguistics, coreference, sometimes written co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent</p>
+<h3 id="Explanation-4"><a href="#Explanation-4" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u>my dad’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (he &lt;—&gt; my dad’s second cousin)</p>
+<h2 id="vi-Syntactic-ambiguity"><a href="#vi-Syntactic-ambiguity" class="headerlink" title="vi.Syntactic ambiguity"></a>vi.Syntactic ambiguity</h2><h3 id="Def-5"><a href="#Def-5" class="headerlink" title="Def:"></a>Def:</h3><p>Syntactic ambiguity, also called amphiboly or amphibology, is a situation where a sentence may be interpreted in more than one way due to ambiguous sentence structure.</p>
+<h3 id="Explanation-5"><a href="#Explanation-5" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u><strong>my dad</strong>’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (Who is good newsed? My dad or my dad’s second cousin)</p>
+<h2 id="vii-Number-agreement"><a href="#vii-Number-agreement" class="headerlink" title="vii.Number agreement"></a>vii.Number agreement</h2><h3 id="Def-6"><a href="#Def-6" class="headerlink" title="Def:"></a>Def:</h3><p>agreement in number between words in the same grammatical construction (e.g., between adjectives and the nouns they modify)</p>
+<h3 id="Explanation-6"><a href="#Explanation-6" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and <u>he</u> <u>was</u> just good newsed! (“he” is single, so “was” is used)</p>
+<h2 id="viii-“Infinite-capacity-from-finite-means”"><a href="#viii-“Infinite-capacity-from-finite-means”" class="headerlink" title="viii.“Infinite capacity from finite means”"></a>viii.“Infinite capacity from finite means”</h2><h3 id="Def-7"><a href="#Def-7" class="headerlink" title="Def:"></a>Def:</h3><p>Some information can indicated by the sentence we saw, even though it is said in the sentence.</p>
+<h3 id="Explanation-7"><a href="#Explanation-7" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and he was just good newsed! —&gt;</p>
+<p>Her dad has cousins more than two.</p>
+<p>Toronto on that Friday had a good weather.</p>
+<p>Her dad’s second cousin was in toronto on that Friday.</p>
+<hr>
+<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><h2 id="1-True"><a href="#1-True" class="headerlink" title="1. True"></a>1. True</h2><p>Susan and Mary enjoyed the spaghetti they served with her brother.</p>
+<p>There are only two forms of ambiguity: lexical ambiguity and syntactic ambiguity.</p>
+<p>For this sentence, there are three ambiguities:</p>
+<ul>
+<li>Who served the spaghetti?</li>
+<li>Whose brother? Susan’s or Mary’s?</li>
+<li>Did the brother eat the spaghetti? Or he just went to accompany those two girls?</li>
+</ul>
+<h2 id="2-False"><a href="#2-False" class="headerlink" title="2. False"></a>2. False</h2><p>Zipf’s law is a relation between rank order and frequency of occurrence: it states that when observations (e.g., words) are ranked by their frequency, the frequency of a particular observation is inversely proportional to its rank, Frequency ∝ 1 Rank .</p>
+<h2 id="3-False"><a href="#3-False" class="headerlink" title="3. False"></a>3. False</h2><p>Byte pair encoding or digram coding is a simple form of data compression in which <u>the most common pair of consecutive bytes of data</u> is replaced with <u>a byte that does not occur within that data</u>. A table of the replacements is required to rebuild the original data. </p>
+<h2 id="4-True"><a href="#4-True" class="headerlink" title="4. True"></a>4. True</h2><p>Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space.</p>
+<p>Each word will not be represented by a discrete and sparse vector, but by a d-dimension continuous vector, and the meaning of each word will be captured by its relation to other words </p>
+<h2 id="5-True"><a href="#5-True" class="headerlink" title="5. True"></a>5. True</h2><p>“frame” + “er” + “s” &#x3D; “framers”</p>
+<p>framer —&gt;framer —&gt;framers</p>
+<p>(ex: drive —&gt;driver —&gt; drivers &#x2F; office —&gt;officer —&gt;officers)</p>
+<h2 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h2><h2 id="7-False"><a href="#7-False" class="headerlink" title="7.False"></a>7.False</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg" alt="笔记 2022年3月7日 19"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Driving License</title>
+    <url>/2022/01/26/Driving-License/</url>
+    <content><![CDATA[<p>如何获得驾照（国内驾照+无ssn）</p>
+<span id="more"></span>
+
+<h4 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h4><hr>
+<p><a href="https://zhuanlan.zhihu.com/p/79116559">https://zhuanlan.zhihu.com/p/79116559</a></p>
+<p><a href="https://posts.careerengine.us/p/5b633a2db77a012bb38ac882">https://posts.careerengine.us/p/5b633a2db77a012bb38ac882</a></p>
+<p>获取马里兰驾照所需文件：<strong>护照、I20 表格、I94 表、SSN（或无 SSN 证明）、中国驾照原件、中国驾照的认证翻译件、三小时酒精课程证书、两份 resident 证明材料。</strong></p>
+<p>练习题：</p>
+<p><a href="https://dmv.ny.gov/driver-license/drivers-manual-practice-tests">https://dmv.ny.gov/driver-license/drivers-manual-practice-tests</a></p>
+<h4 id="贾小雪"><a href="#贾小雪" class="headerlink" title="贾小雪"></a>贾小雪</h4><hr>
+<h5 id="没有学车："><a href="#没有学车：" class="headerlink" title="没有学车："></a>没有学车：</h5><p>有国内驾照，直接考</p>
+<p>会开车 不需要练</p>
+<h5 id="一般开销"><a href="#一般开销" class="headerlink" title="一般开销"></a>一般开销</h5><ul>
+<li><p>弄个酒精测试证书和驾照翻译花了20刀</p>
+</li>
+<li><p>然后过了路考拿驾照 花了9刀工本费</p>
+</li>
+<li><p>过不了不收费 再约一次路考 只有过了才交钱</p>
+</li>
+</ul>
+<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><p>没有路考; 只是场地 考停车</p>
+<h5 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h5><p>场地都一样 都是往右手倒车</p>
+<p>先车头进 再车尾进 然后一个三点的项目</p>
+<p><a href="https://www.youtube.com/watch?v=YjPwMx_jiWo">https://www.youtube.com/watch?v=YjPwMx_jiWo</a></p>
+<p><a href="https://www.youtube.com/watch?v=Zbf3-lctqX8">https://www.youtube.com/watch?v=Zbf3-lctqX8</a></p>
+<p><a href="https://www.youtube.com/watch?v=lEeek9AivZQ">https://www.youtube.com/watch?v=lEeek9AivZQ</a></p>
+<p><a href="https://www.youtube.com/watch?v=S1ePz7Rlm9A">https://www.youtube.com/watch?v=S1ePz7Rlm9A</a></p>
+<h4 id="CSSA"><a href="#CSSA" class="headerlink" title="CSSA"></a>CSSA</h4><hr>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201261013242.png" alt="image-20220126101305186"></p>
+]]></content>
+      <categories>
+        <category>UMD</category>
+      </categories>
+      <tags>
+        <tag>UMD</tag>
       </tags>
   </entry>
   <entry>
@@ -2068,46 +2108,6 @@ which pip
       </categories>
       <tags>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Driving License</title>
-    <url>/2022/01/26/Driving-License/</url>
-    <content><![CDATA[<p>如何获得驾照（国内驾照+无ssn）</p>
-<span id="more"></span>
-
-<h4 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h4><hr>
-<p><a href="https://zhuanlan.zhihu.com/p/79116559">https://zhuanlan.zhihu.com/p/79116559</a></p>
-<p><a href="https://posts.careerengine.us/p/5b633a2db77a012bb38ac882">https://posts.careerengine.us/p/5b633a2db77a012bb38ac882</a></p>
-<p>获取马里兰驾照所需文件：<strong>护照、I20 表格、I94 表、SSN（或无 SSN 证明）、中国驾照原件、中国驾照的认证翻译件、三小时酒精课程证书、两份 resident 证明材料。</strong></p>
-<p>练习题：</p>
-<p><a href="https://dmv.ny.gov/driver-license/drivers-manual-practice-tests">https://dmv.ny.gov/driver-license/drivers-manual-practice-tests</a></p>
-<h4 id="贾小雪"><a href="#贾小雪" class="headerlink" title="贾小雪"></a>贾小雪</h4><hr>
-<h5 id="没有学车："><a href="#没有学车：" class="headerlink" title="没有学车："></a>没有学车：</h5><p>有国内驾照，直接考</p>
-<p>会开车 不需要练</p>
-<h5 id="一般开销"><a href="#一般开销" class="headerlink" title="一般开销"></a>一般开销</h5><ul>
-<li><p>弄个酒精测试证书和驾照翻译花了20刀</p>
-</li>
-<li><p>然后过了路考拿驾照 花了9刀工本费</p>
-</li>
-<li><p>过不了不收费 再约一次路考 只有过了才交钱</p>
-</li>
-</ul>
-<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><p>没有路考; 只是场地 考停车</p>
-<h5 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h5><p>场地都一样 都是往右手倒车</p>
-<p>先车头进 再车尾进 然后一个三点的项目</p>
-<p><a href="https://www.youtube.com/watch?v=YjPwMx_jiWo">https://www.youtube.com/watch?v=YjPwMx_jiWo</a></p>
-<p><a href="https://www.youtube.com/watch?v=Zbf3-lctqX8">https://www.youtube.com/watch?v=Zbf3-lctqX8</a></p>
-<p><a href="https://www.youtube.com/watch?v=lEeek9AivZQ">https://www.youtube.com/watch?v=lEeek9AivZQ</a></p>
-<p><a href="https://www.youtube.com/watch?v=S1ePz7Rlm9A">https://www.youtube.com/watch?v=S1ePz7Rlm9A</a></p>
-<h4 id="CSSA"><a href="#CSSA" class="headerlink" title="CSSA"></a>CSSA</h4><hr>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201261013242.png" alt="image-20220126101305186"></p>
-]]></content>
-      <categories>
-        <category>UMD</category>
-      </categories>
-      <tags>
-        <tag>UMD</tag>
       </tags>
   </entry>
   <entry>
@@ -2936,6 +2936,25 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Spark安装</title>
+    <url>/2022/04/07/Spark%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>Apache Spark™ is a multi-language engine for executing data engineering, data science, and machine learning on single-node machines or clusters.</p>
+<p><a href="https://spark.apache.org/">https://spark.apache.org/</a></p>
+<span id="more"></span>
+
+<h1 id="How-to-install-Spark-on-Windows"><a href="#How-to-install-Spark-on-Windows" class="headerlink" title="How to install Spark on Windows"></a>How to install Spark on Windows</h1><p><a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a></p>
+<p>Spark is a unified analytics engine for large-scale data processing. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including Spark SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and Structured Streaming for stream processing.</p>
+<p><a href="https://phoenixnap.com/kb/install-spark-on-windows-10">https://phoenixnap.com/kb/install-spark-on-windows-10</a></p>
+<h2 id="Installing-with-PyPi"><a href="#Installing-with-PyPi" class="headerlink" title="Installing with PyPi"></a>Installing with PyPi</h2><p><a href="https://pypi.org/project/pyspark/">PySpark</a> is now available in pypi. To install just run <code>pip install pyspark</code>.</p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Some menus 1</title>
     <url>/2022/04/09/Some-menus-1/</url>
     <content><![CDATA[<p>一些遇到了但分不清的菜单词条</p>
@@ -2978,25 +2997,6 @@ which pip
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spark安装</title>
-    <url>/2022/04/07/Spark%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>Apache Spark™ is a multi-language engine for executing data engineering, data science, and machine learning on single-node machines or clusters.</p>
-<p><a href="https://spark.apache.org/">https://spark.apache.org/</a></p>
-<span id="more"></span>
-
-<h1 id="How-to-install-Spark-on-Windows"><a href="#How-to-install-Spark-on-Windows" class="headerlink" title="How to install Spark on Windows"></a>How to install Spark on Windows</h1><p><a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a></p>
-<p>Spark is a unified analytics engine for large-scale data processing. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including Spark SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and Structured Streaming for stream processing.</p>
-<p><a href="https://phoenixnap.com/kb/install-spark-on-windows-10">https://phoenixnap.com/kb/install-spark-on-windows-10</a></p>
-<h2 id="Installing-with-PyPi"><a href="#Installing-with-PyPi" class="headerlink" title="Installing with PyPi"></a>Installing with PyPi</h2><p><a href="https://pypi.org/project/pyspark/">PySpark</a> is now available in pypi. To install just run <code>pip install pyspark</code>.</p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>Spark</tag>
       </tags>
   </entry>
   <entry>
@@ -3228,6 +3228,48 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Spring2022 课程安排</title>
+    <url>/2022/01/29/Spring2022-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</url>
+    <content><![CDATA[<p>Spring2022 Courses Name &amp; Schedule</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATA 606</td>
+<td>DATA 641</td>
+<td>DATA 604</td>
+<td>DATA 605</td>
+</tr>
+<tr>
+<td><strong>Algorithms for Data Science</strong></td>
+<td><strong>Natural Language Processing</strong></td>
+<td><strong>Data Representation and Modeling</strong></td>
+<td><strong>Big Data Systems</strong></td>
+</tr>
+<tr>
+<td>Abdirisak Mohamed</td>
+<td>Shabnam Tafreshi</td>
+<td>Wojciech Czaja</td>
+<td>Prem Saggar</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>UMD</category>
+      </categories>
+      <tags>
+        <tag>UMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring Break Plan</title>
     <url>/2022/03/09/Spring-Break-Plan/</url>
     <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
@@ -3285,48 +3327,6 @@ which pip
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring2022 课程安排</title>
-    <url>/2022/01/29/Spring2022-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</url>
-    <content><![CDATA[<p>Spring2022 Courses Name &amp; Schedule</p>
-<span id="more"></span>
-
-<table>
-<thead>
-<tr>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>DATA 606</td>
-<td>DATA 641</td>
-<td>DATA 604</td>
-<td>DATA 605</td>
-</tr>
-<tr>
-<td><strong>Algorithms for Data Science</strong></td>
-<td><strong>Natural Language Processing</strong></td>
-<td><strong>Data Representation and Modeling</strong></td>
-<td><strong>Big Data Systems</strong></td>
-</tr>
-<tr>
-<td>Abdirisak Mohamed</td>
-<td>Shabnam Tafreshi</td>
-<td>Wojciech Czaja</td>
-<td>Prem Saggar</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>UMD</category>
-      </categories>
-      <tags>
-        <tag>UMD</tag>
       </tags>
   </entry>
   <entry>
@@ -3489,79 +3489,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>final project ideas</title>
-    <url>/2022/04/11/final-project-ideas/</url>
-    <content><![CDATA[<p>在GitHub上找到一些不错的项目。需要按照课程要求实现自己的项目。</p>
-<span id="more"></span>
-
-<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ol>
-<li>Big Data</li>
-<li>Spark</li>
-</ol>
-<h1 id="已有项目"><a href="#已有项目" class="headerlink" title="已有项目"></a>已有项目</h1><h1 id="基于Spark的电影推荐系统"><a href="#基于Spark的电影推荐系统" class="headerlink" title="基于Spark的电影推荐系统"></a><a href="https://github.com/LuckyZXL2016/Movie_Recommend">基于Spark的电影推荐系统</a></h1><p>基于大数据过滤引擎的电影推荐系统–“懂你”电影网站，包含了爬虫、电影网站（前端和后端）、后台管理系统以及推荐系统（Spark）</p>
-<h1 id="News-recommend"><a href="#News-recommend" class="headerlink" title="News_recommend"></a><a href="https://github.com/luochana/News_recommend">News_recommend</a></h1><p>基于大数据计算引擎的新闻推荐系统–”今日小站”，包含了爬虫，新闻网站（前端和后端），推荐系统（Spark）</p>
-<h1 id="深圳地铁大数据客流分析系统"><a href="#深圳地铁大数据客流分析系统" class="headerlink" title="深圳地铁大数据客流分析系统"></a><a href="https://github.com/geekyouth/SZT-bigdata">深圳地铁大数据客流分析系统</a></h1><p><strong><u><em>！： This one is FUCKING HARD</em></u></strong></p>
-<p>主要分析深圳通刷卡数据，通过大数据技术角度来研究深圳地铁客运能力，探索深圳地铁优化服务的方向</p>
-<h1 id="基于Spark2-x新闻网大数据实时分析可视化系统项目"><a href="#基于Spark2-x新闻网大数据实时分析可视化系统项目" class="headerlink" title="基于Spark2.x新闻网大数据实时分析可视化系统项目"></a><a href="https://github.com/LuckyZXL2016/News_Spark">基于Spark2.x新闻网大数据实时分析可视化系统项目</a></h1><h1 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h1><p>根据之前的proposal，我们需要将有spark技术的大数据系统，结合AWS，应用到COVID或者别的什么疾病上面。</p>
-<ol>
-<li>人流 + 疫情peak</li>
-<li>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</li>
-<li>scrap twitter &#x2F; reddit or some media, predict the new version of virus</li>
-<li>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</li>
-</ol>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA605</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>c写简易计算器（Mac）</title>
-    <url>/2022/02/08/c%E5%86%99%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8%EF%BC%88Mac%EF%BC%89/</url>
-    <content><![CDATA[<p>c写完编译成exe，运行环境直接用Mac的terminal，反正是unix环境，工具用的vim和gcc（Clang和xcode不熟悉）</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看文件列表</span><br><span class="line">#移动位置</span><br><span class="line">#创建文件夹</span><br><span class="line">ls</span><br><span class="line">cd</span><br><span class="line">mkdir</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#安装gcc</span><br><span class="line">xcode-select --install</span><br><span class="line">#查看gcc版本</span><br><span class="line">gcc -version</span><br><span class="line">或者</span><br><span class="line">gcc -dumpversion</span><br><span class="line">#查看vim版本</span><br><span class="line">vim -version</span><br></pre></td></tr></table></figure>
-
-<p>ps：在从App Store上下载Xcode后，默认是不会安装Command Line Tools的，Command Line Tools是在Xcode中的一款工具，可以在命令行中运行C程序</p>
-<p>但是vim一般都自带</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建c程序并用vim编辑</span><br><span class="line">vim test.c</span><br><span class="line"></span><br><span class="line">#写完之后保存退出</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a href="https://www.runoob.com/cprogramming/c-examples-calculator-switch-case.html">C 语言实例 - 实现简单的计算器</a></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="type">char</span> operator;</span><br><span class="line">    <span class="type">double</span> firstNumber,secondNumber;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入操作符 (+, -, *,): &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;operator);</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入两个数字: &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf %lf&quot;</span>,&amp;firstNumber, &amp;secondNumber);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">switch</span>(operator)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf + %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber + secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf - %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber - secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf * %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber * secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf / %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber / secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// operator doesn&#x27;t match any case constant (+, -, *, /)</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Error! operator is not correct&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>i：输入模式</p>
-<p>esc：退出编辑</p>
-<p>w: save</p>
-<p>q: quit</p>
-<p>q!: quit w&#x2F;o saving</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202080910924.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#编译</span><br><span class="line">cc test.c</span><br><span class="line">#运行</span><br><span class="line">./a.out</span><br><span class="line">#编译成exe</span><br><span class="line">gcc test.c -o test.exe</span><br></pre></td></tr></table></figure>
-
-<p>test.c 是文件名</p>
-<p>-o 表示输出</p>
-<p>test.exe是输出的执行文件名</p>
-<p><a href="https://www.runoob.com/w3cnote/gcc-parameter-detail.html">GCC 参数详解</a></p>
-<hr>
-<p>参考</p>
-<p><a href="https://www.zhihu.com/question/304541222/answer/549543003">如何在 mac 电脑上写 C？</a></p>
-]]></content>
-      <categories>
-        <category>专业相关知识</category>
-      </categories>
-      <tags>
-        <tag>专业相关知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>fork of Github</title>
     <url>/2022/04/11/fork-of-Github/</url>
     <content><![CDATA[<p>对Github中fork功能使用的误解</p>
@@ -3702,12 +3629,47 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>test2</title>
-    <url>/2022/01/17/test2/</url>
-    <content><![CDATA[<p>Attempt  to write a blog on Mac with a sharing file folder</p>
+    <title>c写简易计算器（Mac）</title>
+    <url>/2022/02/08/c%E5%86%99%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8%EF%BC%88Mac%EF%BC%89/</url>
+    <content><![CDATA[<p>c写完编译成exe，运行环境直接用Mac的terminal，反正是unix环境，工具用的vim和gcc（Clang和xcode不熟悉）</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看文件列表</span><br><span class="line">#移动位置</span><br><span class="line">#创建文件夹</span><br><span class="line">ls</span><br><span class="line">cd</span><br><span class="line">mkdir</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#安装gcc</span><br><span class="line">xcode-select --install</span><br><span class="line">#查看gcc版本</span><br><span class="line">gcc -version</span><br><span class="line">或者</span><br><span class="line">gcc -dumpversion</span><br><span class="line">#查看vim版本</span><br><span class="line">vim -version</span><br></pre></td></tr></table></figure>
+
+<p>ps：在从App Store上下载Xcode后，默认是不会安装Command Line Tools的，Command Line Tools是在Xcode中的一款工具，可以在命令行中运行C程序</p>
+<p>但是vim一般都自带</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建c程序并用vim编辑</span><br><span class="line">vim test.c</span><br><span class="line"></span><br><span class="line">#写完之后保存退出</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://www.runoob.com/cprogramming/c-examples-calculator-switch-case.html">C 语言实例 - 实现简单的计算器</a></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"> </span><br><span class="line">    <span class="type">char</span> operator;</span><br><span class="line">    <span class="type">double</span> firstNumber,secondNumber;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入操作符 (+, -, *,): &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;operator);</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入两个数字: &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf %lf&quot;</span>,&amp;firstNumber, &amp;secondNumber);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">switch</span>(operator)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf + %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber + secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf - %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber - secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf * %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber * secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%.1lf / %.1lf = %.1lf&quot;</span>,firstNumber, secondNumber, firstNumber / secondNumber);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// operator doesn&#x27;t match any case constant (+, -, *, /)</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Error! operator is not correct&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>i：输入模式</p>
+<p>esc：退出编辑</p>
+<p>w: save</p>
+<p>q: quit</p>
+<p>q!: quit w&#x2F;o saving</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202080910924.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#编译</span><br><span class="line">cc test.c</span><br><span class="line">#运行</span><br><span class="line">./a.out</span><br><span class="line">#编译成exe</span><br><span class="line">gcc test.c -o test.exe</span><br></pre></td></tr></table></figure>
+
+<p>test.c 是文件名</p>
+<p>-o 表示输出</p>
+<p>test.exe是输出的执行文件名</p>
+<p><a href="https://www.runoob.com/w3cnote/gcc-parameter-detail.html">GCC 参数详解</a></p>
+<hr>
+<p>参考</p>
+<p><a href="https://www.zhihu.com/question/304541222/answer/549543003">如何在 mac 电脑上写 C？</a></p>
 ]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>专业相关知识</tag>
       </tags>
   </entry>
   <entry>
@@ -3758,6 +3720,15 @@ which pip
       </categories>
       <tags>
         <tag>专业相关知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test2</title>
+    <url>/2022/01/17/test2/</url>
+    <content><![CDATA[<p>Attempt  to write a blog on Mac with a sharing file folder</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -3918,23 +3889,32 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>听力速记</title>
-    <url>/2022/02/04/%E5%90%AC%E5%8A%9B%E9%80%9F%E8%AE%B0/</url>
-    <content><![CDATA[<p>如何记录听力笔记？</p>
+    <title>final project ideas</title>
+    <url>/2022/04/11/final-project-ideas/</url>
+    <content><![CDATA[<p>在GitHub上找到一些不错的项目。需要按照课程要求实现自己的项目。</p>
 <span id="more"></span>
 
-<p>知乎：</p>
-<p><a href="https://zhuanlan.zhihu.com/p/33207590">英语听力笔记简写规则+速记符号汇总，省时省力记笔记！</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/29536224">托福听力笔记速记大法！省时、高效、准确记笔记！</a></p>
-<p>小红书：</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202041101213.JPG" alt="IMG_1795"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202041101351.JPG" alt="IMG_1796"></p>
+<h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><ol>
+<li>Big Data</li>
+<li>Spark</li>
+</ol>
+<h1 id="已有项目"><a href="#已有项目" class="headerlink" title="已有项目"></a>已有项目</h1><h1 id="基于Spark的电影推荐系统"><a href="#基于Spark的电影推荐系统" class="headerlink" title="基于Spark的电影推荐系统"></a><a href="https://github.com/LuckyZXL2016/Movie_Recommend">基于Spark的电影推荐系统</a></h1><p>基于大数据过滤引擎的电影推荐系统–“懂你”电影网站，包含了爬虫、电影网站（前端和后端）、后台管理系统以及推荐系统（Spark）</p>
+<h1 id="News-recommend"><a href="#News-recommend" class="headerlink" title="News_recommend"></a><a href="https://github.com/luochana/News_recommend">News_recommend</a></h1><p>基于大数据计算引擎的新闻推荐系统–”今日小站”，包含了爬虫，新闻网站（前端和后端），推荐系统（Spark）</p>
+<h1 id="深圳地铁大数据客流分析系统"><a href="#深圳地铁大数据客流分析系统" class="headerlink" title="深圳地铁大数据客流分析系统"></a><a href="https://github.com/geekyouth/SZT-bigdata">深圳地铁大数据客流分析系统</a></h1><p><strong><u><em>！： This one is FUCKING HARD</em></u></strong></p>
+<p>主要分析深圳通刷卡数据，通过大数据技术角度来研究深圳地铁客运能力，探索深圳地铁优化服务的方向</p>
+<h1 id="基于Spark2-x新闻网大数据实时分析可视化系统项目"><a href="#基于Spark2-x新闻网大数据实时分析可视化系统项目" class="headerlink" title="基于Spark2.x新闻网大数据实时分析可视化系统项目"></a><a href="https://github.com/LuckyZXL2016/News_Spark">基于Spark2.x新闻网大数据实时分析可视化系统项目</a></h1><h1 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h1><p>根据之前的proposal，我们需要将有spark技术的大数据系统，结合AWS，应用到COVID或者别的什么疾病上面。</p>
+<ol>
+<li>人流 + 疫情peak</li>
+<li>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</li>
+<li>scrap twitter &#x2F; reddit or some media, predict the new version of virus</li>
+<li>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</li>
+</ol>
 ]]></content>
       <categories>
-        <category>专业相关知识</category>
+        <category>课程学习</category>
       </categories>
       <tags>
-        <tag>专业相关知识</tag>
+        <tag>DATA605</tag>
       </tags>
   </entry>
   <entry>
@@ -3966,6 +3946,26 @@ which pip
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>听力速记</title>
+    <url>/2022/02/04/%E5%90%AC%E5%8A%9B%E9%80%9F%E8%AE%B0/</url>
+    <content><![CDATA[<p>如何记录听力笔记？</p>
+<span id="more"></span>
+
+<p>知乎：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/33207590">英语听力笔记简写规则+速记符号汇总，省时省力记笔记！</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/29536224">托福听力笔记速记大法！省时、高效、准确记笔记！</a></p>
+<p>小红书：</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202041101213.JPG" alt="IMG_1795"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202202041101351.JPG" alt="IMG_1796"></p>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
       </tags>
   </entry>
   <entry>
@@ -4008,21 +4008,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>搭建hexo博客的第三天</title>
-    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
-    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
-<span id="more"></span>
-<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
-<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>搭建hexo博客的第二天</title>
     <url>/2020/04/05/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%A4%A9/</url>
     <content><![CDATA[<p>关于博客的搭建</p>
@@ -4054,6 +4039,21 @@ which pip
 <p>图确实可以云端上传了，但是呢我发现这个图比我预计的大小实在大太多了，这也需要改一改。</p>
 <p>如何加密某些特定博客</p>
 <p>随着我写一些东西，可能涉及隐私或者敏感话题，我可能也需要学着加密一部分博客了。</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客的第三天</title>
+    <url>/2020/04/06/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%89%E5%A4%A9/</url>
+    <content><![CDATA[<p>基本上整个博客都搞得差不多，个人还是比较满意的，以后也有改善的空间。</p>
+<span id="more"></span>
+<h1 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h1><p>没有自己买域名，挂在github上还是有点慢的。暂时也没必要买国内的域名租服务器。</p>
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><p>晚上研究一下如何把图片保存在云端，本地的话现在刷新已经有点慢了。<br>还有那个随着鼠标转动视线的人物也是我想搞一搞的。</p>
 ]]></content>
       <categories>
         <category>hexo</category>
