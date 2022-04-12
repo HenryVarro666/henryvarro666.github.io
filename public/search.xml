@@ -16,6 +16,45 @@
       </tags>
   </entry>
   <entry>
+    <title>01252022 DATA641</title>
+    <url>/2022/01/25/01252022-DATA641/</url>
+    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
+<span id="more"></span>
+
+<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
+<blockquote>
+<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
+<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
+</blockquote>
+<blockquote>
+<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
+</blockquote>
+<p>How does language work? What makes language a language?</p>
+<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
+<p>【语言学】使语义化<br>变形</p>
+<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
+<p>潜在结构，潜结构</p>
+<p>(latent structure model 隐结构模型)</p>
+<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
+<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
+<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
+<li><p>Rank of words vs Frequency of words</p>
+</li>
+<li><p>Engineer like to focus on the first section</p>
+</li>
+<li><p>Scientists like to focus on the latter section</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>01242022 Data606</title>
     <url>/2022/01/24/01242022-Data606/</url>
     <content><![CDATA[<p>RandomSampling.ipynb</p>
@@ -279,45 +318,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
-    <title>01252022 DATA641</title>
-    <url>/2022/01/25/01252022-DATA641/</url>
-    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
-<span id="more"></span>
-
-<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
-<blockquote>
-<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
-<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
-</blockquote>
-<blockquote>
-<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
-</blockquote>
-<p>How does language work? What makes language a language?</p>
-<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
-<p>【语言学】使语义化<br>变形</p>
-<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
-<p>潜在结构，潜结构</p>
-<p>(latent structure model 隐结构模型)</p>
-<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
-<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
-<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
-<li><p>Rank of words vs Frequency of words</p>
-</li>
-<li><p>Engineer like to focus on the first section</p>
-</li>
-<li><p>Scientists like to focus on the latter section</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>01262022 DATA604</title>
     <url>/2022/01/26/01262022-DATA604/</url>
     <content><![CDATA[<p>syllabus_604_22.pdf</p>
@@ -475,6 +475,25 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
+    <title>AWS Learnlab</title>
+    <url>/2022/02/21/AWS-Learnlab/</url>
+    <content><![CDATA[<p>Learner Lab - Associate Level</p>
+<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
+<span id="more"></span>
+
+<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
+<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
+<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
+
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>604 03302022</title>
     <url>/2022/03/30/604-03302022/</url>
     <content><![CDATA[<p>Slides 15</p>
@@ -598,25 +617,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>DATA604</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AWS Learnlab</title>
-    <url>/2022/02/21/AWS-Learnlab/</url>
-    <content><![CDATA[<p>Learner Lab - Associate Level</p>
-<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
-<span id="more"></span>
-
-<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
-<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
-<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
-
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA605</tag>
       </tags>
   </entry>
   <entry>
@@ -1031,9 +1031,9 @@ array([[1, 0, 0, 0, 0, 0]])
 <p><a href="https://cord-19-data.s3.amazonaws.com/-">https://cord-19-data.s3.amazonaws.com/-</a></p>
 <p>s3:&#x2F;&#x2F;cord-19-data&#x2F;-</p>
 <p>ssh -i <filename>.pem ec2-user@<public-ip></p>
-<p>ssh -i labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#49;&#53;&#x39;&#46;&#x32;&#x38;&#x2e;&#x32;&#49;&#x37;">&#x65;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#49;&#53;&#x39;&#46;&#x32;&#x38;&#x2e;&#x32;&#49;&#x37;</a></p>
+<p>ssh -i labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#x2d;&#x75;&#x73;&#x65;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#55;">&#101;&#99;&#x32;&#x2d;&#x75;&#x73;&#x65;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#55;</a></p>
 <p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem ec2-user@<public-ip></p>
-<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#x63;&#x32;&#45;&#x75;&#115;&#101;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#x31;&#x37;">&#x65;&#x63;&#x32;&#45;&#x75;&#115;&#101;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#x31;&#x37;</a></p>
+<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#45;&#117;&#115;&#101;&#114;&#x40;&#x35;&#x34;&#46;&#x31;&#x35;&#57;&#46;&#50;&#56;&#46;&#x32;&#49;&#55;">&#x65;&#99;&#x32;&#45;&#117;&#115;&#101;&#114;&#x40;&#x35;&#x34;&#46;&#x31;&#x35;&#57;&#46;&#50;&#56;&#46;&#x32;&#49;&#55;</a></p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -1908,6 +1908,25 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Email writing</title>
+    <url>/2022/01/22/Email-writing/</url>
+    <content><![CDATA[<p><em>Recommended by Professor Duquette</em></p>
+<span id="more"></span>
+
+<blockquote>
+<p>Try Purdue’s Online Writing Lab (OWL) - for all your writing needs.</p>
+<p><a href="https://owl.purdue.edu/search.html">Search &#x2F;&#x2F; Purdue College of Liberal Arts</a>.</p>
+<p>A search for “email-etiquette” (pops up as a search term as soon as you type in ‘email’) will return a number of relevant pages.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker实操</title>
     <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
     <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
@@ -2108,25 +2127,6 @@ which pip
       </categories>
       <tags>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Email writing</title>
-    <url>/2022/01/22/Email-writing/</url>
-    <content><![CDATA[<p><em>Recommended by Professor Duquette</em></p>
-<span id="more"></span>
-
-<blockquote>
-<p>Try Purdue’s Online Writing Lab (OWL) - for all your writing needs.</p>
-<p><a href="https://owl.purdue.edu/search.html">Search &#x2F;&#x2F; Purdue College of Liberal Arts</a>.</p>
-<p>A search for “email-etiquette” (pops up as a search term as soon as you type in ‘email’) will return a number of relevant pages.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>专业相关知识</category>
-      </categories>
-      <tags>
-        <tag>专业相关知识</tag>
       </tags>
   </entry>
   <entry>
@@ -2674,73 +2674,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>Kubernetes学习</title>
-    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
-<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
-<span id="more"></span>
-
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
-<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
-<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
-<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
-<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
-<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
-<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
-<li><p>Core Kubernetes components</p>
-</li>
-<li><p>kubectl</p>
-<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
-<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
-</li>
-</ol>
-<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
-<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
-<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
-<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
-<blockquote>
-<p>brew install minikube</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
-<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
-<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
-<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
-<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
-<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
-<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
-<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
-<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
-<p>（docker桌面版本一般自带kubectl命令）</p>
-<blockquote>
-<p>CLI &#x3D; command -line interface</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
-<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
-<hr>
-<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
-<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
-<p>[类似dockerfile，当作一个自动化脚本]</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Helm学习</title>
     <url>/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>Helm 3的学习</p>
@@ -2882,6 +2815,73 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Kubernetes学习</title>
+    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
+<span id="more"></span>
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
+<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
+<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
+<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
+<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
+<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
+<li><p>Core Kubernetes components</p>
+</li>
+<li><p>kubectl</p>
+<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
+<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
+</li>
+</ol>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
+<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
+<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
+<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
+<blockquote>
+<p>brew install minikube</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
+<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
+<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
+<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
+<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
+<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
+<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
+<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
+<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
+<p>（docker桌面版本一般自带kubectl命令）</p>
+<blockquote>
+<p>CLI &#x3D; command -line interface</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
+<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
+<hr>
+<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
+<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
+<p>[类似dockerfile，当作一个自动化脚本]</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Letter of inquirying RA/Internship position</title>
     <url>/2022/01/24/Letter-of-inqurying-RA-Internship-position/</url>
     <content><![CDATA[<p>Two versions:</p>
@@ -2997,6 +2997,66 @@ which pip
       </categories>
       <tags>
         <tag>Spark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Break Plan</title>
+    <url>/2022/03/09/Spring-Break-Plan/</url>
+    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
+<p>0311更新：LA</p>
+<p>0313更新：大致行程.pdf</p>
+<span id="more"></span>
+
+<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
+<p>暂定人员：</p>
+<ol>
+<li>jinhua</li>
+<li>chao</li>
+<li>taihang</li>
+<li>Samarth</li>
+<li>Samarth‘s friend</li>
+<li>Samarth‘s friend’s friend</li>
+</ol>
+<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
+<p>（到洛杉矶白天大概9点）</p>
+<p>museum: getty center</p>
+<p>the last bookstore</p>
+<p>bradbury building</p>
+<p>broad museum</p>
+<p>（晚餐——）</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
+<p>Hollywood招牌</p>
+<p>beverly hill</p>
+<p>(餐厅：晚餐好一点)</p>
+<p>买食物和水第二天准备</p>
+<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
+<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
+<p>（晚餐——）</p>
+<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
+<p>lalalanor：爱乐之城拍摄地</p>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
+<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
+<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
+<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
+<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
+<p>油费+停车费：$60*8 &#x3D; $480 - </p>
+<p>球赛：$450 + </p>
+<p>机票：$700 -</p>
+<p>住宿费：$120*8 &#x3D; $960</p>
+<p>伙食费：$600</p>
+<hr>
+<p>Spring LA Travel Plan-draft</p>
+<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
+
+<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -3223,66 +3283,6 @@ which pip
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204080304394.jpg" alt="IMG_2426"></p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204080304601.jpg" alt="IMG_2427"></p>
 ]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring Break Plan</title>
-    <url>/2022/03/09/Spring-Break-Plan/</url>
-    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
-<p>0311更新：LA</p>
-<p>0313更新：大致行程.pdf</p>
-<span id="more"></span>
-
-<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
-<p>暂定人员：</p>
-<ol>
-<li>jinhua</li>
-<li>chao</li>
-<li>taihang</li>
-<li>Samarth</li>
-<li>Samarth‘s friend</li>
-<li>Samarth‘s friend’s friend</li>
-</ol>
-<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
-<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
-<p>（到洛杉矶白天大概9点）</p>
-<p>museum: getty center</p>
-<p>the last bookstore</p>
-<p>bradbury building</p>
-<p>broad museum</p>
-<p>（晚餐——）</p>
-<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
-<p>Hollywood招牌</p>
-<p>beverly hill</p>
-<p>(餐厅：晚餐好一点)</p>
-<p>买食物和水第二天准备</p>
-<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
-<p>（晚餐——）</p>
-<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
-<p>lalalanor：爱乐之城拍摄地</p>
-<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
-<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
-<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
-<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
-<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
-<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
-<p>油费+停车费：$60*8 &#x3D; $480 - </p>
-<p>球赛：$450 + </p>
-<p>机票：$700 -</p>
-<p>住宿费：$120*8 &#x3D; $960</p>
-<p>伙食费：$600</p>
-<hr>
-<p>Spring LA Travel Plan-draft</p>
-<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
-
-<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
       <tags>
         <tag>随笔</tag>
       </tags>
@@ -4112,21 +4112,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>知识库文档网站</title>
-    <url>/2022/01/26/%E7%9F%A5%E8%AF%86%E5%BA%93%E6%96%87%E6%A1%A3%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<p>CodeSheep——搭建知识库网站</p>
-<span id="more"></span>
-
-<h4 id="原链接："><a href="#原链接：" class="headerlink" title="原链接："></a>原链接：</h4><p><a href="https://mp.weixin.qq.com/s?__biz=MzU4ODI1MjA3NQ==&mid=2247510629&idx=1&sn=48e481b9f176ebeb2d68342af3f33317&chksm=fddd7ca1caaaf5b73efe05dcb5b87c570344708e2a7bddffb5c8bd08638b631e595a4d2b646c&mpshare=1&scene=23&srcid=0124VJ5j3hh9JE1nlWy3oziB&sharer_sharetime=1642991430675&sharer_shareid=54a5710fc77c7f44c4bab4e27c565c50#rd&ADUIN=1504517223&ADSESSION=1643208543&ADTAG=CLIENT.QQ.5651_.0&ADPUBNO=27156">干净又卫生啊兄弟们~</a></p>
-]]></content>
-      <categories>
-        <category>专业相关知识</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>新东方 科研</title>
     <url>/2022/02/21/%E6%96%B0%E4%B8%9C%E6%96%B9-%E7%A7%91%E7%A0%94/</url>
     <content><![CDATA[<p>大数据存储技术</p>
@@ -4254,6 +4239,21 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
+    <title>知识库文档网站</title>
+    <url>/2022/01/26/%E7%9F%A5%E8%AF%86%E5%BA%93%E6%96%87%E6%A1%A3%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<p>CodeSheep——搭建知识库网站</p>
+<span id="more"></span>
+
+<h4 id="原链接："><a href="#原链接：" class="headerlink" title="原链接："></a>原链接：</h4><p><a href="https://mp.weixin.qq.com/s?__biz=MzU4ODI1MjA3NQ==&mid=2247510629&idx=1&sn=48e481b9f176ebeb2d68342af3f33317&chksm=fddd7ca1caaaf5b73efe05dcb5b87c570344708e2a7bddffb5c8bd08638b631e595a4d2b646c&mpshare=1&scene=23&srcid=0124VJ5j3hh9JE1nlWy3oziB&sharer_sharetime=1642991430675&sharer_shareid=54a5710fc77c7f44c4bab4e27c565c50#rd&ADUIN=1504517223&ADSESSION=1643208543&ADTAG=CLIENT.QQ.5651_.0&ADPUBNO=27156">干净又卫生啊兄弟们~</a></p>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>绑定域名</title>
     <url>/2022/01/29/%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/</url>
     <content><![CDATA[<p>Github个人博客：绑定域名</p>
@@ -4290,18 +4290,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>本科</title>
-    <url>/categories/index-1.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>尘世间</title>
     <url>/categories/index-2.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>专业相关知识</title>
-    <url>/categories/index-4.html</url>
+    <title>本科</title>
+    <url>/categories/index-1.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4312,6 +4307,11 @@ Mac安装Docker</p>
   <entry>
     <title>课程学习</title>
     <url>/categories/index-5.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>专业相关知识</title>
+    <url>/categories/index-4.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4355,6 +4355,11 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>随笔</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title></title>
     <url>/lib/pdf/README.html</url>
     <content><![CDATA[<h1 align="center"><a href="https://github.com/mozilla/pdf.js">PDF.js</a> for <a href="https://github.com/theme-next">NexT</a></h1>
@@ -4391,11 +4396,6 @@ In order to embed PDF files in the article, you just need to create an `pdf` tag
 
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/source/lib/pdf</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>随笔</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
