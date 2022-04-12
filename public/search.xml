@@ -16,45 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>01252022 DATA641</title>
-    <url>/2022/01/25/01252022-DATA641/</url>
-    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
-<span id="more"></span>
-
-<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
-<blockquote>
-<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
-<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
-</blockquote>
-<blockquote>
-<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
-</blockquote>
-<p>How does language work? What makes language a language?</p>
-<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
-<p>【语言学】使语义化<br>变形</p>
-<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
-<p>潜在结构，潜结构</p>
-<p>(latent structure model 隐结构模型)</p>
-<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
-<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
-<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
-<li><p>Rank of words vs Frequency of words</p>
-</li>
-<li><p>Engineer like to focus on the first section</p>
-</li>
-<li><p>Scientists like to focus on the latter section</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>01242022 Data606</title>
     <url>/2022/01/24/01242022-Data606/</url>
     <content><![CDATA[<p>RandomSampling.ipynb</p>
@@ -318,6 +279,45 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
+    <title>01252022 DATA641</title>
+    <url>/2022/01/25/01252022-DATA641/</url>
+    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
+<span id="more"></span>
+
+<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
+<blockquote>
+<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
+<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
+</blockquote>
+<blockquote>
+<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
+</blockquote>
+<p>How does language work? What makes language a language?</p>
+<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
+<p>【语言学】使语义化<br>变形</p>
+<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
+<p>潜在结构，潜结构</p>
+<p>(latent structure model 隐结构模型)</p>
+<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
+<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
+<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
+<li><p>Rank of words vs Frequency of words</p>
+</li>
+<li><p>Engineer like to focus on the first section</p>
+</li>
+<li><p>Scientists like to focus on the latter section</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>01262022 DATA604</title>
     <url>/2022/01/26/01262022-DATA604/</url>
     <content><![CDATA[<p>syllabus_604_22.pdf</p>
@@ -475,25 +475,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
-    <title>AWS Learnlab</title>
-    <url>/2022/02/21/AWS-Learnlab/</url>
-    <content><![CDATA[<p>Learner Lab - Associate Level</p>
-<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
-<span id="more"></span>
-
-<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
-<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
-<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
-
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA605</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>604 03302022</title>
     <url>/2022/03/30/604-03302022/</url>
     <content><![CDATA[<p>Slides 15</p>
@@ -611,6 +592,67 @@ array([[1, 0, 0, 0, 0, 0]])
 <p>如果一个矩阵A满足条件A T A &#x3D; AA T，那么这样的矩阵就有一个由相互正交的特征向量组成的特征基。这意味着，特征空间是成对正交的。</p>
 <p>这意味着对于这样一个A，EVD中的矩阵Q是一个正交矩阵，即，这样的矩阵</p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220330200600270.png" alt="image-20220330200600270"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA604</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AWS Learnlab</title>
+    <url>/2022/02/21/AWS-Learnlab/</url>
+    <content><![CDATA[<p>Learner Lab - Associate Level</p>
+<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
+<span id="more"></span>
+
+<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
+<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
+<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
+
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DATA604 hw3</title>
+    <url>/2022/04/09/DATA604-hw3/</url>
+    <content><![CDATA[<p>DATA604 hw3</p>
+<span id="more"></span>
+
+<p>population:</p>
+<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
+<hr>
+<ol>
+<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
+<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
+<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
+<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
+<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
+</ol>
+<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
+<hr>
+<ul>
+<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
+<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
+</ul>
+<hr>
+<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
+<hr>
+<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
+<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
+<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -881,48 +923,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
-    <title>DATA604 hw3</title>
-    <url>/2022/04/09/DATA604-hw3/</url>
-    <content><![CDATA[<p>DATA604 hw3</p>
-<span id="more"></span>
-
-<p>population:</p>
-<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
-<hr>
-<ol>
-<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
-<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
-<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
-<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
-<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
-</ol>
-<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
-<hr>
-<ul>
-<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
-<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
-</ul>
-<hr>
-<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
-<hr>
-<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
-<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
-<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA604</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DATA605 Final Project</title>
     <url>/2022/03/02/DATA605-Final-Project/</url>
     <content><![CDATA[<p>Notes about DATA605 Big Data System</p>
@@ -1031,9 +1031,9 @@ array([[1, 0, 0, 0, 0, 0]])
 <p><a href="https://cord-19-data.s3.amazonaws.com/-">https://cord-19-data.s3.amazonaws.com/-</a></p>
 <p>s3:&#x2F;&#x2F;cord-19-data&#x2F;-</p>
 <p>ssh -i <filename>.pem ec2-user@<public-ip></p>
-<p>ssh -i labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#x2d;&#x75;&#x73;&#x65;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#55;">&#101;&#99;&#x32;&#x2d;&#x75;&#x73;&#x65;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#55;</a></p>
+<p>ssh -i labsuser.pem <a href="mailto:&#101;&#x63;&#50;&#x2d;&#117;&#115;&#101;&#x72;&#x40;&#x35;&#x34;&#46;&#49;&#x35;&#57;&#46;&#x32;&#56;&#x2e;&#x32;&#49;&#55;">&#101;&#x63;&#50;&#x2d;&#117;&#115;&#101;&#x72;&#x40;&#x35;&#x34;&#46;&#49;&#x35;&#57;&#46;&#x32;&#56;&#x2e;&#x32;&#49;&#55;</a></p>
 <p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem ec2-user@<public-ip></p>
-<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#45;&#117;&#115;&#101;&#114;&#x40;&#x35;&#x34;&#46;&#x31;&#x35;&#57;&#46;&#50;&#56;&#46;&#x32;&#49;&#55;">&#x65;&#99;&#x32;&#45;&#117;&#115;&#101;&#114;&#x40;&#x35;&#x34;&#46;&#x31;&#x35;&#57;&#46;&#50;&#56;&#46;&#x32;&#49;&#55;</a></p>
+<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#101;&#x63;&#50;&#x2d;&#117;&#115;&#x65;&#x72;&#64;&#x35;&#x34;&#x2e;&#49;&#53;&#x39;&#46;&#50;&#56;&#46;&#50;&#49;&#x37;">&#101;&#x63;&#50;&#x2d;&#117;&#115;&#x65;&#x72;&#64;&#x35;&#x34;&#x2e;&#49;&#53;&#x39;&#46;&#50;&#56;&#46;&#50;&#49;&#x37;</a></p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -1868,65 +1868,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>Driving License</title>
-    <url>/2022/01/26/Driving-License/</url>
-    <content><![CDATA[<p>如何获得驾照（国内驾照+无ssn）</p>
-<span id="more"></span>
-
-<h4 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h4><hr>
-<p><a href="https://zhuanlan.zhihu.com/p/79116559">https://zhuanlan.zhihu.com/p/79116559</a></p>
-<p><a href="https://posts.careerengine.us/p/5b633a2db77a012bb38ac882">https://posts.careerengine.us/p/5b633a2db77a012bb38ac882</a></p>
-<p>获取马里兰驾照所需文件：<strong>护照、I20 表格、I94 表、SSN（或无 SSN 证明）、中国驾照原件、中国驾照的认证翻译件、三小时酒精课程证书、两份 resident 证明材料。</strong></p>
-<p>练习题：</p>
-<p><a href="https://dmv.ny.gov/driver-license/drivers-manual-practice-tests">https://dmv.ny.gov/driver-license/drivers-manual-practice-tests</a></p>
-<h4 id="贾小雪"><a href="#贾小雪" class="headerlink" title="贾小雪"></a>贾小雪</h4><hr>
-<h5 id="没有学车："><a href="#没有学车：" class="headerlink" title="没有学车："></a>没有学车：</h5><p>有国内驾照，直接考</p>
-<p>会开车 不需要练</p>
-<h5 id="一般开销"><a href="#一般开销" class="headerlink" title="一般开销"></a>一般开销</h5><ul>
-<li><p>弄个酒精测试证书和驾照翻译花了20刀</p>
-</li>
-<li><p>然后过了路考拿驾照 花了9刀工本费</p>
-</li>
-<li><p>过不了不收费 再约一次路考 只有过了才交钱</p>
-</li>
-</ul>
-<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><p>没有路考; 只是场地 考停车</p>
-<h5 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h5><p>场地都一样 都是往右手倒车</p>
-<p>先车头进 再车尾进 然后一个三点的项目</p>
-<p><a href="https://www.youtube.com/watch?v=YjPwMx_jiWo">https://www.youtube.com/watch?v=YjPwMx_jiWo</a></p>
-<p><a href="https://www.youtube.com/watch?v=Zbf3-lctqX8">https://www.youtube.com/watch?v=Zbf3-lctqX8</a></p>
-<p><a href="https://www.youtube.com/watch?v=lEeek9AivZQ">https://www.youtube.com/watch?v=lEeek9AivZQ</a></p>
-<p><a href="https://www.youtube.com/watch?v=S1ePz7Rlm9A">https://www.youtube.com/watch?v=S1ePz7Rlm9A</a></p>
-<h4 id="CSSA"><a href="#CSSA" class="headerlink" title="CSSA"></a>CSSA</h4><hr>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201261013242.png" alt="image-20220126101305186"></p>
-]]></content>
-      <categories>
-        <category>UMD</category>
-      </categories>
-      <tags>
-        <tag>UMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Email writing</title>
-    <url>/2022/01/22/Email-writing/</url>
-    <content><![CDATA[<p><em>Recommended by Professor Duquette</em></p>
-<span id="more"></span>
-
-<blockquote>
-<p>Try Purdue’s Online Writing Lab (OWL) - for all your writing needs.</p>
-<p><a href="https://owl.purdue.edu/search.html">Search &#x2F;&#x2F; Purdue College of Liberal Arts</a>.</p>
-<p>A search for “email-etiquette” (pops up as a search term as soon as you type in ‘email’) will return a number of relevant pages.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>专业相关知识</category>
-      </categories>
-      <tags>
-        <tag>专业相关知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker实操</title>
     <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
     <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
@@ -2130,6 +2071,46 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Driving License</title>
+    <url>/2022/01/26/Driving-License/</url>
+    <content><![CDATA[<p>如何获得驾照（国内驾照+无ssn）</p>
+<span id="more"></span>
+
+<h4 id="网上资料"><a href="#网上资料" class="headerlink" title="网上资料"></a>网上资料</h4><hr>
+<p><a href="https://zhuanlan.zhihu.com/p/79116559">https://zhuanlan.zhihu.com/p/79116559</a></p>
+<p><a href="https://posts.careerengine.us/p/5b633a2db77a012bb38ac882">https://posts.careerengine.us/p/5b633a2db77a012bb38ac882</a></p>
+<p>获取马里兰驾照所需文件：<strong>护照、I20 表格、I94 表、SSN（或无 SSN 证明）、中国驾照原件、中国驾照的认证翻译件、三小时酒精课程证书、两份 resident 证明材料。</strong></p>
+<p>练习题：</p>
+<p><a href="https://dmv.ny.gov/driver-license/drivers-manual-practice-tests">https://dmv.ny.gov/driver-license/drivers-manual-practice-tests</a></p>
+<h4 id="贾小雪"><a href="#贾小雪" class="headerlink" title="贾小雪"></a>贾小雪</h4><hr>
+<h5 id="没有学车："><a href="#没有学车：" class="headerlink" title="没有学车："></a>没有学车：</h5><p>有国内驾照，直接考</p>
+<p>会开车 不需要练</p>
+<h5 id="一般开销"><a href="#一般开销" class="headerlink" title="一般开销"></a>一般开销</h5><ul>
+<li><p>弄个酒精测试证书和驾照翻译花了20刀</p>
+</li>
+<li><p>然后过了路考拿驾照 花了9刀工本费</p>
+</li>
+<li><p>过不了不收费 再约一次路考 只有过了才交钱</p>
+</li>
+</ul>
+<h5 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h5><p>没有路考; 只是场地 考停车</p>
+<h5 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h5><p>场地都一样 都是往右手倒车</p>
+<p>先车头进 再车尾进 然后一个三点的项目</p>
+<p><a href="https://www.youtube.com/watch?v=YjPwMx_jiWo">https://www.youtube.com/watch?v=YjPwMx_jiWo</a></p>
+<p><a href="https://www.youtube.com/watch?v=Zbf3-lctqX8">https://www.youtube.com/watch?v=Zbf3-lctqX8</a></p>
+<p><a href="https://www.youtube.com/watch?v=lEeek9AivZQ">https://www.youtube.com/watch?v=lEeek9AivZQ</a></p>
+<p><a href="https://www.youtube.com/watch?v=S1ePz7Rlm9A">https://www.youtube.com/watch?v=S1ePz7Rlm9A</a></p>
+<h4 id="CSSA"><a href="#CSSA" class="headerlink" title="CSSA"></a>CSSA</h4><hr>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201261013242.png" alt="image-20220126101305186"></p>
+]]></content>
+      <categories>
+        <category>UMD</category>
+      </categories>
+      <tags>
+        <tag>UMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Example</title>
     <url>/2020/04/09/Example/</url>
     <content><![CDATA[<h1 id="Title"><a href="#Title" class="headerlink" title="Title"></a>Title</h1><span id="more"></span>
@@ -2141,6 +2122,25 @@ which pip
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Email writing</title>
+    <url>/2022/01/22/Email-writing/</url>
+    <content><![CDATA[<p><em>Recommended by Professor Duquette</em></p>
+<span id="more"></span>
+
+<blockquote>
+<p>Try Purdue’s Online Writing Lab (OWL) - for all your writing needs.</p>
+<p><a href="https://owl.purdue.edu/search.html">Search &#x2F;&#x2F; Purdue College of Liberal Arts</a>.</p>
+<p>A search for “email-etiquette” (pops up as a search term as soon as you type in ‘email’) will return a number of relevant pages.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
       </tags>
   </entry>
   <entry>
@@ -3000,66 +3000,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>Spring Break Plan</title>
-    <url>/2022/03/09/Spring-Break-Plan/</url>
-    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
-<p>0311更新：LA</p>
-<p>0313更新：大致行程.pdf</p>
-<span id="more"></span>
-
-<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
-<p>暂定人员：</p>
-<ol>
-<li>jinhua</li>
-<li>chao</li>
-<li>taihang</li>
-<li>Samarth</li>
-<li>Samarth‘s friend</li>
-<li>Samarth‘s friend’s friend</li>
-</ol>
-<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
-<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
-<p>（到洛杉矶白天大概9点）</p>
-<p>museum: getty center</p>
-<p>the last bookstore</p>
-<p>bradbury building</p>
-<p>broad museum</p>
-<p>（晚餐——）</p>
-<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
-<p>Hollywood招牌</p>
-<p>beverly hill</p>
-<p>(餐厅：晚餐好一点)</p>
-<p>买食物和水第二天准备</p>
-<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
-<p>（晚餐——）</p>
-<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
-<p>lalalanor：爱乐之城拍摄地</p>
-<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
-<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
-<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
-<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
-<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
-<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
-<p>油费+停车费：$60*8 &#x3D; $480 - </p>
-<p>球赛：$450 + </p>
-<p>机票：$700 -</p>
-<p>住宿费：$120*8 &#x3D; $960</p>
-<p>伙食费：$600</p>
-<hr>
-<p>Spring LA Travel Plan-draft</p>
-<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
-
-<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring Break Pictures</title>
     <url>/2022/04/05/Spring-Break-Pictures/</url>
     <content><![CDATA[<p>LA之旅</p>
@@ -3283,6 +3223,66 @@ which pip
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204080304394.jpg" alt="IMG_2426"></p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204080304601.jpg" alt="IMG_2427"></p>
 ]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Break Plan</title>
+    <url>/2022/03/09/Spring-Break-Plan/</url>
+    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
+<p>0311更新：LA</p>
+<p>0313更新：大致行程.pdf</p>
+<span id="more"></span>
+
+<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
+<p>暂定人员：</p>
+<ol>
+<li>jinhua</li>
+<li>chao</li>
+<li>taihang</li>
+<li>Samarth</li>
+<li>Samarth‘s friend</li>
+<li>Samarth‘s friend’s friend</li>
+</ol>
+<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
+<p>（到洛杉矶白天大概9点）</p>
+<p>museum: getty center</p>
+<p>the last bookstore</p>
+<p>bradbury building</p>
+<p>broad museum</p>
+<p>（晚餐——）</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
+<p>Hollywood招牌</p>
+<p>beverly hill</p>
+<p>(餐厅：晚餐好一点)</p>
+<p>买食物和水第二天准备</p>
+<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
+<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
+<p>（晚餐——）</p>
+<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
+<p>lalalanor：爱乐之城拍摄地</p>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
+<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
+<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
+<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
+<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
+<p>油费+停车费：$60*8 &#x3D; $480 - </p>
+<p>球赛：$450 + </p>
+<p>机票：$700 -</p>
+<p>住宿费：$120*8 &#x3D; $960</p>
+<p>伙食费：$600</p>
+<hr>
+<p>Spring LA Travel Plan-draft</p>
+<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
+
+<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
       <tags>
         <tag>随笔</tag>
       </tags>
@@ -4290,13 +4290,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>尘世间</title>
-    <url>/categories/index-2.html</url>
+    <title>本科</title>
+    <url>/categories/index-1.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>本科</title>
-    <url>/categories/index-1.html</url>
+    <title>尘世间</title>
+    <url>/categories/index-2.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4305,13 +4305,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>课程学习</title>
-    <url>/categories/index-5.html</url>
+    <title>专业相关知识</title>
+    <url>/categories/index-4.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>专业相关知识</title>
-    <url>/categories/index-4.html</url>
+    <title>课程学习</title>
+    <url>/categories/index-5.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
