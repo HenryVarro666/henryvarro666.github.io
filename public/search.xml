@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1182022</title>
+    <url>/2022/01/18/01182022/</url>
+    <content><![CDATA[<p>中国教育资源的不公</p>
+<span id="more"></span>
+
+<p><a href="https://www.bilibili.com/video/BV1HD4y1U7wU?spm_id_from=333.1007.top_right_bar_window_history.content.click">骁话一下：江苏状元会落榜清北？高考的问题不在分数</a></p>
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01252022 DATA641</title>
+    <url>/2022/01/25/01252022-DATA641/</url>
+    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
+<span id="more"></span>
+
+<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
+<blockquote>
+<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
+<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
+</blockquote>
+<blockquote>
+<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
+</blockquote>
+<p>How does language work? What makes language a language?</p>
+<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
+<p>【语言学】使语义化<br>变形</p>
+<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
+<p>潜在结构，潜结构</p>
+<p>(latent structure model 隐结构模型)</p>
+<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
+<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
+<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
+<li><p>Rank of words vs Frequency of words</p>
+</li>
+<li><p>Engineer like to focus on the first section</p>
+</li>
+<li><p>Scientists like to focus on the latter section</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>01242022 Data606</title>
     <url>/2022/01/24/01242022-Data606/</url>
     <content><![CDATA[<p>RandomSampling.ipynb</p>
@@ -264,81 +318,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
-    <title>1182022</title>
-    <url>/2022/01/18/01182022/</url>
-    <content><![CDATA[<p>中国教育资源的不公</p>
-<span id="more"></span>
-
-<p><a href="https://www.bilibili.com/video/BV1HD4y1U7wU?spm_id_from=333.1007.top_right_bar_window_history.content.click">骁话一下：江苏状元会落榜清北？高考的问题不在分数</a></p>
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>01252022 DATA641</title>
-    <url>/2022/01/25/01252022-DATA641/</url>
-    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
-<span id="more"></span>
-
-<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
-<blockquote>
-<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
-<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
-</blockquote>
-<blockquote>
-<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
-</blockquote>
-<p>How does language work? What makes language a language?</p>
-<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
-<p>【语言学】使语义化<br>变形</p>
-<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
-<p>潜在结构，潜结构</p>
-<p>(latent structure model 隐结构模型)</p>
-<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
-<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
-<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
-<li><p>Rank of words vs Frequency of words</p>
-</li>
-<li><p>Engineer like to focus on the first section</p>
-</li>
-<li><p>Scientists like to focus on the latter section</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2082022</title>
-    <url>/2022/02/08/02082022/</url>
-    <content><![CDATA[<p>杂记</p>
-<span id="more"></span>
-
-<h3 id="《绿皮车》"><a href="#《绿皮车》" class="headerlink" title="《绿皮车》"></a>《绿皮车》</h3><p>2018年的美国电影</p>
-<p>中间一段情书写的非常好</p>
-<blockquote>
-<p>亲爱的德洛莉丝，每当我想起你，我都会想起爱荷华州的美丽平原，我们之间的距离让我感到意志消沉。没有你，我的时间和旅途都毫无意义。爱上你是我做过最容易的事情。除了你，一切都不重要。我活着的每一天，我都这么认为遇上你的那天我就爱上了你。今天，我仍然爱着你，往后余生，我会一直爱你</p>
-</blockquote>
-<h3 id="塔岛哥哥"><a href="#塔岛哥哥" class="headerlink" title="塔岛哥哥"></a>塔岛哥哥</h3><p><a href="https://space.bilibili.com/14947599/channel/seriesdetail?sid=1172361">《浴血黑帮》</a></p>
-<p><a href="https://space.bilibili.com/14947599/channel/seriesdetail?sid=1991517">《唐顿庄园》</a></p>
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>01262022 DATA604</title>
     <url>/2022/01/26/01262022-DATA604/</url>
     <content><![CDATA[<p>syllabus_604_22.pdf</p>
@@ -375,6 +354,27 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>DATA604</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2082022</title>
+    <url>/2022/02/08/02082022/</url>
+    <content><![CDATA[<p>杂记</p>
+<span id="more"></span>
+
+<h3 id="《绿皮车》"><a href="#《绿皮车》" class="headerlink" title="《绿皮车》"></a>《绿皮车》</h3><p>2018年的美国电影</p>
+<p>中间一段情书写的非常好</p>
+<blockquote>
+<p>亲爱的德洛莉丝，每当我想起你，我都会想起爱荷华州的美丽平原，我们之间的距离让我感到意志消沉。没有你，我的时间和旅途都毫无意义。爱上你是我做过最容易的事情。除了你，一切都不重要。我活着的每一天，我都这么认为遇上你的那天我就爱上了你。今天，我仍然爱着你，往后余生，我会一直爱你</p>
+</blockquote>
+<h3 id="塔岛哥哥"><a href="#塔岛哥哥" class="headerlink" title="塔岛哥哥"></a>塔岛哥哥</h3><p><a href="https://space.bilibili.com/14947599/channel/seriesdetail?sid=1172361">《浴血黑帮》</a></p>
+<p><a href="https://space.bilibili.com/14947599/channel/seriesdetail?sid=1991517">《唐顿庄园》</a></p>
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -592,6 +592,67 @@ array([[1, 0, 0, 0, 0, 0]])
 <p>如果一个矩阵A满足条件A T A &#x3D; AA T，那么这样的矩阵就有一个由相互正交的特征向量组成的特征基。这意味着，特征空间是成对正交的。</p>
 <p>这意味着对于这样一个A，EVD中的矩阵Q是一个正交矩阵，即，这样的矩阵</p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220330200600270.png" alt="image-20220330200600270"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA604</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AWS Learnlab</title>
+    <url>/2022/02/21/AWS-Learnlab/</url>
+    <content><![CDATA[<p>Learner Lab - Associate Level</p>
+<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
+<span id="more"></span>
+
+<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
+<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
+<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
+
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DATA604 hw3</title>
+    <url>/2022/04/09/DATA604-hw3/</url>
+    <content><![CDATA[<p>DATA604 hw3</p>
+<span id="more"></span>
+
+<p>population:</p>
+<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
+<hr>
+<ol>
+<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
+<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
+<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
+<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
+<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
+</ol>
+<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
+<hr>
+<ul>
+<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
+<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
+</ul>
+<hr>
+<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
+<hr>
+<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
+<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
+<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -862,67 +923,6 @@ array([[1, 0, 0, 0, 0, 0]])
       </tags>
   </entry>
   <entry>
-    <title>AWS Learnlab</title>
-    <url>/2022/02/21/AWS-Learnlab/</url>
-    <content><![CDATA[<p>Learner Lab - Associate Level</p>
-<p><a href="https://aws.amazon.com/cn/getting-started/">https://aws.amazon.com/cn/getting-started/</a></p>
-<span id="more"></span>
-
-<p><a href="https://awsacademy.instructure.com/courses/14960">AWS Academy Learner Lab - Associate Services [14960]</a></p>
-<p><a href="https://awsacademy.instructure.com/courses/14553">AWS Academy Learner Lab - Foundation Services [14553]</a></p>
-<div class="pdfobject-container" data-target="./AWSAcademyLearnerLabStudentGuide.pdf" data-height="500px"></div>
-
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA605</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DATA604 hw3</title>
-    <url>/2022/04/09/DATA604-hw3/</url>
-    <content><![CDATA[<p>DATA604 hw3</p>
-<span id="more"></span>
-
-<p>population:</p>
-<p>Statistics<br>A finite or infinite collection of items under consideration.</p>
-<hr>
-<ol>
-<li>Accuracy (all <strong>correct</strong> &#x2F; all) &#x3D; TP + TN &#x2F; TP + TN + FP + FN</li>
-<li>Misclassification (all <strong>incorrect</strong> &#x2F; all) &#x3D; FP + FN &#x2F; TP + TN + FP + FN</li>
-<li>Precision (<strong>true</strong> positives &#x2F; <strong>predicted</strong> positives) &#x3D; TP &#x2F; TP + FP</li>
-<li>Sensitivity aka Recall (<strong>true</strong> positives &#x2F; all <strong>actual</strong> positives) &#x3D; TP &#x2F; TP + FN</li>
-<li>Specificity (<strong>true</strong> negatives &#x2F; all <strong>actual</strong> negatives) &#x3D;TN &#x2F; TN + FP</li>
-</ol>
-<p><a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091659696.png" alt="image-20220409155936566"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700410.png" alt="image-20220409160011348"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091700526.png" alt="image-20220409160028460"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091701554.png" alt="image-20220409160153481"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091714844.png" alt="image-20220409161409736"></p>
-<hr>
-<ul>
-<li>False positive rate (α) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error">type I error</a> &#x3D; 1 − specificity &#x3D; FP &#x2F; (FP + TN)</li>
-<li>False negative rate (β) &#x3D; <a href="https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error">type II error</a> &#x3D; 1 − sensitivity &#x3D; FN &#x2F; (TP + FN)</li>
-</ul>
-<hr>
-<p><a href="https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107">https://towardsdatascience.com/baffling-concept-of-true-positive-and-true-negative-bffbc340f107</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204091712060.png" alt="image-20220409161237992"></p>
-<hr>
-<p>The <em>average accuracy</em> is calculated as the sum of the accuracy figures in column Accuracy divided by the number of classes in the test set.</p>
-<p>The <em>average reliability</em> is calculated as the sum of the reliability figures in column Reliability divided by the number of classes in the test set.</p>
-<p>The <em>overall accuracy</em> is calculated as the total number of correctly classified pixels (diagonal elements) divided by the total number of test pixels.</p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA604</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DATA605 Final Project</title>
     <url>/2022/03/02/DATA605-Final-Project/</url>
     <content><![CDATA[<p>Notes about DATA605 Big Data System</p>
@@ -1031,9 +1031,9 @@ array([[1, 0, 0, 0, 0, 0]])
 <p><a href="https://cord-19-data.s3.amazonaws.com/-">https://cord-19-data.s3.amazonaws.com/-</a></p>
 <p>s3:&#x2F;&#x2F;cord-19-data&#x2F;-</p>
 <p>ssh -i <filename>.pem ec2-user@<public-ip></p>
-<p>ssh -i labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#45;&#x75;&#x73;&#101;&#x72;&#x40;&#x35;&#52;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#46;&#50;&#x31;&#x37;">&#x65;&#99;&#x32;&#45;&#x75;&#x73;&#101;&#x72;&#x40;&#x35;&#52;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#46;&#50;&#x31;&#x37;</a></p>
+<p>ssh -i labsuser.pem <a href="mailto:&#101;&#99;&#50;&#x2d;&#x75;&#x73;&#x65;&#114;&#64;&#x35;&#x34;&#46;&#49;&#x35;&#x39;&#x2e;&#x32;&#56;&#46;&#x32;&#x31;&#55;">&#101;&#99;&#50;&#x2d;&#x75;&#x73;&#x65;&#114;&#64;&#x35;&#x34;&#46;&#49;&#x35;&#x39;&#x2e;&#x32;&#56;&#46;&#x32;&#x31;&#55;</a></p>
 <p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem ec2-user@<public-ip></p>
-<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#x2d;&#117;&#115;&#x65;&#114;&#x40;&#53;&#52;&#x2e;&#x31;&#x35;&#57;&#x2e;&#x32;&#x38;&#x2e;&#x32;&#49;&#55;">&#101;&#99;&#x32;&#x2d;&#117;&#115;&#x65;&#114;&#x40;&#53;&#52;&#x2e;&#x31;&#x35;&#57;&#x2e;&#x32;&#x38;&#x2e;&#x32;&#49;&#55;</a></p>
+<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#x31;&#53;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#x37;">&#101;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#x31;&#53;&#x39;&#x2e;&#50;&#56;&#x2e;&#x32;&#49;&#x37;</a></p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -1150,6 +1150,57 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>DATA606</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DATA641 Midterm</title>
+    <url>/2022/03/07/DATA641-Midterm/</url>
+    <content><![CDATA[<p>Q1 + Q6</p>
+<span id="more"></span>
+
+<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h2 id="i-Inflectional-morphology"><a href="#i-Inflectional-morphology" class="headerlink" title="i.Inflectional morphology"></a>i.Inflectional morphology</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the inflections of words. Inflection produces grammatical variants of the same word. Languages that add inflectional morphemes to words are sometimes called inflectional languages. It can be done by serveral ways: affixation, reduplication, alternation, suprasegmental variations. Inflection is most typically realized by adding an inflectional morpheme (that is, affixation) to the base form (either the root or a stem).</p>
+<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(adj) [some gets good news can be called he is good newsed]</p>
+<h2 id="ii-Derivational-morphology"><a href="#ii-Derivational-morphology" class="headerlink" title="ii.Derivational morphology"></a>ii.Derivational morphology</h2><h3 id="Def-1"><a href="#Def-1" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the derivation of words. Derivation produces a new word by adding affixes to existing words or stem occurs. Affixes are bound morphemes which can only attach to word or stem. The process changes the new semantically and grammatically.</p>
+<h3 id="Explanation-1"><a href="#Explanation-1" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(v)	[sth good news sb]</p>
+<h2 id="iii-Constituents"><a href="#iii-Constituents" class="headerlink" title="iii.Constituents"></a>iii.Constituents</h2><h3 id="Def-2"><a href="#Def-2" class="headerlink" title="Def:"></a>Def:</h3><p>In syntactic analysis, a constituent is a word or a group of words that function(s) as a single unit within a hierarchical structure. The analysis of constituent structure is associated mainly with phrase structure grammars, although dependency grammars also allow sentence structure to be broken down into constituent parts. The constituent structure of sentences is identified using constituency tests. These tests manipulate some portion of a sentence and based on the result, clues are delivered about the immediate constituent structure of the sentence. Many constituents are phrases. A phrase is a sequence of one or more words (in some theories two or more) built around a head lexical item and working as a unit within a sentence. A word sequence is shown to be a phrase&#x2F;constituent if it exhibits one or more of the behaviors discussed below.</p>
+<h3 id="Explanation-2"><a href="#Explanation-2" class="headerlink" title="Explanation:"></a>Explanation:</h3><p><u>i</u> <u>talked to</u> <u>my dad’s second cousin</u> [like: <u>sb</u> <u>do something to</u> <u>sb</u>]</p>
+<h2 id="iv-Multi-wordunits-x2F-collocations"><a href="#iv-Multi-wordunits-x2F-collocations" class="headerlink" title="iv.Multi-wordunits&#x2F;collocations"></a>iv.Multi-wordunits&#x2F;collocations</h2><h3 id="Def-3"><a href="#Def-3" class="headerlink" title="Def:"></a>Def:</h3><p>A multiword is a lexical unit formed by two or more words to yield a new concept, different from the composition of the meaning of its elements.</p>
+<p>There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.</p>
+<h3 id="Explanation-3"><a href="#Explanation-3" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i <u>talked to</u> my dad’s second cousin <u>in toronto</u> <u>on (good) friday</u></p>
+<h2 id="v-Coreference"><a href="#v-Coreference" class="headerlink" title="v.Coreference"></a>v.Coreference</h2><h3 id="Def-4"><a href="#Def-4" class="headerlink" title="Def:"></a>Def:</h3><p>In linguistics, coreference, sometimes written co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent</p>
+<h3 id="Explanation-4"><a href="#Explanation-4" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u>my dad’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (he &lt;—&gt; my dad’s second cousin)</p>
+<h2 id="vi-Syntactic-ambiguity"><a href="#vi-Syntactic-ambiguity" class="headerlink" title="vi.Syntactic ambiguity"></a>vi.Syntactic ambiguity</h2><h3 id="Def-5"><a href="#Def-5" class="headerlink" title="Def:"></a>Def:</h3><p>Syntactic ambiguity, also called amphiboly or amphibology, is a situation where a sentence may be interpreted in more than one way due to ambiguous sentence structure.</p>
+<h3 id="Explanation-5"><a href="#Explanation-5" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u><strong>my dad</strong>’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (Who is good newsed? My dad or my dad’s second cousin)</p>
+<h2 id="vii-Number-agreement"><a href="#vii-Number-agreement" class="headerlink" title="vii.Number agreement"></a>vii.Number agreement</h2><h3 id="Def-6"><a href="#Def-6" class="headerlink" title="Def:"></a>Def:</h3><p>agreement in number between words in the same grammatical construction (e.g., between adjectives and the nouns they modify)</p>
+<h3 id="Explanation-6"><a href="#Explanation-6" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and <u>he</u> <u>was</u> just good newsed! (“he” is single, so “was” is used)</p>
+<h2 id="viii-“Infinite-capacity-from-finite-means”"><a href="#viii-“Infinite-capacity-from-finite-means”" class="headerlink" title="viii.“Infinite capacity from finite means”"></a>viii.“Infinite capacity from finite means”</h2><h3 id="Def-7"><a href="#Def-7" class="headerlink" title="Def:"></a>Def:</h3><p>Some information can indicated by the sentence we saw, even though it is said in the sentence.</p>
+<h3 id="Explanation-7"><a href="#Explanation-7" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and he was just good newsed! —&gt;</p>
+<p>Her dad has cousins more than two.</p>
+<p>Toronto on that Friday had a good weather.</p>
+<p>Her dad’s second cousin was in toronto on that Friday.</p>
+<hr>
+<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><h2 id="1-True"><a href="#1-True" class="headerlink" title="1. True"></a>1. True</h2><p>Susan and Mary enjoyed the spaghetti they served with her brother.</p>
+<p>There are only two forms of ambiguity: lexical ambiguity and syntactic ambiguity.</p>
+<p>For this sentence, there are three ambiguities:</p>
+<ul>
+<li>Who served the spaghetti?</li>
+<li>Whose brother? Susan’s or Mary’s?</li>
+<li>Did the brother eat the spaghetti? Or he just went to accompany those two girls?</li>
+</ul>
+<h2 id="2-False"><a href="#2-False" class="headerlink" title="2. False"></a>2. False</h2><p>Zipf’s law is a relation between rank order and frequency of occurrence: it states that when observations (e.g., words) are ranked by their frequency, the frequency of a particular observation is inversely proportional to its rank, Frequency ∝ 1 Rank .</p>
+<h2 id="3-False"><a href="#3-False" class="headerlink" title="3. False"></a>3. False</h2><p>Byte pair encoding or digram coding is a simple form of data compression in which <u>the most common pair of consecutive bytes of data</u> is replaced with <u>a byte that does not occur within that data</u>. A table of the replacements is required to rebuild the original data. </p>
+<h2 id="4-True"><a href="#4-True" class="headerlink" title="4. True"></a>4. True</h2><p>Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space.</p>
+<p>Each word will not be represented by a discrete and sparse vector, but by a d-dimension continuous vector, and the meaning of each word will be captured by its relation to other words </p>
+<h2 id="5-True"><a href="#5-True" class="headerlink" title="5. True"></a>5. True</h2><p>“frame” + “er” + “s” &#x3D; “framers”</p>
+<p>framer —&gt;framer —&gt;framers</p>
+<p>(ex: drive —&gt;driver —&gt; drivers &#x2F; office —&gt;officer —&gt;officers)</p>
+<h2 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h2><h2 id="7-False"><a href="#7-False" class="headerlink" title="7.False"></a>7.False</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg" alt="笔记 2022年3月7日 19"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
       </tags>
   </entry>
   <entry>
@@ -1292,260 +1343,6 @@ which pip
       </categories>
       <tags>
         <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DATA641 Midterm</title>
-    <url>/2022/03/07/DATA641-Midterm/</url>
-    <content><![CDATA[<p>Q1 + Q6</p>
-<span id="more"></span>
-
-<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><h2 id="i-Inflectional-morphology"><a href="#i-Inflectional-morphology" class="headerlink" title="i.Inflectional morphology"></a>i.Inflectional morphology</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the inflections of words. Inflection produces grammatical variants of the same word. Languages that add inflectional morphemes to words are sometimes called inflectional languages. It can be done by serveral ways: affixation, reduplication, alternation, suprasegmental variations. Inflection is most typically realized by adding an inflectional morpheme (that is, affixation) to the base form (either the root or a stem).</p>
-<h3 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(adj) [some gets good news can be called he is good newsed]</p>
-<h2 id="ii-Derivational-morphology"><a href="#ii-Derivational-morphology" class="headerlink" title="ii.Derivational morphology"></a>ii.Derivational morphology</h2><h3 id="Def-1"><a href="#Def-1" class="headerlink" title="Def:"></a>Def:</h3><p>The part of grammar that deals with the derivation of words. Derivation produces a new word by adding affixes to existing words or stem occurs. Affixes are bound morphemes which can only attach to word or stem. The process changes the new semantically and grammatically.</p>
-<h3 id="Explanation-1"><a href="#Explanation-1" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>good news(n) —&gt; she was <u>good newsed</u>(v)	[sth good news sb]</p>
-<h2 id="iii-Constituents"><a href="#iii-Constituents" class="headerlink" title="iii.Constituents"></a>iii.Constituents</h2><h3 id="Def-2"><a href="#Def-2" class="headerlink" title="Def:"></a>Def:</h3><p>In syntactic analysis, a constituent is a word or a group of words that function(s) as a single unit within a hierarchical structure. The analysis of constituent structure is associated mainly with phrase structure grammars, although dependency grammars also allow sentence structure to be broken down into constituent parts. The constituent structure of sentences is identified using constituency tests. These tests manipulate some portion of a sentence and based on the result, clues are delivered about the immediate constituent structure of the sentence. Many constituents are phrases. A phrase is a sequence of one or more words (in some theories two or more) built around a head lexical item and working as a unit within a sentence. A word sequence is shown to be a phrase&#x2F;constituent if it exhibits one or more of the behaviors discussed below.</p>
-<h3 id="Explanation-2"><a href="#Explanation-2" class="headerlink" title="Explanation:"></a>Explanation:</h3><p><u>i</u> <u>talked to</u> <u>my dad’s second cousin</u> [like: <u>sb</u> <u>do something to</u> <u>sb</u>]</p>
-<h2 id="iv-Multi-wordunits-x2F-collocations"><a href="#iv-Multi-wordunits-x2F-collocations" class="headerlink" title="iv.Multi-wordunits&#x2F;collocations"></a>iv.Multi-wordunits&#x2F;collocations</h2><h3 id="Def-3"><a href="#Def-3" class="headerlink" title="Def:"></a>Def:</h3><p>A multiword is a lexical unit formed by two or more words to yield a new concept, different from the composition of the meaning of its elements.</p>
-<p>There are about six main types of collocations: adjective+noun, noun+noun (such as collective nouns), verb+noun, adverb+adjective, verbs+prepositional phrase (phrasal verbs), and verb+adverb.</p>
-<h3 id="Explanation-3"><a href="#Explanation-3" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i <u>talked to</u> my dad’s second cousin <u>in toronto</u> <u>on (good) friday</u></p>
-<h2 id="v-Coreference"><a href="#v-Coreference" class="headerlink" title="v.Coreference"></a>v.Coreference</h2><h3 id="Def-4"><a href="#Def-4" class="headerlink" title="Def:"></a>Def:</h3><p>In linguistics, coreference, sometimes written co-reference, occurs when two or more expressions in a text refer to the same person or thing; they have the same referent</p>
-<h3 id="Explanation-4"><a href="#Explanation-4" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u>my dad’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (he &lt;—&gt; my dad’s second cousin)</p>
-<h2 id="vi-Syntactic-ambiguity"><a href="#vi-Syntactic-ambiguity" class="headerlink" title="vi.Syntactic ambiguity"></a>vi.Syntactic ambiguity</h2><h3 id="Def-5"><a href="#Def-5" class="headerlink" title="Def:"></a>Def:</h3><p>Syntactic ambiguity, also called amphiboly or amphibology, is a situation where a sentence may be interpreted in more than one way due to ambiguous sentence structure.</p>
-<h3 id="Explanation-5"><a href="#Explanation-5" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to <u><strong>my dad</strong>’s second cousin</u> in toronto on good friday and <u>he</u> was just good newsed! (Who is good newsed? My dad or my dad’s second cousin)</p>
-<h2 id="vii-Number-agreement"><a href="#vii-Number-agreement" class="headerlink" title="vii.Number agreement"></a>vii.Number agreement</h2><h3 id="Def-6"><a href="#Def-6" class="headerlink" title="Def:"></a>Def:</h3><p>agreement in number between words in the same grammatical construction (e.g., between adjectives and the nouns they modify)</p>
-<h3 id="Explanation-6"><a href="#Explanation-6" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and <u>he</u> <u>was</u> just good newsed! (“he” is single, so “was” is used)</p>
-<h2 id="viii-“Infinite-capacity-from-finite-means”"><a href="#viii-“Infinite-capacity-from-finite-means”" class="headerlink" title="viii.“Infinite capacity from finite means”"></a>viii.“Infinite capacity from finite means”</h2><h3 id="Def-7"><a href="#Def-7" class="headerlink" title="Def:"></a>Def:</h3><p>Some information can indicated by the sentence we saw, even though it is said in the sentence.</p>
-<h3 id="Explanation-7"><a href="#Explanation-7" class="headerlink" title="Explanation:"></a>Explanation:</h3><p>i talked to my dad’s second cousin in toronto on good friday and he was just good newsed! —&gt;</p>
-<p>Her dad has cousins more than two.</p>
-<p>Toronto on that Friday had a good weather.</p>
-<p>Her dad’s second cousin was in toronto on that Friday.</p>
-<hr>
-<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><h2 id="1-True"><a href="#1-True" class="headerlink" title="1. True"></a>1. True</h2><p>Susan and Mary enjoyed the spaghetti they served with her brother.</p>
-<p>There are only two forms of ambiguity: lexical ambiguity and syntactic ambiguity.</p>
-<p>For this sentence, there are three ambiguities:</p>
-<ul>
-<li>Who served the spaghetti?</li>
-<li>Whose brother? Susan’s or Mary’s?</li>
-<li>Did the brother eat the spaghetti? Or he just went to accompany those two girls?</li>
-</ul>
-<h2 id="2-False"><a href="#2-False" class="headerlink" title="2. False"></a>2. False</h2><p>Zipf’s law is a relation between rank order and frequency of occurrence: it states that when observations (e.g., words) are ranked by their frequency, the frequency of a particular observation is inversely proportional to its rank, Frequency ∝ 1 Rank .</p>
-<h2 id="3-False"><a href="#3-False" class="headerlink" title="3. False"></a>3. False</h2><p>Byte pair encoding or digram coding is a simple form of data compression in which <u>the most common pair of consecutive bytes of data</u> is replaced with <u>a byte that does not occur within that data</u>. A table of the replacements is required to rebuild the original data. </p>
-<h2 id="4-True"><a href="#4-True" class="headerlink" title="4. True"></a>4. True</h2><p>Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located close to one another in the space.</p>
-<p>Each word will not be represented by a discrete and sparse vector, but by a d-dimension continuous vector, and the meaning of each word will be captured by its relation to other words </p>
-<h2 id="5-True"><a href="#5-True" class="headerlink" title="5. True"></a>5. True</h2><p>“frame” + “er” + “s” &#x3D; “framers”</p>
-<p>framer —&gt;framer —&gt;framers</p>
-<p>(ex: drive —&gt;driver —&gt; drivers &#x2F; office —&gt;officer —&gt;officers)</p>
-<h2 id="6-1"><a href="#6-1" class="headerlink" title="6."></a>6.</h2><h2 id="7-False"><a href="#7-False" class="headerlink" title="7.False"></a>7.False</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203071931156.jpeg" alt="笔记 2022年3月7日 19"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker实操</title>
-    <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
-    <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
-<p><a href="https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s">https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s</a></p>
-<span id="more"></span>
-
-<h4 id="Workflow-with-Docker"><a href="#Workflow-with-Docker" class="headerlink" title="Workflow with Docker"></a>Workflow with Docker</h4><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png" alt="image-20220305025005217"></p>
-<h4 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h4><h5 id="docker-pull"><a href="#docker-pull" class="headerlink" title="docker pull"></a>docker pull</h5><p>抓取镜像（默认最新）</p>
-<h5 id="docker-run-postgres-9-6"><a href="#docker-run-postgres-9-6" class="headerlink" title="docker run postgres:9.6"></a>docker run postgres:9.6</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png" alt="image-20220305013150795"></p>
-<p>如果本地没有镜像，则自动下载最新版</p>
-<h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png" alt="image-20220305013748490"></p>
-<h5 id="docker-run-redis"><a href="#docker-run-redis" class="headerlink" title="docker run redis"></a>docker run redis</h5><p>docker run &#x3D; starts <strong><u>new container</u></strong> with a command</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png" alt="image-20220305014302107"></p>
-<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>ps 相当于 list running containers</p>
-<p><u><strong>列举出运行中的容器</strong></u></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png" alt="image-20220305014419761"></p>
-<h5 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h5><p>用于终止容器</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png" alt="image-20220305014629139"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png" alt="image-20220305014740934"></p>
-<h5 id="docker-run-d"><a href="#docker-run-d" class="headerlink" title="docker run -d"></a>docker run -d</h5><p>-d : in a detached mode</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png" alt="image-20220305015032043"></p>
-<h5 id="docker-stop-ID"><a href="#docker-stop-ID" class="headerlink" title="docker stop + ID"></a>docker stop + ID</h5><p>docker stop &#x3D; stops the container</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png" alt="image-20220305015154120"></p>
-<h5 id="docker-start-ID"><a href="#docker-start-ID" class="headerlink" title="docker start + ID"></a>docker start + ID</h5><p>docker start &#x3D; starts <strong><u>stopped</u></strong> container</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png" alt="image-20220305015259641"></p>
-<h5 id="docker-ps-a"><a href="#docker-ps-a" class="headerlink" title="docker ps -a"></a>docker ps -a</h5><p>Docker ps -a &#x3D; <strong><u>lists running and stopped container</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png" alt="image-20220305015547588"></p>
-<h5 id="docker-run-redis-4-0"><a href="#docker-run-redis-4-0" class="headerlink" title="docker run redis:4.0"></a>docker run redis:4.0</h5><p>和pull的小区别：</p>
-<p>​	docker run &#x3D; pulls images <strong><u>and starts containers</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png" alt="image-20220305020133021"></p>
-<p>同一景象不同版本，</p>
-<p>ports </p>
-<p><strong>CIONTAINER Port vs HOST Port</strong></p>
-<ul>
-<li>multiple container can run on host machine</li>
-<li>laptop has only certain ports available</li>
-<li>Conflict when same port on host machine</li>
-</ul>
-<p>具体ports信息在logs里面可以看到</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png" alt="image-20220305020438704"></p>
-<p><strong>占用相同端口之后需要人为修改绑定的端口</strong></p>
-<h5 id="docker-run-p6000-6379-redis"><a href="#docker-run-p6000-6379-redis" class="headerlink" title="docker run -p6000:6379 redis"></a>docker run -p6000:6379 redis</h5><p><strong><u>主机端口绑定容器端口</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png" alt="image-20220305021250249"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png" alt="image-20220305021307536"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png" alt="image-20220305021717734"></p>
-<p><strong><u>当绑定新端口，就会创造新容器</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png" alt="image-20220305021814569"></p>
-<h5 id="docker-run-p6001-6379-redis4-0"><a href="#docker-run-p6001-6379-redis4-0" class="headerlink" title="docker run -p6001:6379 redis4.0"></a>docker run -p6001:6379 redis4.0</h5><p>不能使用同一端口了</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png" alt="image-20220305021923857"></p>
-<h5 id="docker-logs-ID-x2F-Name"><a href="#docker-logs-ID-x2F-Name" class="headerlink" title="docker logs + ID&#x2F;Name"></a>docker logs + ID&#x2F;<strong><u>Name</u></strong></h5><p>搭配docker ps（查看docker ID）就可以查看logs</p>
-<h5 id="docker-run-d-p-6001-6379-–name-redis-older-redis-4-0"><a href="#docker-run-d-p-6001-6379-–name-redis-older-redis-4-0" class="headerlink" title="docker run -d -p 6001:6379 –name redis-older redis:4.0"></a>docker run -d -p 6001:6379 –name redis-older redis:4.0</h5><p>–name 重命名</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png" alt="image-20220305022928557"></p>
-<p>重命名之后查看logs会简单很多</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png" alt="image-20220305023106728"></p>
-<h5 id="docker-exec-it-ID或者name-x2F-bin-x2F-bash"><a href="#docker-exec-it-ID或者name-x2F-bin-x2F-bash" class="headerlink" title="docker exec -it ID或者name &#x2F;bin&#x2F;bash"></a>docker exec -it ID或者name &#x2F;bin&#x2F;bash</h5><p>*: bash后面没有&#x2F;</p>
-<p>docker exec 命令用于在运行容器中运行命令。 该命令开始使用 docker exec 只在容器的主进程(PID 1)运行时运行，并且如果容器重新启动，则不重新启动该命令。</p>
-<p>如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
-<ul>
-<li>-i : 交互式操作。</li>
-<li>-t : 终端</li>
-<li>&#x2F;bin&#x2F;bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png" alt="image-20220305023755035"></p>
-<p>退出exec</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png" alt="image-20220305023900771"></p>
-<h5 id="docker-run-vs-start"><a href="#docker-run-vs-start" class="headerlink" title="docker run vs start"></a>docker run vs start</h5><ul>
-<li>docker run will take an image with a specific version(attributes)</li>
-</ul>
-<p>​		<strong><u>is used to create a new container</u></strong></p>
-<p>​	docker run -d -p –name </p>
-<ul>
-<li>docker start is working with container</li>
-</ul>
-<p>​		<strong><u>is used to restart a stopped container</u></strong></p>
-<h5 id="docker-rm-f-ID"><a href="#docker-rm-f-ID" class="headerlink" title="docker rm -f ID"></a>docker rm -f ID</h5><p>删除container</p>
-<p>*： </p>
-<p>docker container prune</p>
-<p>清理掉所有处于终止状态的容器。</p>
-<h5 id="docker-network-ls"><a href="#docker-network-ls" class="headerlink" title="docker network ls"></a>docker network ls</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png" alt="image-20220305045344896"></p>
-<h5 id="docker-network-create-Name"><a href="#docker-network-create-Name" class="headerlink" title="docker network create Name"></a>docker network create Name</h5><p>创建docker网络</p>
-<p>-e: 设置环境变量</p>
-<p>可以在docker hub上找到<a href="https://hub.docker.com/_/mongo">https://hub.docker.com/_/mongo</a></p>
-<h5 id="start-mongodb"><a href="#start-mongodb" class="headerlink" title="start mongodb"></a>start mongodb</h5><p>docker run -d \</p>
-<p>-p 27017:27017 \</p>
-<p>-e MONGO_INITDB_ROOT_USERNAME&#x3D;admin \</p>
-<p>-e MONGO_INITDB_ROOT_PASSWORD&#x3D;password \</p>
-<p>–net mongo-network \</p>
-<p>–name mongodb \</p>
-<p>mongo</p>
-<h5 id="start-mongo-express"><a href="#start-mongo-express" class="headerlink" title="start mongo-express"></a>start mongo-express</h5><p>docker run -d \</p>
-<p>-p 8081:8081 \</p>
-<p>-e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin \</p>
-<p>-e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password \</p>
-<p>-e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb \</p>
-<p>–net mongo-network \</p>
-<p>–name mongo-express\</p>
-<p>mongo-express</p>
-<p>docker run -d  -p 8081:8081  -e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin  -e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password -e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb –net mongo-network –name mongo-express mongo-express</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png" alt="image-20220305051359394"></p>
-<p><strong><u>用\换行</u></strong></p>
-<h5 id="mongodb报错"><a href="#mongodb报错" class="headerlink" title="mongodb报错"></a>mongodb报错</h5><p>(base) caochao  ~   &gt; docker logs mongodb<br>about to fork child process, waiting until server is ready for connections.<br>forked process: 31</p>
-<p>如何进入？docker desktop</p>
-<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h4><h5 id="mongo-docker-compose-yaml"><a href="#mongo-docker-compose-yaml" class="headerlink" title="mongo-docker-compose.yaml"></a>mongo-docker-compose.yaml</h5><p>version:’3’</p>
-<p>services:</p>
-<p>​	mongoldb:</p>
-<p>​		image: mongo</p>
-<p>​		ports:</p>
-<p>​			- 27017:27017</p>
-<p>​		environment:</p>
-<p>​			- MONGO_INITDB_ROOT_USERNAME&#x3D;admin</p>
-<p>​			&#96;&#96;&#96;	</p>
-<p>mongo-express:</p>
-<p>​		image: mongo-express</p>
-<p>​		ports:</p>
-<p>​			- 8080:8080</p>
-<p>​		environment:</p>
-<p>​			- ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin</p>
-<p>​			&#96;&#96;&#96;</p>
-<p>*: <strong><u>the network configuration is not in the docker compose</u></strong></p>
-<h5 id="mongo-yaml"><a href="#mongo-yaml" class="headerlink" title="mongo.yaml"></a>mongo.yaml</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="docker-compose-f-mongo-yaml-up"><a href="#docker-compose-f-mongo-yaml-up" class="headerlink" title="docker-compose -f mongo.yaml up"></a>docker-compose -f mongo.yaml up</h5><p>up: start all the containers</p>
-<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><h5 id="Image-Environment-Blueprint"><a href="#Image-Environment-Blueprint" class="headerlink" title="Image Environment Blueprint"></a>Image Environment Blueprint</h5><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">install node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set MONGO_DB_USERNAME=admin</span><br><span class="line"></span><br><span class="line">set MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create /home/app folder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> curent folder files to /home/app</span><br><span class="line"></span><br><span class="line">start the app with: <span class="string">&quot;node server.js&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="Dockerfile-1"><a href="#Dockerfile-1" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><p><strong><u>COPY - executes on the HOST machine!</u></strong></p>
-<p><u><strong>CMD - entrypoint command</strong></u></p>
-<p>​		<u><strong>We can have multiple RUN commands</strong></u></p>
-<p><strong><u>Every image is always based on another image.</u></strong></p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line">COPY ./home/app</span><br><span class="line"></span><br><span class="line">CMD[<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<h5 id="docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><a href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile" class="headerlink" title="docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile"></a>docker-node&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17">17</a>&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15">alpine3.15</a>&#x2F;Dockerfile</h5><p><a href="https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile">https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile</a></p>
-<h5 id="Create-a-dockerfile-old"><a href="#Create-a-dockerfile-old" class="headerlink" title="Create a dockerfile (old)"></a>Create a dockerfile (old)</h5><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">FROM node:<span class="number">13</span>-alpine</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line"><span class="comment">% . /home/app 有间隔</span></span><br><span class="line">COPY . /home/app</span><br><span class="line"></span><br><span class="line">CMD [<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><em>:**<u>Name must be “Dockerfile”!</u>*</em></p>
-<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
-<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
-<p><strong>解析</strong>：由于 docker 的运行模式是 C&#x2F;S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
-<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
-<h4 id="Build-docker-image-based-on-dockerfile"><a href="#Build-docker-image-based-on-dockerfile" class="headerlink" title="Build docker image based on dockerfile"></a>Build docker image based on dockerfile</h4><h5 id="docker-build-t-my-app-1-0"><a href="#docker-build-t-my-app-1-0" class="headerlink" title="docker build -t  my-app:1.0 ."></a>docker build -t  my-app:1.0 .</h5><p><strong><u>-t: tag</u></strong></p>
-<p>Q: <strong>.</strong> 代表本次执行的上下文路径</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png" alt="image-20220305062139173"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png" alt="image-20220305062234611"></p>
-<p>App including Dockerfile is comitted to Git</p>
-<p>Jenkins builds image from Dockerfile(like what we did)</p>
-<h5 id="docker-run-my-app-1-0"><a href="#docker-run-my-app-1-0" class="headerlink" title="docker run my-app:1.0"></a>docker run my-app:1.0</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png" alt="image-20220305062604551"></p>
-<h5 id="docker-rmi-ID"><a href="#docker-rmi-ID" class="headerlink" title="docker rmi ID"></a>docker rmi ID</h5><ul>
-<li><p><u><strong>rmi删容器</strong></u></p>
-</li>
-<li><p><u><strong>rm删镜像</strong></u></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png" alt="image-20220305062917171"></p>
-<p><strong><u>When you adjust the Dockerfile, you MUSt rebuild the Image</u></strong></p>
-<h5 id="docker-build-t-my-app-1-0-1"><a href="#docker-build-t-my-app-1-0-1" class="headerlink" title="docker build -t my-app:1.0 ."></a>docker build -t my-app:1.0 .</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png" alt="image-20220305064916518"></p>
-<h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p><a href="https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws">https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws</a></p>
-<h5 id="AWS-—-gt-ECR-Fully-managed-Docker-container-registry"><a href="#AWS-—-gt-ECR-Fully-managed-Docker-container-registry" class="headerlink" title="AWS —&gt; ECR (Fully-managed Docker container registry)"></a>AWS —&gt; ECR (Fully-managed Docker container registry)</h5><p>Amazon Elastic Container Registry<br>Share and deploy container software, publicly or privately   </p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png" alt="image-20220305070458043"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png" alt="image-20220305070542683"></p>
-<p>Save different tags (versions) of the sane image</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png" alt="image-20220305070707952"></p>
-<h5 id="how-to-push"><a href="#how-to-push" class="headerlink" title="how to push"></a>how to push</h5><p>view push command </p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png" alt="image-20220305070832743"></p>
-<h5 id="push-command"><a href="#push-command" class="headerlink" title="push command"></a>push command</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png" alt="image-20220305070901902"></p>
-<p> <strong><u>You always have to login to private repo! &#x3D; docker login</u></strong></p>
-<p>Q: jenkin’s server?</p>
-<h5 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites"></a>Pre-Requisites</h5><ol>
-<li><p>AWS Cli needs to be installed</p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
-</li>
-<li><p>Credentials configured</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png" alt="image-20220305071337433"></p>
-<p><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth</a></p>
-<p><a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">Set up AWS Credentials and Region for Development</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png" alt="image-20220305074140673"></p>
-<p>Solution:</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png" alt="image-20220305081827581"></p>
-<p>两个权限加上：</p>
-<ul>
-<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess">AdministratorAccess</a></li>
-<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess">AmazonEC2FullAccess</a></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png" alt="image-20220305081917401"></p>
-<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png" alt="image-20220305082321830"><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png" alt="image-20220305082338677"></p>
-<p>push一个更新的版本</p>
-<ol>
-<li>docker tag my-app:1.1 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
-<li>docker push 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
-</ol>
-<h5 id="如何从私人库pull一个image"><a href="#如何从私人库pull一个image" class="headerlink" title="如何从私人库pull一个image"></a>如何从私人库pull一个image</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">my-app:</span></span><br><span class="line">		<span class="attr">image:</span> <span class="number">429996114549.</span><span class="string">dkr.ecr.us-east-1.amazonaws.com/my-app:1.0</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -2071,6 +1868,209 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Docker实操</title>
+    <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
+    <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
+<p><a href="https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s">https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s</a></p>
+<span id="more"></span>
+
+<h4 id="Workflow-with-Docker"><a href="#Workflow-with-Docker" class="headerlink" title="Workflow with Docker"></a>Workflow with Docker</h4><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png" alt="image-20220305025005217"></p>
+<h4 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h4><h5 id="docker-pull"><a href="#docker-pull" class="headerlink" title="docker pull"></a>docker pull</h5><p>抓取镜像（默认最新）</p>
+<h5 id="docker-run-postgres-9-6"><a href="#docker-run-postgres-9-6" class="headerlink" title="docker run postgres:9.6"></a>docker run postgres:9.6</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png" alt="image-20220305013150795"></p>
+<p>如果本地没有镜像，则自动下载最新版</p>
+<h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png" alt="image-20220305013748490"></p>
+<h5 id="docker-run-redis"><a href="#docker-run-redis" class="headerlink" title="docker run redis"></a>docker run redis</h5><p>docker run &#x3D; starts <strong><u>new container</u></strong> with a command</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png" alt="image-20220305014302107"></p>
+<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>ps 相当于 list running containers</p>
+<p><u><strong>列举出运行中的容器</strong></u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png" alt="image-20220305014419761"></p>
+<h5 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h5><p>用于终止容器</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png" alt="image-20220305014629139"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png" alt="image-20220305014740934"></p>
+<h5 id="docker-run-d"><a href="#docker-run-d" class="headerlink" title="docker run -d"></a>docker run -d</h5><p>-d : in a detached mode</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png" alt="image-20220305015032043"></p>
+<h5 id="docker-stop-ID"><a href="#docker-stop-ID" class="headerlink" title="docker stop + ID"></a>docker stop + ID</h5><p>docker stop &#x3D; stops the container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png" alt="image-20220305015154120"></p>
+<h5 id="docker-start-ID"><a href="#docker-start-ID" class="headerlink" title="docker start + ID"></a>docker start + ID</h5><p>docker start &#x3D; starts <strong><u>stopped</u></strong> container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png" alt="image-20220305015259641"></p>
+<h5 id="docker-ps-a"><a href="#docker-ps-a" class="headerlink" title="docker ps -a"></a>docker ps -a</h5><p>Docker ps -a &#x3D; <strong><u>lists running and stopped container</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png" alt="image-20220305015547588"></p>
+<h5 id="docker-run-redis-4-0"><a href="#docker-run-redis-4-0" class="headerlink" title="docker run redis:4.0"></a>docker run redis:4.0</h5><p>和pull的小区别：</p>
+<p>​	docker run &#x3D; pulls images <strong><u>and starts containers</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png" alt="image-20220305020133021"></p>
+<p>同一景象不同版本，</p>
+<p>ports </p>
+<p><strong>CIONTAINER Port vs HOST Port</strong></p>
+<ul>
+<li>multiple container can run on host machine</li>
+<li>laptop has only certain ports available</li>
+<li>Conflict when same port on host machine</li>
+</ul>
+<p>具体ports信息在logs里面可以看到</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png" alt="image-20220305020438704"></p>
+<p><strong>占用相同端口之后需要人为修改绑定的端口</strong></p>
+<h5 id="docker-run-p6000-6379-redis"><a href="#docker-run-p6000-6379-redis" class="headerlink" title="docker run -p6000:6379 redis"></a>docker run -p6000:6379 redis</h5><p><strong><u>主机端口绑定容器端口</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png" alt="image-20220305021250249"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png" alt="image-20220305021307536"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png" alt="image-20220305021717734"></p>
+<p><strong><u>当绑定新端口，就会创造新容器</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png" alt="image-20220305021814569"></p>
+<h5 id="docker-run-p6001-6379-redis4-0"><a href="#docker-run-p6001-6379-redis4-0" class="headerlink" title="docker run -p6001:6379 redis4.0"></a>docker run -p6001:6379 redis4.0</h5><p>不能使用同一端口了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png" alt="image-20220305021923857"></p>
+<h5 id="docker-logs-ID-x2F-Name"><a href="#docker-logs-ID-x2F-Name" class="headerlink" title="docker logs + ID&#x2F;Name"></a>docker logs + ID&#x2F;<strong><u>Name</u></strong></h5><p>搭配docker ps（查看docker ID）就可以查看logs</p>
+<h5 id="docker-run-d-p-6001-6379-–name-redis-older-redis-4-0"><a href="#docker-run-d-p-6001-6379-–name-redis-older-redis-4-0" class="headerlink" title="docker run -d -p 6001:6379 –name redis-older redis:4.0"></a>docker run -d -p 6001:6379 –name redis-older redis:4.0</h5><p>–name 重命名</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png" alt="image-20220305022928557"></p>
+<p>重命名之后查看logs会简单很多</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png" alt="image-20220305023106728"></p>
+<h5 id="docker-exec-it-ID或者name-x2F-bin-x2F-bash"><a href="#docker-exec-it-ID或者name-x2F-bin-x2F-bash" class="headerlink" title="docker exec -it ID或者name &#x2F;bin&#x2F;bash"></a>docker exec -it ID或者name &#x2F;bin&#x2F;bash</h5><p>*: bash后面没有&#x2F;</p>
+<p>docker exec 命令用于在运行容器中运行命令。 该命令开始使用 docker exec 只在容器的主进程(PID 1)运行时运行，并且如果容器重新启动，则不重新启动该命令。</p>
+<p>如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
+<ul>
+<li>-i : 交互式操作。</li>
+<li>-t : 终端</li>
+<li>&#x2F;bin&#x2F;bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png" alt="image-20220305023755035"></p>
+<p>退出exec</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png" alt="image-20220305023900771"></p>
+<h5 id="docker-run-vs-start"><a href="#docker-run-vs-start" class="headerlink" title="docker run vs start"></a>docker run vs start</h5><ul>
+<li>docker run will take an image with a specific version(attributes)</li>
+</ul>
+<p>​		<strong><u>is used to create a new container</u></strong></p>
+<p>​	docker run -d -p –name </p>
+<ul>
+<li>docker start is working with container</li>
+</ul>
+<p>​		<strong><u>is used to restart a stopped container</u></strong></p>
+<h5 id="docker-rm-f-ID"><a href="#docker-rm-f-ID" class="headerlink" title="docker rm -f ID"></a>docker rm -f ID</h5><p>删除container</p>
+<p>*： </p>
+<p>docker container prune</p>
+<p>清理掉所有处于终止状态的容器。</p>
+<h5 id="docker-network-ls"><a href="#docker-network-ls" class="headerlink" title="docker network ls"></a>docker network ls</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png" alt="image-20220305045344896"></p>
+<h5 id="docker-network-create-Name"><a href="#docker-network-create-Name" class="headerlink" title="docker network create Name"></a>docker network create Name</h5><p>创建docker网络</p>
+<p>-e: 设置环境变量</p>
+<p>可以在docker hub上找到<a href="https://hub.docker.com/_/mongo">https://hub.docker.com/_/mongo</a></p>
+<h5 id="start-mongodb"><a href="#start-mongodb" class="headerlink" title="start mongodb"></a>start mongodb</h5><p>docker run -d \</p>
+<p>-p 27017:27017 \</p>
+<p>-e MONGO_INITDB_ROOT_USERNAME&#x3D;admin \</p>
+<p>-e MONGO_INITDB_ROOT_PASSWORD&#x3D;password \</p>
+<p>–net mongo-network \</p>
+<p>–name mongodb \</p>
+<p>mongo</p>
+<h5 id="start-mongo-express"><a href="#start-mongo-express" class="headerlink" title="start mongo-express"></a>start mongo-express</h5><p>docker run -d \</p>
+<p>-p 8081:8081 \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password \</p>
+<p>-e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb \</p>
+<p>–net mongo-network \</p>
+<p>–name mongo-express\</p>
+<p>mongo-express</p>
+<p>docker run -d  -p 8081:8081  -e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin  -e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password -e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb –net mongo-network –name mongo-express mongo-express</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png" alt="image-20220305051359394"></p>
+<p><strong><u>用\换行</u></strong></p>
+<h5 id="mongodb报错"><a href="#mongodb报错" class="headerlink" title="mongodb报错"></a>mongodb报错</h5><p>(base) caochao  ~   &gt; docker logs mongodb<br>about to fork child process, waiting until server is ready for connections.<br>forked process: 31</p>
+<p>如何进入？docker desktop</p>
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h4><h5 id="mongo-docker-compose-yaml"><a href="#mongo-docker-compose-yaml" class="headerlink" title="mongo-docker-compose.yaml"></a>mongo-docker-compose.yaml</h5><p>version:’3’</p>
+<p>services:</p>
+<p>​	mongoldb:</p>
+<p>​		image: mongo</p>
+<p>​		ports:</p>
+<p>​			- 27017:27017</p>
+<p>​		environment:</p>
+<p>​			- MONGO_INITDB_ROOT_USERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;	</p>
+<p>mongo-express:</p>
+<p>​		image: mongo-express</p>
+<p>​		ports:</p>
+<p>​			- 8080:8080</p>
+<p>​		environment:</p>
+<p>​			- ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;</p>
+<p>*: <strong><u>the network configuration is not in the docker compose</u></strong></p>
+<h5 id="mongo-yaml"><a href="#mongo-yaml" class="headerlink" title="mongo.yaml"></a>mongo.yaml</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="docker-compose-f-mongo-yaml-up"><a href="#docker-compose-f-mongo-yaml-up" class="headerlink" title="docker-compose -f mongo.yaml up"></a>docker-compose -f mongo.yaml up</h5><p>up: start all the containers</p>
+<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><h5 id="Image-Environment-Blueprint"><a href="#Image-Environment-Blueprint" class="headerlink" title="Image Environment Blueprint"></a>Image Environment Blueprint</h5><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">install node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set MONGO_DB_USERNAME=admin</span><br><span class="line"></span><br><span class="line">set MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create /home/app folder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> curent folder files to /home/app</span><br><span class="line"></span><br><span class="line">start the app with: <span class="string">&quot;node server.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Dockerfile-1"><a href="#Dockerfile-1" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><p><strong><u>COPY - executes on the HOST machine!</u></strong></p>
+<p><u><strong>CMD - entrypoint command</strong></u></p>
+<p>​		<u><strong>We can have multiple RUN commands</strong></u></p>
+<p><strong><u>Every image is always based on another image.</u></strong></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line">COPY ./home/app</span><br><span class="line"></span><br><span class="line">CMD[<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><a href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile" class="headerlink" title="docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile"></a>docker-node&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17">17</a>&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15">alpine3.15</a>&#x2F;Dockerfile</h5><p><a href="https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile">https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile</a></p>
+<h5 id="Create-a-dockerfile-old"><a href="#Create-a-dockerfile-old" class="headerlink" title="Create a dockerfile (old)"></a>Create a dockerfile (old)</h5><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">FROM node:<span class="number">13</span>-alpine</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line"><span class="comment">% . /home/app 有间隔</span></span><br><span class="line">COPY . /home/app</span><br><span class="line"></span><br><span class="line">CMD [<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><em>:**<u>Name must be “Dockerfile”!</u>*</em></p>
+<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
+<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
+<p><strong>解析</strong>：由于 docker 的运行模式是 C&#x2F;S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
+<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
+<h4 id="Build-docker-image-based-on-dockerfile"><a href="#Build-docker-image-based-on-dockerfile" class="headerlink" title="Build docker image based on dockerfile"></a>Build docker image based on dockerfile</h4><h5 id="docker-build-t-my-app-1-0"><a href="#docker-build-t-my-app-1-0" class="headerlink" title="docker build -t  my-app:1.0 ."></a>docker build -t  my-app:1.0 .</h5><p><strong><u>-t: tag</u></strong></p>
+<p>Q: <strong>.</strong> 代表本次执行的上下文路径</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png" alt="image-20220305062139173"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png" alt="image-20220305062234611"></p>
+<p>App including Dockerfile is comitted to Git</p>
+<p>Jenkins builds image from Dockerfile(like what we did)</p>
+<h5 id="docker-run-my-app-1-0"><a href="#docker-run-my-app-1-0" class="headerlink" title="docker run my-app:1.0"></a>docker run my-app:1.0</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png" alt="image-20220305062604551"></p>
+<h5 id="docker-rmi-ID"><a href="#docker-rmi-ID" class="headerlink" title="docker rmi ID"></a>docker rmi ID</h5><ul>
+<li><p><u><strong>rmi删容器</strong></u></p>
+</li>
+<li><p><u><strong>rm删镜像</strong></u></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png" alt="image-20220305062917171"></p>
+<p><strong><u>When you adjust the Dockerfile, you MUSt rebuild the Image</u></strong></p>
+<h5 id="docker-build-t-my-app-1-0-1"><a href="#docker-build-t-my-app-1-0-1" class="headerlink" title="docker build -t my-app:1.0 ."></a>docker build -t my-app:1.0 .</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png" alt="image-20220305064916518"></p>
+<h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p><a href="https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws">https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws</a></p>
+<h5 id="AWS-—-gt-ECR-Fully-managed-Docker-container-registry"><a href="#AWS-—-gt-ECR-Fully-managed-Docker-container-registry" class="headerlink" title="AWS —&gt; ECR (Fully-managed Docker container registry)"></a>AWS —&gt; ECR (Fully-managed Docker container registry)</h5><p>Amazon Elastic Container Registry<br>Share and deploy container software, publicly or privately   </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png" alt="image-20220305070458043"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png" alt="image-20220305070542683"></p>
+<p>Save different tags (versions) of the sane image</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png" alt="image-20220305070707952"></p>
+<h5 id="how-to-push"><a href="#how-to-push" class="headerlink" title="how to push"></a>how to push</h5><p>view push command </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png" alt="image-20220305070832743"></p>
+<h5 id="push-command"><a href="#push-command" class="headerlink" title="push command"></a>push command</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png" alt="image-20220305070901902"></p>
+<p> <strong><u>You always have to login to private repo! &#x3D; docker login</u></strong></p>
+<p>Q: jenkin’s server?</p>
+<h5 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites"></a>Pre-Requisites</h5><ol>
+<li><p>AWS Cli needs to be installed</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
+</li>
+<li><p>Credentials configured</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png" alt="image-20220305071337433"></p>
+<p><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth</a></p>
+<p><a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">Set up AWS Credentials and Region for Development</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png" alt="image-20220305074140673"></p>
+<p>Solution:</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png" alt="image-20220305081827581"></p>
+<p>两个权限加上：</p>
+<ul>
+<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess">AdministratorAccess</a></li>
+<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess">AmazonEC2FullAccess</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png" alt="image-20220305081917401"></p>
+<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png" alt="image-20220305082321830"><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png" alt="image-20220305082338677"></p>
+<p>push一个更新的版本</p>
+<ol>
+<li>docker tag my-app:1.1 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+<li>docker push 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+</ol>
+<h5 id="如何从私人库pull一个image"><a href="#如何从私人库pull一个image" class="headerlink" title="如何从私人库pull一个image"></a>如何从私人库pull一个image</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">my-app:</span></span><br><span class="line">		<span class="attr">image:</span> <span class="number">429996114549.</span><span class="string">dkr.ecr.us-east-1.amazonaws.com/my-app:1.0</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Driving License</title>
     <url>/2022/01/26/Driving-License/</url>
     <content><![CDATA[<p>如何获得驾照（国内驾照+无ssn）</p>
@@ -2111,16 +2111,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>HanGong Bill</title>
-    <url>/2022/01/18/HanGong-Bill/</url>
-    <content><![CDATA[<p>1.17 Bill</p>
-<span id="more"></span>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/images/202201182234826.png" alt="image-20220118223455776"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/images/202201182234689.png" alt="FB28B99419BDA04F3B40051198AC40FD"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Email writing</title>
     <url>/2022/01/22/Email-writing/</url>
     <content><![CDATA[<p><em>Recommended by Professor Duquette</em></p>
@@ -2152,6 +2142,16 @@ which pip
       <tags>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>HanGong Bill</title>
+    <url>/2022/01/18/HanGong-Bill/</url>
+    <content><![CDATA[<p>1.17 Bill</p>
+<span id="more"></span>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/images/202201182234826.png" alt="image-20220118223455776"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/images/202201182234689.png" alt="FB28B99419BDA04F3B40051198AC40FD"></p>
+]]></content>
   </entry>
   <entry>
     <title>Helm Slides Example</title>
@@ -2674,73 +2674,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>Kubernetes学习</title>
-    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
-<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
-<span id="more"></span>
-
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
-<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
-<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
-<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
-<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
-<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
-<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
-<li><p>Core Kubernetes components</p>
-</li>
-<li><p>kubectl</p>
-<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
-<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
-</li>
-</ol>
-<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
-<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
-<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
-<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
-<blockquote>
-<p>brew install minikube</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
-<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
-<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
-<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
-<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
-<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
-<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
-<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
-<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
-<p>（docker桌面版本一般自带kubectl命令）</p>
-<blockquote>
-<p>CLI &#x3D; command -line interface</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
-<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
-<hr>
-<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
-<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
-<p>[类似dockerfile，当作一个自动化脚本]</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Helm学习</title>
     <url>/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>Helm 3的学习</p>
@@ -2882,6 +2815,73 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Kubernetes学习</title>
+    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
+<span id="more"></span>
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
+<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
+<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
+<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
+<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
+<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
+<li><p>Core Kubernetes components</p>
+</li>
+<li><p>kubectl</p>
+<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
+<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
+</li>
+</ol>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
+<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
+<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
+<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
+<blockquote>
+<p>brew install minikube</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
+<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
+<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
+<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
+<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
+<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
+<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
+<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
+<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
+<p>（docker桌面版本一般自带kubectl命令）</p>
+<blockquote>
+<p>CLI &#x3D; command -line interface</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
+<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
+<hr>
+<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
+<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
+<p>[类似dockerfile，当作一个自动化脚本]</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Letter of inquirying RA/Internship position</title>
     <url>/2022/01/24/Letter-of-inqurying-RA-Internship-position/</url>
     <content><![CDATA[<p>Two versions:</p>
@@ -2997,169 +2997,6 @@ which pip
       </categories>
       <tags>
         <tag>Spark</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring Break Plan</title>
-    <url>/2022/03/09/Spring-Break-Plan/</url>
-    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
-<p>0311更新：LA</p>
-<p>0313更新：大致行程.pdf</p>
-<span id="more"></span>
-
-<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
-<p>暂定人员：</p>
-<ol>
-<li>jinhua</li>
-<li>chao</li>
-<li>taihang</li>
-<li>Samarth</li>
-<li>Samarth‘s friend</li>
-<li>Samarth‘s friend’s friend</li>
-</ol>
-<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
-<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
-<p>（到洛杉矶白天大概9点）</p>
-<p>museum: getty center</p>
-<p>the last bookstore</p>
-<p>bradbury building</p>
-<p>broad museum</p>
-<p>（晚餐——）</p>
-<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
-<p>Hollywood招牌</p>
-<p>beverly hill</p>
-<p>(餐厅：晚餐好一点)</p>
-<p>买食物和水第二天准备</p>
-<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
-<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
-<p>（晚餐——）</p>
-<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
-<p>lalalanor：爱乐之城拍摄地</p>
-<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
-<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
-<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
-<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
-<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
-<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
-<p>油费+停车费：$60*8 &#x3D; $480 - </p>
-<p>球赛：$450 + </p>
-<p>机票：$700 -</p>
-<p>住宿费：$120*8 &#x3D; $960</p>
-<p>伙食费：$600</p>
-<hr>
-<p>Spring LA Travel Plan-draft</p>
-<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
-
-<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring2022 课程安排</title>
-    <url>/2022/01/29/Spring2022-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</url>
-    <content><![CDATA[<p>Spring2022 Courses Name &amp; Schedule</p>
-<span id="more"></span>
-
-<table>
-<thead>
-<tr>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>DATA 606</td>
-<td>DATA 641</td>
-<td>DATA 604</td>
-<td>DATA 605</td>
-</tr>
-<tr>
-<td><strong>Algorithms for Data Science</strong></td>
-<td><strong>Natural Language Processing</strong></td>
-<td><strong>Data Representation and Modeling</strong></td>
-<td><strong>Big Data Systems</strong></td>
-</tr>
-<tr>
-<td>Abdirisak Mohamed</td>
-<td>Shabnam Tafreshi</td>
-<td>Wojciech Czaja</td>
-<td>Prem Saggar</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>UMD</category>
-      </categories>
-      <tags>
-        <tag>UMD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Statistical Simulation in Python</title>
-    <url>/2022/01/25/Statistical-Simulation-in-Python/</url>
-    <content><![CDATA[<h3 id="Python中的统计模拟"><a href="#Python中的统计模拟" class="headerlink" title="Python中的统计模拟"></a>Python中的统计模拟</h3><p>Python’s numpy random module is a robust and flexible tool that lets us work with random variables.</p>
-<span id="more"></span>
-
-<p><a href="https://datascience103579984.wordpress.com/2019/09/26/statistical-simulation-in-python-from-datacamp/">https://datascience103579984.wordpress.com/2019/09/26/statistical-simulation-in-python-from-datacamp/</a></p>
-<hr>
-<h5 id="1-Introduction-to-random-variables"><a href="#1-Introduction-to-random-variables" class="headerlink" title="1. Introduction to random variables"></a>1. Introduction to random variables</h5><ol>
-<li>随机变量导论</li>
-</ol>
-<p>A random variable is a quantity that can take on multiple values based on random chance. When the variable can take on infinitely many values, it’s called a continuous random variable. Think about the height of a person. Although the height lies within some reasonable limits on average, the actual value could have infinite possibilities in that interval. That is why we term it as a continuous random variable.</p>
-<p>随机变量是一个可以基于随机机会取多个值的量。当变量可以取无穷多个值时，称之为连续随机变量。想想一个人的身高。虽然平均高度位于某些合理的限度之内，但实际值在该区间内可能具有无限的可能性。这就是为什么我们称它为连续随机变量。</p>
-<h5 id="2-Introduction-to-random-variables"><a href="#2-Introduction-to-random-variables" class="headerlink" title="2. Introduction to random variables"></a>2. Introduction to random variables</h5><ol start="2">
-<li>随机变量导论</li>
-</ol>
-<p>Similarly, if the variable can only take a finite set of values, it is called a discrete random variable. The roll of a six-sided die can have only one of six possible outcomes and is thus, considered a discrete random variable. Next, let’s look at probability distributions.</p>
-<p>类似地，如果变量只能取一组有限的值，则称之为离散随机变量。六面骰子的滚动只能有六种可能的结果之一，因此，被认为是一个离散的随机变量。接下来，让我们看看概率分布。</p>
-<h5 id="3-Probability-distributions"><a href="#3-Probability-distributions" class="headerlink" title="3. Probability distributions"></a>3. Probability distributions</h5><ol start="3">
-<li>概率分布</li>
-</ol>
-<p>A probability distribution is a mapping from the set of possible outcomes of a random variable to the probability of observing that outcome. It tells you how likely you are to observe a given outcome or a set of outcomes. Just like random variables, probability distributions are either discrete or continuous depending on the type of random variable they represent. For continuous random variables, the distribution is represented by a probability density function and probability is typically defined over an interval. The normal distribution is an example of a continuous distribution.</p>
-<p>概率分布是从一个随机变量的可能结果集到观察该结果的概率的映射。它告诉你你观察一个给定结果或一系列结果的可能性有多大。就像随机变量一样，概率分布是离散的或连续的，这取决于它们所代表的随机变量的类型。对于连续的随机变量，分布用概率密度函数表示，概率通常定义在一个区间内。正态分布是连续分布的一个例子。</p>
-<h5 id="4-Probability-distributions"><a href="#4-Probability-distributions" class="headerlink" title="4. Probability distributions"></a>4. Probability distributions</h5><ol start="4">
-<li>概率分布</li>
-</ol>
-<p>For discrete random variables, the distribution is represented by a probability mass function and probability can be defined at a single point or over an interval. Among discrete distributions, binomial and Poisson distributions are widely used. Python’s numpy random module is a robust and flexible tool that lets us work with random variables.</p>
-<p>对于离散的随机变量，分布用概率质量函数表示，概率可以定义在一个点上或者在一个区间上。在离散分布中，二项分布和泊松分布得到了广泛的应用。的 numpy random 模块是一个健壮而灵活的工具，可以让我们处理随机变量。</p>
-<h5 id="np-random-choice"><a href="#np-random-choice" class="headerlink" title="np.random.choice()"></a>np.random.choice()</h5><p>a remarkably useful function for simulations</p>
-<p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html">https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201270002941.png" alt="image-20220127000226886"></p>
-<p>*：<br>replace后面的True和False首字母一定大写</p>
-<h5 id="numpy-random-poisson"><a href="#numpy-random-poisson" class="headerlink" title="numpy.random.poisson"></a>numpy.random.poisson</h5><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.poisson.html">numpy.random.poisson</a></p>
-<hr>
-<p>01302022</p>
-<h3 id="Simulation-basics"><a href="#Simulation-basics" class="headerlink" title="Simulation  basics"></a>Simulation  basics</h3><p>仿真</p>
-<h5 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h5><p>Simulations typically involves the following steps. </p>
-<pre><code> 1) Define the set of outcomes associated with a random variable. 
- 2) Assign a probability to each of these outcomes - the probability distribution. 
- 3) Define the relationship between multiple random variables. These three steps essentially describe our statistical model.
- 4) Draw samples from the probability distributions. 
- 5) Analyze the sample outcomes. 
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201300944523.png" alt="image-20220130094402454"></p>
-<p>Simulation involves repeated random sampling. The first step then is to get <strong>one</strong> random sample. Once we have that, all we do is repeat the process multiple times.</p>
-<p> The first two steps of running a simulation - defining a random variable and assigning probabilities.</p>
-<p><a href="https://medium.com/@manilwagle/probability-and-simulation-6a28fc1f1cb0">https://medium.com/@manilwagle/probability-and-simulation-6a28fc1f1cb0</a></p>
-<p>Conditional Probability</p>
-<p>Bayes Rule</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201301057851.png" alt="image-20220130105728817"></p>
-<p>Independent Events</p>
-<p>P(AB)&#x3D;P(A)P(B)</p>
-<p>边际概率？</p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA606</tag>
       </tags>
   </entry>
   <entry>
@@ -3391,6 +3228,108 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Spring Break Plan</title>
+    <url>/2022/03/09/Spring-Break-Plan/</url>
+    <content><![CDATA[<p>可以有LA和Puerto Rico两个目的地，多种方案，可调整空间较多</p>
+<p>0311更新：LA</p>
+<p>0313更新：大致行程.pdf</p>
+<span id="more"></span>
+
+<h1 id="人员"><a href="#人员" class="headerlink" title="人员"></a>人员</h1><p>4-6为佳</p>
+<p>暂定人员：</p>
+<ol>
+<li>jinhua</li>
+<li>chao</li>
+<li>taihang</li>
+<li>Samarth</li>
+<li>Samarth‘s friend</li>
+<li>Samarth‘s friend’s friend</li>
+</ol>
+<h1 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h1><h2 id="待定"><a href="#待定" class="headerlink" title="待定"></a>待定</h2><p>Universal 环球影城</p>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>早6点飞机</p>
+<p>（到洛杉矶白天大概9点）</p>
+<p>museum: getty center</p>
+<p>the last bookstore</p>
+<p>bradbury building</p>
+<p>broad museum</p>
+<p>（晚餐——）</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>walk of fame 星光大道</p>
+<p>Hollywood招牌</p>
+<p>beverly hill</p>
+<p>(餐厅：晚餐好一点)</p>
+<p>买食物和水第二天准备</p>
+<h2 id="20"><a href="#20" class="headerlink" title="20"></a>20</h2><p>乔舒亚国家公园</p>
+<h2 id="21"><a href="#21" class="headerlink" title="21"></a>21</h2><p>海滩：威尼斯海滩&#x2F;曼哈顿海滩&#x2F;Santa Monica Beach</p>
+<p>（晚餐——）</p>
+<h2 id="22"><a href="#22" class="headerlink" title="22"></a>22</h2><p>Griffith Obsercatory 格里菲斯天文台——LA夜景</p>
+<p>lalalanor：爱乐之城拍摄地</p>
+<h2 id="23"><a href="#23" class="headerlink" title="23"></a>23</h2><p>白天没事</p>
+<p>晚上七点半开始：NBA: Laker ($300 23号 主场）</p>
+<h2 id="剩下时间"><a href="#剩下时间" class="headerlink" title="剩下时间"></a>剩下时间</h2><p>24&#x2F;25</p>
+<h2 id="26"><a href="#26" class="headerlink" title="26"></a>26</h2><p>回</p>
+<h1 id="费用"><a href="#费用" class="headerlink" title="费用"></a>费用</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202203111047324.jpg" alt="59576beb136f193091531f30a242227"></p>
+<p>total: $ 480 + 450 + 700 + 960 + 600 &#x3D; $3190</p>
+<p>油费+停车费：$60*8 &#x3D; $480 - </p>
+<p>球赛：$450 + </p>
+<p>机票：$700 -</p>
+<p>住宿费：$120*8 &#x3D; $960</p>
+<p>伙食费：$600</p>
+<hr>
+<p>Spring LA Travel Plan-draft</p>
+<embed id="pdfPlayer" src="E:\My Drive\henryvarro666.github.io\source\_posts\Spring-Break-Plan" type="application/pdf" width="100%" height="600" >
+
+<embed id="pdfPlayer" src="C:\Users\question.pdf" type="application/pdf" width="100%" height="600" >
+]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring2022 课程安排</title>
+    <url>/2022/01/29/Spring2022-%E8%AF%BE%E7%A8%8B%E5%AE%89%E6%8E%92/</url>
+    <content><![CDATA[<p>Spring2022 Courses Name &amp; Schedule</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATA 606</td>
+<td>DATA 641</td>
+<td>DATA 604</td>
+<td>DATA 605</td>
+</tr>
+<tr>
+<td><strong>Algorithms for Data Science</strong></td>
+<td><strong>Natural Language Processing</strong></td>
+<td><strong>Data Representation and Modeling</strong></td>
+<td><strong>Big Data Systems</strong></td>
+</tr>
+<tr>
+<td>Abdirisak Mohamed</td>
+<td>Shabnam Tafreshi</td>
+<td>Wojciech Czaja</td>
+<td>Prem Saggar</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>UMD</category>
+      </categories>
+      <tags>
+        <tag>UMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>assignment0</title>
     <url>/2022/02/01/assignment0/</url>
     <content><![CDATA[<p>641 NLP assignment 4</p>
@@ -3404,6 +3343,67 @@ which pip
       </categories>
       <tags>
         <tag>DATA641</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Statistical Simulation in Python</title>
+    <url>/2022/01/25/Statistical-Simulation-in-Python/</url>
+    <content><![CDATA[<h3 id="Python中的统计模拟"><a href="#Python中的统计模拟" class="headerlink" title="Python中的统计模拟"></a>Python中的统计模拟</h3><p>Python’s numpy random module is a robust and flexible tool that lets us work with random variables.</p>
+<span id="more"></span>
+
+<p><a href="https://datascience103579984.wordpress.com/2019/09/26/statistical-simulation-in-python-from-datacamp/">https://datascience103579984.wordpress.com/2019/09/26/statistical-simulation-in-python-from-datacamp/</a></p>
+<hr>
+<h5 id="1-Introduction-to-random-variables"><a href="#1-Introduction-to-random-variables" class="headerlink" title="1. Introduction to random variables"></a>1. Introduction to random variables</h5><ol>
+<li>随机变量导论</li>
+</ol>
+<p>A random variable is a quantity that can take on multiple values based on random chance. When the variable can take on infinitely many values, it’s called a continuous random variable. Think about the height of a person. Although the height lies within some reasonable limits on average, the actual value could have infinite possibilities in that interval. That is why we term it as a continuous random variable.</p>
+<p>随机变量是一个可以基于随机机会取多个值的量。当变量可以取无穷多个值时，称之为连续随机变量。想想一个人的身高。虽然平均高度位于某些合理的限度之内，但实际值在该区间内可能具有无限的可能性。这就是为什么我们称它为连续随机变量。</p>
+<h5 id="2-Introduction-to-random-variables"><a href="#2-Introduction-to-random-variables" class="headerlink" title="2. Introduction to random variables"></a>2. Introduction to random variables</h5><ol start="2">
+<li>随机变量导论</li>
+</ol>
+<p>Similarly, if the variable can only take a finite set of values, it is called a discrete random variable. The roll of a six-sided die can have only one of six possible outcomes and is thus, considered a discrete random variable. Next, let’s look at probability distributions.</p>
+<p>类似地，如果变量只能取一组有限的值，则称之为离散随机变量。六面骰子的滚动只能有六种可能的结果之一，因此，被认为是一个离散的随机变量。接下来，让我们看看概率分布。</p>
+<h5 id="3-Probability-distributions"><a href="#3-Probability-distributions" class="headerlink" title="3. Probability distributions"></a>3. Probability distributions</h5><ol start="3">
+<li>概率分布</li>
+</ol>
+<p>A probability distribution is a mapping from the set of possible outcomes of a random variable to the probability of observing that outcome. It tells you how likely you are to observe a given outcome or a set of outcomes. Just like random variables, probability distributions are either discrete or continuous depending on the type of random variable they represent. For continuous random variables, the distribution is represented by a probability density function and probability is typically defined over an interval. The normal distribution is an example of a continuous distribution.</p>
+<p>概率分布是从一个随机变量的可能结果集到观察该结果的概率的映射。它告诉你你观察一个给定结果或一系列结果的可能性有多大。就像随机变量一样，概率分布是离散的或连续的，这取决于它们所代表的随机变量的类型。对于连续的随机变量，分布用概率密度函数表示，概率通常定义在一个区间内。正态分布是连续分布的一个例子。</p>
+<h5 id="4-Probability-distributions"><a href="#4-Probability-distributions" class="headerlink" title="4. Probability distributions"></a>4. Probability distributions</h5><ol start="4">
+<li>概率分布</li>
+</ol>
+<p>For discrete random variables, the distribution is represented by a probability mass function and probability can be defined at a single point or over an interval. Among discrete distributions, binomial and Poisson distributions are widely used. Python’s numpy random module is a robust and flexible tool that lets us work with random variables.</p>
+<p>对于离散的随机变量，分布用概率质量函数表示，概率可以定义在一个点上或者在一个区间上。在离散分布中，二项分布和泊松分布得到了广泛的应用。的 numpy random 模块是一个健壮而灵活的工具，可以让我们处理随机变量。</p>
+<h5 id="np-random-choice"><a href="#np-random-choice" class="headerlink" title="np.random.choice()"></a>np.random.choice()</h5><p>a remarkably useful function for simulations</p>
+<p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html">https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201270002941.png" alt="image-20220127000226886"></p>
+<p>*：<br>replace后面的True和False首字母一定大写</p>
+<h5 id="numpy-random-poisson"><a href="#numpy-random-poisson" class="headerlink" title="numpy.random.poisson"></a>numpy.random.poisson</h5><p><a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.poisson.html">numpy.random.poisson</a></p>
+<hr>
+<p>01302022</p>
+<h3 id="Simulation-basics"><a href="#Simulation-basics" class="headerlink" title="Simulation  basics"></a>Simulation  basics</h3><p>仿真</p>
+<h5 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h5><p>Simulations typically involves the following steps. </p>
+<pre><code> 1) Define the set of outcomes associated with a random variable. 
+ 2) Assign a probability to each of these outcomes - the probability distribution. 
+ 3) Define the relationship between multiple random variables. These three steps essentially describe our statistical model.
+ 4) Draw samples from the probability distributions. 
+ 5) Analyze the sample outcomes. 
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201300944523.png" alt="image-20220130094402454"></p>
+<p>Simulation involves repeated random sampling. The first step then is to get <strong>one</strong> random sample. Once we have that, all we do is repeat the process multiple times.</p>
+<p> The first two steps of running a simulation - defining a random variable and assigning probabilities.</p>
+<p><a href="https://medium.com/@manilwagle/probability-and-simulation-6a28fc1f1cb0">https://medium.com/@manilwagle/probability-and-simulation-6a28fc1f1cb0</a></p>
+<p>Conditional Probability</p>
+<p>Bayes Rule</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201301057851.png" alt="image-20220130105728817"></p>
+<p>Independent Events</p>
+<p>P(AB)&#x3D;P(A)P(B)</p>
+<p>边际概率？</p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA606</tag>
       </tags>
   </entry>
   <entry>
@@ -3689,6 +3689,28 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>test2</title>
+    <url>/2022/01/17/test2/</url>
+    <content><![CDATA[<p>Attempt  to write a blog on Mac with a sharing file folder</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test1</title>
+    <url>/2022/01/16/test1/</url>
+    <content><![CDATA[<p>图像上传测试</p>
+<span id="more"></span>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/tree/images/202201252041960.JPG" alt="头像1"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260204725.JPG" alt="IMG_1692"></p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>pdf test 3</title>
     <url>/2022/04/11/pdf-test-3/</url>
     <content><![CDATA[<p><code> &#123;% pdf ./无空格的文件名.pdf %&#125;</code></p>
@@ -3725,25 +3747,72 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>test1</title>
-    <url>/2022/01/16/test1/</url>
-    <content><![CDATA[<p>图像上传测试</p>
-<span id="more"></span>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/henryvarro666.github.io/master/tree/images/202201252041960.JPG" alt="头像1"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260204725.JPG" alt="IMG_1692"></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
+    <title>健康水果</title>
+    <url>/2022/03/25/%E5%81%A5%E5%BA%B7%E6%B0%B4%E6%9E%9C/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>test2</title>
-    <url>/2022/01/17/test2/</url>
-    <content><![CDATA[<p>Attempt  to write a blog on Mac with a sharing file folder</p>
+    <title>出行Sweden</title>
+    <url>/2022/02/05/%E5%87%BA%E8%A1%8C%E7%91%9E%E5%85%B8/</url>
+    <content><![CDATA[<p>02052022</p>
+<p>预计春假（3.2-3.27）出行瑞典。</p>
+<span id="more"></span>
+
+<p>参考：</p>
+<p><a href="https://piao.tips/schengen-visa-in-the-us-france/">F1&#x2F;H1B在美国办理申根签证指南(法国-全领区)</a></p>
+<p><a href="https://blog.1point3acres.com/schengen-visa-guide-instruction/">【超全】在美国办理欧洲申根签证攻略！申请流程、所需材料、注意事项</a></p>
+<p>注意点：</p>
+<ol>
+<li><p>疫情</p>
+<p>核酸检测</p>
+</li>
+<li><p>保险</p>
+<p>合适的旅游保险</p>
+</li>
+<li><p>时差</p>
+</li>
+<li><p>电话卡+银行卡</p>
+<p>银行卡应该visa就可以了（之前在法兰克证实可行）</p>
+<p>电话卡（落地买预付卡）：</p>
+<p><a href="https://www.traveltomtom.net/destinations/europe/sweden/sweden-sim-card">Buying a Sim Card in Sweden in 2021</a></p>
+</li>
+<li><p>住宿+出行</p>
+<p>住宿：</p>
+<p>Airbnb</p>
+</li>
+<li><p>申根签证</p>
+<p>准备材料：</p>
+<ul>
+<li><input disabled="" type="checkbox"> Bank Statement</li>
+<li>[ ]</li>
+</ul>
+</li>
+</ol>
+<p>杨地址：</p>
+<blockquote>
+<p>Address：Malvinas väg 14, 31413,<br>Postcode：114 28<br>City：Stockholm，<br>Phone：+46 0724439783</p>
+</blockquote>
+<p>流程：</p>
+<hr>
+<p>机票购买：</p>
+<p>App:</p>
+<blockquote>
+<p>Flights by StudentUniverse</p>
+</blockquote>
+<p>Ps:</p>
+<p>20-27春假，20周日</p>
+<p>–&gt; 可以18周五出发</p>
+<p>​		16周三做核酸</p>
+<hr>
+<p>02132022</p>
+<p>直接gg</p>
+<p>签证过了护照会被收走，然后才快递送回来，时间上来不及，需要预留起码两周的时间</p>
 ]]></content>
+      <categories>
+        <category>尘世间</category>
+      </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -3885,75 +3954,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>健康水果</title>
-    <url>/2022/03/25/%E5%81%A5%E5%BA%B7%E6%B0%B4%E6%9E%9C/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>出行Sweden</title>
-    <url>/2022/02/05/%E5%87%BA%E8%A1%8C%E7%91%9E%E5%85%B8/</url>
-    <content><![CDATA[<p>02052022</p>
-<p>预计春假（3.2-3.27）出行瑞典。</p>
-<span id="more"></span>
-
-<p>参考：</p>
-<p><a href="https://piao.tips/schengen-visa-in-the-us-france/">F1&#x2F;H1B在美国办理申根签证指南(法国-全领区)</a></p>
-<p><a href="https://blog.1point3acres.com/schengen-visa-guide-instruction/">【超全】在美国办理欧洲申根签证攻略！申请流程、所需材料、注意事项</a></p>
-<p>注意点：</p>
-<ol>
-<li><p>疫情</p>
-<p>核酸检测</p>
-</li>
-<li><p>保险</p>
-<p>合适的旅游保险</p>
-</li>
-<li><p>时差</p>
-</li>
-<li><p>电话卡+银行卡</p>
-<p>银行卡应该visa就可以了（之前在法兰克证实可行）</p>
-<p>电话卡（落地买预付卡）：</p>
-<p><a href="https://www.traveltomtom.net/destinations/europe/sweden/sweden-sim-card">Buying a Sim Card in Sweden in 2021</a></p>
-</li>
-<li><p>住宿+出行</p>
-<p>住宿：</p>
-<p>Airbnb</p>
-</li>
-<li><p>申根签证</p>
-<p>准备材料：</p>
-<ul>
-<li><input disabled="" type="checkbox"> Bank Statement</li>
-<li>[ ]</li>
-</ul>
-</li>
-</ol>
-<p>杨地址：</p>
-<blockquote>
-<p>Address：Malvinas väg 14, 31413,<br>Postcode：114 28<br>City：Stockholm，<br>Phone：+46 0724439783</p>
-</blockquote>
-<p>流程：</p>
-<hr>
-<p>机票购买：</p>
-<p>App:</p>
-<blockquote>
-<p>Flights by StudentUniverse</p>
-</blockquote>
-<p>Ps:</p>
-<p>20-27春假，20周日</p>
-<p>–&gt; 可以18周五出发</p>
-<p>​		16周三做核酸</p>
-<hr>
-<p>02132022</p>
-<p>直接gg</p>
-<p>签证过了护照会被收走，然后才快递送回来，时间上来不及，需要预留起码两周的时间</p>
-]]></content>
-      <categories>
-        <category>尘世间</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>听力速记</title>
     <url>/2022/02/04/%E5%90%AC%E5%8A%9B%E9%80%9F%E8%AE%B0/</url>
     <content><![CDATA[<p>如何记录听力笔记？</p>
@@ -4083,15 +4083,13 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>搭建hexo博客的第四天</title>
-    <url>/2020/04/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9/</url>
-    <content><![CDATA[<p>使用图床，以后可以方便贴照片了</p>
+    <title>搭建hexo博客的第五天</title>
+    <url>/2020/04/10/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%94%E5%A4%A9/</url>
+    <content><![CDATA[<p>往博客里面放图出现的一些问题</p>
 <span id="more"></span>
-<p>与其他一些博客上教的不太一样，我没有贪图国内网盘的速度而选择那个什么七牛图床，为了稳定依然是跟着Wonz大佬选择用GitHub+PicGo，除了隐私差一点因为GitHub人人可访问，但是不会出现什么域名变更，背后也是微软，稳定性毋庸置疑。</p>
-<p>实际上昨天有点忙也没来得及搞，发现还是挺简单的，以后很多图可以直接上传了。</p>
-<p>还有一个好处就是会自动生成markdown链接，需要的时候复制一下就好了。过一会儿写一篇随笔贴几个图。</p>
-<p>下一步</p>
-<p>下一步是想给博客增加一个虚拟人物，动漫动物都可以，可以跟着鼠标转动的，感觉挺有意思的。</p>
+<p>图确实可以云端上传了，但是呢我发现这个图比我预计的大小实在大太多了，这也需要改一改。</p>
+<p>如何加密某些特定博客</p>
+<p>随着我写一些东西，可能涉及隐私或者敏感话题，我可能也需要学着加密一部分博客了。</p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -4101,13 +4099,15 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>搭建hexo博客的第五天</title>
-    <url>/2020/04/10/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%94%E5%A4%A9/</url>
-    <content><![CDATA[<p>往博客里面放图出现的一些问题</p>
+    <title>搭建hexo博客的第四天</title>
+    <url>/2020/04/09/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E5%9B%9B%E5%A4%A9/</url>
+    <content><![CDATA[<p>使用图床，以后可以方便贴照片了</p>
 <span id="more"></span>
-<p>图确实可以云端上传了，但是呢我发现这个图比我预计的大小实在大太多了，这也需要改一改。</p>
-<p>如何加密某些特定博客</p>
-<p>随着我写一些东西，可能涉及隐私或者敏感话题，我可能也需要学着加密一部分博客了。</p>
+<p>与其他一些博客上教的不太一样，我没有贪图国内网盘的速度而选择那个什么七牛图床，为了稳定依然是跟着Wonz大佬选择用GitHub+PicGo，除了隐私差一点因为GitHub人人可访问，但是不会出现什么域名变更，背后也是微软，稳定性毋庸置疑。</p>
+<p>实际上昨天有点忙也没来得及搞，发现还是挺简单的，以后很多图可以直接上传了。</p>
+<p>还有一个好处就是会自动生成markdown链接，需要的时候复制一下就好了。过一会儿写一篇随笔贴几个图。</p>
+<p>下一步</p>
+<p>下一步是想给博客增加一个虚拟人物，动漫动物都可以，可以跟着鼠标转动的，感觉挺有意思的。</p>
 ]]></content>
       <categories>
         <category>hexo</category>
@@ -4331,18 +4331,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>hexo</title>
-    <url>/categories/index-3.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>课程学习</title>
-    <url>/categories/index-5.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>尘世间</title>
     <url>/categories/index-2.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>hexo</title>
+    <url>/categories/index-3.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4351,13 +4346,18 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>分类</title>
-    <url>/categories/index.html</url>
+    <title>课程学习</title>
+    <url>/categories/index-5.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>UMD</title>
     <url>/categories/index-6.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>分类</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4381,13 +4381,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>UMD</title>
-    <url>/tags/index-6.html</url>
+    <title>DATA604</title>
+    <url>/tags/index-7.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>DATA604</title>
-    <url>/tags/index-7.html</url>
+    <title>UMD</title>
+    <url>/tags/index-6.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
