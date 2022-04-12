@@ -16,45 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>01252022 DATA641</title>
-    <url>/2022/01/25/01252022-DATA641/</url>
-    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
-<span id="more"></span>
-
-<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
-<blockquote>
-<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
-<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
-</blockquote>
-<blockquote>
-<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
-</blockquote>
-<p>How does language work? What makes language a language?</p>
-<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
-<p>【语言学】使语义化<br>变形</p>
-<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
-<p>潜在结构，潜结构</p>
-<p>(latent structure model 隐结构模型)</p>
-<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
-<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
-<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
-<li><p>Rank of words vs Frequency of words</p>
-</li>
-<li><p>Engineer like to focus on the first section</p>
-</li>
-<li><p>Scientists like to focus on the latter section</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
-]]></content>
-      <categories>
-        <category>课程学习</category>
-      </categories>
-      <tags>
-        <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>01242022 Data606</title>
     <url>/2022/01/24/01242022-Data606/</url>
     <content><![CDATA[<p>RandomSampling.ipynb</p>
@@ -315,6 +276,45 @@ array([[1, 0, 0, 0, 0, 0]])
       </categories>
       <tags>
         <tag>DATA606</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01252022 DATA641</title>
+    <url>/2022/01/25/01252022-DATA641/</url>
+    <content><![CDATA[<p>Syllabus &amp; Some notes</p>
+<span id="more"></span>
+
+<p>This course will introduce fundamental concepts and techniques involved in getting computers to deal more intelligently with human language. It is focused primarily on text (as opposed to speech) and will offer a grounding in core NLP methods for text processing (such as lexical analysis, sequential tagging, syntactic parsing, semantic representations, text classification, unsupervised discovery of latent structure), key ideas in the application<br>of deep learning to language tasks, and consideration of the role of language technology in modern society.<br>The content of this course will be substantially similar to Computational Linguistics I, though with some adjustments geared toward longer&#x2F;fewer lectures and emphasizing practical rather than theoretical concerns.</p>
+<blockquote>
+<p>Something I learned is that doing audio speech recognition and translations is actually easier than just doing text translations. GRU Autoencoder (for large datasets w&#x2F; normal freq of repetition of tokenized words) &gt; LSTM autoencoder and both &#x3D;&gt; normal autoencoder for doing text translations.<br>LSTM aencoder &gt;&gt;&gt; GRU for doing datasets with high frequency of word&#x2F;token repetition.<br>Using dask, pandas, tensorflow, keras and scikit for preprocess, tokenizing data, setting up models and splitting up data into train, test, and split.</p>
+<p>Mix and matching LSTM, GRU, and RNN in one model doesn’t work out well and doesn’t confer any increase in test accuracy.</p>
+</blockquote>
+<blockquote>
+<p>One of the big use cases I have seen at my work is using it pragmatically just to speed up or automate tasks that would take people a long time like classifying PDF documents that may need a signature or not. There is no machine understanding of the text documents but it does save a lot of humans time when it’s hundreds &#x2F; thousands of documents</p>
+</blockquote>
+<p>How does language work? What makes language a language?</p>
+<h5 id="properties"><a href="#properties" class="headerlink" title="properties"></a>properties</h5><p><strong>semanticity</strong>, particularly the arbitrary relation of sounds to meanings</p>
+<p>【语言学】使语义化<br>变形</p>
+<p><strong>latent structure</strong>, as opposed simply to sequential patterns</p>
+<p>潜在结构，潜结构</p>
+<p>(latent structure model 隐结构模型)</p>
+<p><strong>recursion</strong>, and particularly center-embedding recursion</p>
+<p>[uncountable ] ( mathematics 数 ) the process of repeating a function,each time applying it to the result of the previous stage 递归； 递回</p>
+<h5 id="Zipfian-curve"><a href="#Zipfian-curve" class="headerlink" title="Zipfian curve"></a>Zipfian curve</h5><ul>
+<li><p>Rank of words vs Frequency of words</p>
+</li>
+<li><p>Engineer like to focus on the first section</p>
+</li>
+<li><p>Scientists like to focus on the latter section</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202201260202075.png" alt="uTools_1643158913049"></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA641</tag>
       </tags>
   </entry>
   <entry>
@@ -1031,9 +1031,9 @@ array([[1, 0, 0, 0, 0, 0]])
 <p><a href="https://cord-19-data.s3.amazonaws.com/-">https://cord-19-data.s3.amazonaws.com/-</a></p>
 <p>s3:&#x2F;&#x2F;cord-19-data&#x2F;-</p>
 <p>ssh -i <filename>.pem ec2-user@<public-ip></p>
-<p>ssh -i labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#45;&#x75;&#115;&#x65;&#x72;&#64;&#53;&#52;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#49;&#x37;">&#101;&#99;&#x32;&#45;&#x75;&#115;&#x65;&#x72;&#64;&#53;&#52;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#49;&#x37;</a></p>
+<p>ssh -i labsuser.pem <a href="mailto:&#x65;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#49;&#53;&#x39;&#46;&#x32;&#x38;&#x2e;&#x32;&#49;&#x37;">&#x65;&#99;&#x32;&#45;&#117;&#x73;&#101;&#x72;&#64;&#x35;&#52;&#x2e;&#49;&#53;&#x39;&#46;&#x32;&#x38;&#x2e;&#x32;&#49;&#x37;</a></p>
 <p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem ec2-user@<public-ip></p>
-<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#101;&#99;&#x32;&#x2d;&#x75;&#115;&#101;&#x72;&#64;&#53;&#x34;&#46;&#x31;&#x35;&#x39;&#x2e;&#50;&#x38;&#x2e;&#50;&#49;&#x37;">&#101;&#99;&#x32;&#x2d;&#x75;&#115;&#101;&#x72;&#64;&#53;&#x34;&#46;&#x31;&#x35;&#x39;&#x2e;&#50;&#x38;&#x2e;&#50;&#49;&#x37;</a></p>
+<p>ssh -i ~&#x2F;.ssh&#x2F;labsuser.pem <a href="mailto:&#x65;&#x63;&#x32;&#45;&#x75;&#115;&#101;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#x31;&#x37;">&#x65;&#x63;&#x32;&#45;&#x75;&#115;&#101;&#114;&#x40;&#53;&#x34;&#x2e;&#x31;&#x35;&#57;&#46;&#50;&#x38;&#x2e;&#x32;&#x31;&#x37;</a></p>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -1343,209 +1343,6 @@ which pip
       </categories>
       <tags>
         <tag>DATA641</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker实操</title>
-    <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
-    <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
-<p><a href="https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s">https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s</a></p>
-<span id="more"></span>
-
-<h4 id="Workflow-with-Docker"><a href="#Workflow-with-Docker" class="headerlink" title="Workflow with Docker"></a>Workflow with Docker</h4><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png" alt="image-20220305025005217"></p>
-<h4 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h4><h5 id="docker-pull"><a href="#docker-pull" class="headerlink" title="docker pull"></a>docker pull</h5><p>抓取镜像（默认最新）</p>
-<h5 id="docker-run-postgres-9-6"><a href="#docker-run-postgres-9-6" class="headerlink" title="docker run postgres:9.6"></a>docker run postgres:9.6</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png" alt="image-20220305013150795"></p>
-<p>如果本地没有镜像，则自动下载最新版</p>
-<h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png" alt="image-20220305013748490"></p>
-<h5 id="docker-run-redis"><a href="#docker-run-redis" class="headerlink" title="docker run redis"></a>docker run redis</h5><p>docker run &#x3D; starts <strong><u>new container</u></strong> with a command</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png" alt="image-20220305014302107"></p>
-<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>ps 相当于 list running containers</p>
-<p><u><strong>列举出运行中的容器</strong></u></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png" alt="image-20220305014419761"></p>
-<h5 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h5><p>用于终止容器</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png" alt="image-20220305014629139"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png" alt="image-20220305014740934"></p>
-<h5 id="docker-run-d"><a href="#docker-run-d" class="headerlink" title="docker run -d"></a>docker run -d</h5><p>-d : in a detached mode</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png" alt="image-20220305015032043"></p>
-<h5 id="docker-stop-ID"><a href="#docker-stop-ID" class="headerlink" title="docker stop + ID"></a>docker stop + ID</h5><p>docker stop &#x3D; stops the container</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png" alt="image-20220305015154120"></p>
-<h5 id="docker-start-ID"><a href="#docker-start-ID" class="headerlink" title="docker start + ID"></a>docker start + ID</h5><p>docker start &#x3D; starts <strong><u>stopped</u></strong> container</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png" alt="image-20220305015259641"></p>
-<h5 id="docker-ps-a"><a href="#docker-ps-a" class="headerlink" title="docker ps -a"></a>docker ps -a</h5><p>Docker ps -a &#x3D; <strong><u>lists running and stopped container</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png" alt="image-20220305015547588"></p>
-<h5 id="docker-run-redis-4-0"><a href="#docker-run-redis-4-0" class="headerlink" title="docker run redis:4.0"></a>docker run redis:4.0</h5><p>和pull的小区别：</p>
-<p>​	docker run &#x3D; pulls images <strong><u>and starts containers</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png" alt="image-20220305020133021"></p>
-<p>同一景象不同版本，</p>
-<p>ports </p>
-<p><strong>CIONTAINER Port vs HOST Port</strong></p>
-<ul>
-<li>multiple container can run on host machine</li>
-<li>laptop has only certain ports available</li>
-<li>Conflict when same port on host machine</li>
-</ul>
-<p>具体ports信息在logs里面可以看到</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png" alt="image-20220305020438704"></p>
-<p><strong>占用相同端口之后需要人为修改绑定的端口</strong></p>
-<h5 id="docker-run-p6000-6379-redis"><a href="#docker-run-p6000-6379-redis" class="headerlink" title="docker run -p6000:6379 redis"></a>docker run -p6000:6379 redis</h5><p><strong><u>主机端口绑定容器端口</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png" alt="image-20220305021250249"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png" alt="image-20220305021307536"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png" alt="image-20220305021717734"></p>
-<p><strong><u>当绑定新端口，就会创造新容器</u></strong></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png" alt="image-20220305021814569"></p>
-<h5 id="docker-run-p6001-6379-redis4-0"><a href="#docker-run-p6001-6379-redis4-0" class="headerlink" title="docker run -p6001:6379 redis4.0"></a>docker run -p6001:6379 redis4.0</h5><p>不能使用同一端口了</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png" alt="image-20220305021923857"></p>
-<h5 id="docker-logs-ID-x2F-Name"><a href="#docker-logs-ID-x2F-Name" class="headerlink" title="docker logs + ID&#x2F;Name"></a>docker logs + ID&#x2F;<strong><u>Name</u></strong></h5><p>搭配docker ps（查看docker ID）就可以查看logs</p>
-<h5 id="docker-run-d-p-6001-6379-–name-redis-older-redis-4-0"><a href="#docker-run-d-p-6001-6379-–name-redis-older-redis-4-0" class="headerlink" title="docker run -d -p 6001:6379 –name redis-older redis:4.0"></a>docker run -d -p 6001:6379 –name redis-older redis:4.0</h5><p>–name 重命名</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png" alt="image-20220305022928557"></p>
-<p>重命名之后查看logs会简单很多</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png" alt="image-20220305023106728"></p>
-<h5 id="docker-exec-it-ID或者name-x2F-bin-x2F-bash"><a href="#docker-exec-it-ID或者name-x2F-bin-x2F-bash" class="headerlink" title="docker exec -it ID或者name &#x2F;bin&#x2F;bash"></a>docker exec -it ID或者name &#x2F;bin&#x2F;bash</h5><p>*: bash后面没有&#x2F;</p>
-<p>docker exec 命令用于在运行容器中运行命令。 该命令开始使用 docker exec 只在容器的主进程(PID 1)运行时运行，并且如果容器重新启动，则不重新启动该命令。</p>
-<p>如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
-<ul>
-<li>-i : 交互式操作。</li>
-<li>-t : 终端</li>
-<li>&#x2F;bin&#x2F;bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png" alt="image-20220305023755035"></p>
-<p>退出exec</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png" alt="image-20220305023900771"></p>
-<h5 id="docker-run-vs-start"><a href="#docker-run-vs-start" class="headerlink" title="docker run vs start"></a>docker run vs start</h5><ul>
-<li>docker run will take an image with a specific version(attributes)</li>
-</ul>
-<p>​		<strong><u>is used to create a new container</u></strong></p>
-<p>​	docker run -d -p –name </p>
-<ul>
-<li>docker start is working with container</li>
-</ul>
-<p>​		<strong><u>is used to restart a stopped container</u></strong></p>
-<h5 id="docker-rm-f-ID"><a href="#docker-rm-f-ID" class="headerlink" title="docker rm -f ID"></a>docker rm -f ID</h5><p>删除container</p>
-<p>*： </p>
-<p>docker container prune</p>
-<p>清理掉所有处于终止状态的容器。</p>
-<h5 id="docker-network-ls"><a href="#docker-network-ls" class="headerlink" title="docker network ls"></a>docker network ls</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png" alt="image-20220305045344896"></p>
-<h5 id="docker-network-create-Name"><a href="#docker-network-create-Name" class="headerlink" title="docker network create Name"></a>docker network create Name</h5><p>创建docker网络</p>
-<p>-e: 设置环境变量</p>
-<p>可以在docker hub上找到<a href="https://hub.docker.com/_/mongo">https://hub.docker.com/_/mongo</a></p>
-<h5 id="start-mongodb"><a href="#start-mongodb" class="headerlink" title="start mongodb"></a>start mongodb</h5><p>docker run -d \</p>
-<p>-p 27017:27017 \</p>
-<p>-e MONGO_INITDB_ROOT_USERNAME&#x3D;admin \</p>
-<p>-e MONGO_INITDB_ROOT_PASSWORD&#x3D;password \</p>
-<p>–net mongo-network \</p>
-<p>–name mongodb \</p>
-<p>mongo</p>
-<h5 id="start-mongo-express"><a href="#start-mongo-express" class="headerlink" title="start mongo-express"></a>start mongo-express</h5><p>docker run -d \</p>
-<p>-p 8081:8081 \</p>
-<p>-e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin \</p>
-<p>-e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password \</p>
-<p>-e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb \</p>
-<p>–net mongo-network \</p>
-<p>–name mongo-express\</p>
-<p>mongo-express</p>
-<p>docker run -d  -p 8081:8081  -e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin  -e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password -e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb –net mongo-network –name mongo-express mongo-express</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png" alt="image-20220305051359394"></p>
-<p><strong><u>用\换行</u></strong></p>
-<h5 id="mongodb报错"><a href="#mongodb报错" class="headerlink" title="mongodb报错"></a>mongodb报错</h5><p>(base) caochao  ~   &gt; docker logs mongodb<br>about to fork child process, waiting until server is ready for connections.<br>forked process: 31</p>
-<p>如何进入？docker desktop</p>
-<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h4><h5 id="mongo-docker-compose-yaml"><a href="#mongo-docker-compose-yaml" class="headerlink" title="mongo-docker-compose.yaml"></a>mongo-docker-compose.yaml</h5><p>version:’3’</p>
-<p>services:</p>
-<p>​	mongoldb:</p>
-<p>​		image: mongo</p>
-<p>​		ports:</p>
-<p>​			- 27017:27017</p>
-<p>​		environment:</p>
-<p>​			- MONGO_INITDB_ROOT_USERNAME&#x3D;admin</p>
-<p>​			&#96;&#96;&#96;	</p>
-<p>mongo-express:</p>
-<p>​		image: mongo-express</p>
-<p>​		ports:</p>
-<p>​			- 8080:8080</p>
-<p>​		environment:</p>
-<p>​			- ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin</p>
-<p>​			&#96;&#96;&#96;</p>
-<p>*: <strong><u>the network configuration is not in the docker compose</u></strong></p>
-<h5 id="mongo-yaml"><a href="#mongo-yaml" class="headerlink" title="mongo.yaml"></a>mongo.yaml</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="docker-compose-f-mongo-yaml-up"><a href="#docker-compose-f-mongo-yaml-up" class="headerlink" title="docker-compose -f mongo.yaml up"></a>docker-compose -f mongo.yaml up</h5><p>up: start all the containers</p>
-<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><h5 id="Image-Environment-Blueprint"><a href="#Image-Environment-Blueprint" class="headerlink" title="Image Environment Blueprint"></a>Image Environment Blueprint</h5><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">install node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set MONGO_DB_USERNAME=admin</span><br><span class="line"></span><br><span class="line">set MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create /home/app folder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> curent folder files to /home/app</span><br><span class="line"></span><br><span class="line">start the app with: <span class="string">&quot;node server.js&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="Dockerfile-1"><a href="#Dockerfile-1" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><p><strong><u>COPY - executes on the HOST machine!</u></strong></p>
-<p><u><strong>CMD - entrypoint command</strong></u></p>
-<p>​		<u><strong>We can have multiple RUN commands</strong></u></p>
-<p><strong><u>Every image is always based on another image.</u></strong></p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line">COPY ./home/app</span><br><span class="line"></span><br><span class="line">CMD[<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<h5 id="docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><a href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile" class="headerlink" title="docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile"></a>docker-node&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17">17</a>&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15">alpine3.15</a>&#x2F;Dockerfile</h5><p><a href="https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile">https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile</a></p>
-<h5 id="Create-a-dockerfile-old"><a href="#Create-a-dockerfile-old" class="headerlink" title="Create a dockerfile (old)"></a>Create a dockerfile (old)</h5><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">FROM node:<span class="number">13</span>-alpine</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line"><span class="comment">% . /home/app 有间隔</span></span><br><span class="line">COPY . /home/app</span><br><span class="line"></span><br><span class="line">CMD [<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<p><em>:**<u>Name must be “Dockerfile”!</u>*</em></p>
-<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
-<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
-<p><strong>解析</strong>：由于 docker 的运行模式是 C&#x2F;S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
-<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
-<h4 id="Build-docker-image-based-on-dockerfile"><a href="#Build-docker-image-based-on-dockerfile" class="headerlink" title="Build docker image based on dockerfile"></a>Build docker image based on dockerfile</h4><h5 id="docker-build-t-my-app-1-0"><a href="#docker-build-t-my-app-1-0" class="headerlink" title="docker build -t  my-app:1.0 ."></a>docker build -t  my-app:1.0 .</h5><p><strong><u>-t: tag</u></strong></p>
-<p>Q: <strong>.</strong> 代表本次执行的上下文路径</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png" alt="image-20220305062139173"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png" alt="image-20220305062234611"></p>
-<p>App including Dockerfile is comitted to Git</p>
-<p>Jenkins builds image from Dockerfile(like what we did)</p>
-<h5 id="docker-run-my-app-1-0"><a href="#docker-run-my-app-1-0" class="headerlink" title="docker run my-app:1.0"></a>docker run my-app:1.0</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png" alt="image-20220305062604551"></p>
-<h5 id="docker-rmi-ID"><a href="#docker-rmi-ID" class="headerlink" title="docker rmi ID"></a>docker rmi ID</h5><ul>
-<li><p><u><strong>rmi删容器</strong></u></p>
-</li>
-<li><p><u><strong>rm删镜像</strong></u></p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png" alt="image-20220305062917171"></p>
-<p><strong><u>When you adjust the Dockerfile, you MUSt rebuild the Image</u></strong></p>
-<h5 id="docker-build-t-my-app-1-0-1"><a href="#docker-build-t-my-app-1-0-1" class="headerlink" title="docker build -t my-app:1.0 ."></a>docker build -t my-app:1.0 .</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png" alt="image-20220305064916518"></p>
-<h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p><a href="https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws">https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws</a></p>
-<h5 id="AWS-—-gt-ECR-Fully-managed-Docker-container-registry"><a href="#AWS-—-gt-ECR-Fully-managed-Docker-container-registry" class="headerlink" title="AWS —&gt; ECR (Fully-managed Docker container registry)"></a>AWS —&gt; ECR (Fully-managed Docker container registry)</h5><p>Amazon Elastic Container Registry<br>Share and deploy container software, publicly or privately   </p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png" alt="image-20220305070458043"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png" alt="image-20220305070542683"></p>
-<p>Save different tags (versions) of the sane image</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png" alt="image-20220305070707952"></p>
-<h5 id="how-to-push"><a href="#how-to-push" class="headerlink" title="how to push"></a>how to push</h5><p>view push command </p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png" alt="image-20220305070832743"></p>
-<h5 id="push-command"><a href="#push-command" class="headerlink" title="push command"></a>push command</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png" alt="image-20220305070901902"></p>
-<p> <strong><u>You always have to login to private repo! &#x3D; docker login</u></strong></p>
-<p>Q: jenkin’s server?</p>
-<h5 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites"></a>Pre-Requisites</h5><ol>
-<li><p>AWS Cli needs to be installed</p>
-<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
-</li>
-<li><p>Credentials configured</p>
-</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png" alt="image-20220305071337433"></p>
-<p><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth</a></p>
-<p><a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">Set up AWS Credentials and Region for Development</a></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png" alt="image-20220305074140673"></p>
-<p>Solution:</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png" alt="image-20220305081827581"></p>
-<p>两个权限加上：</p>
-<ul>
-<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess">AdministratorAccess</a></li>
-<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess">AmazonEC2FullAccess</a></li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png" alt="image-20220305081917401"></p>
-<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png" alt="image-20220305082321830"><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png" alt="image-20220305082338677"></p>
-<p>push一个更新的版本</p>
-<ol>
-<li>docker tag my-app:1.1 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
-<li>docker push 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
-</ol>
-<h5 id="如何从私人库pull一个image"><a href="#如何从私人库pull一个image" class="headerlink" title="如何从私人库pull一个image"></a>如何从私人库pull一个image</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">my-app:</span></span><br><span class="line">		<span class="attr">image:</span> <span class="number">429996114549.</span><span class="string">dkr.ecr.us-east-1.amazonaws.com/my-app:1.0</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -2108,6 +1905,209 @@ which pip
       </categories>
       <tags>
         <tag>UMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker实操</title>
+    <url>/2022/03/05/Docker%E5%AE%9E%E6%93%8D/</url>
+    <content><![CDATA[<p>基于Docker Tutorial的Docker 实操</p>
+<p><a href="https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s">https://www.youtube.com/watch?v=3c-iBn73dDE&amp;t=4967s</a></p>
+<span id="more"></span>
+
+<h4 id="Workflow-with-Docker"><a href="#Workflow-with-Docker" class="headerlink" title="Workflow with Docker"></a>Workflow with Docker</h4><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305025005217.png" alt="image-20220305025005217"></p>
+<h4 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h4><h5 id="docker-pull"><a href="#docker-pull" class="headerlink" title="docker pull"></a>docker pull</h5><p>抓取镜像（默认最新）</p>
+<h5 id="docker-run-postgres-9-6"><a href="#docker-run-postgres-9-6" class="headerlink" title="docker run postgres:9.6"></a>docker run postgres:9.6</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013150795-20220305013453274-20220305013458647.png" alt="image-20220305013150795"></p>
+<p>如果本地没有镜像，则自动下载最新版</p>
+<h5 id="docker-images"><a href="#docker-images" class="headerlink" title="docker images"></a>docker images</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305013748490-20220305013756727-20220305013810836.png" alt="image-20220305013748490"></p>
+<h5 id="docker-run-redis"><a href="#docker-run-redis" class="headerlink" title="docker run redis"></a>docker run redis</h5><p>docker run &#x3D; starts <strong><u>new container</u></strong> with a command</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014302107-20220305014311000-20220305014315947.png" alt="image-20220305014302107"></p>
+<h5 id="docker-ps"><a href="#docker-ps" class="headerlink" title="docker ps"></a>docker ps</h5><p>ps 相当于 list running containers</p>
+<p><u><strong>列举出运行中的容器</strong></u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014419761-20220305014425526-20220305014432852.png" alt="image-20220305014419761"></p>
+<h5 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h5><p>用于终止容器</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014629139-20220305014641821.png" alt="image-20220305014629139"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305014740934.png" alt="image-20220305014740934"></p>
+<h5 id="docker-run-d"><a href="#docker-run-d" class="headerlink" title="docker run -d"></a>docker run -d</h5><p>-d : in a detached mode</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015032043.png" alt="image-20220305015032043"></p>
+<h5 id="docker-stop-ID"><a href="#docker-stop-ID" class="headerlink" title="docker stop + ID"></a>docker stop + ID</h5><p>docker stop &#x3D; stops the container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015154120.png" alt="image-20220305015154120"></p>
+<h5 id="docker-start-ID"><a href="#docker-start-ID" class="headerlink" title="docker start + ID"></a>docker start + ID</h5><p>docker start &#x3D; starts <strong><u>stopped</u></strong> container</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015259641.png" alt="image-20220305015259641"></p>
+<h5 id="docker-ps-a"><a href="#docker-ps-a" class="headerlink" title="docker ps -a"></a>docker ps -a</h5><p>Docker ps -a &#x3D; <strong><u>lists running and stopped container</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305015547588.png" alt="image-20220305015547588"></p>
+<h5 id="docker-run-redis-4-0"><a href="#docker-run-redis-4-0" class="headerlink" title="docker run redis:4.0"></a>docker run redis:4.0</h5><p>和pull的小区别：</p>
+<p>​	docker run &#x3D; pulls images <strong><u>and starts containers</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020133021.png" alt="image-20220305020133021"></p>
+<p>同一景象不同版本，</p>
+<p>ports </p>
+<p><strong>CIONTAINER Port vs HOST Port</strong></p>
+<ul>
+<li>multiple container can run on host machine</li>
+<li>laptop has only certain ports available</li>
+<li>Conflict when same port on host machine</li>
+</ul>
+<p>具体ports信息在logs里面可以看到</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305020438704.png" alt="image-20220305020438704"></p>
+<p><strong>占用相同端口之后需要人为修改绑定的端口</strong></p>
+<h5 id="docker-run-p6000-6379-redis"><a href="#docker-run-p6000-6379-redis" class="headerlink" title="docker run -p6000:6379 redis"></a>docker run -p6000:6379 redis</h5><p><strong><u>主机端口绑定容器端口</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021250249.png" alt="image-20220305021250249"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021307536.png" alt="image-20220305021307536"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021717734.png" alt="image-20220305021717734"></p>
+<p><strong><u>当绑定新端口，就会创造新容器</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021814569.png" alt="image-20220305021814569"></p>
+<h5 id="docker-run-p6001-6379-redis4-0"><a href="#docker-run-p6001-6379-redis4-0" class="headerlink" title="docker run -p6001:6379 redis4.0"></a>docker run -p6001:6379 redis4.0</h5><p>不能使用同一端口了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305021923857.png" alt="image-20220305021923857"></p>
+<h5 id="docker-logs-ID-x2F-Name"><a href="#docker-logs-ID-x2F-Name" class="headerlink" title="docker logs + ID&#x2F;Name"></a>docker logs + ID&#x2F;<strong><u>Name</u></strong></h5><p>搭配docker ps（查看docker ID）就可以查看logs</p>
+<h5 id="docker-run-d-p-6001-6379-–name-redis-older-redis-4-0"><a href="#docker-run-d-p-6001-6379-–name-redis-older-redis-4-0" class="headerlink" title="docker run -d -p 6001:6379 –name redis-older redis:4.0"></a>docker run -d -p 6001:6379 –name redis-older redis:4.0</h5><p>–name 重命名</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305022928557.png" alt="image-20220305022928557"></p>
+<p>重命名之后查看logs会简单很多</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023106728.png" alt="image-20220305023106728"></p>
+<h5 id="docker-exec-it-ID或者name-x2F-bin-x2F-bash"><a href="#docker-exec-it-ID或者name-x2F-bin-x2F-bash" class="headerlink" title="docker exec -it ID或者name &#x2F;bin&#x2F;bash"></a>docker exec -it ID或者name &#x2F;bin&#x2F;bash</h5><p>*: bash后面没有&#x2F;</p>
+<p>docker exec 命令用于在运行容器中运行命令。 该命令开始使用 docker exec 只在容器的主进程(PID 1)运行时运行，并且如果容器重新启动，则不重新启动该命令。</p>
+<p>如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
+<ul>
+<li>-i : 交互式操作。</li>
+<li>-t : 终端</li>
+<li>&#x2F;bin&#x2F;bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023755035.png" alt="image-20220305023755035"></p>
+<p>退出exec</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305023900771.png" alt="image-20220305023900771"></p>
+<h5 id="docker-run-vs-start"><a href="#docker-run-vs-start" class="headerlink" title="docker run vs start"></a>docker run vs start</h5><ul>
+<li>docker run will take an image with a specific version(attributes)</li>
+</ul>
+<p>​		<strong><u>is used to create a new container</u></strong></p>
+<p>​	docker run -d -p –name </p>
+<ul>
+<li>docker start is working with container</li>
+</ul>
+<p>​		<strong><u>is used to restart a stopped container</u></strong></p>
+<h5 id="docker-rm-f-ID"><a href="#docker-rm-f-ID" class="headerlink" title="docker rm -f ID"></a>docker rm -f ID</h5><p>删除container</p>
+<p>*： </p>
+<p>docker container prune</p>
+<p>清理掉所有处于终止状态的容器。</p>
+<h5 id="docker-network-ls"><a href="#docker-network-ls" class="headerlink" title="docker network ls"></a>docker network ls</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305045344896.png" alt="image-20220305045344896"></p>
+<h5 id="docker-network-create-Name"><a href="#docker-network-create-Name" class="headerlink" title="docker network create Name"></a>docker network create Name</h5><p>创建docker网络</p>
+<p>-e: 设置环境变量</p>
+<p>可以在docker hub上找到<a href="https://hub.docker.com/_/mongo">https://hub.docker.com/_/mongo</a></p>
+<h5 id="start-mongodb"><a href="#start-mongodb" class="headerlink" title="start mongodb"></a>start mongodb</h5><p>docker run -d \</p>
+<p>-p 27017:27017 \</p>
+<p>-e MONGO_INITDB_ROOT_USERNAME&#x3D;admin \</p>
+<p>-e MONGO_INITDB_ROOT_PASSWORD&#x3D;password \</p>
+<p>–net mongo-network \</p>
+<p>–name mongodb \</p>
+<p>mongo</p>
+<h5 id="start-mongo-express"><a href="#start-mongo-express" class="headerlink" title="start mongo-express"></a>start mongo-express</h5><p>docker run -d \</p>
+<p>-p 8081:8081 \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin \</p>
+<p>-e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password \</p>
+<p>-e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb \</p>
+<p>–net mongo-network \</p>
+<p>–name mongo-express\</p>
+<p>mongo-express</p>
+<p>docker run -d  -p 8081:8081  -e ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin  -e ME_CONFIG_MONGODB_ADMINPASSWORD&#x3D;password -e ME_CONFIG_MONGODB_SERVER&#x3D;mongodb –net mongo-network –name mongo-express mongo-express</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305051359394.png" alt="image-20220305051359394"></p>
+<p><strong><u>用\换行</u></strong></p>
+<h5 id="mongodb报错"><a href="#mongodb报错" class="headerlink" title="mongodb报错"></a>mongodb报错</h5><p>(base) caochao  ~   &gt; docker logs mongodb<br>about to fork child process, waiting until server is ready for connections.<br>forked process: 31</p>
+<p>如何进入？docker desktop</p>
+<h4 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker Compose"></a>Docker Compose</h4><h5 id="mongo-docker-compose-yaml"><a href="#mongo-docker-compose-yaml" class="headerlink" title="mongo-docker-compose.yaml"></a>mongo-docker-compose.yaml</h5><p>version:’3’</p>
+<p>services:</p>
+<p>​	mongoldb:</p>
+<p>​		image: mongo</p>
+<p>​		ports:</p>
+<p>​			- 27017:27017</p>
+<p>​		environment:</p>
+<p>​			- MONGO_INITDB_ROOT_USERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;	</p>
+<p>mongo-express:</p>
+<p>​		image: mongo-express</p>
+<p>​		ports:</p>
+<p>​			- 8080:8080</p>
+<p>​		environment:</p>
+<p>​			- ME_CONFIG_MONGODB_ADMINUSERNAME&#x3D;admin</p>
+<p>​			&#96;&#96;&#96;</p>
+<p>*: <strong><u>the network configuration is not in the docker compose</u></strong></p>
+<h5 id="mongo-yaml"><a href="#mongo-yaml" class="headerlink" title="mongo.yaml"></a>mongo.yaml</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="docker-compose-f-mongo-yaml-up"><a href="#docker-compose-f-mongo-yaml-up" class="headerlink" title="docker-compose -f mongo.yaml up"></a>docker-compose -f mongo.yaml up</h5><p>up: start all the containers</p>
+<h4 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h4><h5 id="Image-Environment-Blueprint"><a href="#Image-Environment-Blueprint" class="headerlink" title="Image Environment Blueprint"></a>Image Environment Blueprint</h5><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">install node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">set MONGO_DB_USERNAME=admin</span><br><span class="line"></span><br><span class="line">set MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create /home/app folder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">copy</span> curent folder files to /home/app</span><br><span class="line"></span><br><span class="line">start the app with: <span class="string">&quot;node server.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Dockerfile-1"><a href="#Dockerfile-1" class="headerlink" title="Dockerfile"></a>Dockerfile</h5><p><strong><u>COPY - executes on the HOST machine!</u></strong></p>
+<p><u><strong>CMD - entrypoint command</strong></u></p>
+<p>​		<u><strong>We can have multiple RUN commands</strong></u></p>
+<p><strong><u>Every image is always based on another image.</u></strong></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">FROM node</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line">COPY ./home/app</span><br><span class="line"></span><br><span class="line">CMD[<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h5 id="docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile"><a href="#docker-node-x2F-17-x2F-alpine3-15-x2F-Dockerfile" class="headerlink" title="docker-node&#x2F;17&#x2F;alpine3.15&#x2F;Dockerfile"></a>docker-node&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17">17</a>&#x2F;<a href="https://github.com/nodejs/docker-node/tree/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15">alpine3.15</a>&#x2F;Dockerfile</h5><p><a href="https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile">https://github.com/nodejs/docker-node/blob/6256caf2c507e7aafdeb8e7f837bab51f46f99e0/17/alpine3.15/Dockerfile</a></p>
+<h5 id="Create-a-dockerfile-old"><a href="#Create-a-dockerfile-old" class="headerlink" title="Create a dockerfile (old)"></a>Create a dockerfile (old)</h5><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">FROM node:<span class="number">13</span>-alpine</span><br><span class="line"></span><br><span class="line">ENV MONGO_DB_USERNAME=admin \</span><br><span class="line">		MONGO_DB_PWD=password</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /home/app</span><br><span class="line"></span><br><span class="line"><span class="comment">% . /home/app 有间隔</span></span><br><span class="line">COPY . /home/app</span><br><span class="line"></span><br><span class="line">CMD [<span class="string">&quot;node&quot;</span>,<span class="string">&quot;server.js&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p><em>:**<u>Name must be “Dockerfile”!</u>*</em></p>
+<p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
+<p>上下文路径，是指 docker 在构建镜像，有时候想要使用到本机的文件（比如复制），docker build 命令得知这个路径后，会将路径下的所有内容打包。</p>
+<p><strong>解析</strong>：由于 docker 的运行模式是 C&#x2F;S。我们本机是 C，docker 引擎是 S。实际的构建过程是在 docker 引擎下完成的，所以这个时候无法用到我们本机的文件。这就需要把我们本机的指定目录下的文件一起打包提供给 docker 引擎使用。</p>
+<p>如果未说明最后一个参数，那么默认上下文路径就是 Dockerfile 所在的位置。</p>
+<h4 id="Build-docker-image-based-on-dockerfile"><a href="#Build-docker-image-based-on-dockerfile" class="headerlink" title="Build docker image based on dockerfile"></a>Build docker image based on dockerfile</h4><h5 id="docker-build-t-my-app-1-0"><a href="#docker-build-t-my-app-1-0" class="headerlink" title="docker build -t  my-app:1.0 ."></a>docker build -t  my-app:1.0 .</h5><p><strong><u>-t: tag</u></strong></p>
+<p>Q: <strong>.</strong> 代表本次执行的上下文路径</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062139173.png" alt="image-20220305062139173"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062234611.png" alt="image-20220305062234611"></p>
+<p>App including Dockerfile is comitted to Git</p>
+<p>Jenkins builds image from Dockerfile(like what we did)</p>
+<h5 id="docker-run-my-app-1-0"><a href="#docker-run-my-app-1-0" class="headerlink" title="docker run my-app:1.0"></a>docker run my-app:1.0</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062604551.png" alt="image-20220305062604551"></p>
+<h5 id="docker-rmi-ID"><a href="#docker-rmi-ID" class="headerlink" title="docker rmi ID"></a>docker rmi ID</h5><ul>
+<li><p><u><strong>rmi删容器</strong></u></p>
+</li>
+<li><p><u><strong>rm删镜像</strong></u></p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305062917171.png" alt="image-20220305062917171"></p>
+<p><strong><u>When you adjust the Dockerfile, you MUSt rebuild the Image</u></strong></p>
+<h5 id="docker-build-t-my-app-1-0-1"><a href="#docker-build-t-my-app-1-0-1" class="headerlink" title="docker build -t my-app:1.0 ."></a>docker build -t my-app:1.0 .</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305064916518.png" alt="image-20220305064916518"></p>
+<h4 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h4><p><a href="https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws">https://docs.aws.amazon.com/ecr/?id=docs_gatewayaws</a></p>
+<h5 id="AWS-—-gt-ECR-Fully-managed-Docker-container-registry"><a href="#AWS-—-gt-ECR-Fully-managed-Docker-container-registry" class="headerlink" title="AWS —&gt; ECR (Fully-managed Docker container registry)"></a>AWS —&gt; ECR (Fully-managed Docker container registry)</h5><p>Amazon Elastic Container Registry<br>Share and deploy container software, publicly or privately   </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070458043.png" alt="image-20220305070458043"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070542683.png" alt="image-20220305070542683"></p>
+<p>Save different tags (versions) of the sane image</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070707952.png" alt="image-20220305070707952"></p>
+<h5 id="how-to-push"><a href="#how-to-push" class="headerlink" title="how to push"></a>how to push</h5><p>view push command </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070832743.png" alt="image-20220305070832743"></p>
+<h5 id="push-command"><a href="#push-command" class="headerlink" title="push command"></a>push command</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305070901902.png" alt="image-20220305070901902"></p>
+<p> <strong><u>You always have to login to private repo! &#x3D; docker login</u></strong></p>
+<p>Q: jenkin’s server?</p>
+<h5 id="Pre-Requisites"><a href="#Pre-Requisites" class="headerlink" title="Pre-Requisites"></a>Pre-Requisites</h5><ol>
+<li><p>AWS Cli needs to be installed</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html</a></p>
+</li>
+<li><p>Credentials configured</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305071337433.png" alt="image-20220305071337433"></p>
+<p><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth</a></p>
+<p><a href="https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html">Set up AWS Credentials and Region for Development</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305074140673.png" alt="image-20220305074140673"></p>
+<p>Solution:</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081827581.png" alt="image-20220305081827581"></p>
+<p>两个权限加上：</p>
+<ul>
+<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess">AdministratorAccess</a></li>
+<li><a href="https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAmazonEC2FullAccess">AmazonEC2FullAccess</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305081917401.png" alt="image-20220305081917401"></p>
+<h5 id="push"><a href="#push" class="headerlink" title="push"></a>push</h5><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082321830.png" alt="image-20220305082321830"><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220305082338677.png" alt="image-20220305082338677"></p>
+<p>push一个更新的版本</p>
+<ol>
+<li>docker tag my-app:1.1 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+<li>docker push 429996114549.dkr.ecr.us-east-1.amazonaws.com&#x2F;my-app:1.1</li>
+</ol>
+<h5 id="如何从私人库pull一个image"><a href="#如何从私人库pull一个image" class="headerlink" title="如何从私人库pull一个image"></a>如何从私人库pull一个image</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">version:&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">	<span class="attr">my-app:</span></span><br><span class="line">		<span class="attr">image:</span> <span class="number">429996114549.</span><span class="string">dkr.ecr.us-east-1.amazonaws.com/my-app:1.0</span></span><br><span class="line">		<span class="string">ports</span></span><br><span class="line">	<span class="attr">mongoldb:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">27017</span><span class="string">:27017</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_USERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">MONGO_INITDB_ROOT_PASSWORD=password</span></span><br><span class="line"></span><br><span class="line">	<span class="attr">mongo-express:</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">image:</span> <span class="string">mongo-express</span></span><br><span class="line"></span><br><span class="line">		<span class="attr">ports:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="number">8080</span><span class="string">:8081</span></span><br><span class="line"></span><br><span class="line"> 		<span class="attr">environment:</span></span><br><span class="line"></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINUSERNAME=admin</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_ADMINPASSWORD=password</span></span><br><span class="line">			<span class="bullet">-</span> <span class="string">ME_CONFIG_MONGODB_SERVER=mongodb</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -2674,6 +2674,73 @@ which pip
       </tags>
   </entry>
   <entry>
+    <title>Kubernetes学习</title>
+    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
+<span id="more"></span>
+
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
+<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
+<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
+<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
+<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
+<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
+<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
+<li><p>Core Kubernetes components</p>
+</li>
+<li><p>kubectl</p>
+<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
+<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
+</li>
+</ol>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
+<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
+<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
+<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
+<blockquote>
+<p>brew install minikube</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
+<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
+<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
+<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
+<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
+<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
+<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
+<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
+<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
+<p>（docker桌面版本一般自带kubectl命令）</p>
+<blockquote>
+<p>CLI &#x3D; command -line interface</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
+<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
+<hr>
+<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
+<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
+<p>[类似dockerfile，当作一个自动化脚本]</p>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Helm学习</title>
     <url>/2022/03/09/Helm%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>Helm 3的学习</p>
@@ -2812,73 +2879,6 @@ which pip
       </categories>
       <tags>
         <tag>Helm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Kubernetes学习</title>
-    <url>/2022/03/11/Kubernetes%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
-<p><a href="https://kubernetes.io/docs/tutorials/">Tutorials</a></p>
-<span id="more"></span>
-
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="Node-x2F-节点"><a href="#Node-x2F-节点" class="headerlink" title="Node&#x2F;节点"></a>Node&#x2F;节点</h2><p>kubernetes是用于大规模部署分布式应用的平台，管理着一系列主机或者服服务器 [被称之为**<u>Node&#x2F;节点</u>**]</p>
-<h2 id="pod"><a href="#pod" class="headerlink" title="pod"></a>pod</h2><p>每个节点运行若干相互独立的pod[**<u>pod是Kubernetes中可以部署的最小执行单元 &#x3D; 一个或者多个容器的集合</u>**，其中运行了应用的某一部分核心的组件]</p>
-<h2 id="Control-Plane"><a href="#Control-Plane" class="headerlink" title="Control Plane"></a>Control Plane</h2><p>需要一个中心计算机来协调均衡多个pod，被称之为**<u>Control Plane&#x2F;控制平面</u>**。控制平面通过专有API与各个节点进行通信，实时检测节点的网络状态来平衡服务器的负载或临时下发指令来应对突发的状况。</p>
-<h2 id="Replica-Set"><a href="#Replica-Set" class="headerlink" title="Replica Set"></a>Replica Set</h2><p>备用容器被称之为**<u>Replica Set&#x2F;副本集合</u>**</p>
-<h2 id="Cluster-x2F-集群"><a href="#Cluster-x2F-集群" class="headerlink" title="Cluster&#x2F;集群"></a>Cluster&#x2F;集群</h2><p>以上所有节点连同control plane被称之为**<u>Cluster&#x2F;集群</u>**</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312135630781.png" alt="image-20220312135630781"></p>
-<h2 id="Services-x2F-服务"><a href="#Services-x2F-服务" class="headerlink" title="Services&#x2F;服务"></a>Services&#x2F;服务</h2><h3 id="NodePort"><a href="#NodePort" class="headerlink" title="NodePort"></a>NodePort</h3><p>最基本的将应用端口暴露给外网的方式（还有诸如LoadBalancer， Ingress等）</p>
-<h1 id="Download-Kubernetes"><a href="#Download-Kubernetes" class="headerlink" title="Download Kubernetes"></a>Download Kubernetes</h1><ol>
-<li><p>Core Kubernetes components</p>
-</li>
-<li><p>kubectl</p>
-<p>The Kubernetes command-line tool, <a href="https://kubernetes.io/docs/reference/kubectl/kubectl/">kubectl</a>, allows you to run commands against Kubernetes clusters.</p>
-<p>You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the <a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code> reference documentation</a>.</p>
-</li>
-</ol>
-<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/</a></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">brew</span> <span class="string">install</span> <span class="string">kubectl</span> </span><br><span class="line"><span class="comment"># ensure the version is up-to-date</span></span><br><span class="line"><span class="string">kubectl</span> <span class="string">version</span> <span class="string">--client</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150643812.png" alt="image-20220311150643812"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311150717705.png" alt="image-20220311150717705"></p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125715498.png" alt="image-20220312125715498"></p>
-<h2 id="Minikube"><a href="#Minikube" class="headerlink" title="Minikube"></a>Minikube</h2><p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a></p>
-<p><a href="https://minikube.sigs.k8s.io/docs/start/">https://minikube.sigs.k8s.io/docs/start/</a></p>
-<p><a href="https://github.com/kubernetes/minikube">https://github.com/kubernetes/minikube</a></p>
-<blockquote>
-<p>brew install minikube</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311212622084.png" alt="image-20220311212622084"></p>
-<p>We need <strong>a container runtime</strong> or <strong>virtual machine manager</strong> on laptop</p>
-<p>Minikube has <strong>Docker pre-installed</strong> to run the containers in the cluster</p>
-<p>​	Driver means we are hosting Minikube as a container on our local machine</p>
-<h3 id="2-Layers-of-Docker"><a href="#2-Layers-of-Docker" class="headerlink" title="2 Layers of Docker"></a>2 Layers of Docker</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220311213805871.png" alt="image-20220311213805871"></p>
-<h3 id="minikube启动"><a href="#minikube启动" class="headerlink" title="minikube启动"></a>minikube启动</h3><p>如果纯粹是为了学习和测试，使用Minikube**<u>在本地模拟一个Kubernetes集群</u>**（可以使用 全部功能，但不是真实的生产环境）</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">minikube</span> <span class="string">start</span> <span class="comment">#启用本地模拟的集群</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312125510277.png" alt="image-20220312125510277"></p>
-<h2 id="kubectl"><a href="#kubectl" class="headerlink" title="kubectl"></a>kubectl</h2><p>command line tool for k8s cluster</p>
-<p> 命令行工具kubectl来**<u>与kubernetes集群进行交互</u>**</p>
-<p>全平台通用（类似docker命令行），可以操纵任何集群，包括minikube</p>
-<p>（docker桌面版本一般自带kubectl命令）</p>
-<blockquote>
-<p>CLI &#x3D; command -line interface</p>
-</blockquote>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">version</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312131635588.png" alt="image-20220312131635588"></p>
-<h1 id="应用的部署"><a href="#应用的部署" class="headerlink" title="应用的部署"></a>应用的部署</h1><p>app deployment</p>
-<hr>
-<p>首先需要创建一个yaml文件，在其中定义应用的基本信息，描述应用部署的整个过程</p>
-<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220312130020333.png" alt="image-20220312130020333"></p>
-<p>比如由哪些pods组成，其中运行了哪些容器，什么网络配置</p>
-<p>[类似dockerfile，当作一个自动化脚本]</p>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
       </tags>
   </entry>
   <entry>
@@ -3761,11 +3761,6 @@ which pip
       </tags>
   </entry>
   <entry>
-    <title>健康水果</title>
-    <url>/2022/03/25/%E5%81%A5%E5%BA%B7%E6%B0%B4%E6%9E%9C/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>使用git来上传code到github</title>
     <url>/2022/02/27/%E4%BD%BF%E7%94%A8git%E6%9D%A5%E4%B8%8A%E4%BC%A0code%E5%88%B0github/</url>
     <content><![CDATA[<p>学习git使用</p>
@@ -3852,6 +3847,11 @@ which pip
       <tags>
         <tag>Github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>健康水果</title>
+    <url>/2022/03/25/%E5%81%A5%E5%BA%B7%E6%B0%B4%E6%9E%9C/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>出行Sweden</title>
@@ -4300,13 +4300,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>hexo</title>
-    <url>/categories/index-3.html</url>
+    <title>专业相关知识</title>
+    <url>/categories/index-4.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>专业相关知识</title>
-    <url>/categories/index-4.html</url>
+    <title>hexo</title>
+    <url>/categories/index-3.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4330,11 +4330,6 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>DATA641</title>
-    <url>/tags/index-5.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>专业相关知识</title>
     <url>/tags/index-3.html</url>
     <content><![CDATA[]]></content>
@@ -4345,13 +4340,13 @@ Mac安装Docker</p>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>UMD</title>
-    <url>/tags/index-6.html</url>
+    <title>DATA641</title>
+    <url>/tags/index-5.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>随笔</title>
-    <url>/tags/index.html</url>
+    <title>UMD</title>
+    <url>/tags/index-6.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -4396,6 +4391,11 @@ In order to embed PDF files in the article, you just need to create an `pdf` tag
 
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/source/lib/pdf</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
 ]]></content>
+  </entry>
+  <entry>
+    <title>随笔</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
@@ -5015,6 +5015,405 @@ window.PDFBug = (function PDFBugClosure() {
     },
   };
 })();
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/lib/pdf/web/viewer.html</url>
+    <content><![CDATA[<!DOCTYPE html>
+<!--
+Copyright 2012 Mozilla Foundation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Adobe CMap resources are covered by their own copyright but the same license:
+
+    Copyright 1990-2015 Adobe Systems Incorporated.
+
+See https://github.com/adobe-type-tools/cmap-resources
+-->
+<html dir="ltr" mozdisallowselectionprint>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PDF.js viewer</title>
+
+
+    <link rel="stylesheet" href="viewer.css">
+
+
+<!-- This snippet is used in production (included from viewer.html) -->
+<link rel="resource" type="application/l10n" href="locale/locale.properties">
+<script src="../build/pdf.js"></script>
+
+
+    <script src="viewer.js"></script>
+
+  </head>
+
+  <body tabindex="1" class="loadingInProgress">
+    <div id="outerContainer">
+
+      <div id="sidebarContainer">
+        <div id="toolbarSidebar">
+          <div class="splitToolbarButton toggled">
+            <button id="viewThumbnail" class="toolbarButton toggled" title="Show Thumbnails" tabindex="2" data-l10n-id="thumbs">
+               <span data-l10n-id="thumbs_label">Thumbnails</span>
+            </button>
+            <button id="viewOutline" class="toolbarButton" title="Show Document Outline (double-click to expand/collapse all items)" tabindex="3" data-l10n-id="document_outline">
+               <span data-l10n-id="document_outline_label">Document Outline</span>
+            </button>
+            <button id="viewAttachments" class="toolbarButton" title="Show Attachments" tabindex="4" data-l10n-id="attachments">
+               <span data-l10n-id="attachments_label">Attachments</span>
+            </button>
+          </div>
+        </div>
+        <div id="sidebarContent">
+          <div id="thumbnailView">
+          </div>
+          <div id="outlineView" class="hidden">
+          </div>
+          <div id="attachmentsView" class="hidden">
+          </div>
+        </div>
+        <div id="sidebarResizer" class="hidden"></div>
+      </div>  <!-- sidebarContainer -->
+
+      <div id="mainContainer">
+        <div class="findbar hidden doorHanger" id="findbar">
+          <div id="findbarInputContainer">
+            <input id="findInput" class="toolbarField" title="Find" placeholder="Find in document…" tabindex="91" data-l10n-id="find_input">
+            <div class="splitToolbarButton">
+              <button id="findPrevious" class="toolbarButton findPrevious" title="Find the previous occurrence of the phrase" tabindex="92" data-l10n-id="find_previous">
+                <span data-l10n-id="find_previous_label">Previous</span>
+              </button>
+              <div class="splitToolbarButtonSeparator"></div>
+              <button id="findNext" class="toolbarButton findNext" title="Find the next occurrence of the phrase" tabindex="93" data-l10n-id="find_next">
+                <span data-l10n-id="find_next_label">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="findbarOptionsOneContainer">
+            <input type="checkbox" id="findHighlightAll" class="toolbarField" tabindex="94">
+            <label for="findHighlightAll" class="toolbarLabel" data-l10n-id="find_highlight">Highlight all</label>
+            <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95">
+            <label for="findMatchCase" class="toolbarLabel" data-l10n-id="find_match_case_label">Match case</label>
+          </div>
+          <div id="findbarOptionsTwoContainer">
+            <input type="checkbox" id="findEntireWord" class="toolbarField" tabindex="96">
+            <label for="findEntireWord" class="toolbarLabel" data-l10n-id="find_entire_word_label">Whole words</label>
+            <span id="findResultsCount" class="toolbarLabel hidden"></span>
+          </div>
+
+          <div id="findbarMessageContainer">
+            <span id="findMsg" class="toolbarLabel"></span>
+          </div>
+        </div>  <!-- findbar -->
+
+        <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
+          <div id="secondaryToolbarButtonContainer">
+            <button id="secondaryPresentationMode" class="secondaryToolbarButton presentationMode visibleLargeView" title="Switch to Presentation Mode" tabindex="51" data-l10n-id="presentation_mode">
+              <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
+            </button>
+
+            <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView" title="Open File" tabindex="52" data-l10n-id="open_file">
+              <span data-l10n-id="open_file_label">Open</span>
+            </button>
+
+            <button id="secondaryPrint" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53" data-l10n-id="print">
+              <span data-l10n-id="print_label">Print</span>
+            </button>
+
+            <button id="secondaryDownload" class="secondaryToolbarButton download visibleMediumView" title="Download" tabindex="54" data-l10n-id="download">
+              <span data-l10n-id="download_label">Download</span>
+            </button>
+
+            <a href="#" id="secondaryViewBookmark" class="secondaryToolbarButton bookmark visibleSmallView" title="Current view (copy or open in new window)" tabindex="55" data-l10n-id="bookmark">
+              <span data-l10n-id="bookmark_label">Current View</span>
+            </a>
+
+            <div class="horizontalToolbarSeparator visibleLargeView"></div>
+
+            <button id="firstPage" class="secondaryToolbarButton firstPage" title="Go to First Page" tabindex="56" data-l10n-id="first_page">
+              <span data-l10n-id="first_page_label">Go to First Page</span>
+            </button>
+            <button id="lastPage" class="secondaryToolbarButton lastPage" title="Go to Last Page" tabindex="57" data-l10n-id="last_page">
+              <span data-l10n-id="last_page_label">Go to Last Page</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="pageRotateCw" class="secondaryToolbarButton rotateCw" title="Rotate Clockwise" tabindex="58" data-l10n-id="page_rotate_cw">
+              <span data-l10n-id="page_rotate_cw_label">Rotate Clockwise</span>
+            </button>
+            <button id="pageRotateCcw" class="secondaryToolbarButton rotateCcw" title="Rotate Counterclockwise" tabindex="59" data-l10n-id="page_rotate_ccw">
+              <span data-l10n-id="page_rotate_ccw_label">Rotate Counterclockwise</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="cursorSelectTool" class="secondaryToolbarButton selectTool toggled" title="Enable Text Selection Tool" tabindex="60" data-l10n-id="cursor_text_select_tool">
+              <span data-l10n-id="cursor_text_select_tool_label">Text Selection Tool</span>
+            </button>
+            <button id="cursorHandTool" class="secondaryToolbarButton handTool" title="Enable Hand Tool" tabindex="61" data-l10n-id="cursor_hand_tool">
+              <span data-l10n-id="cursor_hand_tool_label">Hand Tool</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator"></div>
+
+            <button id="scrollVertical" class="secondaryToolbarButton scrollModeButtons scrollVertical toggled" title="Use Vertical Scrolling" tabindex="62" data-l10n-id="scroll_vertical">
+              <span data-l10n-id="scroll_vertical_label">Vertical Scrolling</span>
+            </button>
+            <button id="scrollHorizontal" class="secondaryToolbarButton scrollModeButtons scrollHorizontal" title="Use Horizontal Scrolling" tabindex="63" data-l10n-id="scroll_horizontal">
+              <span data-l10n-id="scroll_horizontal_label">Horizontal Scrolling</span>
+            </button>
+            <button id="scrollWrapped" class="secondaryToolbarButton scrollModeButtons scrollWrapped" title="Use Wrapped Scrolling" tabindex="64" data-l10n-id="scroll_wrapped">
+              <span data-l10n-id="scroll_wrapped_label">Wrapped Scrolling</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator scrollModeButtons"></div>
+
+            <button id="spreadNone" class="secondaryToolbarButton spreadModeButtons spreadNone toggled" title="Do not join page spreads" tabindex="65" data-l10n-id="spread_none">
+              <span data-l10n-id="spread_none_label">No Spreads</span>
+            </button>
+            <button id="spreadOdd" class="secondaryToolbarButton spreadModeButtons spreadOdd" title="Join page spreads starting with odd-numbered pages" tabindex="66" data-l10n-id="spread_odd">
+              <span data-l10n-id="spread_odd_label">Odd Spreads</span>
+            </button>
+            <button id="spreadEven" class="secondaryToolbarButton spreadModeButtons spreadEven" title="Join page spreads starting with even-numbered pages" tabindex="67" data-l10n-id="spread_even">
+              <span data-l10n-id="spread_even_label">Even Spreads</span>
+            </button>
+
+            <div class="horizontalToolbarSeparator spreadModeButtons"></div>
+
+            <button id="documentProperties" class="secondaryToolbarButton documentProperties" title="Document Properties…" tabindex="68" data-l10n-id="document_properties">
+              <span data-l10n-id="document_properties_label">Document Properties…</span>
+            </button>
+          </div>
+        </div>  <!-- secondaryToolbar -->
+
+        <div class="toolbar">
+          <div id="toolbarContainer">
+            <div id="toolbarViewer">
+              <div id="toolbarViewerLeft">
+                <button id="sidebarToggle" class="toolbarButton" title="Toggle Sidebar" tabindex="11" data-l10n-id="toggle_sidebar">
+                  <span data-l10n-id="toggle_sidebar_label">Toggle Sidebar</span>
+                </button>
+                <div class="toolbarButtonSpacer"></div>
+                <button id="viewFind" class="toolbarButton" title="Find in Document" tabindex="12" data-l10n-id="findbar">
+                  <span data-l10n-id="findbar_label">Find</span>
+                </button>
+                <div class="splitToolbarButton hiddenSmallView">
+                  <button class="toolbarButton pageUp" title="Previous Page" id="previous" tabindex="13" data-l10n-id="previous">
+                    <span data-l10n-id="previous_label">Previous</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button class="toolbarButton pageDown" title="Next Page" id="next" tabindex="14" data-l10n-id="next">
+                    <span data-l10n-id="next_label">Next</span>
+                  </button>
+                </div>
+                <input type="number" id="pageNumber" class="toolbarField pageNumber" title="Page" value="1" size="4" min="1" tabindex="15" data-l10n-id="page">
+                <span id="numPages" class="toolbarLabel"></span>
+              </div>
+              <div id="toolbarViewerRight">
+                <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView" title="Switch to Presentation Mode" tabindex="31" data-l10n-id="presentation_mode">
+                  <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
+                </button>
+
+                <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="32" data-l10n-id="open_file">
+                  <span data-l10n-id="open_file_label">Open</span>
+                </button>
+
+                <button id="print" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print">
+                  <span data-l10n-id="print_label">Print</span>
+                </button>
+
+                <button id="download" class="toolbarButton download hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download">
+                  <span data-l10n-id="download_label">Download</span>
+                </button>
+                <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark">
+                  <span data-l10n-id="bookmark_label">Current View</span>
+                </a>
+
+                <div class="verticalToolbarSeparator hiddenSmallView"></div>
+
+                <button id="secondaryToolbarToggle" class="toolbarButton" title="Tools" tabindex="36" data-l10n-id="tools">
+                  <span data-l10n-id="tools_label">Tools</span>
+                </button>
+              </div>
+              <div id="toolbarViewerMiddle">
+                <div class="splitToolbarButton">
+                  <button id="zoomOut" class="toolbarButton zoomOut" title="Zoom Out" tabindex="21" data-l10n-id="zoom_out">
+                    <span data-l10n-id="zoom_out_label">Zoom Out</span>
+                  </button>
+                  <div class="splitToolbarButtonSeparator"></div>
+                  <button id="zoomIn" class="toolbarButton zoomIn" title="Zoom In" tabindex="22" data-l10n-id="zoom_in">
+                    <span data-l10n-id="zoom_in_label">Zoom In</span>
+                   </button>
+                </div>
+                <span id="scaleSelectContainer" class="dropdownToolbarButton">
+                  <select id="scaleSelect" title="Zoom" tabindex="23" data-l10n-id="zoom">
+                    <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">Automatic Zoom</option>
+                    <option id="pageActualOption" title="" value="page-actual" data-l10n-id="page_scale_actual">Actual Size</option>
+                    <option id="pageFitOption" title="" value="page-fit" data-l10n-id="page_scale_fit">Page Fit</option>
+                    <option id="pageWidthOption" title="" value="page-width" data-l10n-id="page_scale_width">Page Width</option>
+                    <option id="customScaleOption" title="" value="custom" disabled="disabled" hidden="true"></option>
+                    <option title="" value="0.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 50 }'>50%</option>
+                    <option title="" value="0.75" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 75 }'>75%</option>
+                    <option title="" value="1" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 100 }'>100%</option>
+                    <option title="" value="1.25" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 125 }'>125%</option>
+                    <option title="" value="1.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 150 }'>150%</option>
+                    <option title="" value="2" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 200 }'>200%</option>
+                    <option title="" value="3" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 300 }'>300%</option>
+                    <option title="" value="4" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 400 }'>400%</option>
+                  </select>
+                </span>
+              </div>
+            </div>
+            <div id="loadingBar">
+              <div class="progress">
+                <div class="glimmer">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <menu type="context" id="viewerContextMenu">
+          <menuitem id="contextFirstPage" label="First Page"
+                    data-l10n-id="first_page"></menuitem>
+          <menuitem id="contextLastPage" label="Last Page"
+                    data-l10n-id="last_page"></menuitem>
+          <menuitem id="contextPageRotateCw" label="Rotate Clockwise"
+                    data-l10n-id="page_rotate_cw"></menuitem>
+          <menuitem id="contextPageRotateCcw" label="Rotate Counter-Clockwise"
+                    data-l10n-id="page_rotate_ccw"></menuitem>
+        </menu>
+
+        <div id="viewerContainer" tabindex="0">
+          <div id="viewer" class="pdfViewer"></div>
+        </div>
+
+        <div id="errorWrapper" hidden='true'>
+          <div id="errorMessageLeft">
+            <span id="errorMessage"></span>
+            <button id="errorShowMore" data-l10n-id="error_more_info">
+              More Information
+            </button>
+            <button id="errorShowLess" data-l10n-id="error_less_info" hidden='true'>
+              Less Information
+            </button>
+          </div>
+          <div id="errorMessageRight">
+            <button id="errorClose" data-l10n-id="error_close">
+              Close
+            </button>
+          </div>
+          <div class="clearBoth"></div>
+          <textarea id="errorMoreInfo" hidden='true' readonly="readonly"></textarea>
+        </div>
+      </div> <!-- mainContainer -->
+
+      <div id="overlayContainer" class="hidden">
+        <div id="passwordOverlay" class="container hidden">
+          <div class="dialog">
+            <div class="row">
+              <p id="passwordText" data-l10n-id="password_label">Enter the password to open this PDF file:</p>
+            </div>
+            <div class="row">
+              <input type="password" id="password" class="toolbarField">
+            </div>
+            <div class="buttonRow">
+              <button id="passwordCancel" class="overlayButton"><span data-l10n-id="password_cancel">Cancel</span></button>
+              <button id="passwordSubmit" class="overlayButton"><span data-l10n-id="password_ok">OK</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="documentPropertiesOverlay" class="container hidden">
+          <div class="dialog">
+            <div class="row">
+              <span data-l10n-id="document_properties_file_name">File name:</span> <p id="fileNameField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_file_size">File size:</span> <p id="fileSizeField">-</p>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span data-l10n-id="document_properties_title">Title:</span> <p id="titleField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_author">Author:</span> <p id="authorField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_subject">Subject:</span> <p id="subjectField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_keywords">Keywords:</span> <p id="keywordsField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_creation_date">Creation Date:</span> <p id="creationDateField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_modification_date">Modification Date:</span> <p id="modificationDateField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_creator">Creator:</span> <p id="creatorField">-</p>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span data-l10n-id="document_properties_producer">PDF Producer:</span> <p id="producerField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_version">PDF Version:</span> <p id="versionField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_page_count">Page Count:</span> <p id="pageCountField">-</p>
+            </div>
+            <div class="row">
+              <span data-l10n-id="document_properties_page_size">Page Size:</span> <p id="pageSizeField">-</p>
+            </div>
+            <div class="separator"></div>
+            <div class="row">
+              <span data-l10n-id="document_properties_linearized">Fast Web View:</span> <p id="linearizedField">-</p>
+            </div>
+            <div class="buttonRow">
+              <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
+            </div>
+          </div>
+        </div>
+        <div id="printServiceOverlay" class="container hidden">
+          <div class="dialog">
+            <div class="row">
+              <span data-l10n-id="print_progress_message">Preparing document for printing…</span>
+            </div>
+            <div class="row">
+              <progress value="0" max="100"></progress>
+              <span data-l10n-id="print_progress_percent" data-l10n-args='{ "progress": 0 }' class="relative-progress">0%</span>
+            </div>
+            <div class="buttonRow">
+              <button id="printCancel" class="overlayButton"><span data-l10n-id="print_progress_close">Cancel</span></button>
+            </div>
+          </div>
+        </div>
+      </div>  <!-- overlayContainer -->
+
+    </div> <!-- outerContainer -->
+    <div id="printContainer"></div>
+  </body>
+</html>
+
 ]]></content>
   </entry>
   <entry>
@@ -7420,405 +7819,6 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
     display: none;
   }
 }
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/lib/pdf/web/viewer.html</url>
-    <content><![CDATA[<!DOCTYPE html>
-<!--
-Copyright 2012 Mozilla Foundation
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-Adobe CMap resources are covered by their own copyright but the same license:
-
-    Copyright 1990-2015 Adobe Systems Incorporated.
-
-See https://github.com/adobe-type-tools/cmap-resources
--->
-<html dir="ltr" mozdisallowselectionprint>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="google" content="notranslate">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PDF.js viewer</title>
-
-
-    <link rel="stylesheet" href="viewer.css">
-
-
-<!-- This snippet is used in production (included from viewer.html) -->
-<link rel="resource" type="application/l10n" href="locale/locale.properties">
-<script src="../build/pdf.js"></script>
-
-
-    <script src="viewer.js"></script>
-
-  </head>
-
-  <body tabindex="1" class="loadingInProgress">
-    <div id="outerContainer">
-
-      <div id="sidebarContainer">
-        <div id="toolbarSidebar">
-          <div class="splitToolbarButton toggled">
-            <button id="viewThumbnail" class="toolbarButton toggled" title="Show Thumbnails" tabindex="2" data-l10n-id="thumbs">
-               <span data-l10n-id="thumbs_label">Thumbnails</span>
-            </button>
-            <button id="viewOutline" class="toolbarButton" title="Show Document Outline (double-click to expand/collapse all items)" tabindex="3" data-l10n-id="document_outline">
-               <span data-l10n-id="document_outline_label">Document Outline</span>
-            </button>
-            <button id="viewAttachments" class="toolbarButton" title="Show Attachments" tabindex="4" data-l10n-id="attachments">
-               <span data-l10n-id="attachments_label">Attachments</span>
-            </button>
-          </div>
-        </div>
-        <div id="sidebarContent">
-          <div id="thumbnailView">
-          </div>
-          <div id="outlineView" class="hidden">
-          </div>
-          <div id="attachmentsView" class="hidden">
-          </div>
-        </div>
-        <div id="sidebarResizer" class="hidden"></div>
-      </div>  <!-- sidebarContainer -->
-
-      <div id="mainContainer">
-        <div class="findbar hidden doorHanger" id="findbar">
-          <div id="findbarInputContainer">
-            <input id="findInput" class="toolbarField" title="Find" placeholder="Find in document…" tabindex="91" data-l10n-id="find_input">
-            <div class="splitToolbarButton">
-              <button id="findPrevious" class="toolbarButton findPrevious" title="Find the previous occurrence of the phrase" tabindex="92" data-l10n-id="find_previous">
-                <span data-l10n-id="find_previous_label">Previous</span>
-              </button>
-              <div class="splitToolbarButtonSeparator"></div>
-              <button id="findNext" class="toolbarButton findNext" title="Find the next occurrence of the phrase" tabindex="93" data-l10n-id="find_next">
-                <span data-l10n-id="find_next_label">Next</span>
-              </button>
-            </div>
-          </div>
-
-          <div id="findbarOptionsOneContainer">
-            <input type="checkbox" id="findHighlightAll" class="toolbarField" tabindex="94">
-            <label for="findHighlightAll" class="toolbarLabel" data-l10n-id="find_highlight">Highlight all</label>
-            <input type="checkbox" id="findMatchCase" class="toolbarField" tabindex="95">
-            <label for="findMatchCase" class="toolbarLabel" data-l10n-id="find_match_case_label">Match case</label>
-          </div>
-          <div id="findbarOptionsTwoContainer">
-            <input type="checkbox" id="findEntireWord" class="toolbarField" tabindex="96">
-            <label for="findEntireWord" class="toolbarLabel" data-l10n-id="find_entire_word_label">Whole words</label>
-            <span id="findResultsCount" class="toolbarLabel hidden"></span>
-          </div>
-
-          <div id="findbarMessageContainer">
-            <span id="findMsg" class="toolbarLabel"></span>
-          </div>
-        </div>  <!-- findbar -->
-
-        <div id="secondaryToolbar" class="secondaryToolbar hidden doorHangerRight">
-          <div id="secondaryToolbarButtonContainer">
-            <button id="secondaryPresentationMode" class="secondaryToolbarButton presentationMode visibleLargeView" title="Switch to Presentation Mode" tabindex="51" data-l10n-id="presentation_mode">
-              <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
-            </button>
-
-            <button id="secondaryOpenFile" class="secondaryToolbarButton openFile visibleLargeView" title="Open File" tabindex="52" data-l10n-id="open_file">
-              <span data-l10n-id="open_file_label">Open</span>
-            </button>
-
-            <button id="secondaryPrint" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53" data-l10n-id="print">
-              <span data-l10n-id="print_label">Print</span>
-            </button>
-
-            <button id="secondaryDownload" class="secondaryToolbarButton download visibleMediumView" title="Download" tabindex="54" data-l10n-id="download">
-              <span data-l10n-id="download_label">Download</span>
-            </button>
-
-            <a href="#" id="secondaryViewBookmark" class="secondaryToolbarButton bookmark visibleSmallView" title="Current view (copy or open in new window)" tabindex="55" data-l10n-id="bookmark">
-              <span data-l10n-id="bookmark_label">Current View</span>
-            </a>
-
-            <div class="horizontalToolbarSeparator visibleLargeView"></div>
-
-            <button id="firstPage" class="secondaryToolbarButton firstPage" title="Go to First Page" tabindex="56" data-l10n-id="first_page">
-              <span data-l10n-id="first_page_label">Go to First Page</span>
-            </button>
-            <button id="lastPage" class="secondaryToolbarButton lastPage" title="Go to Last Page" tabindex="57" data-l10n-id="last_page">
-              <span data-l10n-id="last_page_label">Go to Last Page</span>
-            </button>
-
-            <div class="horizontalToolbarSeparator"></div>
-
-            <button id="pageRotateCw" class="secondaryToolbarButton rotateCw" title="Rotate Clockwise" tabindex="58" data-l10n-id="page_rotate_cw">
-              <span data-l10n-id="page_rotate_cw_label">Rotate Clockwise</span>
-            </button>
-            <button id="pageRotateCcw" class="secondaryToolbarButton rotateCcw" title="Rotate Counterclockwise" tabindex="59" data-l10n-id="page_rotate_ccw">
-              <span data-l10n-id="page_rotate_ccw_label">Rotate Counterclockwise</span>
-            </button>
-
-            <div class="horizontalToolbarSeparator"></div>
-
-            <button id="cursorSelectTool" class="secondaryToolbarButton selectTool toggled" title="Enable Text Selection Tool" tabindex="60" data-l10n-id="cursor_text_select_tool">
-              <span data-l10n-id="cursor_text_select_tool_label">Text Selection Tool</span>
-            </button>
-            <button id="cursorHandTool" class="secondaryToolbarButton handTool" title="Enable Hand Tool" tabindex="61" data-l10n-id="cursor_hand_tool">
-              <span data-l10n-id="cursor_hand_tool_label">Hand Tool</span>
-            </button>
-
-            <div class="horizontalToolbarSeparator"></div>
-
-            <button id="scrollVertical" class="secondaryToolbarButton scrollModeButtons scrollVertical toggled" title="Use Vertical Scrolling" tabindex="62" data-l10n-id="scroll_vertical">
-              <span data-l10n-id="scroll_vertical_label">Vertical Scrolling</span>
-            </button>
-            <button id="scrollHorizontal" class="secondaryToolbarButton scrollModeButtons scrollHorizontal" title="Use Horizontal Scrolling" tabindex="63" data-l10n-id="scroll_horizontal">
-              <span data-l10n-id="scroll_horizontal_label">Horizontal Scrolling</span>
-            </button>
-            <button id="scrollWrapped" class="secondaryToolbarButton scrollModeButtons scrollWrapped" title="Use Wrapped Scrolling" tabindex="64" data-l10n-id="scroll_wrapped">
-              <span data-l10n-id="scroll_wrapped_label">Wrapped Scrolling</span>
-            </button>
-
-            <div class="horizontalToolbarSeparator scrollModeButtons"></div>
-
-            <button id="spreadNone" class="secondaryToolbarButton spreadModeButtons spreadNone toggled" title="Do not join page spreads" tabindex="65" data-l10n-id="spread_none">
-              <span data-l10n-id="spread_none_label">No Spreads</span>
-            </button>
-            <button id="spreadOdd" class="secondaryToolbarButton spreadModeButtons spreadOdd" title="Join page spreads starting with odd-numbered pages" tabindex="66" data-l10n-id="spread_odd">
-              <span data-l10n-id="spread_odd_label">Odd Spreads</span>
-            </button>
-            <button id="spreadEven" class="secondaryToolbarButton spreadModeButtons spreadEven" title="Join page spreads starting with even-numbered pages" tabindex="67" data-l10n-id="spread_even">
-              <span data-l10n-id="spread_even_label">Even Spreads</span>
-            </button>
-
-            <div class="horizontalToolbarSeparator spreadModeButtons"></div>
-
-            <button id="documentProperties" class="secondaryToolbarButton documentProperties" title="Document Properties…" tabindex="68" data-l10n-id="document_properties">
-              <span data-l10n-id="document_properties_label">Document Properties…</span>
-            </button>
-          </div>
-        </div>  <!-- secondaryToolbar -->
-
-        <div class="toolbar">
-          <div id="toolbarContainer">
-            <div id="toolbarViewer">
-              <div id="toolbarViewerLeft">
-                <button id="sidebarToggle" class="toolbarButton" title="Toggle Sidebar" tabindex="11" data-l10n-id="toggle_sidebar">
-                  <span data-l10n-id="toggle_sidebar_label">Toggle Sidebar</span>
-                </button>
-                <div class="toolbarButtonSpacer"></div>
-                <button id="viewFind" class="toolbarButton" title="Find in Document" tabindex="12" data-l10n-id="findbar">
-                  <span data-l10n-id="findbar_label">Find</span>
-                </button>
-                <div class="splitToolbarButton hiddenSmallView">
-                  <button class="toolbarButton pageUp" title="Previous Page" id="previous" tabindex="13" data-l10n-id="previous">
-                    <span data-l10n-id="previous_label">Previous</span>
-                  </button>
-                  <div class="splitToolbarButtonSeparator"></div>
-                  <button class="toolbarButton pageDown" title="Next Page" id="next" tabindex="14" data-l10n-id="next">
-                    <span data-l10n-id="next_label">Next</span>
-                  </button>
-                </div>
-                <input type="number" id="pageNumber" class="toolbarField pageNumber" title="Page" value="1" size="4" min="1" tabindex="15" data-l10n-id="page">
-                <span id="numPages" class="toolbarLabel"></span>
-              </div>
-              <div id="toolbarViewerRight">
-                <button id="presentationMode" class="toolbarButton presentationMode hiddenLargeView" title="Switch to Presentation Mode" tabindex="31" data-l10n-id="presentation_mode">
-                  <span data-l10n-id="presentation_mode_label">Presentation Mode</span>
-                </button>
-
-                <button id="openFile" class="toolbarButton openFile hiddenLargeView" title="Open File" tabindex="32" data-l10n-id="open_file">
-                  <span data-l10n-id="open_file_label">Open</span>
-                </button>
-
-                <button id="print" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print">
-                  <span data-l10n-id="print_label">Print</span>
-                </button>
-
-                <button id="download" class="toolbarButton download hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download">
-                  <span data-l10n-id="download_label">Download</span>
-                </button>
-                <a href="#" id="viewBookmark" class="toolbarButton bookmark hiddenSmallView" title="Current view (copy or open in new window)" tabindex="35" data-l10n-id="bookmark">
-                  <span data-l10n-id="bookmark_label">Current View</span>
-                </a>
-
-                <div class="verticalToolbarSeparator hiddenSmallView"></div>
-
-                <button id="secondaryToolbarToggle" class="toolbarButton" title="Tools" tabindex="36" data-l10n-id="tools">
-                  <span data-l10n-id="tools_label">Tools</span>
-                </button>
-              </div>
-              <div id="toolbarViewerMiddle">
-                <div class="splitToolbarButton">
-                  <button id="zoomOut" class="toolbarButton zoomOut" title="Zoom Out" tabindex="21" data-l10n-id="zoom_out">
-                    <span data-l10n-id="zoom_out_label">Zoom Out</span>
-                  </button>
-                  <div class="splitToolbarButtonSeparator"></div>
-                  <button id="zoomIn" class="toolbarButton zoomIn" title="Zoom In" tabindex="22" data-l10n-id="zoom_in">
-                    <span data-l10n-id="zoom_in_label">Zoom In</span>
-                   </button>
-                </div>
-                <span id="scaleSelectContainer" class="dropdownToolbarButton">
-                  <select id="scaleSelect" title="Zoom" tabindex="23" data-l10n-id="zoom">
-                    <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">Automatic Zoom</option>
-                    <option id="pageActualOption" title="" value="page-actual" data-l10n-id="page_scale_actual">Actual Size</option>
-                    <option id="pageFitOption" title="" value="page-fit" data-l10n-id="page_scale_fit">Page Fit</option>
-                    <option id="pageWidthOption" title="" value="page-width" data-l10n-id="page_scale_width">Page Width</option>
-                    <option id="customScaleOption" title="" value="custom" disabled="disabled" hidden="true"></option>
-                    <option title="" value="0.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 50 }'>50%</option>
-                    <option title="" value="0.75" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 75 }'>75%</option>
-                    <option title="" value="1" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 100 }'>100%</option>
-                    <option title="" value="1.25" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 125 }'>125%</option>
-                    <option title="" value="1.5" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 150 }'>150%</option>
-                    <option title="" value="2" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 200 }'>200%</option>
-                    <option title="" value="3" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 300 }'>300%</option>
-                    <option title="" value="4" data-l10n-id="page_scale_percent" data-l10n-args='{ "scale": 400 }'>400%</option>
-                  </select>
-                </span>
-              </div>
-            </div>
-            <div id="loadingBar">
-              <div class="progress">
-                <div class="glimmer">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <menu type="context" id="viewerContextMenu">
-          <menuitem id="contextFirstPage" label="First Page"
-                    data-l10n-id="first_page"></menuitem>
-          <menuitem id="contextLastPage" label="Last Page"
-                    data-l10n-id="last_page"></menuitem>
-          <menuitem id="contextPageRotateCw" label="Rotate Clockwise"
-                    data-l10n-id="page_rotate_cw"></menuitem>
-          <menuitem id="contextPageRotateCcw" label="Rotate Counter-Clockwise"
-                    data-l10n-id="page_rotate_ccw"></menuitem>
-        </menu>
-
-        <div id="viewerContainer" tabindex="0">
-          <div id="viewer" class="pdfViewer"></div>
-        </div>
-
-        <div id="errorWrapper" hidden='true'>
-          <div id="errorMessageLeft">
-            <span id="errorMessage"></span>
-            <button id="errorShowMore" data-l10n-id="error_more_info">
-              More Information
-            </button>
-            <button id="errorShowLess" data-l10n-id="error_less_info" hidden='true'>
-              Less Information
-            </button>
-          </div>
-          <div id="errorMessageRight">
-            <button id="errorClose" data-l10n-id="error_close">
-              Close
-            </button>
-          </div>
-          <div class="clearBoth"></div>
-          <textarea id="errorMoreInfo" hidden='true' readonly="readonly"></textarea>
-        </div>
-      </div> <!-- mainContainer -->
-
-      <div id="overlayContainer" class="hidden">
-        <div id="passwordOverlay" class="container hidden">
-          <div class="dialog">
-            <div class="row">
-              <p id="passwordText" data-l10n-id="password_label">Enter the password to open this PDF file:</p>
-            </div>
-            <div class="row">
-              <input type="password" id="password" class="toolbarField">
-            </div>
-            <div class="buttonRow">
-              <button id="passwordCancel" class="overlayButton"><span data-l10n-id="password_cancel">Cancel</span></button>
-              <button id="passwordSubmit" class="overlayButton"><span data-l10n-id="password_ok">OK</span></button>
-            </div>
-          </div>
-        </div>
-        <div id="documentPropertiesOverlay" class="container hidden">
-          <div class="dialog">
-            <div class="row">
-              <span data-l10n-id="document_properties_file_name">File name:</span> <p id="fileNameField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_file_size">File size:</span> <p id="fileSizeField">-</p>
-            </div>
-            <div class="separator"></div>
-            <div class="row">
-              <span data-l10n-id="document_properties_title">Title:</span> <p id="titleField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_author">Author:</span> <p id="authorField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_subject">Subject:</span> <p id="subjectField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_keywords">Keywords:</span> <p id="keywordsField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_creation_date">Creation Date:</span> <p id="creationDateField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_modification_date">Modification Date:</span> <p id="modificationDateField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_creator">Creator:</span> <p id="creatorField">-</p>
-            </div>
-            <div class="separator"></div>
-            <div class="row">
-              <span data-l10n-id="document_properties_producer">PDF Producer:</span> <p id="producerField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_version">PDF Version:</span> <p id="versionField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_page_count">Page Count:</span> <p id="pageCountField">-</p>
-            </div>
-            <div class="row">
-              <span data-l10n-id="document_properties_page_size">Page Size:</span> <p id="pageSizeField">-</p>
-            </div>
-            <div class="separator"></div>
-            <div class="row">
-              <span data-l10n-id="document_properties_linearized">Fast Web View:</span> <p id="linearizedField">-</p>
-            </div>
-            <div class="buttonRow">
-              <button id="documentPropertiesClose" class="overlayButton"><span data-l10n-id="document_properties_close">Close</span></button>
-            </div>
-          </div>
-        </div>
-        <div id="printServiceOverlay" class="container hidden">
-          <div class="dialog">
-            <div class="row">
-              <span data-l10n-id="print_progress_message">Preparing document for printing…</span>
-            </div>
-            <div class="row">
-              <progress value="0" max="100"></progress>
-              <span data-l10n-id="print_progress_percent" data-l10n-args='{ "progress": 0 }' class="relative-progress">0%</span>
-            </div>
-            <div class="buttonRow">
-              <button id="printCancel" class="overlayButton"><span data-l10n-id="print_progress_close">Cancel</span></button>
-            </div>
-          </div>
-        </div>
-      </div>  <!-- overlayContainer -->
-
-    </div> <!-- outerContainer -->
-    <div id="printContainer"></div>
-  </body>
-</html>
-
 ]]></content>
   </entry>
   <entry>
