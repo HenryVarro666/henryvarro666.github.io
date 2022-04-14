@@ -28,7 +28,7 @@
 <meta property="og:description" content="在GitHub上找到一些不错的项目。需要按照课程要求实现自己的项目。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-11T14:37:14.000Z">
-<meta property="article:modified_time" content="2022-04-11T15:06:39.254Z">
+<meta property="article:modified_time" content="2022-04-12T04:00:14.502Z">
 <meta property="article:author" content="Chao Cao">
 <meta property="article:tag" content="DATA605">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-04-11 09:37:14 / Modified: 10:06:39" itemprop="dateCreated datePublished" datetime="2022-04-11T09:37:14-05:00">2022-04-11</time>
+              <time title="Created: 2022-04-11 09:37:14 / Modified: 23:00:14" itemprop="dateCreated datePublished" datetime="2022-04-11T09:37:14-05:00">2022-04-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,14 +232,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>550</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -264,11 +264,88 @@
 <p>主要分析深圳通刷卡数据，通过大数据技术角度来研究深圳地铁客运能力，探索深圳地铁优化服务的方向</p>
 <h1 id="基于Spark2-x新闻网大数据实时分析可视化系统项目"><a href="#基于Spark2-x新闻网大数据实时分析可视化系统项目" class="headerlink" title="基于Spark2.x新闻网大数据实时分析可视化系统项目"></a><a target="_blank" rel="noopener" href="https://github.com/LuckyZXL2016/News_Spark">基于Spark2.x新闻网大数据实时分析可视化系统项目</a></h1><h1 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h1><p>根据之前的proposal，我们需要将有spark技术的大数据系统，结合AWS，应用到COVID或者别的什么疾病上面。</p>
 <ol>
-<li>人流 + 疫情peak</li>
-<li>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</li>
-<li>scrap twitter &#x2F; reddit or some media, predict the new version of virus</li>
-<li>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</li>
+<li><p>人流 + 疫情peak</p>
+</li>
+<li><p>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</p>
+</li>
+<li><p>scrap twitter &#x2F; reddit or some media, predict the new version of virus</p>
+</li>
+<li><p>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</p>
+</li>
 </ol>
+<h2 id="David"><a href="#David" class="headerlink" title="David"></a>David</h2><blockquote>
+<p>Well, assuming we can get data for any non-COVID virus, as you said a recommended system would probably be a good fit for the type of question we are asking, which would essential be using the policy data to attempt to predict virus amount, although it might be possible to also get away with using a simpler regression, if we convert some of the categorical data into something numeric.</p>
+<p>A completely different question that we could ask that wouldn’t require finding data for any other virus, just more recent COVID data, would be if a combination of past policy data combined with COVID numbers predicts current policy, which could be a decision tree. The thinking there would be that possibly as time has gone by, lots of places have relaxed their policies, and how did virus numbers impact those decisions - so detecting trends in how virus numbers impacted policy and not the other way around.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Proposal 1</th>
+<th>Proposal 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data1</td>
+<td>data for <u>non-COVID virus (like flu)</u></td>
+<td>COVID data</td>
+</tr>
+<tr>
+<td>data2</td>
+<td>policy data</td>
+<td>policy data</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(focus on COVID data)</td>
+</tr>
+<tr>
+<td>difficulty*</td>
+<td>we may fail to collect enough data for a common virus (CDC can’t offer detailed data)</td>
+<td>#</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data cleaning</td>
+<td>convert some of the categorical data into something numeric</td>
+<td>&#x2F;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>method</td>
+<td>regression</td>
+<td>decision tree</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>result</td>
+<td>recommendation system</td>
+<td>combine past policy data and COVID numbers to  predict  current policy</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>goal</td>
+<td>predict virus amount</td>
+<td>detect trends in <u>how virus numbers impacted policy</u> and <strong>not the other way around</strong></td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -352,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">已有项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpark%E7%9A%84%E7%94%B5%E5%BD%B1%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">基于Spark的电影推荐系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#News-recommend"><span class="nav-number">4.</span> <span class="nav-text">News_recommend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%9C%B3%E5%9C%B0%E9%93%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%A2%E6%B5%81%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">深圳地铁大数据客流分析系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpark2-x%E6%96%B0%E9%97%BB%E7%BD%91%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE"><span class="nav-number">6.</span> <span class="nav-text">基于Spark2.x新闻网大数据实时分析可视化系统项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B9%E5%8F%98"><span class="nav-number">7.</span> <span class="nav-text">改变</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">已有项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpark%E7%9A%84%E7%94%B5%E5%BD%B1%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">基于Spark的电影推荐系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#News-recommend"><span class="nav-number">4.</span> <span class="nav-text">News_recommend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%9C%B3%E5%9C%B0%E9%93%81%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%A2%E6%B5%81%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.</span> <span class="nav-text">深圳地铁大数据客流分析系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESpark2-x%E6%96%B0%E9%97%BB%E7%BD%91%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%E9%A1%B9%E7%9B%AE"><span class="nav-number">6.</span> <span class="nav-text">基于Spark2.x新闻网大数据实时分析可视化系统项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B9%E5%8F%98"><span class="nav-number">7.</span> <span class="nav-text">改变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#David"><span class="nav-number">7.1.</span> <span class="nav-text">David</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +445,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -426,13 +503,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">147k</span>
+    <span title="Symbols count total">149k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:14</span>
+    <span title="Reading time total">2:15</span>
 </div>
 
         

@@ -3548,11 +3548,88 @@ which pip
 <p>主要分析深圳通刷卡数据，通过大数据技术角度来研究深圳地铁客运能力，探索深圳地铁优化服务的方向</p>
 <h1 id="基于Spark2-x新闻网大数据实时分析可视化系统项目"><a href="#基于Spark2-x新闻网大数据实时分析可视化系统项目" class="headerlink" title="基于Spark2.x新闻网大数据实时分析可视化系统项目"></a><a href="https://github.com/LuckyZXL2016/News_Spark">基于Spark2.x新闻网大数据实时分析可视化系统项目</a></h1><h1 id="改变"><a href="#改变" class="headerlink" title="改变"></a>改变</h1><p>根据之前的proposal，我们需要将有spark技术的大数据系统，结合AWS，应用到COVID或者别的什么疾病上面。</p>
 <ol>
-<li>人流 + 疫情peak</li>
-<li>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</li>
-<li>scrap twitter &#x2F; reddit or some media, predict the new version of virus</li>
-<li>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</li>
+<li><p>人流 + 疫情peak</p>
+</li>
+<li><p>scrap policy + peak, 根据疫情和不同的政治要求选择最佳的policy</p>
+</li>
+<li><p>scrap twitter &#x2F; reddit or some media, predict the new version of virus</p>
+</li>
+<li><p>scrap on-time twitter &#x2F; reddit or some media data, visualization the covid graph</p>
+</li>
 </ol>
+<h2 id="David"><a href="#David" class="headerlink" title="David"></a>David</h2><blockquote>
+<p>Well, assuming we can get data for any non-COVID virus, as you said a recommended system would probably be a good fit for the type of question we are asking, which would essential be using the policy data to attempt to predict virus amount, although it might be possible to also get away with using a simpler regression, if we convert some of the categorical data into something numeric.</p>
+<p>A completely different question that we could ask that wouldn’t require finding data for any other virus, just more recent COVID data, would be if a combination of past policy data combined with COVID numbers predicts current policy, which could be a decision tree. The thinking there would be that possibly as time has gone by, lots of places have relaxed their policies, and how did virus numbers impact those decisions - so detecting trends in how virus numbers impacted policy and not the other way around.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Proposal 1</th>
+<th>Proposal 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data1</td>
+<td>data for <u>non-COVID virus (like flu)</u></td>
+<td>COVID data</td>
+</tr>
+<tr>
+<td>data2</td>
+<td>policy data</td>
+<td>policy data</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(focus on COVID data)</td>
+</tr>
+<tr>
+<td>difficulty*</td>
+<td>we may fail to collect enough data for a common virus (CDC can’t offer detailed data)</td>
+<td>#</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data cleaning</td>
+<td>convert some of the categorical data into something numeric</td>
+<td>&#x2F;</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>method</td>
+<td>regression</td>
+<td>decision tree</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>result</td>
+<td>recommendation system</td>
+<td>combine past policy data and COVID numbers to  predict  current policy</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>goal</td>
+<td>predict virus amount</td>
+<td>detect trends in <u>how virus numbers impacted policy</u> and <strong>not the other way around</strong></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>课程学习</category>
@@ -4318,6 +4395,23 @@ Mac安装Docker</p>
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows cmd 使用</title>
+    <url>/2022/04/14/windows-cmd-%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>换成cmder之后的一些使用技巧</p>
+<p>【快捷键关闭typora： ctrl + w】</p>
+<span id="more"></span>
+
+<h1 id="终端打开文件夹"><a href="#终端打开文件夹" class="headerlink" title="终端打开文件夹"></a>终端打开文件夹</h1><p>start 或者 explorer + 文件夹名字</p>
+<h1 id="终端打开文件"><a href="#终端打开文件" class="headerlink" title="终端打开文件"></a>终端打开文件</h1><p>start + 文件名.后缀</p>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
       </tags>
   </entry>
   <entry>
