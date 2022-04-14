@@ -4415,6 +4415,29 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
+    <title>好用的工具 1</title>
+    <url>/2022/04/14/%E5%A5%BD%E7%94%A8%E7%9A%84%E5%B7%A5%E5%85%B7-1/</url>
+    <content><![CDATA[<p><a href="https://github.com/cmderdev/cmder">cmder</a></p>
+<p><a href="https://github.com/withfig/autocomplete">autocomplete</a></p>
+<p>thefuck</p>
+<span id="more"></span>
+
+<p>官网是：</p>
+<p><a href="https://cmder.net/">https://cmder.net/</a></p>
+<p><a href="https://fig.io/download">https://fig.io/download</a></p>
+<p> autocomplete仅限于mac</p>
+<h3 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h3><h4 id="thefuck"><a href="#thefuck" class="headerlink" title="thefuck"></a>thefuck</h4><p><a href="https://github.com/nvbn/thefuck#manual-installation">https://github.com/nvbn/thefuck#manual-installation</a></p>
+<p><a href="https://github.com/nvbn/thefuck/issues/514">https://github.com/nvbn/thefuck/issues/514</a></p>
+<p><a href="https://github.com/nvbn/thefuck/wiki/Shell-aliases#powershell">https://github.com/nvbn/thefuck/wiki/Shell-aliases#powershell</a></p>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Books</title>
     <url>/book/index.html</url>
     <content><![CDATA[]]></content>
