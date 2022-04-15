@@ -1173,7 +1173,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #005ce5;
+  background: #f0edcf;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2058,6 +2058,9 @@ pre .javascript .function {
   width: 14px;
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
+}
+.event-list .event .event-details.event-sourcecal::before {
+  content: '\f073';
 }
 .event-list .event .event-details.event-location::before {
   content: '\f041';
