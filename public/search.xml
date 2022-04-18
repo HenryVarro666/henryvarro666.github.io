@@ -4466,6 +4466,122 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
+    <title>DATA604 Project2</title>
+    <url>/2022/04/17/DATA604-Project2/</url>
+    <content><![CDATA[<p>一些matlab中的指令</p>
+<!---more-->
+
+<h2 id="importdata"><a href="#importdata" class="headerlink" title="importdata"></a>importdata</h2><p><a href="https://ww2.mathworks.cn/help/matlab/ref/importdata.html">从文件加载数据</a></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = importdata(filename)</span><br><span class="line">A = importdata(<span class="string">&#x27;-pastespecial&#x27;</span>)</span><br><span class="line">A = importdata(___,delimiterIn)</span><br><span class="line">A = importdata(___,delimiterIn,headerlinesIn)</span><br><span class="line">[A,delimiterOut,headerlinesOut] = importdata(___)</span><br></pre></td></tr></table></figure>
+
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>A &#x3D; importdata(filename) 将数据加载到数组 A 中。</p>
+<p>示例<br>A &#x3D; importdata(‘-pastespecial’) 从系统剪贴板而不是文件加载数据。</p>
+<p>A &#x3D; importdata(___,delimiterIn) 将 delimiterIn 解释为 ASCII 文件 filename 或剪贴板数据中的列分隔符。您可以将 delimiterIn 与以上语法中的任何输入参数结合使用。</p>
+<p>示例<br>A &#x3D; importdata(___,delimiterIn,headerlinesIn) 从 ASCII 文件 filename 或剪贴板加载数据，并读取从第 headerlinesIn+1 行开始的数值数据。</p>
+<p>示例<br>[A,delimiterOut,headerlinesOut] &#x3D; importdata(___) 使用先前语法中的任何输入参数，在 delimiterOut 中额外返回检测到的输入 ASCII 文件中的分隔符，以及在 headerlinesOut 中返回检测到的标题行数。</p>
+<ul>
+<li>E&#x3D;importdata(‘baidu.txt’) 。即可将txt文件中的数据导入到矩阵</li>
+<li>F&#x3D;importdata(‘ ‘,d,h)函数中参数d为数据的分隔符号，参数h 含义为读取数据矩阵中从第 h+1 行开始的数据数值数据。</li>
+<li>命令[A , d , h ] &#x3D; importdata(‘ baidu.txt’) ;可以检测到该文件中数据矩阵中的数据分隔符号d，以及数据矩阵中数值数据中的标题行数为h行</li>
+</ul>
+<p>读取图片，使用该命令不仅可以读取电子文件中的数据，还可以将图片转化为相应的矩阵然后存储在矩阵中。使用代码：</p>
+<p>B &#x3D; importdata(‘1.jpg’)；%读取文件到软件，将其转换为矩阵。</p>
+<p>image(B);%将刚刚读取到的矩阵使用图示位置中的命令即可在软件中展现出来。</p>
+<h3 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h3><ol>
+<li><p>filename - 要导入的文件的名称和扩展名</p>
+<p>字符向量 | 字符串标量</p>
+</li>
+<li><p>delimiterIn - 列分隔符</p>
+<p>字符向量 | 字符串标量</p>
+</li>
+<li><p>headerlinesIn - ASCII 文件中的文本标题行数<br>非负整数标量</p>
+</li>
+</ol>
+<h3 id="输出参数"><a href="#输出参数" class="headerlink" title="输出参数"></a>输出参数</h3><ol>
+<li>A - 文件中的数据<br>矩阵 | 多维数组 | 标量结构体数组</li>
+<li>delimiterOut - 在输入 ASCII 文件中检测到的列分隔符<br>字符向量</li>
+<li>headerlinesOut - 在输入 ASCII 文件中检测到的文本标题行数<br>整数</li>
+</ol>
+<h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><p><a href="https://ww2.mathworks.cn/help/matlab/ref/load.html?searchHighlight=load&s_tid=srchtitle_load_1">将文件变量加载到工作区中</a></p>
+<p>一般用于mat文件</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">load(filename)</span><br><span class="line">load(filename,variables)</span><br><span class="line">load(filename,<span class="string">&#x27;-ascii&#x27;</span>)</span><br><span class="line">load(filename,<span class="string">&#x27;-mat&#x27;</span>)</span><br><span class="line">load(filename,<span class="string">&#x27;-mat&#x27;</span>,variables)</span><br><span class="line">S = load(___)</span><br><span class="line">load filename</span><br></pre></td></tr></table></figure>
+
+<h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><p>load(filename) 从 filename 加载数据。</p>
+<p>如果 filename 是 MAT 文件，load(filename) 会将 MAT 文件中的变量加载到 MATLAB® 工作区。</p>
+<p>如果 filename 是 ASCII 文件，load(filename) 会创建一个包含该文件数据的双精度数组。</p>
+<p>load(filename,variables) 加载 MAT 文件 filename 中的指定变量。</p>
+<p>load(filename,’-ascii’) 将 filename 视为 ASCII 文件，而不管文件扩展名如何。</p>
+<p>load(filename,’-mat’) 将 filename 视为 MAT 文件，而不管文件扩展名如何。</p>
+<p>load(filename,’-mat’,variables) 加载 filename 中的指定变量。</p>
+<p>S &#x3D; load(___) 使用前面语法组中的任意输入参数将数据加载到 S 中。</p>
+<p>如果 filename 是 MAT 文件，则 S 是结构数组。</p>
+<p>如果 filename 是 ASCII 文件，则 S 是包含该文件数据的双精度数组。</p>
+<p>load filename 是该语法的命令形式。命令形式需要的特殊字符较少。您无需键入括号或者将输入括在单引号或双引号内。使用空格（而不是逗号）分隔各个输入项。</p>
+<p>例如，要加载名为 durer.mat 的文件，以下语句是等效的：</p>
+<p>load durer.mat      % command form<br>load(‘durer.mat’)   % function form<br>您可以包括先前语法中介绍的任何输入。例如，要加载名为 X 的变量：</p>
+<p>load durer.mat X       % command form<br>load(‘durer.mat’,’X’)  % function form<br><u>当有任何输入（例如 filename）为变量或字符串时，请不要使用命令格式。</u></p>
+<h2 id="tic和toc"><a href="#tic和toc" class="headerlink" title="tic和toc"></a>tic和toc</h2><p>tic和toc是用来记录matlab命令执行的时间<br>tic用来保存当前时间，而后使用toc来记录程序完成时间。<br>两者往往结合使用，用法如下：<br>tic<br>operations<br>toc<br>显示时间单位：秒<br>TiC和toc函数可以计算运行一段代码的时间</p>
+<h2 id="data-2-end-和data-1"><a href="#data-2-end-和data-1" class="headerlink" title="data(:,2:end)和data(:,1)"></a>data(:,2:end)和data(:,1)</h2><p>data 是一个矩阵</p>
+<p>data（x，y） x是行数 y是列数</p>
+<p><strong><u>data（：，y）就是指y列对应的所有行的值组成的一个向量</u></strong></p>
+<p><strong><u>data(:,[y1:y2]) 就是指y1到y2列的对应的所有行的值组成的一个矩阵</u></strong></p>
+<p>此外 <u>data(:,[y1:y2])与data(:,y1:y2)</u>结果是一样的</p>
+<h2 id="plot-1-784-pca1-‘-’"><a href="#plot-1-784-pca1-‘-’" class="headerlink" title="plot(1:784, pca1, ‘.’)"></a>plot(1:784, pca1, ‘.’)</h2><h3 id="plot-x-y"><a href="#plot-x-y" class="headerlink" title="plot(x,y)"></a>plot(x,y)</h3><p>创建二维直线图,x y 为相应点集</p>
+<h3 id="plot-X1-Y1-…-Xn-Yn"><a href="#plot-X1-Y1-…-Xn-Yn" class="headerlink" title="plot(X1,Y1,…,Xn,Yn)"></a>plot(X1,Y1,…,Xn,Yn)</h3><p>画n条线(在一个窗口下绘制多条曲线之方法一)</p>
+<h4 id="在一个窗口下绘制多条曲线之方法二"><a href="#在一个窗口下绘制多条曲线之方法二" class="headerlink" title="在一个窗口下绘制多条曲线之方法二"></a>在一个窗口下绘制多条曲线之方法二</h4><p>hold on </p>
+<p>plot（x，y1）;</p>
+<p>plot（x，y2）;</p>
+<p>hold off</p>
+<h3 id="plot-Y"><a href="#plot-Y" class="headerlink" title="plot(Y)"></a>plot(Y)</h3><p>Y是矩阵，这表示矩阵的每一行都画一条直线</p>
+<h3 id="plot-x-y1-x-y2-’–’-x-y3-’-’"><a href="#plot-x-y1-x-y2-’–’-x-y3-’-’" class="headerlink" title="plot(x,y1,x,y2,’–’,x,y3,’.’)"></a>plot(x,y1,x,y2,’–’,x,y3,’.’)</h3><p>画三种不同风格的线，其中’ ‘中的内容可以修改</p>
+<h3 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h3><p>set（gcf，‘color’，‘none’）; %无背景</p>
+<p>　　set（gcf，‘color’，［0，0，0］）; %背景色为黑</p>
+<p>　　set（gcf，‘color’，［1，1，1］）; %背景色为白</p>
+<h2 id="颜色和线条"><a href="#颜色和线条" class="headerlink" title="颜色和线条"></a>颜色和线条</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204172242406.png" alt="image-20220417214211274"></p>
+<h2 id="pca-主成分分析"><a href="#pca-主成分分析" class="headerlink" title="pca 主成分分析"></a>pca 主成分分析</h2><p><a href="https://www.mathworks.com/help/stats/pca.html">Principal component analysis of raw data</a></p>
+<p><code>coeff = pca(X) coeff = pca(X,Name,Value) [coeff,score,latent] = pca(___) [coeff,score,latent,tsquared] = pca(___) [coeff,score,latent,tsquared,explained,mu] = pca(___)</code></p>
+<hr>
+<h4 id="links"><a href="#links" class="headerlink" title="links"></a>links</h4><p><a href="https://www.mathworks.com/help/stats/pca.html">https://www.mathworks.com/help/stats/pca.html</a><br><a href="https://stackoverflow.com/questions/39580926/how-do-i-load-in-the-mnist-digits-and-label-data-in-matlab">https://stackoverflow.com/questions/39580926/how-do-i-load-in-the-mnist-digits-and-label-data-in-matlab</a><br><a href="https://www.mathworks.com/help/deeplearning/ug/data-sets-for-deep-learning.html">https://www.mathworks.com/help/deeplearning/ug/data-sets-for-deep-learning.html</a><br>To load the data from the files as MATLAB arrays, place the files in the working directory, then use the helper functions processImagesMNIST and processLabelsMNIST, which are used in the example <a href="https://www.mathworks.com/help/deeplearning/ug/train-a-variational-autoencoder-vae-to-generate-images.html">Train Variational Autoencoder (VAE) to Generate Images</a>.</p>
+<p>原本需要自建functions</p>
+<h2 id="imshow"><a href="#imshow" class="headerlink" title="imshow"></a>imshow</h2><p>mshow即image show，即show image，显示图像的意思</p>
+<ul>
+<li>imshow（I）在图形中显示灰度图像I。 imshow使用默认的显示范围作为图像数据类型，并优化图形，轴和图像对象属性以进行图像显示。</li>
+<li>imshow（I，[low high]）显示灰度图像I，并将显示范围指定为两个元素的矢量[low high]。</li>
+<li>imshow（I，[]）显示灰度图像I，根据I中的像素值范围缩放显示。imshow使用[min（I（:)）max（I（:)）]作为显示范围。 imshow将I中的最小值显示为黑色，将最大值显示为白色。</li>
+<li>imshow（RGB）在图形中显示真彩色图像RGB。</li>
+<li>imshow（BW）在图中显示二进制图像BW。对于二进制图像，imshow将值为0的像素显示为黑色，将值为1的像素显示为白色。</li>
+<li>imshow（X，map）显示带有颜色图映射的索引图像X。一个颜色图矩阵可以具有任意数量的行，但必须恰好具有3列。每一行都被解释为一种颜色，其中第一个元素指定红色的强度，第二个绿色指定第三个蓝色。可以在间隔[0，1]上指定色彩强度。</li>
+<li>imshow（filename）显示存储在文件名指定的图形文件中的图像。</li>
+<li>imshow（<em><strong>，Name，Value）使用名称-值对控制操作的各个方面来显示图像。</strong></em></li>
+<li>himage &#x3D; imshow（___）返回由imshow创建的图像对象。</li>
+</ul>
+<h2 id="reshape"><a href="#reshape" class="headerlink" title="reshape"></a>reshape</h2><p>reshape是对矩阵的元素重新排列的方法，比如可以将3 * 6的矩阵转换成9 * 2的矩阵，这里A、B元素个数需相同。</p>
+<p>需要注意的是reshape是按列读取，然后按列摆放，所以，需要这个原则和具体的问题，进行合理的转置操作，达到效果。</p>
+<p>重组的规则如下：<br>总是先处理低维的，再处理高维的，比如要把4<em>6的A变为6</em>4的B，就要先扫描A的第一列，扫描过程中行数不断发生变化，列数隔一段时间变化一次，这就是前面说的：先处理低维再处理高维（行是低维，列比行高一维）</p>
+<p>因此，把4 * 6的A变为4 * 3 * 2的C，扫描和赋值所遵循的规则就是：低维坐标先改变，高维坐标后改变</p>
+<h2 id="predict"><a href="#predict" class="headerlink" title="predict"></a>predict</h2><p>（没看懂）</p>
+<h2 id="diag"><a href="#diag" class="headerlink" title="diag"></a>diag</h2><ol>
+<li><p>diag函数生成对角矩阵</p>
+</li>
+<li><p>diag函数读取矩阵对角线</p>
+</li>
+</ol>
+<h2 id="fitcknn"><a href="#fitcknn" class="headerlink" title="fitcknn"></a>fitcknn</h2><p><a href="https://www.mathworks.com/help/stats/fitcknn.html">拟合k最近邻分类器,Fit <em>k</em>-nearest neighbor classifier</a></p>
+<h3 id="句法"><a href="#句法" class="headerlink" title="句法"></a>句法</h3><p>Mdl &#x3D; fitcknn(Tbl,ResponseVarName)<br>Mdl &#x3D; fitcknn(Tbl,formula)<br>Mdl &#x3D; fitcknn(Tbl,Y)<br>Mdl &#x3D; fitcknn(X,Y)<br>Mdl &#x3D; fitcknn(___,Name,Value)</p>
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>Mdl &#x3D; fitcknn(Tbl,ResponseVarName)根据表中的输入变量（也称为预测变量、特征或属性）和输出（响应） 返回k最近邻分类模型。TblTbl.ResponseVarName</p>
+<p>Mdl &#x3D; fitcknn(Tbl,formula) 根据表中的输入变量返回一个k最近邻分类模型Tbl。 formula是响应的解释模型和 中的预测变量的子集Tbl。</p>
+<p>Mdl &#x3D; fitcknn(Tbl,Y)根据表中的预测变量和响应数组 返回一个k最近邻分类模型。TblY</p>
+<p>Mdl &#x3D; fitcknn(X,Y) 返回基于预测数据和响应 的k最近邻分类模型。XY</p>
+<p>Mdl &#x3D; fitcknn(___,Name,Value) 使用前面的任何语法来拟合具有由一个或多个名称-值对参数指定的附加选项的模型。例如，您可以指定平局算法、距离度量或观察权重。</p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA604</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Books</title>
     <url>/book/index.html</url>
     <content><![CDATA[]]></content>
