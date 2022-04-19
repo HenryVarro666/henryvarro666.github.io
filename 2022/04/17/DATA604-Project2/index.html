@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="一些matlab中的指令   importdata从文件加载数据 12345A &#x3D; importdata(filename)A &#x3D; importdata(&amp;#x27;-pastespecial&amp;#x27;)A &#x3D; importdata(___,delimiterIn)A &#x3D; importdata(___,delimiterIn,headerlinesIn)[A,delimiterOut,heade">
+  <meta name="description" content="一些matlab中的指令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DATA604 Project2">
 <meta property="og:url" content="https://henryvarro666.github.io/2022/04/17/DATA604-Project2/index.html">
 <meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
-<meta property="og:description" content="一些matlab中的指令   importdata从文件加载数据 12345A &#x3D; importdata(filename)A &#x3D; importdata(&amp;#x27;-pastespecial&amp;#x27;)A &#x3D; importdata(___,delimiterIn)A &#x3D; importdata(___,delimiterIn,headerlinesIn)[A,delimiterOut,heade">
+<meta property="og:description" content="一些matlab中的指令">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204172242406.png">
 <meta property="article:published_time" content="2022-04-18T02:27:11.000Z">
-<meta property="article:modified_time" content="2022-04-18T03:20:20.558Z">
+<meta property="article:modified_time" content="2022-04-19T00:50:08.043Z">
 <meta property="article:author" content="Chao Cao">
 <meta property="article:tag" content="DATA604">
 <meta name="twitter:card" content="summary">
@@ -214,10 +214,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-04-17 21:27:11 / Modified: 22:20:20" itemprop="dateCreated datePublished" datetime="2022-04-17T21:27:11-05:00">2022-04-17</time>
+              <time title="Created: 2022-04-17 21:27:11" itemprop="dateCreated datePublished" datetime="2022-04-17T21:27:11-05:00">2022-04-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-18 19:50:08" itemprop="dateModified" datetime="2022-04-18T19:50:08-05:00">2022-04-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -234,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.8k</span>
+              <span>6.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -254,7 +260,7 @@
 
       
         <p>一些matlab中的指令</p>
-<!---more-->
+<span id="more"></span>
 
 <h2 id="importdata"><a href="#importdata" class="headerlink" title="importdata"></a>importdata</h2><p><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/matlab/ref/importdata.html">从文件加载数据</a></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = importdata(filename)</span><br><span class="line">A = importdata(<span class="string">&#x27;-pastespecial&#x27;</span>)</span><br><span class="line">A = importdata(___,delimiterIn)</span><br><span class="line">A = importdata(___,delimiterIn,headerlinesIn)</span><br><span class="line">[A,delimiterOut,headerlinesOut] = importdata(___)</span><br></pre></td></tr></table></figure>
@@ -326,8 +332,15 @@
 <h2 id="pca-主成分分析"><a href="#pca-主成分分析" class="headerlink" title="pca 主成分分析"></a>pca 主成分分析</h2><p><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/stats/pca.html">Principal component analysis of raw data</a></p>
 <p><code>coeff = pca(X) coeff = pca(X,Name,Value) [coeff,score,latent] = pca(___) [coeff,score,latent,tsquared] = pca(___) [coeff,score,latent,tsquared,explained,mu] = pca(___)</code></p>
 <hr>
+<p><code>[coeff,score,latent] = pca(___)</code> also returns the principal component scores in <code>score</code> and the principal component variances in <code>latent</code>. You can use any of the input arguments in the previous syntaxes.</p>
+<p>Principal component scores are the representations of <code>X</code> in the principal component space. Rows of <code>score</code> correspond to observations, and columns correspond to components.</p>
+<p>The principal component variances are the eigenvalues of the covariance matrix of <code>X</code>.</p>
+<hr>
 <h4 id="links"><a href="#links" class="headerlink" title="links"></a>links</h4><p><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/stats/pca.html">https://www.mathworks.com/help/stats/pca.html</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39580926/how-do-i-load-in-the-mnist-digits-and-label-data-in-matlab">https://stackoverflow.com/questions/39580926/how-do-i-load-in-the-mnist-digits-and-label-data-in-matlab</a><br><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/deeplearning/ug/data-sets-for-deep-learning.html">https://www.mathworks.com/help/deeplearning/ug/data-sets-for-deep-learning.html</a><br>To load the data from the files as MATLAB arrays, place the files in the working directory, then use the helper functions processImagesMNIST and processLabelsMNIST, which are used in the example <a target="_blank" rel="noopener" href="https://www.mathworks.com/help/deeplearning/ug/train-a-variational-autoencoder-vae-to-generate-images.html">Train Variational Autoencoder (VAE) to Generate Images</a>.</p>
 <p>原本需要自建functions</p>
+<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>C &#x3D; cat(dim,A,B)</p>
+<p>C &#x3D; cat(dim,A1,A2,A3,A4,…)</p>
+<p>dim为1时，将矩阵上下拼接：[A;B]，dim为2时，将矩阵左右拼接：[A,B]，dim&#x3D;3时则可以构造三维数组。</p>
 <h2 id="imshow"><a href="#imshow" class="headerlink" title="imshow"></a>imshow</h2><p>mshow即image show，即show image，显示图像的意思</p>
 <ul>
 <li>imshow（I）在图形中显示灰度图像I。 imshow使用默认的显示范围作为图像数据类型，并优化图形，轴和图像对象属性以进行图像显示。</li>
@@ -358,6 +371,25 @@
 <p>Mdl &#x3D; fitcknn(Tbl,Y)根据表中的预测变量和响应数组 返回一个k最近邻分类模型。TblY</p>
 <p>Mdl &#x3D; fitcknn(X,Y) 返回基于预测数据和响应 的k最近邻分类模型。XY</p>
 <p>Mdl &#x3D; fitcknn(___,Name,Value) 使用前面的任何语法来拟合具有由一个或多个名称-值对参数指定的附加选项的模型。例如，您可以指定平局算法、距离度量或观察权重。</p>
+<h2 id="subplot"><a href="#subplot" class="headerlink" title="subplot"></a>subplot</h2><ul>
+<li><p>subplot(m,n,p)</p>
+<p>subplot(m,n,p) 将当前图形划分为 m×n 网格，并在 p 指定的位置创建坐标轴。MATLAB® 按行号对子图位置进行编号。第一个子图是第一行的第一列，第二个子图是第一行的第二列，依此类推。如果指定的位置已存在坐标轴，则此命令会将该坐标轴设为当前坐标轴</p>
+</li>
+<li><p>subplot(m,n,p,‘replace’)<br>subplot(m,n,p,‘replace’) 删除位置 p 处的现有坐标轴并创建新坐标轴。</p>
+</li>
+<li><p>subplot(m,n,p,‘align’)<br>subplot(m,n,p,‘align’) 创建新坐标轴，以便对齐图框。此选项为默认行为。</p>
+</li>
+<li><p>subplot(m,n,p,ax)<br>subplot(m,n,p,ax) 将现有坐标轴 ax 转换为同一图形中的子图。</p>
+</li>
+<li><p>subplot(‘Position’,pos)<br>subplot(‘Position’,pos) 在 pos 指定的自定义位置创建坐标轴。使用此选项可定位未与网格位置对齐的子图。指定 pos 作为 [left bottom width height] 形式的四元素矢量。如果新坐标轴与现有坐标轴重叠，新坐标轴将替换现有坐标轴。</p>
+</li>
+<li><p>subplot(<em><strong>,Name,Value)<br>subplot(</strong></em>,Name,Value) 使用一个或多个名称-值对组参数修改坐标轴属性。有关属性列表，请参阅 Axes 属性。在所有其他输入参数之后设置坐标轴属性。</p>
+</li>
+<li><p>ax &#x3D; subplot(<em><strong>)<br>ax &#x3D; subplot(</strong></em>) 返回创建的 Axes 对象。以后可以使用 ax 修改坐标轴。有关属性列表，请参阅 Axes 属性。</p>
+</li>
+<li><p>subplot(ax)<br>subplot(ax) 将 ax 指定的坐标轴设为父图的当前坐标轴。如果父图尚不是当前图形，此选项不会使父图成为当前图形。</p>
+</li>
+</ul>
 
     </div>
 
@@ -379,7 +411,10 @@
     <a href="/2022/04/16/Git-%E6%8C%87%E4%BB%A4%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A/" rel="prev" title="Git 指令概基本念解释">
       <i class="fa fa-chevron-left"></i> Git 指令概基本念解释
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/18/Good-Project-on-GitHub-by-Will-Wang/" rel="next" title="Good Project on GitHub(by Will Wang)">
+      Good Project on GitHub(by Will Wang) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -438,7 +473,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#importdata"><span class="nav-number">1.</span> <span class="nav-text">importdata</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">输入参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">输出参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#load"><span class="nav-number">2.</span> <span class="nav-text">load</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E-1"><span class="nav-number">2.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tic%E5%92%8Ctoc"><span class="nav-number">3.</span> <span class="nav-text">tic和toc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-2-end-%E5%92%8Cdata-1"><span class="nav-number">4.</span> <span class="nav-text">data(:,2:end)和data(:,1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plot-1-784-pca1-%E2%80%98-%E2%80%99"><span class="nav-number">5.</span> <span class="nav-text">plot(1:784, pca1, ‘.’)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-x-y"><span class="nav-number">5.1.</span> <span class="nav-text">plot(x,y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-X1-Y1-%E2%80%A6-Xn-Yn"><span class="nav-number">5.2.</span> <span class="nav-text">plot(X1,Y1,…,Xn,Yn)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%AA%97%E5%8F%A3%E4%B8%8B%E7%BB%98%E5%88%B6%E5%A4%9A%E6%9D%A1%E6%9B%B2%E7%BA%BF%E4%B9%8B%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">5.2.1.</span> <span class="nav-text">在一个窗口下绘制多条曲线之方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-Y"><span class="nav-number">5.3.</span> <span class="nav-text">plot(Y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-x-y1-x-y2-%E2%80%99%E2%80%93%E2%80%99-x-y3-%E2%80%99-%E2%80%99"><span class="nav-number">5.4.</span> <span class="nav-text">plot(x,y1,x,y2,’–’,x,y3,’.’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-number">5.5.</span> <span class="nav-text">背景色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2%E5%92%8C%E7%BA%BF%E6%9D%A1"><span class="nav-number">6.</span> <span class="nav-text">颜色和线条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pca-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">pca 主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#links"><span class="nav-number">7.0.1.</span> <span class="nav-text">links</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imshow"><span class="nav-number">8.</span> <span class="nav-text">imshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reshape"><span class="nav-number">9.</span> <span class="nav-text">reshape</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predict"><span class="nav-number">10.</span> <span class="nav-text">predict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diag"><span class="nav-number">11.</span> <span class="nav-text">diag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fitcknn"><span class="nav-number">12.</span> <span class="nav-text">fitcknn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E6%B3%95"><span class="nav-number">12.1.</span> <span class="nav-text">句法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">12.2.</span> <span class="nav-text">描述</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#importdata"><span class="nav-number">1.</span> <span class="nav-text">importdata</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">输入参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">输出参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#load"><span class="nav-number">2.</span> <span class="nav-text">load</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E-1"><span class="nav-number">2.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tic%E5%92%8Ctoc"><span class="nav-number">3.</span> <span class="nav-text">tic和toc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-2-end-%E5%92%8Cdata-1"><span class="nav-number">4.</span> <span class="nav-text">data(:,2:end)和data(:,1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#plot-1-784-pca1-%E2%80%98-%E2%80%99"><span class="nav-number">5.</span> <span class="nav-text">plot(1:784, pca1, ‘.’)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-x-y"><span class="nav-number">5.1.</span> <span class="nav-text">plot(x,y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-X1-Y1-%E2%80%A6-Xn-Yn"><span class="nav-number">5.2.</span> <span class="nav-text">plot(X1,Y1,…,Xn,Yn)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA%E7%AA%97%E5%8F%A3%E4%B8%8B%E7%BB%98%E5%88%B6%E5%A4%9A%E6%9D%A1%E6%9B%B2%E7%BA%BF%E4%B9%8B%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">5.2.1.</span> <span class="nav-text">在一个窗口下绘制多条曲线之方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-Y"><span class="nav-number">5.3.</span> <span class="nav-text">plot(Y)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-x-y1-x-y2-%E2%80%99%E2%80%93%E2%80%99-x-y3-%E2%80%99-%E2%80%99"><span class="nav-number">5.4.</span> <span class="nav-text">plot(x,y1,x,y2,’–’,x,y3,’.’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-number">5.5.</span> <span class="nav-text">背景色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%9C%E8%89%B2%E5%92%8C%E7%BA%BF%E6%9D%A1"><span class="nav-number">6.</span> <span class="nav-text">颜色和线条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pca-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">pca 主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#links"><span class="nav-number">7.0.1.</span> <span class="nav-text">links</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cat"><span class="nav-number">8.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imshow"><span class="nav-number">9.</span> <span class="nav-text">imshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reshape"><span class="nav-number">10.</span> <span class="nav-text">reshape</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predict"><span class="nav-number">11.</span> <span class="nav-text">predict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diag"><span class="nav-number">12.</span> <span class="nav-text">diag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fitcknn"><span class="nav-number">13.</span> <span class="nav-text">fitcknn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A5%E6%B3%95"><span class="nav-number">13.1.</span> <span class="nav-text">句法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-number">13.2.</span> <span class="nav-text">描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#subplot"><span class="nav-number">14.</span> <span class="nav-text">subplot</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,14 +489,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -522,13 +557,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">154k</span>
+    <span title="Symbols count total">155k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:20</span>
+    <span title="Reading time total">2:21</span>
 </div>
 
         
