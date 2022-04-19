@@ -4608,14 +4608,27 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
-    <title>Good Project on GitHub(by Will Wang)</title>
-    <url>/2022/04/18/Good-Project-on-GitHub-by-Will-Wang/</url>
+    <title>COVID-map-by-Will-Wang</title>
+    <url>/2022/04/18/COVID-map-by-Will-Wang/</url>
     <content><![CDATA[<p>由小王和他的同学创建的 <a href="https://github.com/Apiyaaaa/cmap">基于微博信息的疫情舆情分布图</a>。没想到这么快做出来，是个好项目。但是很粗糙。后续想加入其中</p>
 <span id="more"></span>
 
 <p><a href="https://github.com/Apiyaaaa/cmap">https://github.com/Apiyaaaa/cmap</a></p>
 <p>parse是爬虫脚本</p>
 <p>backend是相关后端</p>
+]]></content>
+      <categories>
+        <category>Project</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>痛苦面具</title>
+    <url>/2022/04/18/%E7%97%9B%E8%8B%A6%E9%9D%A2%E5%85%B7/</url>
+    <content><![CDATA[<p>手柄控制面部肌肉？（可能是用电）。只能说是狠活+好活</p>
+<p><a href="https://www.bilibili.com/video/BV1FY4y1p794?spm_id_from=333.1007.top_right_bar_window_history.content.click">开源痛苦面具</a></p>
 ]]></content>
       <categories>
         <category>Project</category>
