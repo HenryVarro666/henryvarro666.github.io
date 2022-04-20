@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="##第一章 个人感觉搭建一个博客对自身来说是十分重要的，一方面可以记载学习经历，另一方面可以当作日记来记录日常生活。">
+  <meta name="description" content="GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库（Large File System)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客">
-<meta property="og:url" content="https://henryvarro666.github.io/2020/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="Github lfs使用">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/04/20/Github-lfs%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
-<meta property="og:description" content="##第一章 个人感觉搭建一个博客对自身来说是十分重要的，一方面可以记载学习经历，另一方面可以当作日记来记录日常生活。">
+<meta property="og:description" content="GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库（Large File System)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-05T18:31:42.000Z">
-<meta property="article:modified_time" content="2020-04-08T14:31:48.000Z">
+<meta property="article:published_time" content="2022-04-20T20:35:48.000Z">
+<meta property="article:modified_time" content="2022-04-20T22:57:26.156Z">
 <meta property="article:author" content="Chao Cao">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="Github">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://henryvarro666.github.io/2020/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://henryvarro666.github.io/2022/04/20/Github-lfs%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>我的第一篇博客 | 我见青山多妩媚，料青山 见我应如是</title>
+  <title>Github lfs使用 | 我见青山多妩媚，料青山 见我应如是</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2020/04/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/04/20/Github-lfs%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/head2.jpg">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我的第一篇博客
+          Github lfs使用
         </h1>
 
         <div class="post-meta">
@@ -212,23 +212,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-04-05 13:31:42" itemprop="dateCreated datePublished" datetime="2020-04-05T13:31:42-05:00">2020-04-05</time>
+              <time title="Created: 2022-04-20 15:35:48 / Modified: 17:57:26" itemprop="dateCreated datePublished" datetime="2022-04-20T15:35:48-05:00">2022-04-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-08 09:31:48" itemprop="dateModified" datetime="2020-04-08T09:31:48-05:00">2020-04-08</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                  <a href="/categories/%E4%B8%93%E4%B8%9A%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">专业相关知识</span></a>
                 </span>
             </span>
 
@@ -238,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>181</span>
+              <span>551</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -257,15 +251,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>##第一章</p>
-<p>个人感觉搭建一个博客对自身来说是十分重要的，一方面可以记载学习经历，另一方面可以当作日记来记录日常生活。</p>
+        <p>GitHub不允许直接上传大文件（超过100M）的文件到远程仓库，若要想继续提交可以尝试使用大文件支持库（Large File System)</p>
 <span id="more"></span>
-<hr>
-<p>##第二章</p>
-<p>自己对于markdown格式完全不熟悉，也需要先学一学了。</p>
-<hr>
-<p>##参考文献</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty?from=search&amp;seid=1723847160204875465">https://www.bilibili.com/video/BV1Yb411a7ty?from=search&amp;seid=1723847160204875465</a></p>
+
+<p>它将你所标记的大文件保存至另外的仓库,而在主仓库仅保留其轻量级指针.<br>那么在你检出版本时,根据指针的变化情况下更新对应的大文件.而不是在本地保存所有版本的大文件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/leenhem/article/details/117380399">https://blog.csdn.net/leenhem/article/details/117380399</a></p>
+<blockquote>
+<p>执行 git lfs install 开启lfs功能<br>使用 git lfs track 命令进行大文件追踪 例如git lfs track “*.png” 追踪所有后缀为png的文件<br>使用 git lfs track 查看现有的文件追踪模式<br>提交代码需要将gitattributes文件提交至仓库. 它保存了文件的追踪记录<br>提交后运行git lfs ls-files 可以显示当前跟踪的文件列表<br>将代码 push 到远程仓库后，LFS 跟踪的文件会以『Git LFS』的形式显示:<br>clone 时 使用’git clone’ 或 git lfs clone均可</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git lfs track *.png</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git add .gitattributes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git add xxx</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -275,7 +270,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag"># 随笔</a>
+              <a href="/tags/Github/" rel="tag"># Github</a>
           </div>
 
         
@@ -283,11 +278,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/04/05/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%BA%8C%E5%A4%A9/" rel="next" title="搭建hexo博客的第二天">
-      搭建hexo博客的第二天 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/04/20/2020%E5%B9%B4%E7%BE%8E%E5%9B%BD%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="prev" title="2020年美国新冠肺炎疫情数据分析">
+      <i class="fa fa-chevron-left"></i> 2020年美国新冠肺炎疫情数据分析
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
