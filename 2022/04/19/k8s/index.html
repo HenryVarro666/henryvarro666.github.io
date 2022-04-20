@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"henryvarro666.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="Kubernetes的学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="k8s">
+<meta property="og:url" content="https://henryvarro666.github.io/2022/04/19/k8s/index.html">
+<meta property="og:site_name" content="我见青山多妩媚，料青山 见我应如是">
+<meta property="og:description" content="Kubernetes的学习">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140131907.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140718492.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140640397.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140955358.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141159210.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141401301.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141430306.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141528902.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141644537.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142304867.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142346780.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142437094.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142555745.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143121449.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143152551.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143329719.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143719763.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144418780.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144542842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145203991.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145437036.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145625690.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150020649.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150137877.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150251228.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150318935.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150635772.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150759525.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150926815.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419151121482.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152046702.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152714534.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152829089.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419153105258.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154624462.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154635700.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154824687.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154839653.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181143019.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181429570.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181516872.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181632363.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181727727.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181944314.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183403873.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183435668.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183515353.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183650580.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184032325.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184227917.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184612946.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184947067.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419185113884.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190501641.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190701444.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192255490.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192500377.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192541715.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194105278.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194249506.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195222059.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195701568.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419200805943.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201006366.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201939104.png">
+<meta property="article:published_time" content="2022-04-19T14:42:45.000Z">
+<meta property="article:modified_time" content="2022-04-20T01:59:33.912Z">
+<meta property="article:author" content="Chao Cao">
+<meta property="article:tag" content="k8s">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140131907.png">
+
+<link rel="canonical" href="https://henryvarro666.github.io/2022/04/19/k8s/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>k8s | 我见青山多妩媚，料青山 见我应如是</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我见青山多妩媚，料青山 见我应如是</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Chao の Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://henryvarro666.github.io/2022/04/19/k8s/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/head2.jpg">
+      <meta itemprop="name" content="Chao Cao">
+      <meta itemprop="description" content="为天地立心，为生民立命，为往圣继绝学，为万世开太平">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我见青山多妩媚，料青山 见我应如是">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          k8s
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-19 09:42:45 / Modified: 20:59:33" itemprop="dateCreated datePublished" datetime="2022-04-19T09:42:45-05:00">2022-04-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A7%91%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">科研</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>11 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Kubernetes的学习</p>
+<span id="more"></span>
+
+<h1 id="Intro-to-K8s"><a href="#Intro-to-K8s" class="headerlink" title="Intro to K8s"></a>Intro to K8s</h1><h2 id="What-is-Kubernetes"><a href="#What-is-Kubernetes" class="headerlink" title="What is Kubernetes?"></a>What is Kubernetes?</h2><h3 id="Official-Definition"><a href="#Official-Definition" class="headerlink" title="Official Definition"></a>Official Definition</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+</blockquote>
+<ul>
+<li><p>Open source container orchestration tool</p>
+</li>
+<li><p>Developed by Google</p>
+</li>
+<li><p>Helps you manage containerized applications in different deployment environments</p>
+<p>(physicl &#x2F; virtual &#x2F; cloud  )</p>
+</li>
+</ul>
+<h3 id="Problem-Solution-case-study"><a href="#Problem-Solution-case-study" class="headerlink" title="Problem-Solution case study"></a>Problem-Solution case study</h3><h4 id="What-are-the-tasks-of-an-orchestration-tool"><a href="#What-are-the-tasks-of-an-orchestration-tool" class="headerlink" title="What are the tasks of an orchestration tool?"></a>What are the tasks of an orchestration tool?</h4><h5 id="The-need-for-a-container-orchestraton-tool"><a href="#The-need-for-a-container-orchestraton-tool" class="headerlink" title="The need for a container orchestraton tool"></a>The need for a container orchestraton tool</h5><p>The rise of containers and the microservice technology actually resulted in applications that they’re now comprised of hundreds or sometimes maybe even thousands of containers now managing those loads of containers across multiple environments using scripts and self-made tools can be really complex and sometimes even impossible</p>
+<ul>
+<li>Trend from Monolith to Microcervices</li>
+<li>Increased usage of container</li>
+<li>Demand for a proper way of managing those hundreds of containers</li>
+</ul>
+<h5 id="What-features-do-orchestration-tools-offer"><a href="#What-features-do-orchestration-tools-offer" class="headerlink" title="What features do orchestration tools offer?"></a>What features do orchestration tools offer?</h5><ul>
+<li><p><strong>High Availability</strong> or no downtime</p>
+<p>high availability means that the application has no downtime so it’s always accessible by the users</p>
+</li>
+<li><p><strong>Scalability</strong> or high performance</p>
+<p>application has high performance it loads fast and the users have a very high response rates from the application</p>
+</li>
+<li><p><strong>Disaster recovery</strong> -Backup amd restore</p>
+<p>the infrastructure has to have some kind of mechanism to back up the data and to restore it to the latest state so that application doesn’t actually lose any data and the containerized application can run from the latest state after the recovery</p>
+</li>
+</ul>
+<hr>
+<h2 id="Main-K8s-Components"><a href="#Main-K8s-Components" class="headerlink" title="Main K8s Components"></a>Main K8s Components</h2><h3 id="Node-and-Pod"><a href="#Node-and-Pod" class="headerlink" title="Node and Pod"></a>Node and Pod</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>a <strong>worker machine</strong>（工作机）</p>
+<p>​	 a simple server a physical virtual machine depends on the cluster</p>
+<p>Node也被称为Worker或Minion，是部署容器（工作负载）的单机器（或虚拟机）</p>
+<h4 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h4><ul>
+<li><p>Smallest unit of K8s</p>
+</li>
+<li><p><strong><u>Abstraction over container 容器上的抽象</u></strong></p>
+<p><em>Containers should only be scheduled together in a single Pod if they are tightly coupled and need to share resources such as disk.</em></p>
+</li>
+<li><p>Usually 1 applicaion per Pod</p>
+</li>
+<li><p>Each Pod gets its onw IP address</p>
+</li>
+<li><p>New IP address on re-creation</p>
+</li>
+</ul>
+<h3 id="Service-and-Ingress"><a href="#Service-and-Ingress" class="headerlink" title="Service and Ingress"></a>Service and Ingress</h3><h4 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h4><ul>
+<li>permanent IP address</li>
+<li>lifecycle of Pod and Service <strong>NOT</strong> connected</li>
+</ul>
+<h5 id="External-service"><a href="#External-service" class="headerlink" title="External service"></a>External service</h5><p><a href="http://my-app-service-ip:port">http://my-app-service-ip:port</a> —&gt; <a href="http://124.89.101.2:8080(test)">http://124.89.101.2:8080(test)</a> —&gt; <a target="_blank" rel="noopener" href="https://my-app.cpm/">https://my-app.cpm</a></p>
+<p>Internal serivece</p>
+<p><a href="http://db-service-ip:port">http://db-service-ip:port</a></p>
+<h4 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h4><p>—External service </p>
+<p>request goes first to ingress and it does the forwarding then to the service</p>
+<h3 id="Configmap-and-Secret"><a href="#Configmap-and-Secret" class="headerlink" title="Configmap and Secret"></a>Configmap and Secret</h3><p>Use them as environment variables or as a properties file</p>
+<p>tradition:</p>
+<p>re-build —&gt; push it to the repo —&gt; pull it fro the repo</p>
+<h4 id="Configmap"><a href="#Configmap" class="headerlink" title="Configmap"></a>Configmap</h4><ul>
+<li>external configuration of your application</li>
+<li>Don’t put credential into Configamp</li>
+</ul>
+<h4 id="Secret"><a href="#Secret" class="headerlink" title="Secret"></a>Secret</h4><ul>
+<li>used to store secret data</li>
+<li>based64 encoded</li>
+<li>(The built-in security mechanism is not enabled by default)</li>
+</ul>
+<h3 id="Volumes"><a href="#Volumes" class="headerlink" title="Volumes"></a>Volumes</h3><p>data storage</p>
+<p>​	container pr pod restarted, the data will be gone</p>
+<p>Volumes attached a physical storage on a hard drive to the pod </p>
+<ul>
+<li>Storage on <strong>local</strong> machine</li>
+<li>or <strong>remote</strong>, outside of the K8s cluster</li>
+</ul>
+<p>distinction betweeen the kubernetes cluster and all of its components and the storage </p>
+<p>think of the storage as an external drive plugged in into the kubernetes cluster </p>
+<p> <strong><u>K8s doesn’t manage data persistance</u></strong></p>
+<h3 id="Deployment-and-Stateful-Set"><a href="#Deployment-and-Stateful-Set" class="headerlink" title="Deployment and Stateful Set"></a>Deployment and Stateful Set</h3><p>The replica is connected to the same Service</p>
+<p>Service has 2 functionalities:</p>
+<ul>
+<li>permanent IP</li>
+<li>load balancer</li>
+</ul>
+<h4 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h4><ul>
+<li>blueprint for my-app pods</li>
+<li>you create Deployments (can specify how many replicas and can also sacle up or down the number of pods needed)</li>
+<li><strong><u>abstraction on pods</u></strong></li>
+</ul>
+<p><u>in practice, mostly words with the deployment and not with pods</u></p>
+<p>We need replicate database as well, but <strong><u>DB can’t be replicated via Deployment</u></strong> because database has a state. All need </p>
+<p>to access to the shared data storage. </p>
+<p>need a machanism to avoid inconsistencies (pods writing or reading)</p>
+<h4 id="StatefulSet"><a href="#StatefulSet" class="headerlink" title="StatefulSet"></a>StatefulSet</h4><p>the feature in addition to replicationg feature is offered by StatefulSet</p>
+<ul>
+<li><p>for STATEFUL applications</p>
+<p>like elastic, mongoDB, MySQL</p>
+</li>
+</ul>
+<hr>
+<p><strong>Depolyment</strong> for <strong>stateLess</strong> Apps</p>
+<p><strong>StatefulSet</strong> for <strong>stateFul</strong> Apps or Databases</p>
+<p>but deploying StatefulSet in k8s is not easy. So DB are ofthen hosted outside of K8s cluster.</p>
+<h3 id="Main-Kubernetes-Components-summarized"><a href="#Main-Kubernetes-Components-summarized" class="headerlink" title="Main Kubernetes Components summarized"></a>Main Kubernetes Components summarized</h3><ul>
+<li><p>abstraction of containers — Pod</p>
+</li>
+<li><p>communication — Service(in communication between pods)</p>
+</li>
+<li><p>roue traffic into cluster — Ingress(used to route traffic into the cluster)</p>
+</li>
+<li><p>external configuration — configmap&#x2F;secret </p>
+</li>
+<li><p>data processing — volumes</p>
+</li>
+<li><p>pod blueprints with replicating mechanisms — Deployment &#x2F; StatefulSet</p>
+<p>(StatefulSet is used specifically for stateful applications like databases)</p>
+</li>
+</ul>
+<h2 id="Kubernetes-Architecture-explained"><a href="#Kubernetes-Architecture-explained" class="headerlink" title="Kubernetes Architecture explained"></a>Kubernetes Architecture explained</h2><h3 id="Node-processes"><a href="#Node-processes" class="headerlink" title="Node processes"></a>Node processes</h3><p>Two types of nodes</p>
+<ol>
+<li>master </li>
+<li>slave</li>
+</ol>
+<hr>
+<p>Worker machines in K8s cluster</p>
+<ul>
+<li><p>each Node has multile Pods on it</p>
+</li>
+<li><p><u><strong>3 processes</strong> must be installed on every node</u></p>
+<h4 id="Container-runtime"><a href="#Container-runtime" class="headerlink" title="Container runtime"></a>Container runtime</h4><p>比如docker， 或者别的虚拟化技术</p>
+<h4 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h4><ul>
+<li><p><strong>Kubelet <u>interacts with both</u> - the container and node</strong></p>
+</li>
+<li><p>Kubelet <strong><u>starts the pod</u></strong> with a container inside</p>
+</li>
+</ul>
+<p>process schedules those pods then underneath </p>
+<p>a process of kubernetes itself</p>
+<p>responsible for taking configuration and actually running a pod or starting a pod with a container and then assigning resources from that node to the container (like cpu ram and storage resources)</p>
+<p>usually kubernetes cluster is made up of  ,ultipe nodes which also must have container runtime and kubelets installed. you can have hundreds of those worker nodes which will run other parts and containers and replicas of the existing parts like my app and database</p>
+<hr>
+<p>communcation betweeen them uses Services, whihc is a sort of balance that basiclly cathes the request directed to the pod or the applcaition like database and then forwards it to the respective pod and the third process that is responsible for forwardiung requests form services to pods is actually Kube proxy</p>
+<h4 id="Kube-proxy"><a href="#Kube-proxy" class="headerlink" title="Kube proxy"></a>Kube proxy</h4><p>Kube Proxy <strong><u>forwards the requests</u></strong></p>
+<p>must be installed on every node</p>
+<p>intelligent forwarding logic inside that makes sure the communication works in a performative way with low overhead</p>
+</li>
+<li><p>Worker Nodes do the actual work</p>
+</li>
+</ul>
+<hr>
+<p>How to <strong>interact</strong> with this cluster?</p>
+<p>How to:</p>
+<ul>
+<li>sechedule pod?</li>
+<li>monitor?</li>
+<li>re-schedule &#x2F;re-start pod?</li>
+<li>join a new Node?</li>
+</ul>
+<p><strong>Managing processes</strong> are done bu <strong>Master Nodes</strong></p>
+<h3 id="Master-processes"><a href="#Master-processes" class="headerlink" title="Master processes"></a>Master processes</h3><p><u><strong>4 processes</strong> run on every master node</u> that control cluster state and the worker nodes </p>
+<h5 id="Api-server"><a href="#Api-server" class="headerlink" title="Api server"></a>Api server</h5><ul>
+<li><p>cluster gateway</p>
+<p>get the initial request of updates into the cluster or even the query from the cluster</p>
+<p>use some ui, like kubernetes dashboard, command line or api</p>
+</li>
+<li><p>acts as a gatekeeper for authentication</p>
+</li>
+<li><p>流程：</p>
+<p>some requests —&gt; API Server —&gt; validates request —&gt; other processes —&gt; Pod</p>
+</li>
+<li><p>good for security because <u>only 1 entrypoint into the cluster</u></p>
+</li>
+</ul>
+<h5 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h5><ul>
+<li><p>流程：</p>
+<p>Schedule Pod —&gt; API Server —&gt; Scheduler —&gt; where to put the Pod —&gt; Kubulet</p>
+</li>
+</ul>
+<p><u><strong>Scheduler just decides on which Node new Pod should be scheduled</strong></u></p>
+<p>(Kubulet starts a podwith a container)</p>
+<h5 id="Controller-manager"><a href="#Controller-manager" class="headerlink" title="Controller manager"></a>Controller manager</h5><ul>
+<li><p>detect cluster state changes (like crashing of pods)</p>
+</li>
+<li><p>流程:</p>
+<p>Controller Manager —&gt; Scheduler —&gt; Kubelet —&gt; Pods</p>
+</li>
+</ul>
+<h5 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h5><p>a <strong><u>key value store</u></strong>  of a cluster state </p>
+<ul>
+<li>etcd is the the <strong><u>cluster brain</u></strong></li>
+<li>Cluster changes stored in the key value store</li>
+</ul>
+<p><strong>cluster state data</strong></p>
+<ul>
+<li>Is the cluster healthy?</li>
+<li>what resources are available?</li>
+<li>Did the cluster state change</li>
+</ul>
+<p> <u>Application data is <strong>NOT</strong> stored in etcd</u></p>
+<hr>
+<p>kubernetes cluster is made up of multiple masters where each master node runs its master processes, where the </p>
+<ul>
+<li><u>api server is <strong>load lalanced</strong></u></li>
+<li>etcd store forms a <strong>Distributed storage</strong> across all master nodes</li>
+</ul>
+<h2 id="Example-Cluster-Set-Up"><a href="#Example-Cluster-Set-Up" class="headerlink" title="Example Cluster Set-Up"></a>Example Cluster Set-Up</h2><p>In a very small cluster,  you probably have 2 Master Nodes and 3 +++Worker Nodes</p>
+<p>and hardware reousrces of master and node servers differ</p>
+<p>master — more important &#x2F; less resources</p>
+<p>worker nodes — more resources</p>
+<h3 id="Add-new-Master-x2F-Node-server"><a href="#Add-new-Master-x2F-Node-server" class="headerlink" title="Add new Master &#x2F; Node server"></a>Add new Master &#x2F; Node server</h3><ol>
+<li>get new bare server</li>
+<li>install all the master &#x2F; worker node process</li>
+<li>add it to the cluster</li>
+</ol>
+<h2 id="Minikube-and-Kubectl-Local-Setup"><a href="#Minikube-and-Kubectl-Local-Setup" class="headerlink" title="Minikube and Kubectl - Local Setup"></a>Minikube and Kubectl - Local Setup</h2><h3 id="What-is-minikube"><a href="#What-is-minikube" class="headerlink" title="What is minikube"></a>What is minikube</h3><h4 id="Production-Cluster-Setup"><a href="#Production-Cluster-Setup" class="headerlink" title="Production Cluster Setup"></a>Production Cluster Setup</h4><ul>
+<li>Multiple master and Worker  nodes</li>
+<li>Separate virtual or physical machines</li>
+</ul>
+<hr>
+<p>Test on local machine?</p>
+<h4 id="Test-x2F-Local-Cluster-Set-up"><a href="#Test-x2F-Local-Cluster-Set-up" class="headerlink" title="Test&#x2F;Local Cluster Set up"></a>Test&#x2F;Local Cluster Set up</h4><p><u>minikube is basically one node cluster where <strong>the Master and Node processes run on ONE machine</strong></u></p>
+<p>This node will have docker runtime pre-installed, so could ru the containers or the pods with container on this node on your laptop through a vrtual box or some othe rhypervisor </p>
+<h4 id="minikube"><a href="#minikube" class="headerlink" title="minikube"></a>minikube</h4><ul>
+<li>creates Virtual Box on you rlaptop</li>
+<li>Node runs in that Virtual Box</li>
+<li>1 Node K8s cluster</li>
+<li>for testing purposes</li>
+</ul>
+<h3 id="What-is-Kubectl"><a href="#What-is-Kubectl" class="headerlink" title="What is Kubectl"></a>What is Kubectl</h3><p>need some way to interact with a cluster, want to create components configure etcd</p>
+<p><u>a command line tool for kubernetes clusters</u></p>
+<p>Master process — Api Server enable <strong>interaction</strong> with cluster (the main entrypoint into the kubernetes cluster)</p>
+<p> if want to do anything to kubernetes, configure anything, create any components, you first talk to api server. You have to use different clients , so you have a ui like a dashboard you can talk to it using kubernetes api, or a command line tool which is kubectl</p>
+<p><u>Kubectl is the most powerful of 3 clients</u></p>
+<p>​	enable pods to run on node (create pods, destory pods, create services)</p>
+<p><u>kubectl isn’t just for minikube cluster</u></p>
+<p>kubectl is a tool used to interacts with any type of kubernetes cluster setup</p>
+<h3 id="Installation-and-create-minikube-cluster"><a href="#Installation-and-create-minikube-cluster" class="headerlink" title="Installation and create minikube cluster"></a>Installation and create minikube cluster</h3><p>(virtualization on the machine needed)</p>
+<p>Step 1: Install Hypervisor</p>
+<p>Step2：Install Minikube</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140131907.png" alt="image-20220419140131907"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140718492.png" alt="image-20220419140718492"></p>
+<p>安装Minikube的时候，kubectl也会安装好</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140640397.png" alt="image-20220419140640397"></p>
+<p>minikube start</p>
+<p>有了docker就不用hyperkit</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140955358.png" alt="image-20220419140955358"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141159210.png" alt="image-20220419141159210"></p>
+<p>minikube start</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141401301.png" alt="image-20220419141401301"></p>
+<p>Kubectl get nodes</p>
+<p>​	get status of nodes</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141430306.png" alt="image-20220419141430306"></p>
+<p>Minikube status</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141528902.png" alt="image-20220419141528902"></p>
+<p>kubectl version</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141644537.png" alt="image-20220419141644537"></p>
+<p>(Client version + Server Version indicate that minikube is correctlly installed)</p>
+<hr>
+<h5 id="Kubectl-CLI"><a href="#Kubectl-CLI" class="headerlink" title="Kubectl CLI"></a>Kubectl CLI</h5><p>​	for configuring the Minikube cluster</p>
+<h5 id="Minikube-CLI"><a href="#Minikube-CLI" class="headerlink" title="Minikube CLI"></a>Minikube CLI</h5><p>​	for start up&#x2F;deleting the cluster</p>
+<h2 id="Main-Kubectl-Commands-K8s-CLI"><a href="#Main-Kubectl-Commands-K8s-CLI" class="headerlink" title="Main Kubectl Commands - K8s CLI"></a>Main Kubectl Commands - K8s CLI</h2><p>Pre-requisities:</p>
+<ul>
+<li>minikube installed</li>
+<li>kubectl installed</li>
+</ul>
+<h3 id="Basic-kubectl-commands"><a href="#Basic-kubectl-commands" class="headerlink" title="Basic kubectl commands"></a>Basic kubectl commands</h3><h4 id="Get-status-of-different-components-x2F-Create-and-Edit-a-Pod"><a href="#Get-status-of-different-components-x2F-Create-and-Edit-a-Pod" class="headerlink" title="Get status of different components &#x2F; Create and Edit a Pod"></a>Get status of different components &#x2F; Create and Edit a Pod</h4><ol>
+<li>kubectl get nodes</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142304867.png" alt="image-20220419142304867"></p>
+<ol start="2">
+<li>kubectl get pods</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142346780.png" alt="image-20220419142346780"></p>
+<ol start="3">
+<li>Kubectl get services</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142437094.png" alt="image-20220419142437094"></p>
+<ol start="4">
+<li><p>kubectl create -h</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142555745.png" alt="image-20220419142555745"></p>
+<p>Pod is the smallest unit. But you are not creating pods …</p>
+<p>Deployment - abstraction over Pods</p>
+<p>Usage:</p>
+<blockquote>
+<p>kubectl create deployment NAME –image&#x3D;image [–dry-run] [options]</p>
+</blockquote>
+<ul>
+<li>Blueprint for creating pods</li>
+<li>most basic configuration for deployment (name and image to use)</li>
+<li>rest defaults</li>
+</ul>
+</li>
+<li><p>kubectl create deployment nginx-depl –image&#x3D;nginx</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143121449.png" alt="image-20220419143121449"></p>
+</li>
+<li><p>kubectl get deployment<img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143152551.png" alt="image-20220419143152551"></p>
+</li>
+<li><p>kubectl get pod</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143329719.png" alt="image-20220419143329719"></p>
+</li>
+<li><p>kubectl get replicaset</p>
+<p><u>Replicates is managing the replicas of a Pod</u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143719763.png" alt="image-20220419143719763"></p>
+</li>
+</ol>
+<hr>
+<h3 id="Layers-of-Abstraction"><a href="#Layers-of-Abstraction" class="headerlink" title="Layers of Abstraction"></a>Layers of Abstraction</h3><ol>
+<li><strong>Depolyment</strong> manages a rs</li>
+<li><strong>ReplicaSet</strong> manages a pod</li>
+<li><strong>Pod</strong> is an absratction of Container</li>
+<li><strong>Container</strong></li>
+</ol>
+<p>Everything below Deployment is handled by Kubernetes</p>
+<hr>
+<ol start="9">
+<li><p>kubectl edit deployment [name]</p>
+<p>and we get auto-generated configuration file with default values</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144418780.png" alt="image-20220419144418780"></p>
+</li>
+</ol>
+<p>​	修改image版本</p>
+<p>​	<img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144542842.png" alt="image-20220419144542842"></p>
+<p>Save the change <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145203991.png" alt="image-20220419145203991"></p>
+<p>kubectl get pod检查</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145437036.png" alt="image-20220419145437036"></p>
+<p>We can get a new one with a new image</p>
+<p>Kubectl get replicassets</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145625690.png" alt="image-20220419145625690"></p>
+<h3 id="Debugging-pods"><a href="#Debugging-pods" class="headerlink" title="Debugging pods"></a>Debugging pods</h3><ol>
+<li><p>kubectl logs [pod name]</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150020649.png" alt="image-20220419150020649"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150137877.png" alt="image-20220419150137877"></p>
+</li>
+<li><p>Kubectl describe pod [pod name]</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150251228.png" alt="image-20220419150251228"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150318935.png" alt="image-20220419150318935"></p>
+</li>
+<li><p>kubectl exec-it [pod name] – bin&#x2F;bash</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150635772.png" alt="image-20220419150635772"></p>
+</li>
+<li><p>kubectl delete deployment mongo-depl</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150759525.png" alt="image-20220419150759525"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150926815.png" alt="image-20220419150926815"></p>
+</li>
+<li><p>kubectl get replicaset</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419151121482.png" alt="image-20220419151121482"></p>
+</li>
+<li><p>kubectl create deployment name omage option1 option2</p>
+</li>
+</ol>
+<p>   kubectl apply -f [file name]</p>
+<hr>
+<p>   kubectl apply -f nginx-deployment.yaml</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152046702.png" alt="image-20220419152046702"></p>
+   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span> <span class="comment"># what i want to create</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-deployment</span> <span class="comment"># name of the deployment</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">spec:</span> <span class="comment"># for deployment</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span> <span class="comment"># how many replicas of pods I want to create</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">template:</span> <span class="comment"># the blueprint of pods</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">spec:</span> <span class="comment"># for pod</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">nginx:1.16</span> <span class="comment"># fix image version</span></span><br><span class="line">        <span class="attr">resources:</span></span><br><span class="line">          <span class="attr">limits:</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">&quot;128Mi&quot;</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">&quot;500m&quot;</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span> <span class="comment"># where I want to bind</span></span><br></pre></td></tr></table></figure>
+
+<p>   apply the configuration file</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152714534.png" alt="image-20220419152714534"></p>
+<p>   change the number of replicas</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152829089.png" alt="image-20220419152829089"></p>
+<p>   <u>K8s knows when to create or update deployment</u></p>
+<p>   We can get </p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419153105258.png" alt="image-20220419153105258"></p>
+<h3 id="Summarize-the-kubectl-commands"><a href="#Summarize-the-kubectl-commands" class="headerlink" title="Summarize the kubectl commands"></a>Summarize the kubectl commands</h3><h4 id="CRUD-commands"><a href="#CRUD-commands" class="headerlink" title="CRUD commands"></a>CRUD commands</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create deployment</td>
+<td>Kubectl create deployment [name]</td>
+</tr>
+<tr>
+<td>Edit deployment</td>
+<td>Kubectl edit deployment [name]</td>
+</tr>
+<tr>
+<td>Delete deployment</td>
+<td>Kubectl delete deployment [name]</td>
+</tr>
+</tbody></table>
+<h4 id="Status-of-different-k8s-components"><a href="#Status-of-different-k8s-components" class="headerlink" title="Status of different k8s components"></a>Status of different k8s components</h4><p>Kubectl get nodes | pod | services | relicaset | deployment</p>
+<h4 id="Debugging-pods-1"><a href="#Debugging-pods-1" class="headerlink" title="Debugging pods"></a>Debugging pods</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Log to console</td>
+<td>kubectl logs [pod name]</td>
+</tr>
+<tr>
+<td>Get Interactive Terminal</td>
+<td>Kubectl exec -it [pod name] – bin&#x2F;bash</td>
+</tr>
+<tr>
+<td>Git info about pod</td>
+<td>kubectl describe pod [pod name]</td>
+</tr>
+</tbody></table>
+<h4 id="Use-configuration-file-for-CRUD"><a href="#Use-configuration-file-for-CRUD" class="headerlink" title="Use configuration file for CRUD"></a>Use configuration file for CRUD</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apply a configuration file</td>
+<td>kubectl apply -f  [file name]</td>
+</tr>
+<tr>
+<td>Delete with configuration file</td>
+<td>kubectl delete -f  [file name]</td>
+</tr>
+</tbody></table>
+<h2 id="K8s-Yaml-Configuration-File"><a href="#K8s-Yaml-Configuration-File" class="headerlink" title="K8s Yaml Configuration File"></a>K8s Yaml Configuration File</h2><h3 id="3-parts-of-a-K8s-configuration-file"><a href="#3-parts-of-a-K8s-configuration-file" class="headerlink" title="3 parts of a K8s configuration file"></a>3 parts of a K8s configuration file</h3><p>Service Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154624462.png" alt="image-20220419154624462"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154635700.png" alt="image-20220419154635700"></p>
+<p>Deployment Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154824687.png" alt="image-20220419154824687"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154839653.png" alt="image-20220419154839653"></p>
+<h4 id="Each-configuration-file-3-parts"><a href="#Each-configuration-file-3-parts" class="headerlink" title="Each configuration file 3 parts"></a>Each configuration file 3 parts</h4><p><strong>kind</strong> declares what we want to create</p>
+<ol>
+<li><p>metadata</p>
+<p>Name</p>
+</li>
+<li><p>specification</p>
+<p>details we want to deploy</p>
+<p>Attributes of “<strong>spec</strong>“ are specfic to the <strong>kind</strong></p>
+</li>
+<li><p>status</p>
+<p>automatically generated and added by Kubernetes</p>
+<p>Desired !&#x3D; Actual ?</p>
+<p>K8s updates state continuously</p>
+</li>
+</ol>
+<h4 id="Where-does-K8s-get-this-status-data"><a href="#Where-does-K8s-get-this-status-data" class="headerlink" title="Where does K8s get this status data?"></a>Where does K8s get this status data?</h4><p>etcd</p>
+<p>Etcd holds the current status of any K8s component</p>
+<h4 id="Format-of-configuration-file"><a href="#Format-of-configuration-file" class="headerlink" title="Format of configuration file"></a>Format of configuration file</h4><p><strong>YAML</strong> configuration file</p>
+<p>智能，人性化，好修改；可以自主编辑然后能保存到云库再共享</p>
+<h4 id="Blueprint-for-pods-Template"><a href="#Blueprint-for-pods-Template" class="headerlink" title="Blueprint for pods (Template)"></a>Blueprint for pods (Template)</h4><p>Deployment manage Pods</p>
+<p>Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181143019.png" alt="image-20220419181143019"></p>
+<ul>
+<li>Has it’s own “metadata” and “spec” section</li>
+<li>Applies to pod</li>
+<li>Blueprint for a pod<ul>
+<li>Name?</li>
+<li>Ports?</li>
+<li>Image?</li>
+</ul>
+</li>
+</ul>
+<h3 id="Connecting-components"><a href="#Connecting-components" class="headerlink" title="Connecting components"></a>Connecting components</h3><h4 id="Labels-amp-Selectors-amp-Ports"><a href="#Labels-amp-Selectors-amp-Ports" class="headerlink" title="Labels &amp; Selectors &amp; Ports"></a>Labels &amp; Selectors &amp; Ports</h4><p>Deployment metadata</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181429570.png" alt="image-20220419181429570"></p>
+<p>Service metadata</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181516872.png" alt="image-20220419181516872"></p>
+<h5 id="connecting-Deployment-to-Pods"><a href="#connecting-Deployment-to-Pods" class="headerlink" title="connecting Deployment to Pods"></a>connecting Deployment to Pods</h5><p>any key-value pair for component</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181632363.png" alt="image-20220419181632363"></p>
+<p>Pods get the label through the template blueprint </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181727727.png" alt="image-20220419181727727"></p>
+<p>The label is matched by the selector in services</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181944314.png" alt="image-20220419181944314"></p>
+<hr>
+<p>Selector in service match labels (2) in deployment</p>
+<h5 id="Ports-in-Service-and-Pod"><a href="#Ports-in-Service-and-Pod" class="headerlink" title="Ports in Service and Pod"></a>Ports in Service and Pod</h5><p>DB service —&gt; (port:80) ngnix Service —&gt; (targetPort:8080) Pod</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183403873.png" alt="image-20220419183403873"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183435668.png" alt="image-20220419183435668"></p>
+<p>对应service中的部分：</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183515353.png" alt="image-20220419183515353"></p>
+<p>more information</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">pod</span> <span class="string">-o</span> <span class="string">wide</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183650580.png" alt="image-20220419183650580"></p>
+<h5 id="Status-automatically-generated"><a href="#Status-automatically-generated" class="headerlink" title="Status automatically generated?"></a>Status automatically generated?</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">deployment</span> <span class="string">nginx-deployment</span> <span class="string">-o</span> <span class="string">yaml</span>  <span class="string">&gt;</span> <span class="string">nginx-deployment-result.yaml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184032325.png" alt="image-20220419184032325"></p>
+<h5 id="删除配置和服务"><a href="#删除配置和服务" class="headerlink" title="删除配置和服务"></a>删除配置和服务</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl delete -f nginx-deployment.yaml</span><br><span class="line">kubectl delete -f nginx-service.yaml</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184227917.png" alt="image-20220419184227917"></p>
+<h2 id="Hands-On-Demo"><a href="#Hands-On-Demo" class="headerlink" title="Hands-On Demo"></a>Hands-On Demo</h2><p>Mongo-express  + mongoDB</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kubectl get all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184612946.png" alt="image-20220419184612946"></p>
+<p>create mongodb file</p>
+<p> Pod blueprint</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184947067.png" alt="image-20220419184947067"></p>
+<p>mongodb port: 27017</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419185113884.png" alt="image-20220419185113884"></p>
+<p>Deployment Config File is checked into repository</p>
+<p>Username and password should not go here</p>
+<p><u>Secret lives in k8s, not in the repository</u></p>
+<p>Value: Username and password</p>
+<hr>
+<p>Secret Configuration File</p>
+<p>– kind: Secret</p>
+<p>– metadata&#x2F;name: a random name </p>
+<p>– type: “Opaque” -default for arbitrary key - value pairs</p>
+<p>– data: the actual contents - key-value pairs</p>
+<hr>
+<h4 id="加密用户名和密码"><a href="#加密用户名和密码" class="headerlink" title="加密用户名和密码"></a>加密用户名和密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo -n &#x27;username&#x27; | base64</span><br><span class="line">echo -n &#x27;password&#x27; | base64</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190501641.png" alt="image-20220419190501641"></p>
+<h3 id="Secret-must-be-created-before-the-Deployment"><a href="#Secret-must-be-created-before-the-Deployment" class="headerlink" title="Secret must be created before the Deployment"></a><strong><u>Secret must be created before the Deployment</u></strong></h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190701444.png" alt="image-20220419190701444"></p>
+<p>Secret can be referenced now in Deployment</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192255490.png" alt="image-20220419192255490"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192500377.png" alt="image-20220419192500377"></p>
+<p>需要限制资源</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192541715.png" alt="image-20220419192541715"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194105278.png" alt="image-20220419194105278"></p>
+<p>Error:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pod [pod name]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194249506.png" alt="image-20220419194249506"></p>
+<p>Possible Solution:</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195222059.png" alt="image-20220419195222059"></p>
+<p>Solution:</p>
+<p><strong><u>create secrets before deployment!!!!!</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195701568.png" alt="image-20220419195701568"></p>
+<h3 id="创建ConfigMAp"><a href="#创建ConfigMAp" class="headerlink" title="创建ConfigMAp"></a>创建ConfigMAp</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419200805943.png" alt="image-20220419200805943"></p>
+<p>Database connected</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201006366.png" alt="image-20220419201006366"></p>
+<p>Create mongoexpress-service</p>
+<p>How to make it an EXternal Service?</p>
+<p>-type: “LoadBalancer”</p>
+<p>BUT, internal service also acts as a loaderbalancer!</p>
+<p>nodePort: for exteral IP address; set port you need to put into the browser</p>
+<p>(30000-32767)</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201939104.png" alt="image-20220419201939104"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minikube service mongo-express-service</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Advanced-Concepts"><a href="#Advanced-Concepts" class="headerlink" title="Advanced Concepts"></a>Advanced Concepts</h1><h2 id="K8s-Namespaces-Organize-your-Components"><a href="#K8s-Namespaces-Organize-your-Components" class="headerlink" title="K8s Namespaces - Organize your Components"></a>K8s Namespaces - Organize your Components</h2><h2 id="K8s-Ingress"><a href="#K8s-Ingress" class="headerlink" title="K8s Ingress"></a>K8s Ingress</h2><h2 id="Helm-Package-Manager"><a href="#Helm-Package-Manager" class="headerlink" title="Helm - Package Manager"></a>Helm - Package Manager</h2><h2 id="Volumes-Persisting-Data-in-K8s"><a href="#Volumes-Persisting-Data-in-K8s" class="headerlink" title="Volumes - Persisting Data in K8s"></a>Volumes - Persisting Data in K8s</h2><h2 id="K8s-StatefulSet-Deploying-Stateful-Apps"><a href="#K8s-StatefulSet-Deploying-Stateful-Apps" class="headerlink" title="K8s StatefulSet - Deploying Stateful Apps"></a>K8s StatefulSet - Deploying Stateful Apps</h2><h2 id="K8s-Services"><a href="#K8s-Services" class="headerlink" title="K8s Services"></a>K8s Services</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/k8s/" rel="tag"># k8s</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/04/18/%E7%97%9B%E8%8B%A6%E9%9D%A2%E5%85%B7/" rel="prev" title="痛苦面具">
+      <i class="fa fa-chevron-left"></i> 痛苦面具
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Intro-to-K8s"><span class="nav-number">1.</span> <span class="nav-text">Intro to K8s</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Kubernetes"><span class="nav-number">1.1.</span> <span class="nav-text">What is Kubernetes?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Official-Definition"><span class="nav-number">1.1.1.</span> <span class="nav-text">Official Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-Solution-case-study"><span class="nav-number">1.1.2.</span> <span class="nav-text">Problem-Solution case study</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-are-the-tasks-of-an-orchestration-tool"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">What are the tasks of an orchestration tool?</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-need-for-a-container-orchestraton-tool"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">The need for a container orchestraton tool</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#What-features-do-orchestration-tools-offer"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">What features do orchestration tools offer?</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-K8s-Components"><span class="nav-number">1.2.</span> <span class="nav-text">Main K8s Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-and-Pod"><span class="nav-number">1.2.1.</span> <span class="nav-text">Node and Pod</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Pod</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-and-Ingress"><span class="nav-number">1.2.2.</span> <span class="nav-text">Service and Ingress</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Service"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Service</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#External-service"><span class="nav-number">1.2.2.1.1.</span> <span class="nav-text">External service</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ingress"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">Ingress</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configmap-and-Secret"><span class="nav-number">1.2.3.</span> <span class="nav-text">Configmap and Secret</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Configmap"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Configmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Secret"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Secret</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volumes"><span class="nav-number">1.2.4.</span> <span class="nav-text">Volumes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment-and-Stateful-Set"><span class="nav-number">1.2.5.</span> <span class="nav-text">Deployment and Stateful Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deployment"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StatefulSet"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">StatefulSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-Kubernetes-Components-summarized"><span class="nav-number">1.2.6.</span> <span class="nav-text">Main Kubernetes Components summarized</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kubernetes-Architecture-explained"><span class="nav-number">1.3.</span> <span class="nav-text">Kubernetes Architecture explained</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-processes"><span class="nav-number">1.3.1.</span> <span class="nav-text">Node processes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Container-runtime"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">Container runtime</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kubelet"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">Kubelet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kube-proxy"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">Kube proxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Master-processes"><span class="nav-number">1.3.2.</span> <span class="nav-text">Master processes</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Api-server"><span class="nav-number">1.3.2.0.1.</span> <span class="nav-text">Api server</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Scheduler"><span class="nav-number">1.3.2.0.2.</span> <span class="nav-text">Scheduler</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Controller-manager"><span class="nav-number">1.3.2.0.3.</span> <span class="nav-text">Controller manager</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#etcd"><span class="nav-number">1.3.2.0.4.</span> <span class="nav-text">etcd</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Cluster-Set-Up"><span class="nav-number">1.4.</span> <span class="nav-text">Example Cluster Set-Up</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-new-Master-x2F-Node-server"><span class="nav-number">1.4.1.</span> <span class="nav-text">Add new Master &#x2F; Node server</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Minikube-and-Kubectl-Local-Setup"><span class="nav-number">1.5.</span> <span class="nav-text">Minikube and Kubectl - Local Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-minikube"><span class="nav-number">1.5.1.</span> <span class="nav-text">What is minikube</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Production-Cluster-Setup"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">Production Cluster Setup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-x2F-Local-Cluster-Set-up"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">Test&#x2F;Local Cluster Set up</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#minikube"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">minikube</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Kubectl"><span class="nav-number">1.5.2.</span> <span class="nav-text">What is Kubectl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation-and-create-minikube-cluster"><span class="nav-number">1.5.3.</span> <span class="nav-text">Installation and create minikube cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Kubectl-CLI"><span class="nav-number">1.5.3.0.1.</span> <span class="nav-text">Kubectl CLI</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Minikube-CLI"><span class="nav-number">1.5.3.0.2.</span> <span class="nav-text">Minikube CLI</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Kubectl-Commands-K8s-CLI"><span class="nav-number">1.6.</span> <span class="nav-text">Main Kubectl Commands - K8s CLI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-kubectl-commands"><span class="nav-number">1.6.1.</span> <span class="nav-text">Basic kubectl commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Get-status-of-different-components-x2F-Create-and-Edit-a-Pod"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Get status of different components &#x2F; Create and Edit a Pod</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layers-of-Abstraction"><span class="nav-number">1.6.2.</span> <span class="nav-text">Layers of Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Debugging-pods"><span class="nav-number">1.6.3.</span> <span class="nav-text">Debugging pods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summarize-the-kubectl-commands"><span class="nav-number">1.6.4.</span> <span class="nav-text">Summarize the kubectl commands</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CRUD-commands"><span class="nav-number">1.6.4.1.</span> <span class="nav-text">CRUD commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Status-of-different-k8s-components"><span class="nav-number">1.6.4.2.</span> <span class="nav-text">Status of different k8s components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Debugging-pods-1"><span class="nav-number">1.6.4.3.</span> <span class="nav-text">Debugging pods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use-configuration-file-for-CRUD"><span class="nav-number">1.6.4.4.</span> <span class="nav-text">Use configuration file for CRUD</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s-Yaml-Configuration-File"><span class="nav-number">1.7.</span> <span class="nav-text">K8s Yaml Configuration File</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-parts-of-a-K8s-configuration-file"><span class="nav-number">1.7.1.</span> <span class="nav-text">3 parts of a K8s configuration file</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Each-configuration-file-3-parts"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">Each configuration file 3 parts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Where-does-K8s-get-this-status-data"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">Where does K8s get this status data?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Format-of-configuration-file"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">Format of configuration file</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Blueprint-for-pods-Template"><span class="nav-number">1.7.1.4.</span> <span class="nav-text">Blueprint for pods (Template)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connecting-components"><span class="nav-number">1.7.2.</span> <span class="nav-text">Connecting components</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Labels-amp-Selectors-amp-Ports"><span class="nav-number">1.7.2.1.</span> <span class="nav-text">Labels &amp; Selectors &amp; Ports</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#connecting-Deployment-to-Pods"><span class="nav-number">1.7.2.1.1.</span> <span class="nav-text">connecting Deployment to Pods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Ports-in-Service-and-Pod"><span class="nav-number">1.7.2.1.2.</span> <span class="nav-text">Ports in Service and Pod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Status-automatically-generated"><span class="nav-number">1.7.2.1.3.</span> <span class="nav-text">Status automatically generated?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE%E5%92%8C%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.7.2.1.4.</span> <span class="nav-text">删除配置和服务</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hands-On-Demo"><span class="nav-number">1.8.</span> <span class="nav-text">Hands-On Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">加密用户名和密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Secret-must-be-created-before-the-Deployment"><span class="nav-number">1.8.1.</span> <span class="nav-text">Secret must be created before the Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAConfigMAp"><span class="nav-number">1.8.2.</span> <span class="nav-text">创建ConfigMAp</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Advanced-Concepts"><span class="nav-number">2.</span> <span class="nav-text">Advanced Concepts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s-Namespaces-Organize-your-Components"><span class="nav-number">2.1.</span> <span class="nav-text">K8s Namespaces - Organize your Components</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s-Ingress"><span class="nav-number">2.2.</span> <span class="nav-text">K8s Ingress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Helm-Package-Manager"><span class="nav-number">2.3.</span> <span class="nav-text">Helm - Package Manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Volumes-Persisting-Data-in-K8s"><span class="nav-number">2.4.</span> <span class="nav-text">Volumes - Persisting Data in K8s</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s-StatefulSet-Deploying-Stateful-Apps"><span class="nav-number">2.5.</span> <span class="nav-text">K8s StatefulSet - Deploying Stateful Apps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8s-Services"><span class="nav-number">2.6.</span> <span class="nav-text">K8s Services</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chao Cao"
+      src="/uploads/head2.jpg">
+  <p class="site-author-name" itemprop="name">Chao Cao</p>
+  <div class="site-description" itemprop="description">为天地立心，为生民立命，为往圣继绝学，为万世开太平</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/HenryVarro666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;HenryVarro666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ccao2679@umd.edu" title="E-Mail → mailto:ccao2679@umd.edu" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://ccao2679.com/" title="http:&#x2F;&#x2F;ccao2679.com" rel="noopener" target="_blank">Title</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chao Cao</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">168k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">2:32</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+</body>
+</html>

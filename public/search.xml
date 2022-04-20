@@ -3709,10 +3709,548 @@ which pip
   </entry>
   <entry>
     <title>k8s</title>
-    <url>/2022/04/10/k8s/</url>
+    <url>/2022/04/19/k8s/</url>
     <content><![CDATA[<p>Kubernetes的学习</p>
 <span id="more"></span>
-]]></content>
+
+<h1 id="Intro-to-K8s"><a href="#Intro-to-K8s" class="headerlink" title="Intro to K8s"></a>Intro to K8s</h1><h2 id="What-is-Kubernetes"><a href="#What-is-Kubernetes" class="headerlink" title="What is Kubernetes?"></a>What is Kubernetes?</h2><h3 id="Official-Definition"><a href="#Official-Definition" class="headerlink" title="Official Definition"></a>Official Definition</h3><blockquote>
+<p><a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a>, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.</p>
+</blockquote>
+<ul>
+<li><p>Open source container orchestration tool</p>
+</li>
+<li><p>Developed by Google</p>
+</li>
+<li><p>Helps you manage containerized applications in different deployment environments</p>
+<p>(physicl &#x2F; virtual &#x2F; cloud  )</p>
+</li>
+</ul>
+<h3 id="Problem-Solution-case-study"><a href="#Problem-Solution-case-study" class="headerlink" title="Problem-Solution case study"></a>Problem-Solution case study</h3><h4 id="What-are-the-tasks-of-an-orchestration-tool"><a href="#What-are-the-tasks-of-an-orchestration-tool" class="headerlink" title="What are the tasks of an orchestration tool?"></a>What are the tasks of an orchestration tool?</h4><h5 id="The-need-for-a-container-orchestraton-tool"><a href="#The-need-for-a-container-orchestraton-tool" class="headerlink" title="The need for a container orchestraton tool"></a>The need for a container orchestraton tool</h5><p>The rise of containers and the microservice technology actually resulted in applications that they’re now comprised of hundreds or sometimes maybe even thousands of containers now managing those loads of containers across multiple environments using scripts and self-made tools can be really complex and sometimes even impossible</p>
+<ul>
+<li>Trend from Monolith to Microcervices</li>
+<li>Increased usage of container</li>
+<li>Demand for a proper way of managing those hundreds of containers</li>
+</ul>
+<h5 id="What-features-do-orchestration-tools-offer"><a href="#What-features-do-orchestration-tools-offer" class="headerlink" title="What features do orchestration tools offer?"></a>What features do orchestration tools offer?</h5><ul>
+<li><p><strong>High Availability</strong> or no downtime</p>
+<p>high availability means that the application has no downtime so it’s always accessible by the users</p>
+</li>
+<li><p><strong>Scalability</strong> or high performance</p>
+<p>application has high performance it loads fast and the users have a very high response rates from the application</p>
+</li>
+<li><p><strong>Disaster recovery</strong> -Backup amd restore</p>
+<p>the infrastructure has to have some kind of mechanism to back up the data and to restore it to the latest state so that application doesn’t actually lose any data and the containerized application can run from the latest state after the recovery</p>
+</li>
+</ul>
+<hr>
+<h2 id="Main-K8s-Components"><a href="#Main-K8s-Components" class="headerlink" title="Main K8s Components"></a>Main K8s Components</h2><h3 id="Node-and-Pod"><a href="#Node-and-Pod" class="headerlink" title="Node and Pod"></a>Node and Pod</h3><h4 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h4><p>a <strong>worker machine</strong>（工作机）</p>
+<p>​	 a simple server a physical virtual machine depends on the cluster</p>
+<p>Node也被称为Worker或Minion，是部署容器（工作负载）的单机器（或虚拟机）</p>
+<h4 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h4><ul>
+<li><p>Smallest unit of K8s</p>
+</li>
+<li><p><strong><u>Abstraction over container 容器上的抽象</u></strong></p>
+<p><em>Containers should only be scheduled together in a single Pod if they are tightly coupled and need to share resources such as disk.</em></p>
+</li>
+<li><p>Usually 1 applicaion per Pod</p>
+</li>
+<li><p>Each Pod gets its onw IP address</p>
+</li>
+<li><p>New IP address on re-creation</p>
+</li>
+</ul>
+<h3 id="Service-and-Ingress"><a href="#Service-and-Ingress" class="headerlink" title="Service and Ingress"></a>Service and Ingress</h3><h4 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h4><ul>
+<li>permanent IP address</li>
+<li>lifecycle of Pod and Service <strong>NOT</strong> connected</li>
+</ul>
+<h5 id="External-service"><a href="#External-service" class="headerlink" title="External service"></a>External service</h5><p><a href="http://my-app-service-ip:port">http://my-app-service-ip:port</a> —&gt; <a href="http://124.89.101.2:8080(test)">http://124.89.101.2:8080(test)</a> —&gt; <a href="https://my-app.cpm/">https://my-app.cpm</a></p>
+<p>Internal serivece</p>
+<p><a href="http://db-service-ip:port">http://db-service-ip:port</a></p>
+<h4 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h4><p>—External service </p>
+<p>request goes first to ingress and it does the forwarding then to the service</p>
+<h3 id="Configmap-and-Secret"><a href="#Configmap-and-Secret" class="headerlink" title="Configmap and Secret"></a>Configmap and Secret</h3><p>Use them as environment variables or as a properties file</p>
+<p>tradition:</p>
+<p>re-build —&gt; push it to the repo —&gt; pull it fro the repo</p>
+<h4 id="Configmap"><a href="#Configmap" class="headerlink" title="Configmap"></a>Configmap</h4><ul>
+<li>external configuration of your application</li>
+<li>Don’t put credential into Configamp</li>
+</ul>
+<h4 id="Secret"><a href="#Secret" class="headerlink" title="Secret"></a>Secret</h4><ul>
+<li>used to store secret data</li>
+<li>based64 encoded</li>
+<li>(The built-in security mechanism is not enabled by default)</li>
+</ul>
+<h3 id="Volumes"><a href="#Volumes" class="headerlink" title="Volumes"></a>Volumes</h3><p>data storage</p>
+<p>​	container pr pod restarted, the data will be gone</p>
+<p>Volumes attached a physical storage on a hard drive to the pod </p>
+<ul>
+<li>Storage on <strong>local</strong> machine</li>
+<li>or <strong>remote</strong>, outside of the K8s cluster</li>
+</ul>
+<p>distinction betweeen the kubernetes cluster and all of its components and the storage </p>
+<p>think of the storage as an external drive plugged in into the kubernetes cluster </p>
+<p> <strong><u>K8s doesn’t manage data persistance</u></strong></p>
+<h3 id="Deployment-and-Stateful-Set"><a href="#Deployment-and-Stateful-Set" class="headerlink" title="Deployment and Stateful Set"></a>Deployment and Stateful Set</h3><p>The replica is connected to the same Service</p>
+<p>Service has 2 functionalities:</p>
+<ul>
+<li>permanent IP</li>
+<li>load balancer</li>
+</ul>
+<h4 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h4><ul>
+<li>blueprint for my-app pods</li>
+<li>you create Deployments (can specify how many replicas and can also sacle up or down the number of pods needed)</li>
+<li><strong><u>abstraction on pods</u></strong></li>
+</ul>
+<p><u>in practice, mostly words with the deployment and not with pods</u></p>
+<p>We need replicate database as well, but <strong><u>DB can’t be replicated via Deployment</u></strong> because database has a state. All need </p>
+<p>to access to the shared data storage. </p>
+<p>need a machanism to avoid inconsistencies (pods writing or reading)</p>
+<h4 id="StatefulSet"><a href="#StatefulSet" class="headerlink" title="StatefulSet"></a>StatefulSet</h4><p>the feature in addition to replicationg feature is offered by StatefulSet</p>
+<ul>
+<li><p>for STATEFUL applications</p>
+<p>like elastic, mongoDB, MySQL</p>
+</li>
+</ul>
+<hr>
+<p><strong>Depolyment</strong> for <strong>stateLess</strong> Apps</p>
+<p><strong>StatefulSet</strong> for <strong>stateFul</strong> Apps or Databases</p>
+<p>but deploying StatefulSet in k8s is not easy. So DB are ofthen hosted outside of K8s cluster.</p>
+<h3 id="Main-Kubernetes-Components-summarized"><a href="#Main-Kubernetes-Components-summarized" class="headerlink" title="Main Kubernetes Components summarized"></a>Main Kubernetes Components summarized</h3><ul>
+<li><p>abstraction of containers — Pod</p>
+</li>
+<li><p>communication — Service(in communication between pods)</p>
+</li>
+<li><p>roue traffic into cluster — Ingress(used to route traffic into the cluster)</p>
+</li>
+<li><p>external configuration — configmap&#x2F;secret </p>
+</li>
+<li><p>data processing — volumes</p>
+</li>
+<li><p>pod blueprints with replicating mechanisms — Deployment &#x2F; StatefulSet</p>
+<p>(StatefulSet is used specifically for stateful applications like databases)</p>
+</li>
+</ul>
+<h2 id="Kubernetes-Architecture-explained"><a href="#Kubernetes-Architecture-explained" class="headerlink" title="Kubernetes Architecture explained"></a>Kubernetes Architecture explained</h2><h3 id="Node-processes"><a href="#Node-processes" class="headerlink" title="Node processes"></a>Node processes</h3><p>Two types of nodes</p>
+<ol>
+<li>master </li>
+<li>slave</li>
+</ol>
+<hr>
+<p>Worker machines in K8s cluster</p>
+<ul>
+<li><p>each Node has multile Pods on it</p>
+</li>
+<li><p><u><strong>3 processes</strong> must be installed on every node</u></p>
+<h4 id="Container-runtime"><a href="#Container-runtime" class="headerlink" title="Container runtime"></a>Container runtime</h4><p>比如docker， 或者别的虚拟化技术</p>
+<h4 id="Kubelet"><a href="#Kubelet" class="headerlink" title="Kubelet"></a>Kubelet</h4><ul>
+<li><p><strong>Kubelet <u>interacts with both</u> - the container and node</strong></p>
+</li>
+<li><p>Kubelet <strong><u>starts the pod</u></strong> with a container inside</p>
+</li>
+</ul>
+<p>process schedules those pods then underneath </p>
+<p>a process of kubernetes itself</p>
+<p>responsible for taking configuration and actually running a pod or starting a pod with a container and then assigning resources from that node to the container (like cpu ram and storage resources)</p>
+<p>usually kubernetes cluster is made up of  ,ultipe nodes which also must have container runtime and kubelets installed. you can have hundreds of those worker nodes which will run other parts and containers and replicas of the existing parts like my app and database</p>
+<hr>
+<p>communcation betweeen them uses Services, whihc is a sort of balance that basiclly cathes the request directed to the pod or the applcaition like database and then forwards it to the respective pod and the third process that is responsible for forwardiung requests form services to pods is actually Kube proxy</p>
+<h4 id="Kube-proxy"><a href="#Kube-proxy" class="headerlink" title="Kube proxy"></a>Kube proxy</h4><p>Kube Proxy <strong><u>forwards the requests</u></strong></p>
+<p>must be installed on every node</p>
+<p>intelligent forwarding logic inside that makes sure the communication works in a performative way with low overhead</p>
+</li>
+<li><p>Worker Nodes do the actual work</p>
+</li>
+</ul>
+<hr>
+<p>How to <strong>interact</strong> with this cluster?</p>
+<p>How to:</p>
+<ul>
+<li>sechedule pod?</li>
+<li>monitor?</li>
+<li>re-schedule &#x2F;re-start pod?</li>
+<li>join a new Node?</li>
+</ul>
+<p><strong>Managing processes</strong> are done bu <strong>Master Nodes</strong></p>
+<h3 id="Master-processes"><a href="#Master-processes" class="headerlink" title="Master processes"></a>Master processes</h3><p><u><strong>4 processes</strong> run on every master node</u> that control cluster state and the worker nodes </p>
+<h5 id="Api-server"><a href="#Api-server" class="headerlink" title="Api server"></a>Api server</h5><ul>
+<li><p>cluster gateway</p>
+<p>get the initial request of updates into the cluster or even the query from the cluster</p>
+<p>use some ui, like kubernetes dashboard, command line or api</p>
+</li>
+<li><p>acts as a gatekeeper for authentication</p>
+</li>
+<li><p>流程：</p>
+<p>some requests —&gt; API Server —&gt; validates request —&gt; other processes —&gt; Pod</p>
+</li>
+<li><p>good for security because <u>only 1 entrypoint into the cluster</u></p>
+</li>
+</ul>
+<h5 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h5><ul>
+<li><p>流程：</p>
+<p>Schedule Pod —&gt; API Server —&gt; Scheduler —&gt; where to put the Pod —&gt; Kubulet</p>
+</li>
+</ul>
+<p><u><strong>Scheduler just decides on which Node new Pod should be scheduled</strong></u></p>
+<p>(Kubulet starts a podwith a container)</p>
+<h5 id="Controller-manager"><a href="#Controller-manager" class="headerlink" title="Controller manager"></a>Controller manager</h5><ul>
+<li><p>detect cluster state changes (like crashing of pods)</p>
+</li>
+<li><p>流程:</p>
+<p>Controller Manager —&gt; Scheduler —&gt; Kubelet —&gt; Pods</p>
+</li>
+</ul>
+<h5 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h5><p>a <strong><u>key value store</u></strong>  of a cluster state </p>
+<ul>
+<li>etcd is the the <strong><u>cluster brain</u></strong></li>
+<li>Cluster changes stored in the key value store</li>
+</ul>
+<p><strong>cluster state data</strong></p>
+<ul>
+<li>Is the cluster healthy?</li>
+<li>what resources are available?</li>
+<li>Did the cluster state change</li>
+</ul>
+<p> <u>Application data is <strong>NOT</strong> stored in etcd</u></p>
+<hr>
+<p>kubernetes cluster is made up of multiple masters where each master node runs its master processes, where the </p>
+<ul>
+<li><u>api server is <strong>load lalanced</strong></u></li>
+<li>etcd store forms a <strong>Distributed storage</strong> across all master nodes</li>
+</ul>
+<h2 id="Example-Cluster-Set-Up"><a href="#Example-Cluster-Set-Up" class="headerlink" title="Example Cluster Set-Up"></a>Example Cluster Set-Up</h2><p>In a very small cluster,  you probably have 2 Master Nodes and 3 +++Worker Nodes</p>
+<p>and hardware reousrces of master and node servers differ</p>
+<p>master — more important &#x2F; less resources</p>
+<p>worker nodes — more resources</p>
+<h3 id="Add-new-Master-x2F-Node-server"><a href="#Add-new-Master-x2F-Node-server" class="headerlink" title="Add new Master &#x2F; Node server"></a>Add new Master &#x2F; Node server</h3><ol>
+<li>get new bare server</li>
+<li>install all the master &#x2F; worker node process</li>
+<li>add it to the cluster</li>
+</ol>
+<h2 id="Minikube-and-Kubectl-Local-Setup"><a href="#Minikube-and-Kubectl-Local-Setup" class="headerlink" title="Minikube and Kubectl - Local Setup"></a>Minikube and Kubectl - Local Setup</h2><h3 id="What-is-minikube"><a href="#What-is-minikube" class="headerlink" title="What is minikube"></a>What is minikube</h3><h4 id="Production-Cluster-Setup"><a href="#Production-Cluster-Setup" class="headerlink" title="Production Cluster Setup"></a>Production Cluster Setup</h4><ul>
+<li>Multiple master and Worker  nodes</li>
+<li>Separate virtual or physical machines</li>
+</ul>
+<hr>
+<p>Test on local machine?</p>
+<h4 id="Test-x2F-Local-Cluster-Set-up"><a href="#Test-x2F-Local-Cluster-Set-up" class="headerlink" title="Test&#x2F;Local Cluster Set up"></a>Test&#x2F;Local Cluster Set up</h4><p><u>minikube is basically one node cluster where <strong>the Master and Node processes run on ONE machine</strong></u></p>
+<p>This node will have docker runtime pre-installed, so could ru the containers or the pods with container on this node on your laptop through a vrtual box or some othe rhypervisor </p>
+<h4 id="minikube"><a href="#minikube" class="headerlink" title="minikube"></a>minikube</h4><ul>
+<li>creates Virtual Box on you rlaptop</li>
+<li>Node runs in that Virtual Box</li>
+<li>1 Node K8s cluster</li>
+<li>for testing purposes</li>
+</ul>
+<h3 id="What-is-Kubectl"><a href="#What-is-Kubectl" class="headerlink" title="What is Kubectl"></a>What is Kubectl</h3><p>need some way to interact with a cluster, want to create components configure etcd</p>
+<p><u>a command line tool for kubernetes clusters</u></p>
+<p>Master process — Api Server enable <strong>interaction</strong> with cluster (the main entrypoint into the kubernetes cluster)</p>
+<p> if want to do anything to kubernetes, configure anything, create any components, you first talk to api server. You have to use different clients , so you have a ui like a dashboard you can talk to it using kubernetes api, or a command line tool which is kubectl</p>
+<p><u>Kubectl is the most powerful of 3 clients</u></p>
+<p>​	enable pods to run on node (create pods, destory pods, create services)</p>
+<p><u>kubectl isn’t just for minikube cluster</u></p>
+<p>kubectl is a tool used to interacts with any type of kubernetes cluster setup</p>
+<h3 id="Installation-and-create-minikube-cluster"><a href="#Installation-and-create-minikube-cluster" class="headerlink" title="Installation and create minikube cluster"></a>Installation and create minikube cluster</h3><p>(virtualization on the machine needed)</p>
+<p>Step 1: Install Hypervisor</p>
+<p>Step2：Install Minikube</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140131907.png" alt="image-20220419140131907"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140718492.png" alt="image-20220419140718492"></p>
+<p>安装Minikube的时候，kubectl也会安装好</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140640397.png" alt="image-20220419140640397"></p>
+<p>minikube start</p>
+<p>有了docker就不用hyperkit</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419140955358.png" alt="image-20220419140955358"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141159210.png" alt="image-20220419141159210"></p>
+<p>minikube start</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141401301.png" alt="image-20220419141401301"></p>
+<p>Kubectl get nodes</p>
+<p>​	get status of nodes</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141430306.png" alt="image-20220419141430306"></p>
+<p>Minikube status</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141528902.png" alt="image-20220419141528902"></p>
+<p>kubectl version</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419141644537.png" alt="image-20220419141644537"></p>
+<p>(Client version + Server Version indicate that minikube is correctlly installed)</p>
+<hr>
+<h5 id="Kubectl-CLI"><a href="#Kubectl-CLI" class="headerlink" title="Kubectl CLI"></a>Kubectl CLI</h5><p>​	for configuring the Minikube cluster</p>
+<h5 id="Minikube-CLI"><a href="#Minikube-CLI" class="headerlink" title="Minikube CLI"></a>Minikube CLI</h5><p>​	for start up&#x2F;deleting the cluster</p>
+<h2 id="Main-Kubectl-Commands-K8s-CLI"><a href="#Main-Kubectl-Commands-K8s-CLI" class="headerlink" title="Main Kubectl Commands - K8s CLI"></a>Main Kubectl Commands - K8s CLI</h2><p>Pre-requisities:</p>
+<ul>
+<li>minikube installed</li>
+<li>kubectl installed</li>
+</ul>
+<h3 id="Basic-kubectl-commands"><a href="#Basic-kubectl-commands" class="headerlink" title="Basic kubectl commands"></a>Basic kubectl commands</h3><h4 id="Get-status-of-different-components-x2F-Create-and-Edit-a-Pod"><a href="#Get-status-of-different-components-x2F-Create-and-Edit-a-Pod" class="headerlink" title="Get status of different components &#x2F; Create and Edit a Pod"></a>Get status of different components &#x2F; Create and Edit a Pod</h4><ol>
+<li>kubectl get nodes</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142304867.png" alt="image-20220419142304867"></p>
+<ol start="2">
+<li>kubectl get pods</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142346780.png" alt="image-20220419142346780"></p>
+<ol start="3">
+<li>Kubectl get services</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142437094.png" alt="image-20220419142437094"></p>
+<ol start="4">
+<li><p>kubectl create -h</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419142555745.png" alt="image-20220419142555745"></p>
+<p>Pod is the smallest unit. But you are not creating pods …</p>
+<p>Deployment - abstraction over Pods</p>
+<p>Usage:</p>
+<blockquote>
+<p>kubectl create deployment NAME –image&#x3D;image [–dry-run] [options]</p>
+</blockquote>
+<ul>
+<li>Blueprint for creating pods</li>
+<li>most basic configuration for deployment (name and image to use)</li>
+<li>rest defaults</li>
+</ul>
+</li>
+<li><p>kubectl create deployment nginx-depl –image&#x3D;nginx</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143121449.png" alt="image-20220419143121449"></p>
+</li>
+<li><p>kubectl get deployment<img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143152551.png" alt="image-20220419143152551"></p>
+</li>
+<li><p>kubectl get pod</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143329719.png" alt="image-20220419143329719"></p>
+</li>
+<li><p>kubectl get replicaset</p>
+<p><u>Replicates is managing the replicas of a Pod</u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419143719763.png" alt="image-20220419143719763"></p>
+</li>
+</ol>
+<hr>
+<h3 id="Layers-of-Abstraction"><a href="#Layers-of-Abstraction" class="headerlink" title="Layers of Abstraction"></a>Layers of Abstraction</h3><ol>
+<li><strong>Depolyment</strong> manages a rs</li>
+<li><strong>ReplicaSet</strong> manages a pod</li>
+<li><strong>Pod</strong> is an absratction of Container</li>
+<li><strong>Container</strong></li>
+</ol>
+<p>Everything below Deployment is handled by Kubernetes</p>
+<hr>
+<ol start="9">
+<li><p>kubectl edit deployment [name]</p>
+<p>and we get auto-generated configuration file with default values</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144418780.png" alt="image-20220419144418780"></p>
+</li>
+</ol>
+<p>​	修改image版本</p>
+<p>​	<img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419144542842.png" alt="image-20220419144542842"></p>
+<p>Save the change <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145203991.png" alt="image-20220419145203991"></p>
+<p>kubectl get pod检查</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145437036.png" alt="image-20220419145437036"></p>
+<p>We can get a new one with a new image</p>
+<p>Kubectl get replicassets</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419145625690.png" alt="image-20220419145625690"></p>
+<h3 id="Debugging-pods"><a href="#Debugging-pods" class="headerlink" title="Debugging pods"></a>Debugging pods</h3><ol>
+<li><p>kubectl logs [pod name]</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150020649.png" alt="image-20220419150020649"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150137877.png" alt="image-20220419150137877"></p>
+</li>
+<li><p>Kubectl describe pod [pod name]</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150251228.png" alt="image-20220419150251228"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150318935.png" alt="image-20220419150318935"></p>
+</li>
+<li><p>kubectl exec-it [pod name] – bin&#x2F;bash</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150635772.png" alt="image-20220419150635772"></p>
+</li>
+<li><p>kubectl delete deployment mongo-depl</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150759525.png" alt="image-20220419150759525"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419150926815.png" alt="image-20220419150926815"></p>
+</li>
+<li><p>kubectl get replicaset</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419151121482.png" alt="image-20220419151121482"></p>
+</li>
+<li><p>kubectl create deployment name omage option1 option2</p>
+</li>
+</ol>
+<p>   kubectl apply -f [file name]</p>
+<hr>
+<p>   kubectl apply -f nginx-deployment.yaml</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152046702.png" alt="image-20220419152046702"></p>
+   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span> <span class="comment"># what i want to create</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">nginx-deployment</span> <span class="comment"># name of the deployment</span></span><br><span class="line">  <span class="attr">labels:</span></span><br><span class="line">    <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">spec:</span> <span class="comment"># for deployment</span></span><br><span class="line">  <span class="attr">replicas:</span> <span class="number">1</span> <span class="comment"># how many replicas of pods I want to create</span></span><br><span class="line">  <span class="attr">selector:</span></span><br><span class="line">    <span class="attr">matchLabels:</span></span><br><span class="line">      <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">  <span class="attr">template:</span> <span class="comment"># the blueprint of pods</span></span><br><span class="line">    <span class="attr">metadata:</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">        <span class="attr">app:</span> <span class="string">nginx</span></span><br><span class="line">    <span class="attr">spec:</span> <span class="comment"># for pod</span></span><br><span class="line">      <span class="attr">containers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">nginx:1.16</span> <span class="comment"># fix image version</span></span><br><span class="line">        <span class="attr">resources:</span></span><br><span class="line">          <span class="attr">limits:</span></span><br><span class="line">            <span class="attr">memory:</span> <span class="string">&quot;128Mi&quot;</span></span><br><span class="line">            <span class="attr">cpu:</span> <span class="string">&quot;500m&quot;</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">containerPort:</span> <span class="number">80</span> <span class="comment"># where I want to bind</span></span><br></pre></td></tr></table></figure>
+
+<p>   apply the configuration file</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152714534.png" alt="image-20220419152714534"></p>
+<p>   change the number of replicas</p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419152829089.png" alt="image-20220419152829089"></p>
+<p>   <u>K8s knows when to create or update deployment</u></p>
+<p>   We can get </p>
+<p>   <img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419153105258.png" alt="image-20220419153105258"></p>
+<h3 id="Summarize-the-kubectl-commands"><a href="#Summarize-the-kubectl-commands" class="headerlink" title="Summarize the kubectl commands"></a>Summarize the kubectl commands</h3><h4 id="CRUD-commands"><a href="#CRUD-commands" class="headerlink" title="CRUD commands"></a>CRUD commands</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create deployment</td>
+<td>Kubectl create deployment [name]</td>
+</tr>
+<tr>
+<td>Edit deployment</td>
+<td>Kubectl edit deployment [name]</td>
+</tr>
+<tr>
+<td>Delete deployment</td>
+<td>Kubectl delete deployment [name]</td>
+</tr>
+</tbody></table>
+<h4 id="Status-of-different-k8s-components"><a href="#Status-of-different-k8s-components" class="headerlink" title="Status of different k8s components"></a>Status of different k8s components</h4><p>Kubectl get nodes | pod | services | relicaset | deployment</p>
+<h4 id="Debugging-pods-1"><a href="#Debugging-pods-1" class="headerlink" title="Debugging pods"></a>Debugging pods</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Log to console</td>
+<td>kubectl logs [pod name]</td>
+</tr>
+<tr>
+<td>Get Interactive Terminal</td>
+<td>Kubectl exec -it [pod name] – bin&#x2F;bash</td>
+</tr>
+<tr>
+<td>Git info about pod</td>
+<td>kubectl describe pod [pod name]</td>
+</tr>
+</tbody></table>
+<h4 id="Use-configuration-file-for-CRUD"><a href="#Use-configuration-file-for-CRUD" class="headerlink" title="Use configuration file for CRUD"></a>Use configuration file for CRUD</h4><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Apply a configuration file</td>
+<td>kubectl apply -f  [file name]</td>
+</tr>
+<tr>
+<td>Delete with configuration file</td>
+<td>kubectl delete -f  [file name]</td>
+</tr>
+</tbody></table>
+<h2 id="K8s-Yaml-Configuration-File"><a href="#K8s-Yaml-Configuration-File" class="headerlink" title="K8s Yaml Configuration File"></a>K8s Yaml Configuration File</h2><h3 id="3-parts-of-a-K8s-configuration-file"><a href="#3-parts-of-a-K8s-configuration-file" class="headerlink" title="3 parts of a K8s configuration file"></a>3 parts of a K8s configuration file</h3><p>Service Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154624462.png" alt="image-20220419154624462"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154635700.png" alt="image-20220419154635700"></p>
+<p>Deployment Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154824687.png" alt="image-20220419154824687"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419154839653.png" alt="image-20220419154839653"></p>
+<h4 id="Each-configuration-file-3-parts"><a href="#Each-configuration-file-3-parts" class="headerlink" title="Each configuration file 3 parts"></a>Each configuration file 3 parts</h4><p><strong>kind</strong> declares what we want to create</p>
+<ol>
+<li><p>metadata</p>
+<p>Name</p>
+</li>
+<li><p>specification</p>
+<p>details we want to deploy</p>
+<p>Attributes of “<strong>spec</strong>“ are specfic to the <strong>kind</strong></p>
+</li>
+<li><p>status</p>
+<p>automatically generated and added by Kubernetes</p>
+<p>Desired !&#x3D; Actual ?</p>
+<p>K8s updates state continuously</p>
+</li>
+</ol>
+<h4 id="Where-does-K8s-get-this-status-data"><a href="#Where-does-K8s-get-this-status-data" class="headerlink" title="Where does K8s get this status data?"></a>Where does K8s get this status data?</h4><p>etcd</p>
+<p>Etcd holds the current status of any K8s component</p>
+<h4 id="Format-of-configuration-file"><a href="#Format-of-configuration-file" class="headerlink" title="Format of configuration file"></a>Format of configuration file</h4><p><strong>YAML</strong> configuration file</p>
+<p>智能，人性化，好修改；可以自主编辑然后能保存到云库再共享</p>
+<h4 id="Blueprint-for-pods-Template"><a href="#Blueprint-for-pods-Template" class="headerlink" title="Blueprint for pods (Template)"></a>Blueprint for pods (Template)</h4><p>Deployment manage Pods</p>
+<p>Template</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181143019.png" alt="image-20220419181143019"></p>
+<ul>
+<li>Has it’s own “metadata” and “spec” section</li>
+<li>Applies to pod</li>
+<li>Blueprint for a pod<ul>
+<li>Name?</li>
+<li>Ports?</li>
+<li>Image?</li>
+</ul>
+</li>
+</ul>
+<h3 id="Connecting-components"><a href="#Connecting-components" class="headerlink" title="Connecting components"></a>Connecting components</h3><h4 id="Labels-amp-Selectors-amp-Ports"><a href="#Labels-amp-Selectors-amp-Ports" class="headerlink" title="Labels &amp; Selectors &amp; Ports"></a>Labels &amp; Selectors &amp; Ports</h4><p>Deployment metadata</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181429570.png" alt="image-20220419181429570"></p>
+<p>Service metadata</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181516872.png" alt="image-20220419181516872"></p>
+<h5 id="connecting-Deployment-to-Pods"><a href="#connecting-Deployment-to-Pods" class="headerlink" title="connecting Deployment to Pods"></a>connecting Deployment to Pods</h5><p>any key-value pair for component</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181632363.png" alt="image-20220419181632363"></p>
+<p>Pods get the label through the template blueprint </p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181727727.png" alt="image-20220419181727727"></p>
+<p>The label is matched by the selector in services</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419181944314.png" alt="image-20220419181944314"></p>
+<hr>
+<p>Selector in service match labels (2) in deployment</p>
+<h5 id="Ports-in-Service-and-Pod"><a href="#Ports-in-Service-and-Pod" class="headerlink" title="Ports in Service and Pod"></a>Ports in Service and Pod</h5><p>DB service —&gt; (port:80) ngnix Service —&gt; (targetPort:8080) Pod</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183403873.png" alt="image-20220419183403873"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183435668.png" alt="image-20220419183435668"></p>
+<p>对应service中的部分：</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183515353.png" alt="image-20220419183515353"></p>
+<p>more information</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">pod</span> <span class="string">-o</span> <span class="string">wide</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419183650580.png" alt="image-20220419183650580"></p>
+<h5 id="Status-automatically-generated"><a href="#Status-automatically-generated" class="headerlink" title="Status automatically generated?"></a>Status automatically generated?</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">kubectl</span> <span class="string">get</span> <span class="string">deployment</span> <span class="string">nginx-deployment</span> <span class="string">-o</span> <span class="string">yaml</span>  <span class="string">&gt;</span> <span class="string">nginx-deployment-result.yaml</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184032325.png" alt="image-20220419184032325"></p>
+<h5 id="删除配置和服务"><a href="#删除配置和服务" class="headerlink" title="删除配置和服务"></a>删除配置和服务</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl delete -f nginx-deployment.yaml</span><br><span class="line">kubectl delete -f nginx-service.yaml</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184227917.png" alt="image-20220419184227917"></p>
+<h2 id="Hands-On-Demo"><a href="#Hands-On-Demo" class="headerlink" title="Hands-On Demo"></a>Hands-On Demo</h2><p>Mongo-express  + mongoDB</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Kubectl get all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184612946.png" alt="image-20220419184612946"></p>
+<p>create mongodb file</p>
+<p> Pod blueprint</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419184947067.png" alt="image-20220419184947067"></p>
+<p>mongodb port: 27017</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419185113884.png" alt="image-20220419185113884"></p>
+<p>Deployment Config File is checked into repository</p>
+<p>Username and password should not go here</p>
+<p><u>Secret lives in k8s, not in the repository</u></p>
+<p>Value: Username and password</p>
+<hr>
+<p>Secret Configuration File</p>
+<p>– kind: Secret</p>
+<p>– metadata&#x2F;name: a random name </p>
+<p>– type: “Opaque” -default for arbitrary key - value pairs</p>
+<p>– data: the actual contents - key-value pairs</p>
+<hr>
+<h4 id="加密用户名和密码"><a href="#加密用户名和密码" class="headerlink" title="加密用户名和密码"></a>加密用户名和密码</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo -n &#x27;username&#x27; | base64</span><br><span class="line">echo -n &#x27;password&#x27; | base64</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190501641.png" alt="image-20220419190501641"></p>
+<h3 id="Secret-must-be-created-before-the-Deployment"><a href="#Secret-must-be-created-before-the-Deployment" class="headerlink" title="Secret must be created before the Deployment"></a><strong><u>Secret must be created before the Deployment</u></strong></h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419190701444.png" alt="image-20220419190701444"></p>
+<p>Secret can be referenced now in Deployment</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192255490.png" alt="image-20220419192255490"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192500377.png" alt="image-20220419192500377"></p>
+<p>需要限制资源</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419192541715.png" alt="image-20220419192541715"></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194105278.png" alt="image-20220419194105278"></p>
+<p>Error:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods</span><br><span class="line">kubectl describe pod [pod name]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419194249506.png" alt="image-20220419194249506"></p>
+<p>Possible Solution:</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195222059.png" alt="image-20220419195222059"></p>
+<p>Solution:</p>
+<p><strong><u>create secrets before deployment!!!!!</u></strong></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419195701568.png" alt="image-20220419195701568"></p>
+<h3 id="创建ConfigMAp"><a href="#创建ConfigMAp" class="headerlink" title="创建ConfigMAp"></a>创建ConfigMAp</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419200805943.png" alt="image-20220419200805943"></p>
+<p>Database connected</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201006366.png" alt="image-20220419201006366"></p>
+<p>Create mongoexpress-service</p>
+<p>How to make it an EXternal Service?</p>
+<p>-type: “LoadBalancer”</p>
+<p>BUT, internal service also acts as a loaderbalancer!</p>
+<p>nodePort: for exteral IP address; set port you need to put into the browser</p>
+<p>(30000-32767)</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/uPic/image-20220419201939104.png" alt="image-20220419201939104"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">minikube service mongo-express-service</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Advanced-Concepts"><a href="#Advanced-Concepts" class="headerlink" title="Advanced Concepts"></a>Advanced Concepts</h1><h2 id="K8s-Namespaces-Organize-your-Components"><a href="#K8s-Namespaces-Organize-your-Components" class="headerlink" title="K8s Namespaces - Organize your Components"></a>K8s Namespaces - Organize your Components</h2><h2 id="K8s-Ingress"><a href="#K8s-Ingress" class="headerlink" title="K8s Ingress"></a>K8s Ingress</h2><h2 id="Helm-Package-Manager"><a href="#Helm-Package-Manager" class="headerlink" title="Helm - Package Manager"></a>Helm - Package Manager</h2><h2 id="Volumes-Persisting-Data-in-K8s"><a href="#Volumes-Persisting-Data-in-K8s" class="headerlink" title="Volumes - Persisting Data in K8s"></a>Volumes - Persisting Data in K8s</h2><h2 id="K8s-StatefulSet-Deploying-Stateful-Apps"><a href="#K8s-StatefulSet-Deploying-Stateful-Apps" class="headerlink" title="K8s StatefulSet - Deploying Stateful Apps"></a>K8s StatefulSet - Deploying Stateful Apps</h2><h2 id="K8s-Services"><a href="#K8s-Services" class="headerlink" title="K8s Services"></a>K8s Services</h2>]]></content>
       <categories>
         <category>科研</category>
       </categories>
