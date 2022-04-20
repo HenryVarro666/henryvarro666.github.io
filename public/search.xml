@@ -5176,6 +5176,239 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
+    <title>cmder配置问题</title>
+    <url>/2022/04/20/cmder%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>配置cmder时遇到的一些问题 &#x2F;&#x2F; hook</p>
+<span id="more"></span>
+
+<h1 id="同一行显示不全"><a href="#同一行显示不全" class="headerlink" title="同一行显示不全"></a>同一行显示不全</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201200529.png" alt="image-20220420110058486"></p>
+<p>输入看着会错乱，但其实是正确的</p>
+<hr>
+<p>实际上是中文文件名显示不全</p>
+<p>需要环境里面添加设置 <code>set LANG=zh_CN.UTF-8</code>就可以了</p>
+<p>(<a href="https://github.com/cmderdev/cmder/issues/985">https://github.com/cmderdev/cmder/issues/985</a>)</p>
+<p>（可能还要打开monospace）</p>
+<h1 id="编码报错"><a href="#编码报错" class="headerlink" title="编码报错"></a>编码报错</h1><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201209425.png" alt="image-20220420110917348"></p>
+<h2 id="修改编码"><a href="#修改编码" class="headerlink" title="修改编码"></a>修改编码</h2><p>环境变量 添加 PYTHONIOENCODING &#x3D; UTF8</p>
+<p>(注意这边不是UTF-8, 而是UTF8)</p>
+<p>但是改了这个之后我的picgo失效了。</p>
+<p>可能python2，就是电脑默认的那个使用是GBK编码</p>
+<h2 id="忽略hook"><a href="#忽略hook" class="headerlink" title="忽略hook"></a>忽略hook</h2><p><a href="https://github.com/Drekin/win-unicode-console/issues/36">Any way to disable readline hook warning? #36</a></p>
+<p>不懂这个hook的作用，先码着</p>
+<p>路径：C:\ProgramData\Anaconda3\Lib\site-packages\win_unicode_console</p>
+<p>修改 <code>readline_hook.py</code>里面</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PY3 # def enable(*, use_pyreadline=True):</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">enable</span>(<span class="params">*use_pyreadline*=<span class="literal">True</span></span>):</span><br><span class="line">	<span class="comment"># check_encodings()</span></span><br></pre></td></tr></table></figure>
+
+<p>注释掉这个</p>
+<hr>
+<p>然后thefuck的官方文档也提到这个报错，可惜没找到合适的解决方法</p>
+]]></content>
+      <categories>
+        <category>专业相关知识</category>
+      </categories>
+      <tags>
+        <tag>专业相关知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020年美国新冠肺炎疫情数据分析</title>
+    <url>/2022/04/20/2020%E5%B9%B4%E7%BE%8E%E5%9B%BD%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>使用的Linux(Ubuntu 16.04)系统，运用了Hadoop3.1.3环境、Spark2.4.0大数据分析引擎、Python3.8编程语言、Jupyter Notebook工具。</p>
+<p><a href="https://hejianing.blog.csdn.net/">2020年美国新冠肺炎疫情数据分析 - DomCode</a></p>
+<p><a href="http://dblab.xmu.edu.cn/blog/2636-2/">2020年美国新冠肺炎疫情数据分析 厦门大学数据库实验室-林子雨老师</a></p>
+<span id="more"></span>
+
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><blockquote>
+<p>本次实验需要对2020年美国新冠肺炎疫情数据作为数据集，以Python为编程语言，使用Spark对数据进行分析，并对分析结果进行可视化。首先需要对数据的采取，在原始数据集.CSV文件组织的，为了方便spark读取生成RDD或者DataFrame，我们需要对us-counties.csv转换为.txt格式文件us-counties.txt，将文件上传至HDFS文件系统中。其次我们需要对采取的数据进行分析，用python完成本实验要统计的8个指标代码在analyst.py文件中，Spark计算结果保存.json文件，方便后续可视化处理。由于使用Python读取HDFS文件系统不太方便，故将HDFS上结果文件转储到本地文件系统中，在可视化中我们需要安装第三方库pyecharts作为可视化工具，具体可视化实现代码在showdata.py文件中展示，编译之后能产生九副可视化图，展示不一样的图形类型对应的意思也不一样。</p>
+</blockquote>
+<p><a href="http://dblab.xmu.edu.cn/blog/2441-2/">Hadoop3.1.3安装教程_单机&#x2F;伪分布式配置_Hadoop3.1.3&#x2F;Ubuntu18.04(16.04)</a></p>
+<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><h2 id="用wsl创建本地的Ubuntu虚拟机系统"><a href="#用wsl创建本地的Ubuntu虚拟机系统" class="headerlink" title="用wsl创建本地的Ubuntu虚拟机系统"></a>用wsl创建本地的Ubuntu虚拟机系统</h2><h2 id="在Ubuntu上安装Hadoop"><a href="#在Ubuntu上安装Hadoop" class="headerlink" title="在Ubuntu上安装Hadoop"></a>在Ubuntu上安装Hadoop</h2><hr>
+<p>*：<u>该版本暂且作废，以参考博客的附录为准</u></p>
+<p><a href="https://phoenixnap.com/kb/install-hadoop-ubuntu"><strong>How to Install Hadoop on Ubuntu 18.04 or 20.04</strong></a></p>
+<p>Install OpenJDK on Ubuntu</p>
+<p>At the moment, <strong>Apache Hadoop 3.x fully supports Java 8</strong>. The OpenJDK 8 package in Ubuntu contains both the runtime environment and development kit.</p>
+<p><code> sudo apt install openjdk-8-jdk -y</code></p>
+<p>安装完检查版本</p>
+<p><code> java -version</code></p>
+<p><code>javac -version</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201309025.png" alt="image-20220420120920974"></p>
+<p>Set Up a Non-Root User for Hadoop Environment</p>
+<p> To ensure the smooth functioning of Hadoop services, the user should have the ability to establish a <a href="https://phoenixnap.com/kb/setup-passwordless-ssh">passwordless SSH connection</a> with the localhost.</p>
+<p>Install OpenSSH on Ubuntu</p>
+<p><code>sudo apt install openssh-server openssh-client -y</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201311935.png" alt="image-20220420121150883"></p>
+<p>Create Hadoop User</p>
+<p><code>sudo adduser hdoop</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201314994.png" alt="image-20220420121404929"></p>
+<p>（随便设置密码123456）</p>
+<p><code>su - hdoop</code>切换用户</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201314978.png" alt="image-20220420121458888"></p>
+<p>这条指令注意空格：su - hdoop, 不是su-hdoop</p>
+<p>Enable Passwordless SSH for Hadoop User</p>
+<p><a href="https://phoenixnap.com/kb/generate-setup-ssh-key-ubuntu">Generate an SSH key pair </a>and define the location is is to be stored in:</p>
+<p><code>ssh-keygen -t rsa -P &#39;&#39; -f ~/.ssh/id_rsa</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201317114.png" alt="image-20220420121750040"></p>
+<p>Use the <strong><code>cat</code></strong> command to store the public key as <strong>authorized_keys</strong> in the <em>ssh</em> directory:</p>
+<p><code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></p>
+<p>Set the permissions for your user with the <strong><code>chmod</code></strong> command:</p>
+<p><code>chmod 0600 ~/.ssh/authorized_keys</code></p>
+<p>The new user is now able to SSH without needing to enter a password every time. Verify everything is set up correctly by using the <strong>hdoop</strong> user to SSH to localhost:</p>
+<p><code>ssh localhost</code></p>
+<p>After an initial prompt, the Hadoop user is now able to establish an SSH connection to the localhost seamlessly</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201320358.png" alt="image-20220420122042240"></p>
+<p>(nmd, 为什么失败了)</p>
+<hr>
+<p><a href="https://stackoverflow.com/questions/17335728/connect-to-host-localhost-port-22-connection-refused">connect to host localhost port 22: Connection refused</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201326815.png" alt="image-20220420122600667"></p>
+<p>没有管理员权限，来回切换真的很烦</p>
+<p>hdoop生成的密钥只能hdoop使用。连接成功</p>
+<p>Download and Install Hadoop on Ubuntu</p>
+<p>安装文件官网：</p>
+<p><a href="https://hadoop.apache.org/releases.html">https://hadoop.apache.org/releases.html</a></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201329517.png" alt="image-20220420122909442"></p>
+<p>二进制文件，下载到本地然后编译安装</p>
+<p>这边就ubuntu的wget + http下载到本地（先下载再移动进来也可）</p>
+<p><code>wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.3/hadoop-3.2.3.tar.gz</code></p>
+<p>解压</p>
+<p><code>tar xzf hadoop-3.2.3.tar.gz</code></p>
+<p>然后就可以看到压缩文件和解压后的文件夹</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201332988.png" alt="image-20220420123221896"></p>
+<p>搞个vim后面好编辑</p>
+<p><code>sudo apt-get install vim</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201336483.png" alt="image-20220420123620420"></p>
+<hr>
+<h3 id="Hadoop3-1-3安装教程-单机-x2F-伪分布式配置-Hadoop3-1-3-x2F-Ubuntu18-04-16-04"><a href="#Hadoop3-1-3安装教程-单机-x2F-伪分布式配置-Hadoop3-1-3-x2F-Ubuntu18-04-16-04" class="headerlink" title="Hadoop3.1.3安装教程_单机&#x2F;伪分布式配置_Hadoop3.1.3&#x2F;Ubuntu18.04(16.04)"></a><a href="http://dblab.xmu.edu.cn/blog/2441-2/">Hadoop3.1.3安装教程_单机&#x2F;伪分布式配置_Hadoop3.1.3&#x2F;Ubuntu18.04(16.04)</a></h3><h4 id="创建新用户"><a href="#创建新用户" class="headerlink" title="创建新用户"></a>创建新用户</h4><p><code>sudo useradd -m hadoop -s /bin/bash</code></p>
+<p>设置或者更新密码</p>
+<p><code>sudo passwd hadoop</code></p>
+<p>添加管理员权限</p>
+<p><code>sudo adduser hadoop sudo</code></p>
+<p>更换用户</p>
+<p><code>su - hadoop</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201349516.png" alt="image-20220420124954449"></p>
+<p>随手更新apt软件列表</p>
+<p><code>sudo apt-get update</code></p>
+<p>装个vim</p>
+<p><code>sudo apt-get install vim</code></p>
+<h4 id="安装SSH、配置SSH无密码登陆"><a href="#安装SSH、配置SSH无密码登陆" class="headerlink" title="安装SSH、配置SSH无密码登陆"></a>安装SSH、配置SSH无密码登陆</h4><p>集群、单节点模式都需要用到 SSH 登陆（类似于远程登陆，你可以登录某台 Linux 主机，并且在上面运行命令），<u><strong>Ubuntu 默认已安装了 SSH client，此外还需要安装 SSH server</strong></u></p>
+<p><code>sudo apt-get install openssh-server</code></p>
+<p>安装后，可以使用如下命令登陆本机：</p>
+<p><code>ssh localhost</code></p>
+<p>（md上面那个影响了publickey，这个要重新开始设置）</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201355780.png" alt="image-20220420125531725"></p>
+<p>新建钥匙</p>
+<p><code>ssh-keygen -t rsa</code></p>
+<p>加入授权</p>
+<p><code>cat ./id_rsa.pub &gt;&gt; ./authorized_keys </code></p>
+<p>删除用户</p>
+<p><code>userdel -r newuser</code></p>
+<p>因为之前用户，所以出现问题干脆删掉所有公钥密钥主机，重新生成就好了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201415897.png" alt="image-20220420131509708"></p>
+<p><del><u>java-1.8.0-openjdk-amd64</u></del></p>
+<p>修改文件名为hadoop</p>
+<p><code>sudo mv ./hadoop-3.2.3/ ./hadoop</code></p>
+<p>修改文件权限</p>
+<p><code>sudo chown -R hadoop ./hadoop</code></p>
+<p>安装java</p>
+<p>（JDK1.8的安装包jdk-8u162-linux-x64.tar.gz放在了百度云盘，<a href="https://pan.baidu.com/s/1lLjW9cmS1tkBHkrqtpkjWw">可以点击这里到百度云盘下载JDK1.8安装包</a>（提取码：ziyu））</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>一直管理员</p>
+<p><code>sudo su</code></p>
+<hr>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201513833.png" alt="image-20220420141306758"></p>
+<p>windows 和wsl 传送文件</p>
+<p><del>cp -r C:&#x2F;Users&#x2F;15045&#x2F;Downloads&#x2F;jdk-8u162-linux-x64.tar.gz &#x2F;usr&#x2F;lib&#x2F;jvm</del></p>
+<p>wsl访问Windows是mnt</p>
+<p>&#x2F;mnt&#x2F;c&#x2F;Users&#x2F;15045&#x2F;Downloads</p>
+<p><code>sudo cp jdk-8u162-linux-x64.tar.gz  /usr/lib/jvm</code></p>
+<p><code>sudo tar -zxvf jdk-8u162-linux-x64.tar.gz</code></p>
+<p>保存.bashrc文件并退出vim编辑器。然后，继续执行如下命令让.bashrc文件的配置立即生效：</p>
+<p><code>source ~/.bashrc</code></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201539985.png" alt="image-20220420143956918"></p>
+<blockquote>
+<p>如果在这一步时提示 <strong>Error: JAVA_HOME is not set and could not be found.</strong> 的错误，则说明之前设置 JAVA_HOME 环境变量那边就没设置好，请按教程先设置好 JAVA_HOME 变量，否则后面的过程都是进行不下去的。</p>
+<p>如果已经按照前面教程在.bashrc文件中设置了JAVA_HOME，还是出现 <strong>Error: JAVA_HOME is not set and could not be found.</strong> 的错误，那么，请到hadoop的安装目录修改配置文件“&#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F;hadoop-env.sh”，在里面找到“export JAVA_HOME&#x3D;${JAVA_HOME}”这行，然后，把它修改成JAVA安装路径的具体地址，比如，“export JAVA_HOME&#x3D;&#x2F;usr&#x2F;lib&#x2F;jvm&#x2F;default-java”，然后，再次启动Hadoop。</p>
+</blockquote>
+<p>Hadoop伪分布式配置</p>
+<blockquote>
+<p>Hadoop 可以在单节点上以伪分布式的方式运行，Hadoop 进程以分离的 Java 进程来运行，节点既作为 NameNode 也作为 DataNode，同时，读取的是 HDFS 中的文件。</p>
+<p>Hadoop 的配置文件位于 &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop&#x2F; 中，伪分布式需要修改2个配置文件 <strong>core-site.xml</strong> 和 <strong>hdfs-site.xml</strong> 。Hadoop的配置文件是 xml 格式，每个配置以声明 property 的 name 和 value 的方式来实现。</p>
+</blockquote>
+<p><strong>etc&#x2F;hadoop&#x2F;core-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:/usr/local/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">description</span>&gt;</span>Abase for other temporary directories.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​      <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>hdfs-site.xml</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:/usr/local/hadoop/tmp/dfs/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​    <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​        <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">​       <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:/usr/local/hadoop/tmp/dfs/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   	<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em>Hadoop配置文件说明</em></p>
+<p>Hadoop 的运行方式是由配置文件决定的（运行 Hadoop 时会读取配置文件），因此如果需要从伪分布式模式切换回非分布式模式，需要删除 core-site.xml 中的配置项。</p>
+<p>此外，伪分布式虽然只需要配置 fs.defaultFS 和 dfs.replication 就可以运行（官方教程如此），不过若没有配置 hadoop.tmp.dir 参数，则默认使用的临时目录为 &#x2F;tmp&#x2F;hadoo-hadoop，而这个目录在重启时有可能被系统清理掉，导致必须重新执行 format 才行。所以我们进行了设置，同时也指定 dfs.namenode.name.dir 和 dfs.datanode.data.dir，否则在接下来的步骤中可能会出错。</p>
+</blockquote>
+<p>执行NameNode的格式化</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line"></span><br><span class="line">./bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201555859.png" alt="image-20220420145549688"></p>
+<p>接着开启 NameNode 和 DataNode 守护进程。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/hadoop</span><br><span class="line"></span><br><span class="line">./sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+
+<p>报错</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201600457.png" alt="image-20220420150044328"></p>
+<p><del><a href="https://blog.csdn.net/jiecxy/article/details/78003272">https://blog.csdn.net/jiecxy/article/details/78003272</a></del></p>
+<p><a href="https://blog.csdn.net/sonetto/article/details/107640438">https://blog.csdn.net/sonetto/article/details/107640438</a></p>
+<p>不知道为啥要装ssh和openssh-server</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201607765.png" alt="image-20220420150730578"></p>
+<p>成功！</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201609476.png" alt="image-20220420150922395"></p>
+<p>jps查看启动的hadoop进程</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201610847.png" alt="image-20220420151001781"></p>
+<p>如果DataNode没有启动，可以尝试如下办法（注意这会删除 HDFS 中原有的所有数据，如果原有的数据很重要请不要这样做）：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">针对 DataNode 没法启动的解决方法</span></span><br><span class="line">cd /usr/local/hadoop</span><br><span class="line">./sbin/stop-dfs.sh   # 关闭</span><br><span class="line">rm -r ./tmp     # 删除 tmp 文件，注意这会删除 HDFS 中原有的所有数据</span><br><span class="line">./bin/hdfs namenode -format   # 重新格式化 NameNode</span><br><span class="line">./sbin/start-dfs.sh  # 重启</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行Hadoop伪分布式实例"><a href="#运行Hadoop伪分布式实例" class="headerlink" title="运行Hadoop伪分布式实例"></a>运行Hadoop伪分布式实例</h2><p>上面的单机模式，grep 例子读取的是本地数据，伪分布式读取的则是 HDFS 上的数据。要使用 HDFS，首先需要在 HDFS 中创建用户目录：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hdfs dfs -mkdir -p /user/hadoop</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>教材《大数据技术原理与应用》的命令是以”.&#x2F;bin&#x2F;hadoop dfs”开头的Shell命令方式，实际上有三种shell命令方式。<br>\1. hadoop fs<br>\2. hadoop dfs<br>\3. hdfs dfs</p>
+<p>hadoop fs适用于任何不同的文件系统，比如本地文件系统和HDFS文件系统<br>hadoop dfs只能适用于HDFS文件系统<br>hdfs dfs跟hadoop dfs的命令作用一样，也只能适用于HDFS文件系统</p>
+</blockquote>
+<p>接着将 .&#x2F;etc&#x2F;hadoop 中的 xml 文件作为输入文件复制到分布式文件系统中，即将 &#x2F;usr&#x2F;local&#x2F;hadoop&#x2F;etc&#x2F;hadoop 复制到分布式文件系统中的 &#x2F;user&#x2F;hadoop&#x2F;input 中。我们使用的是 hadoop 用户，并且已创建相应的用户目录 &#x2F;user&#x2F;hadoop ，因此在命令中就可以使用相对路径如 input，其对应的绝对路径就是 &#x2F;user&#x2F;hadoop&#x2F;input:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hdfs dfs -mkdir input</span><br><span class="line"></span><br><span class="line">./bin/hdfs dfs -put ./etc/hadoop/*.xml input</span><br></pre></td></tr></table></figure>
+
+<p>复制完成后，可以通过如下命令查看文件列表：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hdfs dfs -ls input</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204201615116.png" alt="image-20220420151528022"></p>
+<p>伪分布式运行 MapReduce 作业的方式跟单机模式相同，区别在于伪分布式读取的是HDFS中的文件（可以将单机步骤中创建的本地 input 文件夹，输出结果 output 文件夹都删掉来验证这一点）。</p>
+<p>（这部分是Hadoop单机配置的部分，没管）</p>
+<p>Hadoop <u>默认模式为非分布式模式（本地模式）</u>，无需进行其他配置即可运行。非分布式即单 Java 进程，方便进行调试。</p>
+<hr>
+<p>Hadoop 运行程序时，输出目录不能存在，否则会提示错误 “org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs:&#x2F;&#x2F;localhost:9000&#x2F;user&#x2F;hadoop&#x2F;output already exists” ，因此若要再次执行，需要执行如下命令删除 output 文件夹:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hdfs dfs -rm -r output    # 删除 output 文件夹</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>运行 Hadoop 程序时，为了防止覆盖结果，程序指定的输出目录（如 output）不能存在，否则会提示错误，因此运行前需要先删除输出目录。在实际开发应用程序时，可考虑在程序中加上如下代码，能在每次运行时自动删除输出目录，避免繁琐的命令行操作</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Configuration conf = new Configuration();</span><br><span class="line"></span><br><span class="line">Job job = new Job(conf);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/\* 删除输出目录 \*/*</span><br><span class="line"></span><br><span class="line">Path outputPath = new Path(args[1]);</span><br><span class="line"></span><br><span class="line">outputPath.getFileSystem(conf).delete(outputPath, true);</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<hr>
+<p>若要关闭 Hadoop，则运行</p>
+<p>.&#x2F;sbin&#x2F;stop-dfs.sh</p>
+<p><strong><u>下次启动 hadoop 时，无需进行 NameNode 的初始化，只需要运行 <code>./sbin/start-dfs.sh</code> 就可以！</u></strong></p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Books</title>
     <url>/book/index.html</url>
     <content><![CDATA[]]></content>
