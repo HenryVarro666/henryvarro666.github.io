@@ -5249,12 +5249,18 @@ Mac安装Docker</p>
 <li><p>PM2:</p>
 <p>PM2 is a production process manager for Node.js applications with a built-in load balancer. It allows you to keep applications alive forever, to reload them without downtime and to facilitate common system admin tasks.</p>
 </li>
-<li><p><a href="www.bt.cn">BaoTa</a>:<br>宝塔Linux面板 - 简单好用的服务器运维面板 (<del>要翻墙回去访问，多多少少有毛病</del>,我是傻逼，有英文版)</p>
+<li><p><a href="www.bt.cn">BaoTa</a>:<br>宝塔Linux面板 - 简单好用的服务器运维面板 (<del>要翻墙回去访问，多多少少有毛病</del>我是傻逼，有<a href="https://www.aapanel.com/index.html">英文版</a>)</p>
 <p>宝塔好像是可以搭建docker的</p>
+<p><u>宝塔里面可以安装PM2</u></p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204210239851.png" alt="image-20220421013933689"></p>
+</li>
+<li><p><a href="https://spark.apache.org/docs/latest/api/python/">pyspark</a>:</p>
+<p>PySpark is an interface for Apache Spark in Python. I<u>t not only allows you to write Spark applications using Python APIs, but also provides the PySpark shell for interactively analyzing your data in a distributed environment. PySpark supports most of Spark’s features such as Spark SQL, DataFrame, Streaming, MLlib (Machine Learning) and Spark Core.</u></p>
 </li>
 </ol>
 <h1 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h1><ol>
 <li><p>**<u>怎么才能让aws的虚拟机长时间在后台运行？</u>**那个academy好像过几个小时自动关机</p>
+<p><a href="https://awsacademy.instructure.com/login/canvas">awsacademy</a></p>
 <p>试试看在宝塔里面运行脚本（记不得是重启机器还是重启进程了）</p>
 </li>
 <li><p>在aws实例里面搞节点kubernetes啥的？</p>
@@ -5266,6 +5272,10 @@ Mac安装Docker</p>
 </li>
 <li><p>PM2和宝塔好像都是用来部署网页的？</p>
 <p>管理文件应该也不差</p>
+</li>
+<li><p>上课讲到pyspark这玩意儿。能否投入使用?</p>
+</li>
+<li><p>aws咋进入root模式？？</p>
 </li>
 </ol>
 <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><blockquote>
