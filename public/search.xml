@@ -5611,7 +5611,7 @@ Mac安装Docker</p>
 <h4 id="启动spark-shell"><a href="#启动spark-shell" class="headerlink" title="启动spark shell"></a>启动spark shell</h4><p>bin&#x2F;spark-shell</p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204212244465.png" alt="image-20220421214437380"></p>
 <h4 id="退出Spark-shell"><a href="#退出Spark-shell" class="headerlink" title="退出Spark  shell"></a>退出Spark  shell</h4><p>:q</p>
-<h2 id="PySpark？？"><a href="#PySpark？？" class="headerlink" title="PySpark？？"></a>PySpark？？</h2><p><a href="http://dblab.xmu.edu.cn/blog/1689-2/">Spark2.1.0+入门：Spark的安装和使用(Python版)_厦大数据库实验室博客 (xmu.edu.cn)</a></p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p><a href="http://dblab.xmu.edu.cn/blog/1689-2/">Spark2.1.0+入门：Spark的安装和使用(Python版)_厦大数据库实验室博客 (xmu.edu.cn)</a></p>
 <h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><p>python3.9</p>
 <p>压缩文件保存到 &#x2F;home&#x2F;hadoop</p>
 <p>安装</p>
@@ -5657,11 +5657,60 @@ Mac安装Docker</p>
 </blockquote>
 <p>除了在阿里云官网控制台的安全组中添加相应端口外，还要在<a href="https://cloud.tencent.com/product/cvm?from=10680">云服务器</a>中也相应地开放端口。</p>
 <blockquote>
-<p>sudo su root<br>ufw allow 2021<br>ufw reload<br>ufw status</p>
+<p>sudo su root<br>ufw allow 8888<br>ufw reload<br>ufw status</p>
 </blockquote>
 <p>在hadoop身份下运行jupyter notebook，ip + 端口就可以访问了</p>
 <p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204212356322.png" alt="image-20220421225605227"></p>
-<h2 id="Python和PySpark交互"><a href="#Python和PySpark交互" class="headerlink" title="Python和PySpark交互"></a>Python和PySpark交互</h2>]]></content>
+<h1 id="Jupyter-Notebook-服务器后台保持运行或关闭"><a href="#Jupyter-Notebook-服务器后台保持运行或关闭" class="headerlink" title="Jupyter Notebook 服务器后台保持运行或关闭"></a>Jupyter Notebook 服务器后台保持运行或关闭</h1><p>后台开</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup  jupyter notebook --allow-root&amp;</span><br></pre></td></tr></table></figure>
+
+<p>后台关</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -aux | grep jupyter</span><br></pre></td></tr></table></figure>
+
+<p>找到PID之后</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="！PySpark和Spark"><a href="#！PySpark和Spark" class="headerlink" title="！PySpark和Spark"></a>！PySpark和Spark</h1><p>Spark: 原生语言为scala</p>
+<p>PySpark: 使用了python api对spark进行交互</p>
+<hr>
+<p><a href="https://blog.csdn.net/Gscsd_T/article/details/103438881">个人对 PySpark 的看法和见解</a></p>
+<p>spark这个框架，基于hadoop，spark是基于内存的（hadoop基于磁盘的）</p>
+<p>pyspark是spark用python写的api接口，内存读写速度肯定比磁盘快</p>
+<h2 id="配置Jupyter-Notebook实现和PySpark交互"><a href="#配置Jupyter-Notebook实现和PySpark交互" class="headerlink" title="配置Jupyter Notebook实现和PySpark交互"></a>配置Jupyter Notebook实现和PySpark交互</h2><p><a href="http://dblab.xmu.edu.cn/blog/2575-2/">http://dblab.xmu.edu.cn/blog/2575-2/</a></p>
+<h1 id="其他技术"><a href="#其他技术" class="headerlink" title="其他技术"></a>其他技术</h1><h3 id="Flink-？？？"><a href="#Flink-？？？" class="headerlink" title="Flink ？？？"></a>Flink ？？？</h3><h3 id="Flume-？？？"><a href="#Flume-？？？" class="headerlink" title="Flume ？？？"></a>Flume ？？？</h3><h5 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h5><ol>
+<li><p>Flume可以将应用产生的数据存储到任何集中存储器中，比如HDFS,HBase</p>
+</li>
+<li><p>当收集数据的速度超过将写入数据的时候，也就是当收集信息遇到峰值时，这时候收集的信息非常大，甚至超过了系统的写入数据能力，这时候，Flume会在数据生产者和数据收容器间做出调整，保证其能够在两者之间提供平稳的数据.</p>
+</li>
+<li><p>提供上下文路由特征</p>
+</li>
+<li><p>Flume的管道是基于事务，保证了数据在传送和接收时的一致性.</p>
+</li>
+<li><p>Flume是可靠的，容错性高的，可升级的，易管理的,并且可定制的。</p>
+</li>
+</ol>
+<h5 id="具有特征"><a href="#具有特征" class="headerlink" title="具有特征"></a>具有特征</h5><ol>
+<li><p>Flume可以高效率的将多个<a href="https://baike.baidu.com/item/%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8/8156379">网站服务器</a>中收集的日志信息存入HDFS&#x2F;HBase中</p>
+</li>
+<li><p>使用Flume，我们可以将从多个服务器中获取的数据迅速的移交给Hadoop中</p>
+</li>
+<li><p>除了日志信息，Flume同时也可以用来接入收集规模宏大的社交网络节点事件数据，比如facebook,twitter,电商网站如亚马逊，flipkart等</p>
+</li>
+<li><p>支持各种接入资源数据的类型以及接出数据类型</p>
+</li>
+<li><p>支持多路径流量，多管道接入流量，多管道接出流量，上下文路由等</p>
+</li>
+<li><p>可以被水平扩展</p>
+</li>
+</ol>
+<h3 id="AWS-EKS-？？？"><a href="#AWS-EKS-？？？" class="headerlink" title="AWS EKS ？？？"></a>AWS EKS ？？？</h3><p>数据存储</p>
+<p><a href="https://aws.amazon.com/cn/ekss">https://aws.amazon.com/cn/ekss</a></p>
+<h3 id="Windows-or-Ubuntu"><a href="#Windows-or-Ubuntu" class="headerlink" title="Windows or Ubuntu ? ? ?"></a>Windows or Ubuntu ? ? ?</h3><p>winutils</p>
+<h3 id="Hadoop节点？？？"><a href="#Hadoop节点？？？" class="headerlink" title="Hadoop节点？？？"></a>Hadoop节点？？？</h3><p>cluster</p>
+<p>node</p>
+]]></content>
       <categories>
         <category>专业相关知识</category>
       </categories>
