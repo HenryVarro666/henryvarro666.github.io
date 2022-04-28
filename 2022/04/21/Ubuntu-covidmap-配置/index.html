@@ -41,8 +41,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204212312632.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204212314047.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204212356322.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281044123.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281101626.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281047487.png">
 <meta property="article:published_time" content="2022-04-22T00:11:05.000Z">
-<meta property="article:modified_time" content="2022-04-25T18:09:19.067Z">
+<meta property="article:modified_time" content="2022-04-28T16:05:55.597Z">
 <meta property="article:author" content="Chao Cao">
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
@@ -235,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-25 13:09:19" itemprop="dateModified" datetime="2022-04-25T13:09:19-05:00">2022-04-25</time>
+                <time title="Modified: 2022-04-28 11:05:55" itemprop="dateModified" datetime="2022-04-28T11:05:55-05:00">2022-04-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,14 +256,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>7.2k</span>
+              <span>8.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>7 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -482,6 +485,56 @@
 <h3 id="Windows-or-Ubuntu"><a href="#Windows-or-Ubuntu" class="headerlink" title="Windows or Ubuntu ? ? ?"></a>Windows or Ubuntu ? ? ?</h3><p>winutils</p>
 <h3 id="Hadoop节点？？？"><a href="#Hadoop节点？？？" class="headerlink" title="Hadoop节点？？？"></a>Hadoop节点？？？</h3><p>cluster</p>
 <p>node</p>
+<hr>
+<h1 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h1><p>为了方便spark读取生成RDD或者DataFrame，首先将us-counties.csv转换为.txt格式文件us-counties.txt。转换操作使用python实现，代码组织在toTxt.py中</p>
+<p><u>~&#x2F;home&#x2F;hadoop&#x2F;</u></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#.csv-&gt;.txt</span></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;/home/hadoop/us-counties.csv&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/home/hadoop/us-counties.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data.values:</span><br><span class="line">        f.write((<span class="built_in">str</span>(line[<span class="number">0</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">1</span>])+<span class="string">&#x27;\t&#x27;</span></span><br><span class="line">                +<span class="built_in">str</span>(line[<span class="number">2</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">3</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">4</span>])+<span class="string">&#x27;\n&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Upload “&#x2F;home&#x2F;hadoop&#x2F;us-counties.txt” from the local filesystem to the HDFS filesystem at “&#x2F;user&#x2F;hadoop&#x2F;us-counties.txt “</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hdfs dfs -put /home/hadoop/us-counties.txt /user/hadoop</span><br></pre></td></tr></table></figure>
+
+<p>在<u>&#x2F;usr&#x2F;local&#x2F;hadoop</u>这个路径里面</p>
+<p>失败了。因为没有user&#x2F;hadoop</p>
+<p>所以这里需要先创建用户目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<blockquote>
+<p> 2022-04-28 21:19:53,534 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted &#x3D; false, remoteHostTrusted &#x3D; false</p>
+</blockquote>
+<p>（这个暂时不管）</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281044123.png" alt="image-20220428094401029"></p>
+<p>没找到在哪，但就是成功了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281101626.png" alt="image-20220428100151546"></p>
+<p>HDFS文件系统的根目录是&#x2F;，用户主目录是&#x2F;user&#x2F;[hadoop用户名]</p>
+<p>HDFS上传文件命令:hadoop fs -put </p>
+<p>HDFS下载文件命令:hadoop fs -get</p>
+<p>HDFS储存文件目录实在:tmp&#x2F;dfs&#x2F;data&#x2F;current&#x2F;finalized&#x2F;subdir0&#x2F;subdir0&#x2F;</p>
+<p>#tmp是在配置hdfs-site.xml是所配置的文件夹</p>
+<p>tmp&#x2F;dfs&#x2F;name&#x2F;current&#x2F;VERSION下存储DataNode的clusterID</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281047487.png" alt="image-20220428094754399"></p>
+<p>这个就是添加路径</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Y_6155/article/details/110108809">https://blog.csdn.net/Y_6155/article/details/110108809</a></p>
+<hr>
+<p>上述Spark计算结果保存.json文件，方便后续可视化处理</p>
+<p>由于使用Python读取HDFS文件系统不太方便，故将HDFS上结果文件转储到本地文件系统中，使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -get /user/hadoop/result1.json/*.json /home/hadoop/jupyternotebook/result1</span><br></pre></td></tr></table></figure>
+
+<p>对于result2等结果文件，使用相同命令，只需要改一下路径即可。</p>
+<p>失败</p>
+<p>.&#x2F;bin&#x2F;hdfs dfs -mkdir &#x2F;user&#x2F;hadoop&#x2F;input</p>
+<blockquote>
+<p>伪分布式运行 MapReduce 作业的方式跟单机模式相同，区别在于伪分布式读取的是HDFS中的文件（可以将单机步骤中创建的本地 input 文件夹，输出结果 output 文件夹都删掉来验证这一点）</p>
+</blockquote>
 
     </div>
 
@@ -562,7 +615,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">1.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop3-1-3"><span class="nav-number">2.</span> <span class="nav-text">Hadoop3.1.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">Hadoop伪分布式配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E9%94%99"><span class="nav-number">2.1.1.</span> <span class="nav-text">报错</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAHadoop%E7%94%A8%E6%88%B7"><span class="nav-number">2.2.</span> <span class="nav-text">创建Hadoop用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96-NameNode"><span class="nav-number">2.2.1.</span> <span class="nav-text">重新格式化 NameNode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Hadoop"><span class="nav-number">2.2.2.</span> <span class="nav-text">启动Hadoop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%ADhadoop"><span class="nav-number">2.2.3.</span> <span class="nav-text">关闭hadoop</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark"><span class="nav-number">3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8spark-shell"><span class="nav-number">3.0.1.</span> <span class="nav-text">启动spark shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%80%E5%87%BASpark-shell"><span class="nav-number">3.0.2.</span> <span class="nav-text">退出Spark  shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">4.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-number">5.</span> <span class="nav-text">Anaconda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84jupyter-notebook"><span class="nav-number">5.1.</span> <span class="nav-text">访问服务器的jupyter notebook</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter-Notebook-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%8F%B0%E4%BF%9D%E6%8C%81%E8%BF%90%E8%A1%8C%E6%88%96%E5%85%B3%E9%97%AD"><span class="nav-number"></span> <span class="nav-text">Jupyter Notebook 服务器后台保持运行或关闭</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%81PySpark%E5%92%8CSpark"><span class="nav-number"></span> <span class="nav-text">！PySpark和Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEJupyter-Notebook%E5%AE%9E%E7%8E%B0%E5%92%8CPySpark%E4%BA%A4%E4%BA%92"><span class="nav-number">1.</span> <span class="nav-text">配置Jupyter Notebook实现和PySpark交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF"><span class="nav-number"></span> <span class="nav-text">其他技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.1.</span> <span class="nav-text">Flink ？？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flume-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.2.</span> <span class="nav-text">Flume ？？？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">0.2.0.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E6%9C%89%E7%89%B9%E5%BE%81"><span class="nav-number">0.2.0.2.</span> <span class="nav-text">具有特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-EKS-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.3.</span> <span class="nav-text">AWS EKS ？？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-or-Ubuntu"><span class="nav-number">0.4.</span> <span class="nav-text">Windows or Ubuntu ? ? ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop%E8%8A%82%E7%82%B9%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.5.</span> <span class="nav-text">Hadoop节点？？？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-number">1.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop3-1-3"><span class="nav-number">2.</span> <span class="nav-text">Hadoop3.1.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">Hadoop伪分布式配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E9%94%99"><span class="nav-number">2.1.1.</span> <span class="nav-text">报错</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAHadoop%E7%94%A8%E6%88%B7"><span class="nav-number">2.2.</span> <span class="nav-text">创建Hadoop用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96-NameNode"><span class="nav-number">2.2.1.</span> <span class="nav-text">重新格式化 NameNode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Hadoop"><span class="nav-number">2.2.2.</span> <span class="nav-text">启动Hadoop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%ADhadoop"><span class="nav-number">2.2.3.</span> <span class="nav-text">关闭hadoop</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark"><span class="nav-number">3.</span> <span class="nav-text">Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8spark-shell"><span class="nav-number">3.0.1.</span> <span class="nav-text">启动spark shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%80%E5%87%BASpark-shell"><span class="nav-number">3.0.2.</span> <span class="nav-text">退出Spark  shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">4.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-number">5.</span> <span class="nav-text">Anaconda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84jupyter-notebook"><span class="nav-number">5.1.</span> <span class="nav-text">访问服务器的jupyter notebook</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter-Notebook-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%90%8E%E5%8F%B0%E4%BF%9D%E6%8C%81%E8%BF%90%E8%A1%8C%E6%88%96%E5%85%B3%E9%97%AD"><span class="nav-number"></span> <span class="nav-text">Jupyter Notebook 服务器后台保持运行或关闭</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EF%BC%81PySpark%E5%92%8CSpark"><span class="nav-number"></span> <span class="nav-text">！PySpark和Spark</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEJupyter-Notebook%E5%AE%9E%E7%8E%B0%E5%92%8CPySpark%E4%BA%A4%E4%BA%92"><span class="nav-number">1.</span> <span class="nav-text">配置Jupyter Notebook实现和PySpark交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF"><span class="nav-number"></span> <span class="nav-text">其他技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.1.</span> <span class="nav-text">Flink ？？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flume-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.2.</span> <span class="nav-text">Flume ？？？</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">0.2.0.1.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B7%E6%9C%89%E7%89%B9%E5%BE%81"><span class="nav-number">0.2.0.2.</span> <span class="nav-text">具有特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS-EKS-%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.3.</span> <span class="nav-text">AWS EKS ？？？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-or-Ubuntu"><span class="nav-number">0.4.</span> <span class="nav-text">Windows or Ubuntu ? ? ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop%E8%8A%82%E7%82%B9%EF%BC%9F%EF%BC%9F%EF%BC%9F"><span class="nav-number">0.5.</span> <span class="nav-text">Hadoop节点？？？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Comment"><span class="nav-number"></span> <span class="nav-text">Comment</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -646,13 +699,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">189k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:52</span>
 </div>
 
         

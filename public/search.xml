@@ -5710,6 +5710,56 @@ Mac安装Docker</p>
 <h3 id="Windows-or-Ubuntu"><a href="#Windows-or-Ubuntu" class="headerlink" title="Windows or Ubuntu ? ? ?"></a>Windows or Ubuntu ? ? ?</h3><p>winutils</p>
 <h3 id="Hadoop节点？？？"><a href="#Hadoop节点？？？" class="headerlink" title="Hadoop节点？？？"></a>Hadoop节点？？？</h3><p>cluster</p>
 <p>node</p>
+<hr>
+<h1 id="Comment"><a href="#Comment" class="headerlink" title="Comment"></a>Comment</h1><p>为了方便spark读取生成RDD或者DataFrame，首先将us-counties.csv转换为.txt格式文件us-counties.txt。转换操作使用python实现，代码组织在toTxt.py中</p>
+<p><u>~&#x2F;home&#x2F;hadoop&#x2F;</u></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment">#.csv-&gt;.txt</span></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;/home/hadoop/us-counties.csv&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/home/hadoop/us-counties.txt&#x27;</span>,<span class="string">&#x27;a+&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> data.values:</span><br><span class="line">        f.write((<span class="built_in">str</span>(line[<span class="number">0</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">1</span>])+<span class="string">&#x27;\t&#x27;</span></span><br><span class="line">                +<span class="built_in">str</span>(line[<span class="number">2</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">3</span>])+<span class="string">&#x27;\t&#x27;</span>+<span class="built_in">str</span>(line[<span class="number">4</span>])+<span class="string">&#x27;\n&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>Upload “&#x2F;home&#x2F;hadoop&#x2F;us-counties.txt” from the local filesystem to the HDFS filesystem at “&#x2F;user&#x2F;hadoop&#x2F;us-counties.txt “</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./bin/hdfs dfs -put /home/hadoop/us-counties.txt /user/hadoop</span><br></pre></td></tr></table></figure>
+
+<p>在<u>&#x2F;usr&#x2F;local&#x2F;hadoop</u>这个路径里面</p>
+<p>失败了。因为没有user&#x2F;hadoop</p>
+<p>所以这里需要先创建用户目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">e</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<blockquote>
+<p> 2022-04-28 21:19:53,534 INFO sasl.SaslDataTransferClient: SASL encryption trust check: localHostTrusted &#x3D; false, remoteHostTrusted &#x3D; false</p>
+</blockquote>
+<p>（这个暂时不管）</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281044123.png" alt="image-20220428094401029"></p>
+<p>没找到在哪，但就是成功了</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281101626.png" alt="image-20220428100151546"></p>
+<p>HDFS文件系统的根目录是&#x2F;，用户主目录是&#x2F;user&#x2F;[hadoop用户名]</p>
+<p>HDFS上传文件命令:hadoop fs -put </p>
+<p>HDFS下载文件命令:hadoop fs -get</p>
+<p>HDFS储存文件目录实在:tmp&#x2F;dfs&#x2F;data&#x2F;current&#x2F;finalized&#x2F;subdir0&#x2F;subdir0&#x2F;</p>
+<p>#tmp是在配置hdfs-site.xml是所配置的文件夹</p>
+<p>tmp&#x2F;dfs&#x2F;name&#x2F;current&#x2F;VERSION下存储DataNode的clusterID</p>
+<p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202204281047487.png" alt="image-20220428094754399"></p>
+<p>这个就是添加路径</p>
+<p><a href="https://blog.csdn.net/Y_6155/article/details/110108809">https://blog.csdn.net/Y_6155/article/details/110108809</a></p>
+<hr>
+<p>上述Spark计算结果保存.json文件，方便后续可视化处理</p>
+<p>由于使用Python读取HDFS文件系统不太方便，故将HDFS上结果文件转储到本地文件系统中，使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hdfs dfs -get /user/hadoop/result1.json/*.json /home/hadoop/jupyternotebook/result1</span><br></pre></td></tr></table></figure>
+
+<p>对于result2等结果文件，使用相同命令，只需要改一下路径即可。</p>
+<p>失败</p>
+<p>.&#x2F;bin&#x2F;hdfs dfs -mkdir &#x2F;user&#x2F;hadoop&#x2F;input</p>
+<blockquote>
+<p>伪分布式运行 MapReduce 作业的方式跟单机模式相同，区别在于伪分布式读取的是HDFS中的文件（可以将单机步骤中创建的本地 input 文件夹，输出结果 output 文件夹都删掉来验证这一点）</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>专业相关知识</category>
