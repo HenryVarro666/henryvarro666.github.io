@@ -5831,6 +5831,133 @@ Mac安装Docker</p>
       </tags>
   </entry>
   <entry>
+    <title>DATA605 project</title>
+    <url>/2022/05/02/DATA605-project/</url>
+    <content><![CDATA[<p>COVID + policy , but we are going to study how covid affect policy</p>
+<!--mroe-->
+
+<h1 id="Draft"><a href="#Draft" class="headerlink" title="Draft"></a>Draft</h1><p>David’s thought was</p>
+<ol>
+<li>clean the policy data to just the various yes&#x2F;no flags and the dates of the time-points</li>
+<li>get the updated COVID data</li>
+<li>get a decision tree to try to use the COVID data to predict the policy data</li>
+</ol>
+<p>either that will see something that seems to make sense (suggesting that the numbers are driving the policy) or we won’t (suggesting that the policy is being driven by factors other than what is happening with the pandemic)</p>
+<h1 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h1><h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><h3 id="Policy"><a href="#Policy" class="headerlink" title="Policy"></a>Policy</h3><p><a href="https://github.com/HenryVarro666/covid-policy-tracker">https://github.com/HenryVarro666/covid-policy-tracker</a></p>
+<h3 id="COVID-Case"><a href="#COVID-Case" class="headerlink" title="COVID Case"></a>COVID Case</h3><p><a href="https://github.com/CSSEGISandData/COVID-19">https://github.com/CSSEGISandData/COVID-19</a></p>
+<p><a href="https://github.com/nytimes/covid-19-data">https://github.com/nytimes/covid-19-data</a></p>
+<h4 id="Countries"><a href="#Countries" class="headerlink" title="Countries"></a>Countries</h4><ul>
+<li>US </li>
+<li>China </li>
+<li>Italy </li>
+<li>UK</li>
+</ul>
+<p>then maybe also do breakdown by states</p>
+<p>(That is definitely more than enough, and we can stop partway through if it is too much and still have something)</p>
+]]></content>
+      <categories>
+        <category>课程学习</category>
+      </categories>
+      <tags>
+        <tag>DATA605</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>House Draft1</title>
+    <url>/2022/06/07/House-Draft1/</url>
+    <content><![CDATA[<p>初步租房计划</p>
+<span id="more"></span>
+
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>5329 Smiths Cove Ln<br>房东微信：snowmeiz</p>
+<h2 id="平面图"><a href="#平面图" class="headerlink" title="平面图"></a>平面图</h2><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070327109.png" alt="新house平面图"></p>
+<p>一楼有车库（900）<br>红叉叉代表没有建好的衣橱<br>红圈圈那里有额外的窗户，因为是end unit</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><ul>
+<li>每个房间会配有床和床垫，书桌和椅子，也可以考虑配一个床头柜</li>
+<li>侧卧没有装顶灯所以会配一个落地灯，台灯需要的话自己买</li>
+<li>二楼公用区域会配餐桌椅，沙发，电视</li>
+<li>已经有一大一小俩冰箱，不够用的话可以再配一个大冰箱。目前是希望如果就你们三个人的话暂时不配第二个大冰箱了</li>
+</ul>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h2><h3 id="侧卧改造"><a href="#侧卧改造" class="headerlink" title="侧卧改造"></a>侧卧改造</h3><p>Q：请问三楼侧卧改书房的话是什么配置呢？<br>A：那应该就是书桌加椅子了，毕竟以后的租客可能不会需要书房，买了别的家具以后不好放</p>
+<h3 id="第四人"><a href="#第四人" class="headerlink" title="第四人"></a>第四人</h3><p>Q：后续会招租第四人还是就我们三个呢？<br>A：希望能找到第四个人，我也会发广告，毕竟空一个房间损失也不少，同时也希望你们可以带他&#x2F;她一起玩</p>
+<h3 id="租的时长"><a href="#租的时长" class="headerlink" title="租的时长"></a>租的时长</h3><p>Q：这个是只能12个月整租？还是说可以租7个月后面再续呢？<br>A：</p>
+<ol>
+<li>到冬天很难租出去，所以我不想考虑租半年呢<br>我现在只考虑一年的租约，你也明白春季新生不多，如果租半年后半年基本上只能空着<br>所以她们住到明年7月底之后只能要么再续一年要么找新房子</li>
+<li>中间实在需要离开的话可以考虑sublease，但新房客也得经过我批准，如果找不到人sublease就必须得承担房租到租约结束</li>
+<li>按7.29算，如果往后大家都相处很愉快你们也都很爱惜房子可以考虑最后一个月少收50刀，可以吗？</li>
+</ol>
+<h2 id="0606照片"><a href="#0606照片" class="headerlink" title="0606照片"></a>0606照片</h2><h3 id="四楼"><a href="#四楼" class="headerlink" title="四楼"></a>四楼</h3><p>卫生间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607000817.png" alt="四楼卫生间"><br>淋浴<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070327303.png" alt="四楼淋浴"><br>四楼阳台<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607000916.png" alt="阳台"><br>四楼床<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607000948.png" alt="四楼床"><br>四楼衣橱<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070327462.png" alt="四楼衣橱"></p>
+<h3 id="三楼"><a href="#三楼" class="headerlink" title="三楼"></a>三楼</h3><h4 id="三楼主卧"><a href="#三楼主卧" class="headerlink" title="三楼主卧"></a>三楼主卧</h4><p>主卧衣帽间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070327125.png" alt="主卧衣帽间"><br>主卧洗手池<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070327413.png" alt="主卧洗手池"><br>主卧淋浴<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001153.png" alt="主卧淋浴"><br>主卧浴缸<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001232.png" alt="主卧浴缸"><br>主卧床<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328613.png" alt="主卧床"></p>
+<h4 id="三楼侧卧"><a href="#三楼侧卧" class="headerlink" title="三楼侧卧"></a>三楼侧卧</h4><p>侧卧1（卧室）<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328742.png" alt="三楼侧卧卧室"><br>侧卧2（书房）<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328682.png" alt="原本的床"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328024.png" alt="原本的书桌"><br>侧卧卫生间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328235.png" alt="侧卧卫生间"></p>
+<h3 id="三楼-洗衣机-amp-烘干机"><a href="#三楼-洗衣机-amp-烘干机" class="headerlink" title="三楼 洗衣机&amp;烘干机"></a>三楼 洗衣机&amp;烘干机</h3><p><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328311.png" alt="洗衣机&amp;烘干机"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328819.png" alt="洗衣机烘干机"></p>
+<h3 id="二楼-公共区域-amp-厨房"><a href="#二楼-公共区域-amp-厨房" class="headerlink" title="二楼 公共区域&amp;厨房"></a>二楼 公共区域&amp;厨房</h3><p>客厅<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001740.png" alt="客厅0"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328220.png" alt="客厅1"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328847.png" alt="客厅2"><br>客厅备用厕所<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001651.png" alt="备用厕所"><br>小阳台<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001721.png" alt="小阳台"><br>厨房<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001810.png" alt="厨房"></p>
+<h3 id="一楼（未改造）"><a href="#一楼（未改造）" class="headerlink" title="一楼（未改造）"></a>一楼（未改造）</h3><p>一楼房间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001850.png" alt="房间1"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001915.png" alt="房间2"><br>一楼卫生间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/20220607001939.png" alt="一楼卫生间"><br>一楼杂物间<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328429.png" alt="一楼杂物间"></p>
+<h3 id="车库"><a href="#车库" class="headerlink" title="车库"></a>车库</h3><p>车库<br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328588.png" alt="车库1"><br><img src="https://raw.githubusercontent.com/HenryVarro666/images/master/images/202206070328732.png" alt="车库2"></p>
+<h2 id="暂定"><a href="#暂定" class="headerlink" title="暂定"></a>暂定</h2><pre><code>这边暂定每人每月 100 utilities（水电气费 + 网费），应该足够
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Floor Plan</th>
+<th>Name</th>
+<th>Price</th>
+<th>租期</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>四楼</td>
+<td>cc</td>
+<td>1000+100+50</td>
+<td>08152022-08142023</td>
+<td>一个车库</td>
+</tr>
+<tr>
+<td>三楼主卧</td>
+<td>void</td>
+<td>1100+100</td>
+<td>07292022-07282023</td>
+<td></td>
+</tr>
+<tr>
+<td>三楼侧卧</td>
+<td>老王</td>
+<td>950+100</td>
+<td>07292022-07282023</td>
+<td>一个卧室一个书房</td>
+</tr>
+<tr>
+<td>一楼独卫</td>
+<td></td>
+<td></td>
+<td></td>
+<td>第四人</td>
+</tr>
+</tbody></table>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><ul>
+<li><p>7.29飞机，Uber到达，箱子估计4 * 27+ 2 * 24（估计140以内，XL）</p>
+</li>
+<li><p>整体改造<br>  （六七月溜过去看一看）</p>
+<h2 id="To-do-（10-pm-meeting）"><a href="#To-do-（10-pm-meeting）" class="headerlink" title="To-do （10 pm meeting）"></a>To-do （10 pm meeting）</h2></li>
+</ul>
+<ol>
+<li>有无特殊要求<br> ex：强烈要求的家具家电</li>
+<li>对第四人的要求<ol>
+<li>中国人 2. 不开party 3. 性别？4. 爱干净 5.最好是研究生，生活规律同步 6. 不能飞叶子</li>
+</ol>
+</li>
+<li>第二个大冰箱<br> 四个人住的话有这个需求 </li>
+<li>四楼俺的桌子需要大一些<br> 三显示器</li>
+<li>付费打扫<br> 每月一次，一次140左右。我个人觉得有必要；但商量决定</li>
+</ol>
+]]></content>
+      <categories>
+        <category>UMD</category>
+      </categories>
+      <tags>
+        <tag>UMD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Books</title>
     <url>/book/index.html</url>
     <content><![CDATA[]]></content>
