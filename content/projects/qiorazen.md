@@ -7,4 +7,4 @@ lang: TypeScript
 live: "Live at qiorazen.com."
 topics: [web, llm]
 ---
-A wellness web app that pairs a 27-question AI constitution assessment with Traditional Chinese Medicine concepts to suggest diet, exercise and lifestyle changes, each reviewed by a TCM consultant.
+A wellness web app built around a 27-question Traditional Chinese Medicine constitution screening, scored with the GB/T 46939-2025 standard. Users ask follow-up questions; AI drafts diet, exercise and lifestyle guidance, and a Wellness Advisor reviews every answer before it is shown. Emergency symptoms block the form and point to 911 / 988.

@@ -1,0 +1,74 @@
+{
+ "accent": "#007F78",
+ "pale": "#DDF3EA",
+ "name": "QIORAZEN",
+ "eyebrow": "WELLNESS APP / LIVE",
+ "title": "Know your constitution.",
+ "subtitle": "A 27-question TCM constitution screening with advisor-reviewed guidance.",
+ "tagline": "Scored with the GB/T 46939-2025 standard. Live at qiorazen.com.",
+ "steps": [
+  [
+   "01 / SCREEN",
+   "27 questions",
+   [
+    "Gender-routed items",
+    "Reverse and dual scoring",
+    "Saved to account or locally"
+   ]
+  ],
+  [
+   "02 / SCORE",
+   "9 constitution types",
+   [
+    "GB/T 46939-2025 formula",
+    "0–100 score per type",
+    "Radar-chart result"
+   ]
+  ],
+  [
+   "03 / ASK",
+   "Your questions",
+   [
+    "1–3 questions per request",
+    "Emergency pre-check",
+    "AI draft via Claude"
+   ]
+  ],
+  [
+   "04 / REVIEW",
+   "Advisor review",
+   [
+    "Wellness Advisor portal",
+    "Compliance check + polish",
+    "Approved, then shown"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "SAFETY",
+   "Emergencies are stopped",
+   [
+    "40+ emergency patterns (EN + ZH) block",
+    "the form and point to 911 / 988."
+   ]
+  ],
+  [
+   "GUARDRAILS",
+   "42 output rules",
+   [
+    "AI drafts and advisor notes are",
+    "sanitized before anyone sees them."
+   ]
+  ],
+  [
+   "STACK",
+   "Next.js 15 + Supabase",
+   [
+    "Pure-TypeScript scoring engine, 33 tests;",
+    "Postgres with row-level security."
+   ]
+  ]
+ ],
+ "footer": "TYPESCRIPT  /  pnpm + Turborepo, deployed on Vercel."
+}

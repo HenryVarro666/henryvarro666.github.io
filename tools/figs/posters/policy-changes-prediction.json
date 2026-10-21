@@ -1,0 +1,74 @@
+{
+ "accent": "#56688A",
+ "pale": "#E3E8F1",
+ "name": "POLICY CHANGES PREDICTION",
+ "eyebrow": "COURSE PROJECT / DATA 605",
+ "title": "Do policies follow the cases?",
+ "subtitle": "National COVID-19 policy changes, lined up with daily case counts.",
+ "tagline": "The OxCGRT policy tracker and CDC case data, joined by date.",
+ "steps": [
+  [
+   "01 / COLLECT",
+   "Two sources",
+   [
+    "OxCGRT policy levels",
+    "CDC cases by state",
+    "About 500 MB in total"
+   ]
+  ],
+  [
+   "02 / DETECT",
+   "Level changes",
+   [
+    "Day-over-day difference",
+    "Non-zero means a change",
+    "Per policy indicator"
+   ]
+  ],
+  [
+   "03 / SMOOTH",
+   "Case trend",
+   [
+    "Weekend dips smoothed",
+    "20-day moving average",
+    "National new cases"
+   ]
+  ],
+  [
+   "04 / FUSE",
+   "One timeline",
+   [
+    "Changes on the case curve",
+    "Omicron wave marked",
+    "Lag read off the plot"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "FINDING",
+   "About a month to respond",
+   [
+    "Policy changes trailed case waves",
+    "by roughly one month."
+   ]
+  ],
+  [
+   "LATEST PEAK",
+   "Driven by Omicron",
+   [
+    "The last wave followed Omicron's",
+    "US arrival in late 2021."
+   ]
+  ],
+  [
+   "SCHOOLS",
+   "No school-closing changes",
+   [
+    "The school-closing level stayed",
+    "flat through 2022."
+   ]
+  ]
+ ],
+ "footer": "JUPYTER  /  pandas · matplotlib. Slides and the report are in this repository."
+}

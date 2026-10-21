@@ -1,0 +1,74 @@
+{
+ "accent": "#007F78",
+ "pale": "#DDF3EA",
+ "name": "LOCAL SPEAKER LAB",
+ "eyebrow": "SPEECH EXPERIMENTS / LOCAL",
+ "title": "Speech experiments you can rerun.",
+ "subtitle": "Glossary-conditioned ASR and a two-speaker meeting-notes pipeline.",
+ "tagline": "Frozen inputs, real inference and paired scoring, on a CPU or an RTX 5080.",
+ "steps": [
+  [
+   "01 / SAMPLE",
+   "Frozen inputs",
+   [
+    "200 ASCEND clips",
+    "Mixed, Mandarin, English",
+    "Fixed seed and clip IDs"
+   ]
+  ],
+  [
+   "02 / CONDITION",
+   "Three glossaries",
+   [
+    "None",
+    "Correct (train vocabulary)",
+    "Unrelated"
+   ]
+  ],
+  [
+   "03 / TRANSCRIBE",
+   "Real inference",
+   [
+    "600 CPU runs",
+    "Paired by clip",
+    "Term hits and errors"
+   ]
+  ],
+  [
+   "04 / REPORT",
+   "Checked result",
+   [
+    "Bootstrap intervals",
+    "Independent re-check",
+    "Source SHA256 recorded"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "GLOSSARY RESULT",
+   "No missed term recovered",
+   [
+    "The correct glossary did not fix misses;",
+    "the small error drop is within noise."
+   ]
+  ],
+  [
+   "TWO SPEAKERS",
+   "Separate, match, take notes",
+   [
+    "pyannote + ClearerVoice + Qwen3-ASR,",
+    "then meeting notes with Ollama."
+   ]
+  ],
+  [
+   "DEPLOYMENT",
+   "One-command Ubuntu install",
+   [
+    "Release ZIP + SHA256, in-place upgrade,",
+    "redacted logs and an acceptance run."
+   ]
+  ]
+ ],
+ "footer": "PYTHON ≥ 3.11  /  Original code under MIT; models and data keep their own licenses."
+}

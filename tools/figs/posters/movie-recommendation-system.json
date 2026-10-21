@@ -1,0 +1,74 @@
+{
+ "accent": "#56688A",
+ "pale": "#E3E8F1",
+ "name": "MOVIE RECOMMENDATION SYSTEM",
+ "eyebrow": "SENIOR PROJECT / WEB + RECSYS",
+ "title": "Movies picked by people like you.",
+ "subtitle": "A Django movie site with user- and item-based collaborative filtering.",
+ "tagline": "Ratings and reviews crawled from Douban, stored in SQLite.",
+ "steps": [
+  [
+   "01 / CRAWL",
+   "Douban data",
+   [
+    "Movies, tags, reviews",
+    "Saved to CSV",
+    "Loaded into SQLite"
+   ]
+  ],
+  [
+   "02 / RATE",
+   "User actions",
+   [
+    "Rate, comment, favourite",
+    "Search title or director",
+    "Browse by tag"
+   ]
+  ],
+  [
+   "03 / RECOMMEND",
+   "Collaborative filtering",
+   [
+    "User-CF: Pearson, cosine",
+    "Item-CF: similarity matrix",
+    "Most-viewed fallback"
+   ]
+  ],
+  [
+   "04 / MANAGE",
+   "Admin and extras",
+   [
+    "Django admin back end",
+    "Review word clouds",
+    "REST API endpoints"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "FALLBACK",
+   "Never an empty list",
+   [
+    "Under 15 picks? The rest are filled with",
+    "the most-viewed unrated movies."
+   ]
+  ],
+  [
+   "STACK",
+   "Django + SQLite",
+   [
+    "Bootstrap 3 front end, a DRF API,",
+    "one command to run locally."
+   ]
+  ],
+  [
+   "DEMO",
+   "Recorded walkthroughs",
+   [
+    "Screen recordings and slides",
+    "are in the repository."
+   ]
+  ]
+ ],
+ "footer": "PYTHON / DJANGO  /  pip install -r requirements.txt, then python manage.py runserver."
+}

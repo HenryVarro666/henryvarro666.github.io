@@ -1,0 +1,74 @@
+{
+ "accent": "#007F78",
+ "pale": "#DDF3EA",
+ "name": "KOKORO-AWS-DEMO",
+ "eyebrow": "SPEECH SERVICE / AWS",
+ "title": "Open-weight speech, shipped.",
+ "subtitle": "Kokoro-82M text-to-speech and Whisper ASR as a production-style AWS service.",
+ "tagline": "ECS Fargate on Graviton, 100% AWS CDK and keyless OIDC CI/CD.",
+ "steps": [
+  [
+   "01 / PUSH",
+   "git push → main",
+   [
+    "pytest on every push",
+    "OIDC role federation",
+    "No stored AWS keys"
+   ]
+  ],
+  [
+   "02 / BUILD",
+   "ARM64 image",
+   [
+    "Model weights baked in",
+    "Pushed to ECR",
+    "cdk deploy InfraStack"
+   ]
+  ],
+  [
+   "03 / SERVE",
+   "Fargate on Graviton",
+   [
+    "FastAPI, 2 vCPU / 6 GB",
+    "/synthesize · /transcribe",
+    "Behind a load balancer"
+   ]
+  ],
+  [
+   "04 / WATCH",
+   "Alarms as code",
+   [
+    "ALB 5xx, CPU above 85%",
+    "SNS email alerts",
+    "All defined in CDK"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "COST",
+   "~$74/mo, $0 when off",
+   [
+    "cdk destroy turns the stack off;",
+    "training runs cost $2–7 each on Spot."
+   ]
+  ],
+  [
+   "WAR STORY",
+   "A Graviton vocoder bug, fixed",
+   [
+    "oneDNN corrupted the audio (−6 dB).",
+    "One line restores golden-matching speech."
+   ]
+  ],
+  [
+   "ML TRACK",
+   "Bilingual Whisper + LoRA",
+   [
+    "Merged to CTranslate2 int8 for CPU serving.",
+    "Built; not yet run at scale."
+   ]
+  ]
+ ],
+ "footer": "PYTHON 3.12  /  FastAPI · AWS CDK · GitHub Actions · CloudWatch."
+}

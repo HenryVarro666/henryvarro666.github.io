@@ -1,0 +1,74 @@
+{
+ "accent": "#3157A4",
+ "pale": "#E0E8F6",
+ "name": "TTS-INFERENCE-ENGINE-BENCH",
+ "eyebrow": "INFERENCE BENCHMARK / H100",
+ "title": "A faster engine isn't a faster TTS.",
+ "subtitle": "vLLM vs TensorRT-LLM vs eager on a multi-stage TTS model's LLM backbone.",
+ "tagline": "A reproducible single-H100 benchmark, plus the end-to-end latency budget it sits in.",
+ "steps": [
+  [
+   "01 / EXPORT",
+   "Isolate the backbone",
+   [
+    "dots-tts Qwen2 backbone, 1.54B",
+    "Exported as a standalone model",
+    "Same unit for every engine"
+   ]
+  ],
+  [
+   "02 / RUN",
+   "Three engines",
+   [
+    "eager PyTorch (StaticCache)",
+    "vLLM 0.17.1",
+    "TensorRT-LLM 1.3.0"
+   ]
+  ],
+  [
+   "03 / MEASURE",
+   "One workload",
+   [
+    "Prefill 64 + 48 decode tokens",
+    "bf16, batch 1, after warm-up",
+    "Raw runs kept in results/"
+   ]
+  ],
+  [
+   "04 / ATTRIBUTE",
+   "End-to-end split",
+   [
+    "Latency per TTS stage",
+    "Flow-matching DiT vs LLM",
+    "What an engine can change"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "THROUGHPUT",
+   "vLLM: 453 tokens/s",
+   [
+    "2.1× TensorRT-LLM (213), 21× eager (21).",
+    "Single H100 NVL, batch 1, bf16."
+   ]
+  ],
+  [
+   "LATENCY BUDGET",
+   "The LLM is 21% of TTS time",
+   [
+    "Flow-matching DiT takes 68%.",
+    "Swapping engines saves ~20% end to end."
+   ]
+  ],
+  [
+   "FINDING",
+   "TensorRT-LLM 1.3 has no build step",
+   [
+    "No trtllm-build; it runs a PyTorch backend.",
+    "Compiled engines need the 1.2.x toolchain."
+   ]
+  ]
+ ],
+ "footer": "MEASURED ON 2× H100 NVL  /  Scripts, raw results and the full analysis are in this repository."
+}

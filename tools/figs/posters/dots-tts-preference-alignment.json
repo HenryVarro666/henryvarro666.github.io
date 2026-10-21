@@ -1,0 +1,74 @@
+{
+ "accent": "#3157A4",
+ "pale": "#E0E8F6",
+ "name": "DOTS-TTS-PREFERENCE-ALIGNMENT",
+ "eyebrow": "TTS ALIGNMENT / DIAGNOSIS",
+ "title": "When likelihood disagrees with quality.",
+ "subtitle": "Why DPO fails on a continuous-latent, flow-matching TTS model.",
+ "tagline": "A falsifiable negative result, a training-free probe and a cross-architecture replication.",
+ "steps": [
+  [
+   "01 / GENERATE",
+   "Candidates",
+   [
+    "dots.tts over a sampling grid",
+    "LJSpeech prompts",
+    "On-manifold filtering"
+   ]
+  ],
+  [
+   "02 / SCORE",
+   "Automatic reward",
+   [
+    "WER (Whisper large-v3)",
+    "Speaker similarity (ECAPA)",
+    "UTMOS naturalness"
+   ]
+  ],
+  [
+   "03 / ALIGN",
+   "Four objectives",
+   [
+    "DPO-FM (flow-matching loss)",
+    "SFT on reward winners",
+    "open-SOAR, reward-weighted"
+   ]
+  ],
+  [
+   "04 / PROBE",
+   "Reward vs likelihood",
+   [
+    "Denoised FM margin per pair",
+    "Settings-matched, N = 188",
+    "Replicated on VoxCPM2"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "CORE FINDING",
+   "ρ = −0.22, not positive",
+   [
+    "The reward picks the less-likely sample;",
+    "VoxCPM2 replicates it (ρ = −0.27)."
+   ]
+  ],
+  [
+   "HELD-OUT, n = 100",
+   "Only open-SOAR improves",
+   [
+    "UTMOS 4.38 vs 4.28 base, WER 0.09 vs 0.11.",
+    "DPO-FM collapses to WER 0.89."
+   ]
+  ],
+  [
+   "STREAMING CHECK",
+   "The collapse is offline-only",
+   [
+    "Collapsed arms stream normal speech.",
+    "First audio in ~162 ms for every arm."
+   ]
+  ]
+ ],
+ "footer": "INDEPENDENT RESEARCH  /  Bootstrap CIs and permutation tests; the full write-up is PAPER_DRAFT.md."
+}

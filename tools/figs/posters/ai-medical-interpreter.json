@@ -1,0 +1,74 @@
+{
+ "accent": "#007F78",
+ "pale": "#DDF3EA",
+ "name": "AI MEDICAL INTERPRETER",
+ "eyebrow": "REAL-TIME SPEECH / HEALTHCARE",
+ "title": "Two languages, one phone call.",
+ "subtitle": "Chinese–English medical interpretation over the phone, in real time.",
+ "tagline": "Twilio Media Streams and the OpenAI Realtime API, with a live dashboard and SOAP notes.",
+ "steps": [
+  [
+   "01 / CALL",
+   "Phone in",
+   [
+    "Twilio number + webhook",
+    "Translator or intake mode",
+    "Call guard on every call"
+   ]
+  ],
+  [
+   "02 / STREAM",
+   "No transcoding",
+   [
+    "G.711 µ-law, 8 kHz both ways",
+    "Base64 frames passed through",
+    "One WebSocket per side"
+   ]
+  ],
+  [
+   "03 / INTERPRET",
+   "Realtime model",
+   [
+    "ASR, translation and TTS",
+    "Echo gate between turns",
+    "Structured intake interview"
+   ]
+  ],
+  [
+   "04 / DOCUMENT",
+   "After the call",
+   [
+    "Live bilingual transcript",
+    "SOAP note in 5–10 seconds",
+    "Symptoms, meds, allergies"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "LATENCY",
+   "First token in ~400–800 ms",
+   [
+    "vs 2–4 s for a Whisper → GPT → TTS chain.",
+    "No resampling anywhere in the path."
+   ]
+  ],
+  [
+   "CALL GUARD",
+   "Every call stays bounded",
+   [
+    "Concurrency and per-number rate limits,",
+    "30-minute cap, silence warning at 60 s."
+   ]
+  ],
+  [
+   "AUDIT",
+   "Every access logged",
+   [
+    "Append-only JSONL audit trail;",
+    "transcript logging is off by default."
+   ]
+  ]
+ ],
+ "footer": "NODE.JS ≥ 20  /  Only OPENAI_API_KEY is required; live calls need a Twilio number and ngrok."
+}

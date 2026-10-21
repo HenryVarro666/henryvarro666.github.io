@@ -221,7 +221,7 @@ def speaker(f):
 
 @fig("qiorazen", "Qiorazen",
      "27 screening questions are scored with the GB/T 46939-2025 standard into nine constitution types; "
-     "AI drafts suggestions that a TCM consultant reviews.")
+     "AI drafts suggestions that a Wellness Advisor reviews.")
 def qiorazen(f):
     header(f, "constitution screening with human review")
     cx, cy, r = 92, 136, 68
@@ -238,7 +238,7 @@ def qiorazen(f):
     f.path("M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in poly) + " Z", "f-hl", 2)
     f.text(cx, 226, "9 constitution types", 13.5, "f-m", "middle")
     steps = [("27 questions", False), ("GB/T 46939 score", False), ("AI suggestions", False),
-             ("TCM consultant", True)]
+             ("Wellness Advisor", True)]
     for i, (lab, hl) in enumerate(steps):
         y = 46 + i * 46
         f.node(190, y, 154, 34, [lab], hl=hl, size=14.5)

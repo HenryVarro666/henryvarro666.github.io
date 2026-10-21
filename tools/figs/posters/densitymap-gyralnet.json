@@ -1,0 +1,74 @@
+{
+ "accent": "#3157A4",
+ "pale": "#E0E8F6",
+ "name": "DENSITYMAP-GYRALNET",
+ "eyebrow": "CORTICAL FOLDING / BRAIN IMAGING",
+ "title": "Cortical folding, as a network.",
+ "subtitle": "Extract the gyral net and its 3-hinge gyri from cortical surfaces.",
+ "tagline": "VTK surfaces and sulcal depth in; gyral skeletons, 3-hinge vertices and graphs out.",
+ "steps": [
+  [
+   "01 / READ",
+   "Surface + depth",
+   [
+    "VTK surface meshes",
+    "Sulcal depth per vertex",
+    "HCP surfaces, 32k mesh"
+   ]
+  ],
+  [
+   "02 / ISOLATE",
+   "Gyral regions",
+   [
+    "Split by sulcal depth",
+    "Drop isolated vertices",
+    "Find marginal points"
+   ]
+  ],
+  [
+   "03 / SKELETONIZE",
+   "Gyral crests",
+   [
+    "Skeleton tree per region",
+    "Dijkstra shortest paths",
+    "Repair missing crest links"
+   ]
+  ],
+  [
+   "04 / MARK",
+   "3-hinge gyri",
+   [
+    "Three-way crest junctions",
+    "Written back to VTK",
+    "Sphere and surface views"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "WHY IT MATTERS",
+   "3-hinge gyri are cortical hubs",
+   [
+    "Finer than brain regions and found",
+    "in every brain: nodes of the gyral net."
+   ]
+  ],
+  [
+   "SCALE",
+   "Built for batch runs",
+   [
+    "One job per subject through Slurm",
+    "submission scripts."
+   ]
+  ],
+  [
+   "RELATED PAPERS",
+   "GS-Net and Deep-GyralNet",
+   [
+    "IEEE ISBI 2026, plus 3-hinge matching",
+    "at ISBI 2024; see ccao2679.com."
+   ]
+  ]
+ ],
+ "footer": "RESEARCH CODE  /  vtk · nibabel · networkx. Methods are in the papers on the publications page."
+}

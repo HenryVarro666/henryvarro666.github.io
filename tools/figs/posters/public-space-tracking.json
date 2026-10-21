@@ -1,0 +1,74 @@
+{
+ "accent": "#56688A",
+ "pale": "#E3E8F1",
+ "name": "PUBLIC SPACE TRACKING",
+ "eyebrow": "COURSE PROJECT / COMPUTER VISION",
+ "title": "Who comes in, who goes out.",
+ "subtitle": "Detect, track and count people in public-space video.",
+ "tagline": "TensorFlow Object Detection and Detectron2, compared on the same footage.",
+ "steps": [
+  [
+   "01 / COMPRESS",
+   "Shorter video",
+   [
+    "First 5,000 frames",
+    "Every 5th frame kept",
+    "Resolution unchanged"
+   ]
+  ],
+  [
+   "02 / DETECT",
+   "People per frame",
+   [
+    "Faster R-CNN (TF OD API)",
+    "Detectron2 alternative",
+    "Boxes saved to CSV"
+   ]
+  ],
+  [
+   "03 / TRACK",
+   "Centroid continuity",
+   [
+    "Nearest-centroid matching",
+    "5-frame continuity rule",
+    "One track per person"
+   ]
+  ],
+  [
+   "04 / COUNT",
+   "Entry line",
+   [
+    "Track crosses the line",
+    "In and out counts",
+    "Occupancy heatmap"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "INGESTION",
+   "Entrances as data",
+   [
+    "Entry and exit lines are saved",
+    "to JSON for each camera view."
+   ]
+  ],
+  [
+   "OUTPUTS",
+   "Videos you can watch",
+   [
+    "Annotated detection, counter and",
+    "optical-flow videos in demos/."
+   ]
+  ],
+  [
+   "NEXT STEP",
+   "A top-down heatmap",
+   [
+    "A perspective transform would map",
+    "the heatmap onto a floor plan."
+   ]
+  ]
+ ],
+ "footer": "PYTHON / JUPYTER  /  TensorFlow 2 · Detectron2 · OpenCV."
+}

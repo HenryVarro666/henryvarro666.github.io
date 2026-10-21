@@ -26,8 +26,24 @@ python3 figures.py ../../assets/figs /tmp/figs-solo   # site copies + light/dark
 
 Rules: every number on a figure must come from the repo's own README or results; keep labels to a
 few words (they are read at ~260 px wide); the highlight marks the main idea or result, nothing
-else. The `-light.svg` / `-dark.svg` copies go to the repo as `docs/overview-{light,dark}.svg`,
-shown at the top of its README through `<picture>`.
+else.
+
+## README posters
+
+Each showcased repo's README opens with a 1600×960 poster in the layout of anota's
+`docs/figures/local-architecture.png`: headline, four pipeline steps, three fact panels. One JSON
+config per repo lives in `tools/figs/posters/`; render with
+
+```bash
+cd tools/figs
+python3 poster.py posters/ /tmp/posters      # writes <slug>.svg and <slug>.png, flags clipped text
+```
+
+and copy the pair to the repo as `docs/figures/overview.{png,svg}`. Accent colours follow the
+homepage sections: research `#3157A4`, projects `#007F78`, coursework `#56688A`. READMEs share one
+shape: centered title, one-line subtitle, badges (including a link back to the homepage entry),
+the poster, then Highlights / How it works / Quick start / Repository layout, with older notes
+folded into `<details>`.
 
 ## Weekly check
 
@@ -37,8 +53,9 @@ shown at the top of its README through `<picture>`.
 2. **New repos.** Public, non-fork, non-archived repos of HenryVarro666 that are not on the site
    are listed in the PR description as candidates with a one-line pitch. They are not added
    unless the owner says so.
-3. **Figures.** When a repo's headline numbers change, redraw its figure from the new numbers and
-   open a PR in that repo with the updated `docs/overview-*.svg`.
+3. **Figures.** When a repo's headline numbers change, update its homepage figure and its README
+   poster config from the new numbers, and open a PR in that repo with the new
+   `docs/figures/overview.{png,svg}`.
 4. **Papers.** Look for new papers by Chao Cao with the lab's co-authors (dblp, arXiv, OpenAlex,
    IEEE Xplore, Springer). Add them to `data/publications.toml`; a new first-author paper gets a
    full card (main figure, TL;DR, problem / approach / findings, BibTeX), with any part that could
