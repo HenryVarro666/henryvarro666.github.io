@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{- if .Pages }}
+  {{- /* Toolbar: the topics that occur inside this section, alphabetical. */ -}}
+  {{- $topics := dict }}
+  {{- range .Pages }}{{ range .GetTerms "topics" }}{{ $topics = merge $topics (dict .LinkTitle .) }}{{ end }}{{ end }}
+  {{- with $topics }}
+  <nav class="toolbar" aria-label="Topics in this section">
+    {{- range $name, $term := . }}<a href="{{ $term.RelPermalink }}">{{ $name }}</a>{{ end }}
+  </nav>
+  {{- end }}
+  <div class="stream">
+    {{- range .Pages.ByDate.Reverse }}
+    {{ partial "item.html" . }}
+    {{- end }}
+  </div>
+{{- else }}
+  <div class="prose">{{ .Content }}</div>
+{{- end }}
+{{ end }}

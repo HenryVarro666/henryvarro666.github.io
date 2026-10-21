@@ -1,0 +1,424 @@
+/* Layout: one centered reading column; a sticky banner carries name, one-line slot and
+   section nav; everything below is a dated stream of entries. Text first, no webfonts,
+   one accent hue (links), everything else in ink and muted ink. */
+/* Tokens. Two palettes share every rule below: the default teal one, and "next",
+   which matches the old NexT site's greys (set by params.palette in hugo.toml). */
+:root {
+  --paper: #fbfcfc;
+  --band: #fbfcfc;        /* banner and safe-area ground */
+  --text: #172322;        /* body copy */
+  --ink: #172322;         /* names, titles, headings */
+  --muted: #5c6a68;
+  --accent: #0d5e6a;      /* deep teal: links and the heading chip only */
+  --accent-hover: #0d5e6a;
+  --link-line: none;      /* underline links inside prose and summaries? */
+  --rule: #dce3e2;
+  --wash: #eef3f2;        /* pinned entry ground */
+  --nav-active: transparent;
+  --nav-active-line: underline;
+  --sel-bg: #cfe6e9;
+  --sel-fg: #172322;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+               "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --step--2: 0.78rem;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.6rem;
+
+  --space: 1.25rem;
+  --measure: 39rem;       /* banner text, ~62ch */
+  --measure-wide: 45.5rem; /* content column, ~72ch; rem so smaller text (footer) keeps the same edge */
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* NexT (Mist) greys from the old ccao2679.com: grey links with underlines,
+   a light-grey banner band and a grey chip on the active section. */
+:root[data-palette="next"] {
+  --paper: #ffffff;
+  --band: #f5f5f5;
+  --text: #555555;
+  --ink: #222222;
+  --muted: #999999;
+  --accent: #555555;
+  --accent-hover: #222222;
+  --link-line: underline;
+  --rule: #dddddd;
+  --wash: #f5f5f5;
+  --nav-active: #dddddd;
+  --nav-active-line: none;
+  --sel-bg: #262a30;
+  --sel-fg: #eeeeee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111615;
+    --band: #111615;
+    --text: #d7dfde;
+    --ink: #d7dfde;
+    --muted: #8b9896;
+    --accent: #6cc1cc;
+    --accent-hover: #8fd3dc;
+    --rule: #263130;
+    --wash: #18201f;
+    --sel-bg: #24464b;
+    --sel-fg: #e6eeee;
+    color-scheme: dark;
+  }
+  :root[data-palette="next"]:not([data-theme="light"]) {
+    --paper: #282828;
+    --band: #333333;
+    --text: #cccccc;
+    --ink: #dddddd;
+    --muted: #999999;
+    --accent: #cccccc;
+    --accent-hover: #eeeeee;
+    --rule: #444444;
+    --wash: #333333;
+    --nav-active: #555555;
+    --sel-bg: #cccccc;
+    --sel-fg: #222222;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111615;
+  --band: #111615;
+  --text: #d7dfde;
+  --ink: #d7dfde;
+  --muted: #8b9896;
+  --accent: #6cc1cc;
+  --accent-hover: #8fd3dc;
+  --rule: #263130;
+  --wash: #18201f;
+  --sel-bg: #24464b;
+  --sel-fg: #e6eeee;
+  color-scheme: dark;
+}
+:root[data-palette="next"][data-theme="dark"] {
+  --paper: #282828;
+  --band: #333333;
+  --text: #cccccc;
+  --ink: #dddddd;
+  --muted: #999999;
+  --accent: #cccccc;
+  --accent-hover: #eeeeee;
+  --rule: #444444;
+  --wash: #333333;
+  --nav-active: #555555;
+  --sel-bg: #cccccc;
+  --sel-fg: #222222;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { overscroll-behavior-y: none; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--paper);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Paints the safe-area band above the sticky banner on phones. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 11;
+  background: var(--band);
+}
+
+::selection { background: var(--sel-bg); color: var(--sel-fg); }
+
+a { color: var(--accent); text-decoration: none; text-underline-offset: 3px; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+.item-summary a,
+.prose a { text-decoration: var(--link-line); }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.column {
+  width: 100%;
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+}
+
+/* ---------- Banner ---------- */
+
+header.banner {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  /* Bleed the band to the screen edges so a tinted banner spans the full width. */
+  margin-left: calc(-1 * var(--gutter-l));
+  margin-right: calc(-1 * var(--gutter-r));
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+  background: var(--band);
+}
+header.banner::after {
+  content: "";
+  display: block;
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  border-bottom: 1px solid var(--rule);
+}
+.banner-inner {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-block: 1.4rem 0.9rem;
+}
+.name-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.name {
+  margin: 0;
+  font-size: var(--step-2);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+}
+.name a { color: var(--ink); }
+.name a:hover { text-decoration: none; color: var(--accent-hover); }
+
+#theme-toggle {
+  display: inline-flex;
+  align-self: center;
+  border: 0;
+  background: none;
+  padding: 0.3rem;
+  margin-right: -0.3rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+#theme-toggle:hover { color: var(--accent-hover); }
+
+/* The slot: exactly one line, whatever it holds, so the banner never changes height. */
+.slot {
+  margin: 0.2rem 0 0;
+  min-height: 1.6em;
+  max-height: 1.6em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+.slot p { display: inline; margin: 0; }
+.slot.intro { font-style: italic; }
+
+.mainnav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.5rem;
+  margin-top: 0.8rem;
+  font-size: var(--step--1);
+}
+.mainnav a { padding: 0.05rem 0.45rem; border-radius: 2px; }
+.mainnav a.active {
+  background: var(--nav-active);
+  text-decoration: var(--nav-active-line);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Toolbar (section and topic views) ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  padding-block: 0.9rem 0.2rem;
+  font-size: var(--step--2);
+  font-family: var(--font-mono);
+}
+.toolbar a { color: var(--muted); }
+.toolbar a:hover { color: var(--accent-hover); }
+.toolbar .count { margin-left: auto; color: var(--muted); }
+
+/* ---------- Stream ---------- */
+
+main { flex: 1; padding-block: 0.6rem 2.5rem; }
+
+.stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1.1rem;
+}
+
+.item {
+  margin-inline: -0.75rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 3px;
+}
+.item.pinned { background: var(--wash); }
+
+.item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.item-head .pin { color: var(--ink); }
+.item-head .status { font-family: var(--font-body); font-style: italic; }
+.repo-meta {
+  display: inline-flex;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.item-title {
+  margin: 0.25rem 0 0.35rem;
+  color: var(--ink);
+  font-size: var(--step-1);
+  font-weight: 650;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.item-title a { color: var(--ink); }
+.item-title a:hover { color: var(--accent-hover); text-decoration: none; }
+.item-title .ext,
+.item-title .doc { color: var(--accent); font-size: 0.8em; font-weight: 500; }
+
+.item-summary {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.item-summary p { margin: 0 0 0.4rem; }
+.item-summary strong { font-weight: 650; }
+
+/* "Live" marker: drifts slowly between muted and ink, and holds still for reduced motion. */
+.live {
+  font-style: italic;
+  color: var(--muted);
+  animation: breathe 5s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { color: var(--muted); }
+  50% { color: var(--ink); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live { animation: none; }
+}
+
+.item-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.8rem;
+  margin-top: 0.15rem;
+  font-size: var(--step--2);
+}
+.item-topics a {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.item-topics a.topic { color: var(--muted); }
+.item-topics a.topic:hover { color: var(--accent-hover); }
+.item-topics a.heading { color: var(--accent); }
+.item-topics .more { color: var(--muted); cursor: help; }
+
+/* ---------- Topic index ---------- */
+
+.topic-index {
+  list-style: none;
+  margin: 0;
+  padding: 1.4rem 0 0;
+  columns: 3 11rem;
+  column-gap: 2rem;
+  font-size: var(--step--1);
+}
+.topic-index li { break-inside: avoid; padding-block: 0.15rem; }
+.topic-index .count,
+.count { font-family: var(--font-mono); font-size: var(--step--2); color: var(--muted); }
+
+/* ---------- Notes and plain pages ---------- */
+
+.post-head { padding-top: 1.2rem; }
+.post-head .back { font-size: var(--step--1); color: var(--muted); }
+.post-head .back:hover { color: var(--accent-hover); }
+.post-title {
+  margin: 0.4rem 0 0.4rem;
+  color: var(--ink);
+  font-size: var(--step-2);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.prose { padding-top: 1rem; max-width: 66ch; }
+.prose h2 { font-size: var(--step-1); margin: 1.8rem 0 0.5rem; color: var(--ink); }
+.prose p, .prose ul, .prose ol { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.2rem; }
+.prose li { margin-bottom: 0.25rem; }
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--wash);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+.prose pre {
+  overflow-x: auto;
+  background: var(--wash);
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+.prose pre code { background: none; padding: 0; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  border-top: 1px solid var(--rule);
+  padding-block: 1rem 1.8rem;
+  font-size: var(--step--2);
+  color: var(--muted);
+}
+.site-footer p { margin: 0; }
+.footer-links { display: flex; align-items: center; gap: 1rem; }
+.footer-links a { color: var(--muted); }
+.footer-links a:hover { color: var(--accent-hover); }
+.footer-links .gh { display: inline-flex; }
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 560px) {
+  .banner-inner { padding-block: 1rem 0.7rem; }
+  .name { font-size: 1.4rem; }
+  .mainnav { justify-content: flex-start; gap: 0.2rem 0.3rem; margin-left: -0.45rem; }
+  .item { margin-inline: -0.5rem; padding-inline: 0.5rem; }
+  .repo-meta { margin-left: 0; }
+}

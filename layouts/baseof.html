@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale | default "en" }}"{{ with site.Params.palette }} data-palette="{{ . }}"{{ end }}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{- if site.Params.preview }}
+<meta name="claude:viewport-fit-sides" content="cover">
+{{- end }}
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+{{- $desc := site.Params.description }}
+{{- with .Description }}{{ $desc = . }}{{ else }}{{ with .Params.intro }}{{ $desc = . }}{{ end }}{{ end }}
+<meta name="description" content="{{ $desc }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+{{- if not site.Params.preview }}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- end }}
+{{- $css := resources.Get "css/site.css" | minify }}
+{{- if site.Params.inlineCSS }}
+<style>{{ $css.Content | safeCSS }}</style>
+{{- else }}
+{{- $css = $css | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+<script>
+  (function () {
+    var root = document.documentElement;
+    {{- with site.Params.palette }}
+    root.dataset.palette = {{ . }};
+    {{- end }}
+    try { var t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  })();
+</script>
+{{- if .IsHome }}
+<script type="application/ld+json">
+{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" site.Params.name "url" site.BaseURL "jobTitle" site.Params.jobTitle }}
+{{- $person = merge $person (dict "affiliation" (dict "@type" "CollegeOrUniversity" "name" site.Params.affiliation)) }}
+{{- $same := slice }}{{ with site.Params.github }}{{ $same = $same | append . }}{{ end }}{{ with site.Params.scholar }}{{ $same = $same | append . }}{{ end }}
+{{- $person = merge $person (dict "sameAs" $same) }}
+{{ $person | jsonify | safeJS }}
+</script>
+{{- end }}
+</head>
+<body>
+{{ partial "banner.html" . }}
+<main class="column">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    var el = document.documentElement;
+    var current = el.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = current === "dark" ? "light" : "dark";
+    el.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+</script>
+</body>
+</html>

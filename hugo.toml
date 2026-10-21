@@ -1,0 +1,58 @@
+baseURL = "https://www.ccao2679.com/"
+locale = "en-US"
+title = "Chao Cao"
+disableKinds = ["rss"]
+enableRobotsTXT = true
+capitalizeListTitles = false
+
+# One taxonomy: topics. The sections (research / projects / coursework / notes)
+# act as the primary "heading" of every entry — the folder a file sits in is its heading.
+[taxonomies]
+  topic = "topics"
+
+[params]
+  name = "Chao Cao"
+  tagline = "PhD candidate in CS · brain imaging & multimodal AI"
+  description = "Chao Cao, PhD candidate in Computer Science at UT Arlington. Research code and projects in brain imaging, speech and multimodal AI."
+  jobTitle = "PhD Candidate in Computer Science"
+  affiliation = "University of Texas at Arlington"
+  github = "https://github.com/HenryVarro666"
+  # email = "you@example.com"     # shown in the footer and on /contact when set
+  # scholar = "https://scholar.google.com/citations?user=..."
+  # "next" = the grey NexT palette of the old ccao2679.com; remove the line for the teal default.
+  palette = "next"
+  streamSections = ["research", "projects", "coursework", "notes"]
+  dateFormat = "2006-01"
+  inlineCSS = false
+  preview = false
+
+[[menus.main]]
+  name = "all"
+  pageRef = "/"
+  weight = 1
+[[menus.main]]
+  name = "research"
+  pageRef = "/research"
+  weight = 2
+[[menus.main]]
+  name = "projects"
+  pageRef = "/projects"
+  weight = 3
+[[menus.main]]
+  name = "coursework"
+  pageRef = "/coursework"
+  weight = 4
+[[menus.main]]
+  name = "notes"
+  pageRef = "/notes"
+  weight = 5
+[[menus.main]]
+  name = "contact"
+  pageRef = "/contact"
+  weight = 6
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false

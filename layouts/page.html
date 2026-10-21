@@ -1,0 +1,13 @@
+{{ define "main" }}
+<article class="post">
+  <header class="post-head">
+    {{- with .Parent }}<a class="back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- $terms := .GetTerms "topics" }}
+    {{- with $terms }}
+    <div class="item-topics">{{ range . }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div>
+    {{- end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

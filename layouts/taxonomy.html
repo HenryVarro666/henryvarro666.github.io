@@ -1,0 +1,7 @@
+{{ define "main" }}
+<ul class="topic-index">
+  {{- range .Data.Terms.Alphabetical }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> <span class="count">{{ .Count }}</span></li>
+  {{- end }}
+</ul>
+{{ end }}

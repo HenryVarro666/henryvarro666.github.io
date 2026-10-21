@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="stream">
+  {{- range where site.RegularPages "Params.pinned" true }}
+  {{ partial "item.html" . }}
+  {{- end }}
+  {{- $entries := slice }}
+  {{- range site.RegularPages }}{{ if in site.Params.streamSections .Section }}{{ $entries = $entries | append . }}{{ end }}{{ end }}
+  {{- range sort $entries "Date" "desc" }}
+  {{ partial "item.html" . }}
+  {{- end }}
+</div>
+{{ end }}

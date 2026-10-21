@@ -1,0 +1,44 @@
+{{- /* One entry in the stream. Entries with `repo` or `link` point off-site (↗);
+       entries without one (notes) open their own page. */ -}}
+{{- $link := .Params.link | default .Params.repo }}
+{{- $external := true }}
+{{- if not $link }}{{ $link = .RelPermalink }}{{ $external = false }}{{ end }}
+{{- $pinned := .Params.pinned }}
+<article class="item{{ if $pinned }} pinned{{ end }}">
+  <div class="item-head">
+    {{- if $pinned }}<span class="pin" title="Pinned">★</span>{{ end }}
+    {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}</time>{{ end }}
+    {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+    {{- if or .Params.lang .Params.stars }}
+    <span class="repo-meta">
+      {{- with .Params.lang }}<span>{{ . }}</span>{{ end }}
+      {{- with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
+    </span>
+    {{- end }}
+  </div>
+  <h2 class="item-title">
+    {{- if $pinned }}{{ .Title }}
+    {{- else }}<a href="{{ $link }}">{{ .Title }}{{ if $external }}<span class="ext" aria-hidden="true"> ↗</span>{{ else }}<span class="doc" aria-hidden="true"> ¶</span>{{ end }}</a>{{ end -}}
+  </h2>
+  <div class="item-summary">
+    {{- if or $external $pinned }}{{ .Content }}{{ else }}<p>{{ .Description | default .Summary | plainify }}</p>{{ end }}
+    {{- with .Params.live }}<p class="live">{{ . }}</p>{{ end }}
+  </div>
+  {{- $terms := .GetTerms "topics" }}
+  {{- $n := len $terms }}
+  {{- $parent := .Parent }}
+  {{- if or $n (and $parent (not $parent.IsHome)) }}
+  <div class="item-topics">
+    {{- /* Long topic lists keep the first two and the last one, with a single … between. */ -}}
+    {{- if gt $n 4 }}
+      {{- range first 2 $terms }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+      {{- $hidden := slice }}{{ range after 2 (first (sub $n 1) $terms) }}{{ $hidden = $hidden | append .LinkTitle }}{{ end }}
+      <span class="more" title="{{ delimit $hidden ", " }}">…</span>
+      {{- range last 1 $terms }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+    {{- else }}
+      {{- range $terms }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+    {{- end }}
+    {{- with $parent }}{{ if not .IsHome }}<a class="heading" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}
+  </div>
+  {{- end }}
+</article>

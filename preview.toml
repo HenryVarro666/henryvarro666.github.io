@@ -1,0 +1,11 @@
+# Overrides for a self-contained preview build (hugo --config hugo.toml,preview.toml):
+# flat .html files, relative links, CSS inlined into every page.
+baseURL = "/"
+uglyURLs = true
+relativeURLs = true
+enableRobotsTXT = false
+disableKinds = ["rss", "sitemap"]
+
+[params]
+  inlineCSS = true
+  preview = true
