@@ -6,4 +6,4 @@ lang: Python
 stars: 1
 topics: [llm]
 ---
-Experiments on de-identifying text with open LLMs (LLaMA 2 7B, Falcon-7B, Flan-T5), comparing explicit and implicit prompts and fine-tuned variants.
+Can open, locally run LLMs remove protected health information from clinical notes? Compares LLaMA 2 7B, Falcon-7B and Flan-T5 under explicit and implicit prompts, plus fine-tuned variants, and scores how much PHI each leaves behind.

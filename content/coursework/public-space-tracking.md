@@ -5,4 +5,4 @@ repo: "https://github.com/HenryVarro666/Public-Space-Tracking"
 lang: Jupyter
 topics: [computer-vision]
 ---
-Course 640 final project: detecting and tracking people in public-space video, compared across TensorFlow Object Detection and Detectron2.
+Course 640 final project: detects people in street video with TensorFlow Object Detection and Detectron2, tracks box centroids across frames to count entries and exits, and draws an occupancy heatmap.

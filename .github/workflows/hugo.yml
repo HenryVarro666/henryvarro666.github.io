@@ -3,6 +3,9 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [master]
+  schedule:
+    # Mondays: rebuild so citation counts on /publications/ stay current.
+    - cron: "23 12 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -31,6 +34,9 @@ jobs:
           sudo dpkg -i "${{ runner.temp }}/hugo.deb"
       - uses: actions/checkout@v5
       - uses: actions/configure-pages@v5
+      - name: Refresh citation counts
+        # Counts come from OpenAlex; if it is unreachable the committed data/citations.json is used.
+        run: python3 tools/citations.py || echo "::warning::citation refresh failed; using the committed snapshot"
       - name: Build
         env:
           HUGO_ENVIRONMENT: production

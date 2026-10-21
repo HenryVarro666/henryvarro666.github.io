@@ -26,4 +26,8 @@ Two or three sentences on what it does and what it found.
 - About ten lines of script, only for the light/dark switch.
 - Section and topic pages are generated at build time, so filtering needs no server.
 
+## Figures and papers
+
+Each project's overview figure is a small SVG drawn by a script from the numbers in that repo, inlined so it follows the light/dark switch; click one to enlarge it. The publications page reads a single data file, and its citation counts are refreshed from OpenAlex every week.
+
 Hugo builds the site in GitHub Actions on every push and publishes it to GitHub Pages.

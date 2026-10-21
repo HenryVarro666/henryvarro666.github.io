@@ -11,10 +11,17 @@ content/
   about.md                首页置顶条目（pinned: true）
   research/  projects/  coursework/  notes/
                           每个 .md 是一条条目，所在文件夹就是它的栏目
+  publications/_index.md  论文页（内容来自 data/publications.toml）
   research/_index.md 等   栏目的一句话介绍（intro），显示在名字下面那一行
   contact/_index.md       联系方式页
 layouts/                  模板（baseof / home / section / term / taxonomy / page + _partials）
-assets/css/site.css       全部样式；颜色都在 :root 的 token 里
+assets/css/site.css       全部样式；颜色都在 :root 的 token 里（含 --fig-* 概览图配色）
+assets/figs/<slug>.svg    条目的概览图，和 content 里的文件同名就会自动显示在条目左侧
+assets/pubs/              论文主图
+data/publications.toml    论文列表：first = true 的显示主图 + 讲解，其余简列
+data/citations.json       引用数快照（构建时由 tools/citations.py 从 OpenAlex 刷新）
+tools/figs/               概览图生成脚本（figures.py）
+MAINTENANCE.md            每周维护的清单（定时任务按它执行）
 .github/workflows/hugo.yml  push 到 master 后自动构建并发布
 ```
 
@@ -73,6 +80,8 @@ topics: [speech]          # 点状下划线的话题标签（最多 2 个，从�
 | 邮箱 / Google Scholar | 去掉 `hugo.toml` 里 `email`、`scholar` 两行前面的 `#` |
 | 配色 | `hugo.toml` 里的 `palette`：`"next"` 是旧站 NexT 的灰色系（当前），删掉这行就换回青色默认；具体色值在 `assets/css/site.css` 顶部的 token 里 |
 | 置顶简介 | `content/about.md` |
+| 新增/修改论文 | `data/publications.toml`，主图放 `assets/pubs/` |
+| 条目的概览图 | 改 `tools/figs/figures.py` 后运行它，输出到 `assets/figs/` |
 
 ## 部署到 www.ccao2679.com
 

@@ -1,10 +1,20 @@
 {{- /* One entry in the stream. Entries with `repo` or `link` point off-site (↗);
-       entries without one (notes) open their own page. */ -}}
+       entries without one (notes) open their own page.
+       A figure in assets/figs/<file name>.svg (or `figure:` in front matter) is inlined
+       next to the text, so it follows the light/dark palette; clicking it enlarges it. */ -}}
 {{- $link := .Params.link | default .Params.repo }}
 {{- $external := true }}
 {{- if not $link }}{{ $link = .RelPermalink }}{{ $external = false }}{{ end }}
 {{- $pinned := .Params.pinned }}
-<article class="item{{ if $pinned }} pinned{{ end }}">
+{{- $fig := false }}
+{{- with .File }}{{ $fig = resources.Get (printf "figs/%s.svg" ($.Params.figure | default .ContentBaseName)) }}{{ end }}
+{{- $paper := false }}
+{{- with .Params.paper }}{{ with where (site.Data.publications.pub | default slice) "id" . }}{{ $paper = index . 0 }}{{ end }}{{ end }}
+<article class="item{{ if $pinned }} pinned{{ end }}{{ if $fig }} has-fig{{ end }}"{{ with .File }} id="{{ .ContentBaseName }}"{{ end }}>
+  {{- with $fig }}
+  <button class="item-fig" type="button" data-zoom data-caption="{{ $.Title }}" aria-label="Enlarge the overview figure for {{ $.Title }}">{{ .Content | safeHTML }}</button>
+  {{- end }}
+  <div class="item-body">
   <div class="item-head">
     {{- if $pinned }}<span class="pin" title="Pinned">★</span>{{ end }}
     {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}</time>{{ end }}
@@ -24,6 +34,13 @@
     {{- if or $external $pinned }}{{ .Content }}{{ else }}<p>{{ .Description | default .Summary | plainify }}</p>{{ end }}
     {{- with .Params.live }}<p class="live">{{ . }}</p>{{ end }}
   </div>
+  {{- /* Extra destinations, shown only when there is more than the title link. */ -}}
+  {{- if and (not $pinned) (or $paper (and .Params.link .Params.repo)) }}
+  <p class="item-links">
+    {{- if and .Params.link .Params.repo }}<a href="{{ .Params.repo }}">code<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+    {{- with $paper }}<a href="{{ relref $ "/publications" }}#{{ .id }}">paper: {{ .short }}</a>{{ end }}
+  </p>
+  {{- end }}
   {{- $terms := .GetTerms "topics" }}
   {{- $n := len $terms }}
   {{- $parent := .Parent }}
@@ -41,4 +58,5 @@
     {{- with $parent }}{{ if not .IsHome }}<a class="heading" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}
   </div>
   {{- end }}
+  </div>
 </article>

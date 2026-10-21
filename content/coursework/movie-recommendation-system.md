@@ -6,4 +6,4 @@ lang: JavaScript
 stars: 47
 topics: [data-science, web]
 ---
-Movie recommender built with Django and collaborative filtering, backed by SQLite.
+Django movie site with user- and item-based collaborative filtering (Pearson and cosine similarity) over ratings crawled from Douban, plus search, rating, favourites, an admin back end and review word clouds.

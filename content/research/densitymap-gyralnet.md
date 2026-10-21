@@ -5,4 +5,4 @@ repo: "https://github.com/HenryVarro666/DensityMap-GyralNet"
 lang: Python
 topics: [brain-imaging]
 ---
-Cortical-surface processing for gyral-net analysis: reads VTK surface meshes, builds vertex neighbourhoods, and works on gyral regions selected with sulcal-depth data.
+Extracts the gyral net — the network of gyral crests whose three-way junctions are 3-hinge gyri — from cortical surfaces. Reads VTK surface meshes with sulcal depth, isolates gyral regions, skeletonizes them with shortest paths and repairs missing crest links; run on HCP 32k surfaces.

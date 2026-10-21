@@ -1,0 +1,259 @@
+# Papers shown on /publications/.
+# first = true  -> full card: main figure (assets/pubs/<figure>), TL;DR, problem / approach / findings, BibTeX.
+# otherwise     -> one line in the year list. `equal` marks shared first authorship.
+# Citation counts come from data/citations.json (tools/citations.py, OpenAlex) by `id`.
+
+# ------------------------------------------------------------------ first author
+
+[[pub]]
+id = "gs-net"
+order = 1
+first = true
+title = "Gyral-Sulcal-Net: An Integrated Network Representation of Brain Folding Patterns"
+authors = ["Chao Cao", "Tong Chen", "Nan Zhao", "Minheng Chen", "Michael Qu", "Zeyu Zhang", "Xiao Shi", "Xiang Li", "Tianming Liu", "Lu Zhang"]
+equal = ["Chao Cao", "Tong Chen", "Nan Zhao"]
+venue = "IEEE International Symposium on Biomedical Imaging (ISBI), 2026"
+short = "ISBI 2026"
+year = 2026
+arxiv = "2601.08818"
+figure = "gs-net-isbi2026.png"
+figure_caption = "The GS-Net pipeline: (a) split the cortex into gyri and sulci, (b) erode both into thin skeletons, (c) march and trim them into GyralNet and SulcalNet, (d) join the two networks and identify the landmarks."
+tldr = "Puts the brain's two folding patterns, gyri and sulci, into one network, so fine-scale folding landmarks can be studied the way brain networks are."
+problem = "Brain networks usually take whole regions as nodes, which hides the fine-scale landmarks inside them, such as gyral peaks and sulcal fundi. Gyral and sulcal patterns have also been modelled separately."
+approach = "Segment the cortical surface into gyri and sulci on the sphere, erode both sides into skeletons, build GyralNet and SulcalNet by tree marching and trimming, then connect the free sulci to GyralNet junctions. The joint network has three kinds of nodes: gyri conjunctions, sulci–gyri conjunctions and sulci conjunctions."
+findings = "Over 95% of free sulci end directly at a GyralNet junction, so almost all folding fits one network. Using several surface measures instead of sulcal depth alone removes spurious 3-hinge detections and cuts the runtime from hours to seconds per subject."
+data = "1,600+ T1-weighted scans from 34 gestational weeks to old age: HCP young adults (1,064), ADNI elderly adults (282) and Alzheimer's patients (200), and infant cohorts at 34 weeks, 6 months and 2 years."
+bibtex = '''
+@inproceedings{cao2026gsnet,
+  title     = {Gyral-Sulcal-Net: An Integrated Network Representation of Brain Folding Patterns},
+  author    = {Cao, Chao and Chen, Tong and Zhao, Nan and Chen, Minheng and Qu, Michael and Zhang, Zeyu and Shi, Xiao and Li, Xiang and Liu, Tianming and Zhang, Lu},
+  booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
+  year      = {2026},
+  note      = {arXiv:2601.08818}
+}
+'''
+
+[[pub]]
+id = "deep-gyralnet"
+order = 2
+first = true
+title = "Deep-GyralNet: Enabling Machine Learning in Gyral Folding Pattern Extraction on Cortical Surface"
+authors = ["Chao Cao", "Jiale Cheng", "Minheng Chen", "Jing Zhang", "Tianming Liu", "Lu Zhang", "Dajiang Zhu", "Gang Li"]
+equal = ["Chao Cao", "Jiale Cheng"]
+venue = "IEEE International Symposium on Biomedical Imaging (ISBI), 2026"
+short = "ISBI 2026"
+year = 2026
+doi = "10.1109/ISBI61048.2026.11515596"
+figure = "deep-gyralnet-isbi2026.png"
+figure_caption = "Deep-GyralNet: the cortical surface is mapped to a sphere, a Spherical U-Net predicts gyral crests, refinement makes them continuous, and GyralNet with its 3-hinge gyri is generated."
+tldr = "Replaces the slow geometric pipeline that extracts GyralNet and 3-hinge gyri with a learned one: about 17× faster, recovering 98% of the reference network."
+problem = "3-hinge gyri, where three gyri meet, are hubs of the cortex; joined along gyral crests they form GyralNet. Extracting it takes a long chain of geometric steps, which limits large-sample studies."
+approach = "Map each surface to a sphere and let a Spherical U-Net label gyral-crest vertices from convexity and curvature, trained with a focal loss plus a Connectivity-Aware Path Enforcement loss that keeps ridges continuous. Confidence-guided geodesic skeletonization and minimum-spanning-tree refinement then give a topologically valid GyralNet; 3-hinge gyri are its three-way junctions."
+findings = "On the Human Connectome Project with 6-fold cross-validation: recall 98%, precision 94%, F1 96% and Dice 72% across both hemispheres. Average runtime falls from 237 s to 14 s. Removing either loss term lowers Dice."
+data = "Human Connectome Project, T1-weighted MRI of 1,098 subjects."
+bibtex = '''
+@inproceedings{cao2026deepgyralnet,
+  title     = {Deep-GyralNet: Enabling Machine Learning in Gyral Folding Pattern Extraction on Cortical Surface},
+  author    = {Cao, Chao and Cheng, Jiale and Chen, Minheng and Zhang, Jing and Liu, Tianming and Zhang, Lu and Zhu, Dajiang and Li, Gang},
+  booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
+  year      = {2026},
+  doi       = {10.1109/ISBI61048.2026.11515596}
+}
+'''
+
+[[pub]]
+id = "3hg-matching"
+order = 3
+first = true
+title = "Enhancing Group-Wise Consistency in 3-Hinge Gyrus Matching via Anatomical Embedding and Structural Connectivity Optimization"
+authors = ["Chao Cao", "Xiaowei Yu", "Lu Zhang", "Tong Chen", "Yanjun Lyu", "Tianming Liu", "Dajiang Zhu"]
+venue = "IEEE International Symposium on Biomedical Imaging (ISBI), 2024"
+short = "ISBI 2024"
+year = 2024
+doi = "10.1109/ISBI56570.2024.10635893"
+figure = "3hg-matching-isbi2024.png"
+figure_caption = "An anchor 3-hinge gyrus (red) is matched in other brains: its anatomical embedding shortlists candidates (yellow), and the fiber bundles through each candidate decide which one corresponds."
+tldr = "Gives each 3-hinge gyrus one counterpart in every other brain by adding diffusion-MRI fiber connectivity to an anatomical embedding."
+problem = "3-hinge gyri are found in each brain separately, so they have no built-in correspondence across subjects. Matching on anatomical embeddings alone often returns several candidates for one 3-hinge."
+approach = "Shortlist candidates whose cortex2vector anatomical embedding is close to the anchor's (cosine similarity ≥ 0.9), then compare the DTI fiber bundles passing through the anchor and each candidate as trace-maps, and keep the candidate with the most similar connectivity."
+findings = "Trained on 565 HCP subjects (186,915 3-hinge gyri) and applied to the remaining 500. For the 171 anchors of a reference brain, the selected match stands clearly apart from the other candidates in connectivity similarity (p = 5.02 × 10⁻²³), turning one-to-many matches into one-to-one."
+data = "Human Connectome Project, T1-weighted MRI and DTI of 1,065 subjects."
+bibtex = '''
+@inproceedings{cao2024enhancing,
+  title     = {Enhancing Group-Wise Consistency in 3-Hinge Gyrus Matching via Anatomical Embedding and Structural Connectivity Optimization},
+  author    = {Cao, Chao and Yu, Xiaowei and Zhang, Lu and Chen, Tong and Lyu, Yanjun and Liu, Tianming and Zhu, Dajiang},
+  booktitle = {IEEE International Symposium on Biomedical Imaging (ISBI)},
+  year      = {2024},
+  doi       = {10.1109/ISBI56570.2024.10635893}
+}
+'''
+
+# ------------------------------------------------------------------ co-authored
+
+[[pub]]
+id = "community-gyral-folding"
+title = "Community-Level Modeling of Gyral Folding Patterns for Robust and Anatomically Informed Individualized Brain Mapping"
+authors = ["Minheng Chen", "Tong Chen", "Yan Zhuang", "Chao Cao", "Jing Zhang", "Tianming Liu", "Lu Zhang", "Dajiang Zhu"]
+short = "arXiv 2026"
+year = 2026
+arxiv = "2602.01482"
+
+[[pub]]
+id = "radiology-nli-tradeoffs"
+title = "Exploring the Trade-Offs: Unified Large Language Models vs Local Fine-Tuned Models for Highly-Specific Radiology NLI Task"
+authors = ["Zihao Wu", "Lu Zhang", "Chao Cao", "Xiaowei Yu", "Zhengliang Liu", "Lin Zhao", "Yiwei Li", "Haixing Dai", "Chong Ma", "Gang Li", "Wei Liu", "Quanzheng Li", "Dinggang Shen", "Xiang Li", "Dajiang Zhu", "Tianming Liu"]
+short = "IEEE Transactions on Big Data 11(3), 2025"
+year = 2025
+arxiv = "2304.09138"
+
+[[pub]]
+id = "unified-staging-ad-lbd"
+title = "A Unified Continuous Staging Framework for Alzheimer's Disease and Lewy Body Dementia via Hierarchical Anatomical Features"
+authors = ["Tong Chen", "Minheng Chen", "Jing Zhang", "Yan Zhuang", "Chao Cao", "Xiaowei Yu", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
+short = "MICCAI 2025"
+year = 2025
+
+[[pub]]
+id = "lbd-transferability-transformer"
+title = "Domain-Adaptive Diagnosis of Lewy Body Disease with Transferability Aware Transformer"
+authors = ["Xiaowei Yu", "Jing Zhang", "Tong Chen", "Yan Zhuang", "Minheng Chen", "Chao Cao", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
+short = "MICCAI 2025"
+year = 2025
+arxiv = "2507.08839"
+
+[[pub]]
+id = "core-periphery-ssm"
+title = "Core-Periphery Principle Guided State Space Model for Functional Connectome Classification"
+authors = ["Minheng Chen", "Xiaowei Yu", "Jing Zhang", "Tong Chen", "Chao Cao", "Yan Zhuang", "Yanjun Lyu", "Lu Zhang", "Tianming Liu", "Dajiang Zhu"]
+short = "MICCAI 2025"
+year = 2025
+arxiv = "2503.14655"
+
+[[pub]]
+id = "gyralnet-subnetwork-partitioning"
+title = "GyralNet Subnetwork Partitioning via Differentiable Spectral Modularity Optimization"
+authors = ["Yan Zhuang", "Minheng Chen", "Chao Cao", "Tong Chen", "Jing Zhang", "Xiaowei Yu", "Yanjun Lyu", "Lu Zhang", "Tianming Liu", "Dajiang Zhu"]
+equal = ["Yan Zhuang", "Minheng Chen"]
+short = "MLMI @ MICCAI 2025, LNCS 16241"
+year = 2025
+doi = "10.1007/978-3-032-09513-8_46"
+arxiv = "2503.19823"
+
+[[pub]]
+id = "connectomes-clinical-reports"
+title = "Bridging Brain Connectomes and Clinical Reports for Early Alzheimer's Disease Diagnosis"
+authors = ["Jing Zhang", "Xiaowei Yu", "Minheng Chen", "Lu Zhang", "Tong Chen", "Yan Zhuang", "Chao Cao", "Yanjun Lyu", "Li Su", "Tianming Liu", "Dajiang Zhu"]
+short = "MLMI @ MICCAI 2025"
+year = 2025
+arxiv = "2508.06565"
+
+[[pub]]
+id = "brain-adapter"
+title = "Brain-Adapter: Enhancing Neurological Disorder Analysis with Adapter-Tuning Multimodal Large Language Models"
+authors = ["Jing Zhang", "Xiaowei Yu", "Yanjun Lyu", "Lu Zhang", "Tong Chen", "Chao Cao", "Yan Zhuang", "Minheng Chen", "Tianming Liu", "Dajiang Zhu"]
+short = "ISBI 2025"
+year = 2025
+arxiv = "2501.16282"
+
+[[pub]]
+id = "kan-3hg-embedding"
+title = "Using Structural Similarity and Kolmogorov-Arnold Networks for Anatomical Embedding of Cortical Folding Patterns"
+authors = ["Minheng Chen", "Chao Cao", "Tong Chen", "Yan Zhuang", "Jing Zhang", "Yanjun Lyu", "Xiaowei Yu", "Lu Zhang", "Tianming Liu", "Dajiang Zhu"]
+short = "ISBI 2025"
+year = 2025
+arxiv = "2410.23598"
+
+[[pub]]
+id = "gyralnet-registration"
+title = "Unsupervised Cortical Surface Registration Network for Aligning GyralNet"
+authors = ["Jiale Cheng", "Fenqiang Zhao", "Dan Hu", "Chao Cao", "Zhengwang Wu", "Xinrui Yuan", "Kangfu Han", "Lu Zhang", "Tianming Liu", "Dajiang Zhu", "Gang Li"]
+short = "ISBI 2025"
+year = 2025
+
+[[pub]]
+id = "ca-vqvae"
+title = "Ca-VQVAE: Cortical Folding Aware Numerical Representation of White-Matter Structure"
+authors = ["Yanjun Lyu", "Jing Zhang", "Lu Zhang", "Tong Chen", "Xiaowei Yu", "Minheng Chen", "Yan Zhuang", "Chao Cao", "Tianming Liu", "Dajiang Zhu"]
+short = "ISBI 2025"
+year = 2025
+
+[[pub]]
+id = "mci-spatiotemporal-transformer"
+title = "Classification of Mild Cognitive Impairment Based on Dynamic Functional Connectivity Using Spatio-Temporal Transformer"
+authors = ["Jing Zhang", "Yanjun Lyu", "Xiaowei Yu", "Lu Zhang", "Chao Cao", "Tong Chen", "Minheng Chen", "Yan Zhuang", "Tianming Liu", "Dajiang Zhu"]
+short = "ISBI 2025"
+year = 2025
+arxiv = "2501.16409"
+
+[[pub]]
+id = "brainnet-moe"
+title = "BrainNet-MoE: Brain-Inspired Mixture-of-Experts Learning for Neurological Disease Identification"
+authors = ["Jing Zhang", "Xiaowei Yu", "Tong Chen", "Chao Cao", "Minheng Chen", "Yan Zhuang", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
+short = "arXiv 2025"
+year = 2025
+arxiv = "2503.07640"
+
+[[pub]]
+id = "dcmm-transformer"
+title = "DCMM-Transformer: Degree-Corrected Mixed-Membership Attention for Medical Imaging"
+authors = ["Huimin Cheng", "Xiaowei Yu", "Shushan Wu", "Luyang Fang", "Chao Cao", "Jing Zhang", "Tianming Liu", "Dajiang Zhu", "Wenxuan Zhong", "Ping Ma"]
+short = "arXiv 2025"
+year = 2025
+arxiv = "2511.12047"
+
+[[pub]]
+id = "gyri-sulci-core-periphery"
+title = "Gyri vs. Sulci: Core-Periphery Organization in Functional Brain Networks"
+authors = ["Xiaowei Yu", "Lu Zhang", "Chao Cao", "Tong Chen", "Yanjun Lyu", "Jing Zhang", "Tianming Liu", "Dajiang Zhu"]
+short = "MICCAI 2024"
+year = 2024
+
+[[pub]]
+id = "mci-finer-scale-connectome"
+title = "Mild Cognitive Impairment Classification Using A Novel Finer-Scale Brain Connectome"
+authors = ["Yanjun Lyu", "Lu Zhang", "Xiaowei Yu", "Chao Cao", "Tianming Liu", "Dajiang Zhu"]
+short = "ISBI 2024"
+year = 2024
+
+[[pub]]
+id = "gp-gpt"
+title = "GP-GPT: Large Language Model for Gene-Phenotype Mapping"
+authors = ["Yanjun Lyu", "Zihao Wu", "Lu Zhang", "Jing Zhang", "Yiwei Li", "Wei Ruan", "Zhengliang Liu", "Xiaowei Yu", "Chao Cao", "Tong Chen", "Minheng Chen", "Yan Zhuang", "Xiang Li", "Rongjie Liu", "Chao Huang", "Wentao Li", "Tianming Liu", "Dajiang Zhu"]
+short = "arXiv 2024"
+year = 2024
+arxiv = "2409.09825"
+
+[[pub]]
+id = "o1-evaluation"
+title = "Evaluation of OpenAI o1: Opportunities and Challenges of AGI"
+authors = ["Tianyang Zhong", "Zhengliang Liu", "Yi Pan", "Yutong Zhang", "Yifan Zhou", "Shizhe Liang", "Zihao Wu", "Yanjun Lyu", "Peng Shu", "Xiaowei Yu", "Chao Cao"]
+authors_total = 78
+short = "arXiv 2024"
+year = 2024
+arxiv = "2409.18486"
+
+[[pub]]
+id = "deid-gpt"
+title = "DeID-GPT: Zero-shot Medical Text De-Identification by GPT-4"
+authors = ["Zhengliang Liu", "Xiaowei Yu", "Lu Zhang", "Zihao Wu", "Chao Cao", "Haixing Dai", "Lin Zhao", "Wei Liu", "Dinggang Shen", "Quanzheng Li", "Tianming Liu", "Dajiang Zhu", "Xiang Li"]
+short = "arXiv 2023"
+year = 2023
+arxiv = "2303.11032"
+
+[[pub]]
+id = "llms-radiology-nlp"
+title = "Evaluating Large Language Models for Radiology Natural Language Processing"
+authors = ["Zhengliang Liu", "Tianyang Zhong", "Yiwei Li", "Yutong Zhang", "Yi Pan", "Zihao Zhao", "Peixin Dong", "Chao Cao"]
+authors_total = 45
+short = "arXiv 2023"
+year = 2023
+arxiv = "2307.13693"
+
+[[pub]]
+id = "gpt4v-biomedical-imaging"
+title = "Holistic Evaluation of GPT-4V for Biomedical Imaging"
+authors = ["Zhengliang Liu", "Hanqi Jiang", "Tianyang Zhong", "Zihao Wu", "Chong Ma", "Yiwei Li", "Xiaowei Yu", "Yutong Zhang", "Yi Pan", "Peng Shu", "Yanjun Lyu", "Lu Zhang", "Junjie Yao", "Peixin Dong", "Chao Cao"]
+authors_total = 50
+short = "arXiv 2023"
+year = 2023
+arxiv = "2312.05256"

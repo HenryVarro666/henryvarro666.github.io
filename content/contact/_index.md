@@ -1,6 +1,7 @@
 ---
 title: "contact"
 intro: "Where to find me."
-# Add email, LinkedIn or Google Scholar lines below.
+# Add email or LinkedIn lines below.
 ---
 - GitHub: [github.com/HenryVarro666](https://github.com/HenryVarro666)
+- Google Scholar: [scholar.google.com/citations?user=NJWMZBsAAAAJ](https://scholar.google.com/citations?user=NJWMZBsAAAAJ)

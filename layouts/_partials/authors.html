@@ -1,0 +1,23 @@
+{{- /* Author list with Chao Cao marked. Params: list (names), max (0 = all), equal (names
+       that share first authorship, marked with *). Long lists keep the first `max`
+       names, then Chao Cao if he would otherwise be cut, then "et al.". */ -}}
+{{- $me := "Chao Cao" }}
+{{- $list := .list }}
+{{- $max := .max | default 0 }}
+{{- $equal := .equal | default slice }}
+{{- $n := .total | default (len $list) }}
+{{- $show := $list }}
+{{- $cut := false }}
+{{- if and (gt $max 0) (gt $n (add $max 2)) }}{{ $show = first $max $list }}{{ $cut = true }}{{ end }}
+{{- if gt $n (len $list) }}{{ $cut = true }}{{ end }}
+{{- $out := slice }}
+{{- range $show }}
+  {{- $name := . }}{{ if in $equal . }}{{ $name = printf "%s*" . }}{{ end }}
+  {{- if eq . $me }}{{ $out = $out | append (printf `<span class="me">%s</span>` $name) }}{{ else }}{{ $out = $out | append $name }}{{ end }}
+{{- end }}
+{{- if $cut }}
+  {{- if and (in $list $me) (not (in $show $me)) }}{{ $out = $out | append (printf `… <span class="me">%s</span>` $me) }}{{ end }}
+  {{- $out = $out | append (printf "et al. (%d authors)" $n) }}
+{{- end }}
+{{- delimit $out ", " | safeHTML }}
+{{- if $equal }}<span class="eq"> · *equal contribution</span>{{ end }}

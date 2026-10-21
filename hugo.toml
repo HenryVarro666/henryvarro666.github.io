@@ -18,7 +18,7 @@ capitalizeListTitles = false
   affiliation = "University of Texas at Arlington"
   github = "https://github.com/HenryVarro666"
   # email = "you@example.com"     # shown in the footer and on /contact when set
-  # scholar = "https://scholar.google.com/citations?user=..."
+  scholar = "https://scholar.google.com/citations?user=NJWMZBsAAAAJ"
   # "next" = the grey NexT palette of the old ccao2679.com; remove the line for the teal default.
   palette = "next"
   streamSections = ["research", "projects", "coursework", "notes"]
@@ -35,21 +35,25 @@ capitalizeListTitles = false
   pageRef = "/research"
   weight = 2
 [[menus.main]]
+  name = "publications"
+  pageRef = "/publications"
+  weight = 3
+[[menus.main]]
   name = "projects"
   pageRef = "/projects"
-  weight = 3
+  weight = 4
 [[menus.main]]
   name = "coursework"
   pageRef = "/coursework"
-  weight = 4
+  weight = 5
 [[menus.main]]
   name = "notes"
   pageRef = "/notes"
-  weight = 5
+  weight = 6
 [[menus.main]]
   name = "contact"
   pageRef = "/contact"
-  weight = 6
+  weight = 7
 
 [markup.goldmark.renderer]
   unsafe = false

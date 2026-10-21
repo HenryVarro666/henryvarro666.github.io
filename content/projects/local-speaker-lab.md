@@ -5,4 +5,4 @@ repo: "https://github.com/HenryVarro666/local-speaker-lab"
 lang: Python
 topics: [speech]
 ---
-Local speech experiments with reproducible inputs and scoring. Two workflows: glossary-conditioned transcription of mixed Chinese–English speech (no glossary vs. correct vs. unrelated glossary), and a two-speaker pipeline that separates overlapping speech, matches speakers, transcribes with Qwen and writes meeting notes with Ollama.
+Local speech experiments with reproducible inputs and scoring. One workflow transcribes mixed Chinese–English clips with no, a correct or an unrelated glossary; on 200 frozen ASCEND clips (600 CPU runs) the correct glossary did not recover missed terms, and the small drop in error rate was within noise. The other separates two overlapping speakers, matches them, transcribes with Qwen and writes meeting notes with Ollama.

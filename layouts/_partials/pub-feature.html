@@ -1,0 +1,45 @@
+{{- /* A first-author paper: venue line, title, authors, main figure, a structured
+       summary (problem / approach / findings), links and BibTeX. */ -}}
+{{- $p := .p }}
+{{- $n := index (.cites.by_id | default dict) $p.id }}
+{{- $href := $p.url | default "" }}
+{{- if not $href }}{{ with $p.doi }}{{ $href = printf "https://doi.org/%s" . }}{{ else }}{{ with $p.arxiv }}{{ $href = printf "https://arxiv.org/abs/%s" . }}{{ end }}{{ end }}{{ end }}
+<article class="pub" id="{{ $p.id }}">
+  <div class="item-head">
+    <span>{{ $p.short }}</span>
+    {{- with $p.status }}<span class="status">{{ . }}</span>{{ end }}
+    {{- if $n }}<span class="repo-meta"><span>cited by {{ $n }}</span></span>{{ end }}
+  </div>
+  <h2 class="item-title">{{ if $href }}<a href="{{ $href }}">{{ $p.title }}<span class="ext" aria-hidden="true"> ↗</span></a>{{ else }}{{ $p.title }}{{ end }}</h2>
+  <p class="pub-authors">{{ partial "authors.html" (dict "list" $p.authors "equal" $p.equal) }}<br><em>{{ $p.venue }}</em></p>
+  {{- with $p.figure }}
+  {{- with resources.Get (printf "pubs/%s" .) }}
+  {{- $img := .Resize (printf "%dx webp q86 drawing" (math.Min .Width 1400 | int)) }}
+  <figure class="pub-fig">
+    <button type="button" data-zoom data-caption="{{ $p.figure_caption | plainify }}" aria-label="Enlarge the main figure of {{ $p.title }}">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.figure_alt | default $p.figure_caption | plainify }}" loading="lazy" decoding="async">
+    </button>
+    {{- with $p.figure_caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+  </figure>
+  {{- end }}
+  {{- end }}
+  {{- with $p.tldr }}<p class="pub-tldr">{{ . | markdownify }}</p>{{ end }}
+  {{- if or $p.problem $p.approach $p.findings }}
+  <dl class="pub-points">
+    {{- with $p.problem }}<dt>Problem</dt><dd>{{ . | markdownify }}</dd>{{ end }}
+    {{- with $p.approach }}<dt>Approach</dt><dd>{{ . | markdownify }}</dd>{{ end }}
+    {{- with $p.findings }}<dt>Findings</dt><dd>{{ . | markdownify }}</dd>{{ end }}
+    {{- with $p.data }}<dt>Data</dt><dd>{{ . | markdownify }}</dd>{{ end }}
+  </dl>
+  {{- end }}
+  <div class="pub-links">
+    {{- with $p.doi }}<a href="https://doi.org/{{ . }}">paper<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+    {{- with $p.arxiv }}<a href="https://arxiv.org/abs/{{ . }}">arXiv<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+    {{- with $p.code }}<a href="{{ . }}">code<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+    {{- with $p.project }}{{ with site.GetPage . }}<a href="{{ .Parent.RelPermalink }}#{{ .File.ContentBaseName }}">on this site: {{ .Title }}</a>{{ end }}{{ end }}
+    <a href="https://scholar.google.com/scholar?q={{ printf "%q" $p.title | urlquery }}">Google Scholar<span class="ext" aria-hidden="true"> ↗</span></a>
+    {{- with $p.bibtex }}
+    <details><summary>BibTeX</summary><pre><code>{{ . | strings.TrimSpace }}</code></pre></details>
+    {{- end }}
+  </div>
+</article>

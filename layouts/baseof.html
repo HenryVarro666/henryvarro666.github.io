@@ -49,6 +49,23 @@
 {{ block "main" . }}{{ end }}
 </main>
 {{ partial "footer.html" . }}
+<dialog id="zoom" class="zoom" aria-label="Enlarged figure"><div class="zoom-body"></div><p class="zoom-cap"></p></dialog>
+<script>
+  (function () {
+    var d = document.getElementById("zoom");
+    if (!d || !d.showModal) return;
+    var body = d.querySelector(".zoom-body"), cap = d.querySelector(".zoom-cap");
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-zoom]");
+      if (!b) return;
+      body.innerHTML = b.innerHTML;
+      body.querySelectorAll("[id]").forEach(function (n) { n.removeAttribute("id"); });
+      cap.textContent = b.getAttribute("data-caption") || "";
+      d.showModal();
+    });
+    d.addEventListener("click", function () { d.close(); });
+  })();
+</script>
 <script>
   document.getElementById("theme-toggle").addEventListener("click", function () {
     var el = document.documentElement;

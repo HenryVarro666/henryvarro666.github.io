@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{- $pubs := site.Data.publications.pub | default slice }}
+{{- $cites := site.Data.citations | default dict }}
+<div class="scholar">
+  {{- with site.Params.scholar }}<a class="gs" href="{{ . }}">Google Scholar profile<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+  {{- with $cites.total }}<span class="stat"><b>{{ . }}</b> citations</span>{{ end }}
+  {{- with $cites.h_index }}<span class="stat">h-index <b>{{ . }}</b></span>{{ end }}
+  {{- if $cites.total }}{{ with $cites.updated }}<span class="src">counts from OpenAlex across the papers below, refreshed weekly · {{ . }}</span>{{ end }}{{ end }}
+</div>
+{{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+
+{{- $first := where $pubs "first" true }}
+{{- with $first }}
+<h2 class="pub-group">First-author papers</h2>
+{{- range sort . "order" "asc" }}
+{{ partial "pub-feature.html" (dict "p" . "cites" $cites) }}
+{{- end }}
+{{- end }}
+
+{{- $others := where $pubs "first" "!=" true }}
+{{- with $others }}
+<h2 class="pub-group">Co-authored papers</h2>
+{{- $years := slice }}{{ range . }}{{ $years = $years | append .year }}{{ end }}
+{{- range sort (uniq $years) "value" "desc" }}
+{{- $y := . }}
+<h3 class="pub-year">{{ $y }}</h3>
+<ol class="pub-list">
+  {{- range where $others "year" $y }}
+  {{- $href := "" }}{{ with .doi }}{{ $href = printf "https://doi.org/%s" . }}{{ else }}{{ with .arxiv }}{{ $href = printf "https://arxiv.org/abs/%s" . }}{{ end }}{{ end }}
+  {{- $n := index ($cites.by_id | default dict) .id }}
+  <li id="{{ .id }}">
+    {{ if $href }}<a class="t" href="{{ $href }}">{{ .title }}</a>{{ else }}<span class="t">{{ .title }}</span>{{ end }}
+    <span class="a">{{ partial "authors.html" (dict "list" .authors "max" 6 "equal" .equal "total" .authors_total) }}</span>
+    <span class="v">{{ .short }}{{ with .status }} · {{ . }}{{ end }}{{ if $n }} · cited by {{ $n }}{{ end }}</span>
+  </li>
+  {{- end }}
+</ol>
+{{- end }}
+{{- end }}
+{{ end }}
