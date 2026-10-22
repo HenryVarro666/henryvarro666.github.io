@@ -13,7 +13,7 @@ also the checklist for doing it by hand.
 | A paper's main figure | `assets/pubs/<id>.png` (or `.jpg`), referenced by `figure = "<file>"` |
 | Citation counts | `data/citations.json` — per-paper counts, rewritten by `tools/citations.py` (OpenAlex) in the Pages workflow |
 | Google Scholar totals | `data/scholar.toml` — copied by hand from the owner's CV or profile (Scholar has no API); the weekly task does not change it |
-| Contact page, CV, résumé | `content/contact/_index.md` (front matter), `static/chao-cao-cv.pdf`, `static/chao-cao-resume.pdf` (phone number removed) |
+| Contact page, CV, résumé | `content/contact/_index.md` (front matter), `static/chao-cao-cv.pdf`, `static/chao-cao-resume.pdf` (phone number removed). The in-page preview uses page images in `assets/docs/`; rerun `python3 tools/doc_pages.py` after replacing a PDF |
 
 ## Overview figures
 

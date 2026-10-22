@@ -2,12 +2,54 @@
 <div class="contact">
   {{- with .Params.lead }}<p class="contact-lead">{{ . | markdownify }}</p>{{ end }}
   {{- with .Params.seeking }}<p class="contact-seeking">{{ . | markdownify }}</p>{{ end }}
+
+  {{- /* CV and résumé: first-page thumbnail, in-page viewer built from page images
+         (tools/doc_pages.py), and the original PDF. */}}
+  {{- with .Params.docs }}
+  <div class="docs">
+    {{- range $i, $d := . }}
+    {{- $stem := strings.TrimSuffix ".pdf" (path.Base $d.file) }}
+    {{- $pages := resources.Match (printf "docs/%s-*.png" $stem) }}
+    {{- $id := printf "doc-%s" $stem }}
+    <div class="doc-card">
+      {{- range first 1 $pages }}
+      {{- $thumb := .Resize "240x webp q80 drawing" }}
+      <a class="doc-thumb" href="{{ $d.file | relURL }}" data-doc="{{ $id }}" aria-label="Preview {{ $d.label }}">
+        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="">
+      </a>
+      {{- end }}
+      <div class="doc-meta">
+        <b>{{ $d.label }}</b>
+        <span class="note">{{ $d.note }}</span>
+        <span class="doc-actions">
+          {{- if $pages }}<a href="{{ $d.file | relURL }}" data-doc="{{ $id }}">Preview</a>{{ end }}
+          <a href="{{ $d.file | relURL }}" download>Download</a>
+        </span>
+      </div>
+    </div>
+    {{- if $pages }}
+    <dialog class="doc-view" id="{{ $id }}" aria-label="{{ $d.label }}">
+      <div class="doc-bar">
+        <b>{{ $d.label }}</b>
+        <span class="note">{{ len $pages }} page{{ if gt (len $pages) 1 }}s{{ end }}</span>
+        <a href="{{ $d.file | relURL }}" download>Download PDF</a>
+        <button type="button" class="doc-close" aria-label="Close">×</button>
+      </div>
+      <div class="doc-pages">
+        {{- range $n, $p := $pages }}
+        {{- $img := $p.Resize "1400x webp q86 drawing" }}
+        <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" loading="lazy" alt="{{ $d.label }}, page {{ add $n 1 }}">
+        {{- end }}
+      </div>
+    </dialog>
+    {{- end }}
+    {{- end }}
+  </div>
+  {{- end }}
+
   <dl class="contact-grid">
     {{- with .Params.email }}
     <dt>Email</dt><dd><a href="mailto:{{ . }}">{{ . }}</a></dd>
-    {{- end }}
-    {{- range .Params.docs }}
-    <dt>{{ .label }}</dt><dd><a href="{{ .file | relURL }}">PDF</a><span class="note">{{ .note }}</span></dd>
     {{- end }}
     {{- range .Params.profiles }}
     <dt>{{ .label }}</dt><dd><a href="{{ .url }}">{{ .text }}<span class="ext" aria-hidden="true"> ↗</span></a></dd>
@@ -22,4 +64,18 @@
   {{- with .Params.talk }}<p class="contact-note">{{ . | markdownify }}</p>{{ end }}
   {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 </div>
+<script>
+  (function () {
+    document.addEventListener("click", function (e) {
+      var opener = e.target.closest("[data-doc]");
+      if (opener) {
+        var d = document.getElementById(opener.getAttribute("data-doc"));
+        if (d && d.showModal) { e.preventDefault(); d.showModal(); d.querySelector(".doc-pages").scrollTop = 0; }
+        return;
+      }
+      var view = e.target.closest(".doc-view");
+      if (view && (e.target === view || e.target.closest(".doc-close"))) view.close();
+    });
+  })();
+</script>
 {{ end }}
