@@ -137,6 +137,38 @@ def deid(f):
     f.text(180, 250, "LLaMA 1/2 · Falcon-7B · Flan-T5", 15, "f-t", "middle", 600, box=W - 30)
 
 
+@fig("radqnli", "RadQNLI",
+     "ChatGPT accuracy on radiology question-sentence pairs falls from 0.81 to 0.62 as the negatives "
+     "share more words with the question; with the same number of random negatives it falls almost as "
+     "far, from 0.83 to 0.64, as entailment pairs grow from 21 to 70 percent of the set.")
+def radqnli(f):
+    header(f, "ChatGPT 3-shot accuracy, four test sets")
+    xs = [78, 152, 226, 300]
+    top, bottom, lo, hi = 48, 182, 0.55, 0.85
+
+    def y(v):
+        return bottom - (v - lo) / (hi - lo) * (bottom - top)
+
+    for tick in (0.6, 0.7, 0.8):
+        f.path(f"M60 {y(tick):.1f} H304", "f-lnrule", 1, ' stroke-dasharray="2 4"')
+        f.text(52, y(tick) + 4.5, f"{tick:.1f}", 12.5, "f-m", "end")
+    rouge = [0.8100, 0.7934, 0.6986, 0.6186]
+    rand = [0.8297, 0.8121, 0.7339, 0.6430]
+    f.path("M" + " L".join(f"{x} {y(v):.1f}" for x, v in zip(xs, rand)), "f-ln", 2.2)
+    for x, v in zip(xs, rand):
+        f.circle(x, y(v), 3.6, "f-dotm")
+    f.path("M" + " L".join(f"{x} {y(v):.1f}" for x, v in zip(xs, rouge)), "f-lnhl", 2.6)
+    for x, v in zip(xs, rouge):
+        f.circle(x, y(v), 4.6, "f-fillhl")
+    f.text(310, y(rand[-1]) - 2, "random", 12.5, "f-m")
+    f.text(310, y(rouge[-1]) + 15, "ROUGE", 12.5, "f-h", weight=600)
+    for x, lab, share in zip(xs, ["> 0", "≥ 0.1", "≥ 0.2", "≥ 0.3"], ["21%", "26%", "47%", "70%"]):
+        f.text(x, 200, lab, 12.5, "f-t", "middle")
+        f.text(x, 215, share, 12, "f-m", "middle")
+    f.text(180, 242, "random negatives fall almost as far", 15.5, "f-t", "middle", 600, box=W - 24)
+    f.text(180, 262, "ROUGE-1 threshold · entailment share · 9,838 pairs", 12.5, "f-m", "middle", box=W - 20)
+
+
 # ---------------------------------------------------------------- projects
 @fig("ai-medical-interpreter", "AI Medical Interpreter",
      "A Chinese-speaking patient and an English-speaking provider talk over the phone through Twilio and "
@@ -346,6 +378,78 @@ def tracking(f):
         f.circle(x + w / 2, y + h / 2, 2.4, "f-fillhl")
     f.text(180, 228, "detect → link centroids → mark enter/leave", 14.5, "f-t", "middle", 600, box=W - 20)
     f.text(180, 251, "Faster R-CNN, TF2 Detection Zoo", 13.5, "f-m", "middle", box=W - 24)
+
+
+@fig("covid-policy-effectiveness", "Covid Policy Effectiveness",
+     "Daily COVID-19 cases in a state plotted with one policy's strictness level; each level change is "
+     "joined to the state's profile and to the case trend in the window that ends on the change day.")
+def covid_policy(f):
+    header(f, "state policy changes vs. the case trend")
+    x0, x1, base = 26, 338, 172
+    win0, chg = 170, 202
+    f.rect(win0, 56, chg - win0, base - 56, "f-fillsoft", rx=2, sw=0)
+    f.text((win0 + chg) / 2, 50, "trend window", 12.5, "f-h", "middle", 600)
+    f.path(f"M{x0} {base} H{x1}", "f-lnrule", 1.5)
+    curve = []
+    for x in range(x0 + 2, x1, 3):
+        t = (x - x0) / (x1 - x0)
+        y = (base - 4 - 46 * math.exp(-((t - 0.18) / 0.07) ** 2) - 86 * math.exp(-((t - 0.52) / 0.09) ** 2)
+             - 58 * math.exp(-((t - 0.86) / 0.06) ** 2))
+        curve.append((x, y))
+    f.path("M" + " L".join(f"{x} {y:.1f}" for x, y in curve), "f-ln", 2.2)
+    lv = {0: 160, 1: 140, 2: 120, 3: 100}
+    steps = [(x0, 0), (66, 2), (112, 1), (chg, 3), (262, 1), (304, 2)]
+    d = f"M{steps[0][0]} {lv[steps[0][1]]}"
+    for x, level in steps[1:]:
+        d += f" H{x} V{lv[level]}"
+    d += f" H{x1}"
+    f.path(d, "f-lnhl", 2.6)
+    for x, level in steps[1:]:
+        f.circle(x, lv[level], 4.5 if x != chg else 6, "f-fillhl")
+    f.text(212, 88, "policy level", 13.5, "f-h", "start", 600)
+    f.text(296, 103, "cases", 13.5, "f-m", "middle")
+    chips = [("state profile", 22), ("change", 142), ("case trend", 238)]
+    for label, x in chips:
+        w = 100 if label != "change" else 74
+        f.rect(x, 186, w, 24, "f-node", rx=5)
+        f.text(x + w / 2, 202.5, label, 13, "f-t", "middle", box=w - 6)
+    f.text(132, 202.5, "+", 14, "f-m", "middle", 600)
+    f.text(227, 202.5, "+", 14, "f-m", "middle", 600)
+    f.text(180, 236, "1,788 state policy changes, 2020–21", 15.5, "f-t", "middle", 600, box=W - 24)
+    f.text(180, 257, "CDC cases · OxCGRT · census · OWID vaccinations", 13, "f-m", "middle", box=W - 20)
+
+
+@fig("spectatorsport", "Spectator Sport",
+     "A short liveuamap post about one event is matched through Google search to articles from several "
+     "news outlets; topic models per outlet are then compared by Jaccard distance.")
+def spectator(f):
+    header(f, "one event, many outlets")
+    # the reference: a short geotagged post
+    f.rect(16, 74, 88, 92, "f-hl", rx=6)
+    f.circle(36, 94, 6, "f-fillhl")
+    f.rect(48, 90, 46, 8, "f-fillhl", rx=3, sw=0)
+    for i, w in enumerate((68, 60, 64, 40)):
+        f.rect(26, 112 + i * 12, w, 6, "f-bar2", rx=3, sw=0)
+    f.text(60, 184, "liveuamap post", 12.5, "f-m", "middle", box=100)
+    # articles found for it
+    outlets = ["nytimes", "cnn", "guardian", "reuters"]
+    for i, name in enumerate(outlets):
+        y = 50 + i * 36
+        f.rect(140, y, 86, 28, "f-node", rx=5)
+        f.text(183, y + 18.5, name, 13, "f-t", "middle", box=80)
+        f.arrow(106, 120, 138, y + 14, sw=1.5, head=6)
+    f.text(183, 206, "matched articles", 12.5, "f-m", "middle", box=110)
+    # topic-distance grid between two outlets' models
+    shades = [[2, 1, 0, 1, 3], [1, 0, 2, 1, 1], [0, 3, 1, 0, 2], [1, 1, 0, 2, 1], [3, 0, 1, 1, 0]]
+    cls = {0: "f-node", 1: "f-bar", 2: "f-bar2", 3: "f-fillhl"}
+    for r, row in enumerate(shades):
+        for c, v in enumerate(row):
+            f.rect(250 + c * 19, 64 + r * 19, 17, 17, cls[v], rx=2, sw=1 if v == 0 else 0)
+    f.text(297, 176, "topic distance", 12.5, "f-m", "middle", box=110)
+    f.text(297, 192, "(Jaccard)", 12.5, "f-m", "middle", box=110)
+    f.arrow(230, 120, 246, 120, sw=1.5, head=6)
+    f.text(180, 236, "2,921 references → 6,347 articles", 15.5, "f-t", "middle", 600, box=W - 24)
+    f.text(180, 257, "Selenium + Google · newspaper3k · gensim LDA", 13, "f-m", "middle", box=W - 20)
 
 
 def build(site_dir: Path, solo_dir: Path):

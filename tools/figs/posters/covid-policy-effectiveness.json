@@ -1,0 +1,74 @@
+{
+ "accent": "#56688A",
+ "pale": "#E3E8F1",
+ "name": "COVID POLICY EFFECTIVENESS",
+ "eyebrow": "COURSE PROJECT / DATA 602",
+ "title": "Did state COVID-19 policies work?",
+ "subtitle": "1,788 state policy changes, each joined to a state profile and that day's case trend.",
+ "tagline": "CDC cases, OxCGRT policy levels, OWID vaccinations and census data; January 2020 to November 2021.",
+ "steps": [
+  [
+   "01 / COLLECT",
+   "Public data",
+   [
+    "CDC cases, 60 jurisdictions",
+    "OxCGRT policy levels",
+    "Census, OWID, CDC, KFF"
+   ]
+  ],
+  [
+   "02 / PROFILE",
+   "One row per state",
+   [
+    "Three peaks, hand-checked",
+    "Vaccination at four dates",
+    "Income, beds, party, obesity"
+   ]
+  ],
+  [
+   "03 / LABEL",
+   "Policy changes",
+   [
+    "Day-over-day level change",
+    "13 indicators, 2020-2021",
+    "Case trend on that day"
+   ]
+  ],
+  [
+   "04 / MODEL",
+   "Trees, clusters",
+   [
+    "Decision trees per policy",
+    "Kernel ridge, test MAE 0.36",
+    "k-means on 49 states"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "CORRELATION",
+   "Education and vaccination",
+   [
+    "Bachelor's share vs. share vaccinated",
+    "by mid-August 2021: r = 0.67 (49 states)."
+   ]
+  ],
+  [
+   "CLUSTERS",
+   "One table, clustered twice",
+   [
+    "The 'covid profile' k-means is fit on",
+    "the demographic table, so the two agree."
+   ]
+  ],
+  [
+   "TARGETS",
+   "Trend before the change",
+   [
+    "Case-trend targets use windows that",
+    "end on the day the policy changed."
+   ]
+  ]
+ ],
+ "footer": "JUPYTER  /  pandas · scikit-learn · Selenium. A four-person team; notebooks, data and decision-tree PDFs are in this repository."
+}

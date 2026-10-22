@@ -47,9 +47,9 @@
  "panels": [
   [
    "LATENCY",
-   "First token in ~400–800 ms",
+   "First token in a few hundred ms",
    [
-    "vs 2–4 s for a Whisper → GPT → TTS chain.",
+    "Estimate, vs 2–4 s for Whisper → GPT → TTS.",
     "No resampling anywhere in the path."
    ]
   ],
@@ -57,18 +57,18 @@
    "CALL GUARD",
    "Every call stays bounded",
    [
-    "Concurrency and per-number rate limits,",
-    "30-minute cap, silence warning at 60 s."
+    "Concurrency and per-number rate limits;",
+    "30-min cap and 120 s silence end the call."
    ]
   ],
   [
-   "AUDIT",
-   "Every access logged",
+   "ACCESS",
+   "Token-gated, every access logged",
    [
-    "Append-only JSONL audit trail;",
-    "transcript logging is off by default."
+    "Dashboard and API need DASHBOARD_TOKEN;",
+    "Twilio signatures checked; JSONL audit."
    ]
   ]
  ],
- "footer": "NODE.JS ≥ 20  /  Only OPENAI_API_KEY is required; live calls need a Twilio number and ngrok."
+ "footer": "NODE.JS ≥ 20  /  Needs OPENAI_API_KEY and DASHBOARD_TOKEN; live calls need a Twilio number and ngrok."
 }

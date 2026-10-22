@@ -1,0 +1,74 @@
+{
+ "accent": "#3157A4",
+ "pale": "#E0E8F6",
+ "name": "RADQNLI",
+ "eyebrow": "CLINICAL NLP / LLM EVALUATION",
+ "title": "Generic LLM or fine-tuned model?",
+ "subtitle": "RadQNLI: does a sentence from a radiology report answer the clinician's question?",
+ "tagline": "9,838 question–sentence pairs built from RadQA (MIMIC-III reports); ChatGPT 3-shot on four ROUGE-1 difficulty levels.",
+ "steps": [
+  [
+   "01 / PAIR",
+   "RadQA to pairs",
+   [
+    "Each question × each sentence",
+    "Answer sentence = entailment",
+    "radqa2qnli.py, NLTK split"
+   ]
+  ],
+  [
+   "02 / FILTER",
+   "ROUGE-1 ≥ 0.2",
+   [
+    "Drop header fragments",
+    "Keep negatives sharing words",
+    "7,911 / 950 / 977 pairs"
+   ]
+  ],
+  [
+   "03 / PROMPT",
+   "ChatGPT, 3-shot",
+   [
+    "gpt-3.5-turbo, 5 runs per set",
+    "Negatives: ROUGE-1 > 0 … ≥ 0.3",
+    "Random negatives as control"
+   ]
+  ],
+  [
+   "04 / SCORE",
+   "Accuracy and F1",
+   [
+    "Off-format answer = not_entailment",
+    "Accuracy, precision, recall, F1",
+    "Per-run counts in results/"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "PAPER HEADLINE",
+   "GPT-4 0.8420 vs BERT 0.8467",
+   [
+    "GPT-4 few-shot + IRSA vs BERT-family models",
+    "on all training data; on 10 pairs: 0.5181."
+   ]
+  ],
+  [
+   "DIFFICULTY (THIS REPO)",
+   "ChatGPT 0.8100 → 0.6186",
+   [
+    "Accuracy as negatives share more words",
+    "with the question: ROUGE-1 > 0 → ≥ 0.3."
+   ]
+  ],
+  [
+   "RANDOM CONTROL",
+   "Same counts: 0.8297 → 0.6430",
+   [
+    "Most of the drop follows the class balance;",
+    "recall stays near 0.53 on every set."
+   ]
+  ]
+ ],
+ "footer": "2023 EXPERIMENTS  /  pandas · NLTK · rouge_score · OpenAI API  /  RadQA needs PhysioNet credentialed access; no report text here."
+}

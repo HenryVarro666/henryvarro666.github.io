@@ -1,0 +1,74 @@
+{
+ "accent": "#56688A",
+ "pale": "#E3E8F1",
+ "name": "SPECTATOR SPORT",
+ "eyebrow": "COURSE PROJECT / DATA 641",
+ "title": "Same war, different stories?",
+ "subtitle": "How news outlets covered Russia's invasion of Ukraine, compared with topic models.",
+ "tagline": "2,921 liveuamap posts as references; 6,347 matching articles found through Google search.",
+ "steps": [
+  [
+   "01 / REFERENCES",
+   "liveuamap posts",
+   [
+    "133 scrapes, Feb 24 to Apr 11",
+    "2,921 short event reports",
+    "Relative times made absolute"
+   ]
+  ],
+  [
+   "02 / SEARCH",
+   "Find coverage",
+   [
+    "spaCy keywords + numbers",
+    "Google, 2-day date window",
+    "newspaper3k full text"
+   ]
+  ],
+  [
+   "03 / CORPUS",
+   "Articles by outlet",
+   [
+    "6,347 articles, 902 domains",
+    "1,654 references covered",
+    "50 outlets with >20 each"
+   ]
+  ],
+  [
+   "04 / COMPARE",
+   "Topic models",
+   [
+    "M1: LDA per outlet, Jaccard",
+    "M2: article LDA, bigrams",
+    "Words next to topic words"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "COVERAGE",
+   "NYT and CNN lead the corpus",
+   [
+    "nytimes.com 489 articles, cnn.com 412",
+    "(+134 edition.cnn.com); mean 7 per domain."
+   ]
+  ],
+  [
+   "METHOD 1",
+   "Little topic overlap",
+   [
+    "NYT vs. Business Insider: Jaccard",
+    "distances between topics, 0.81 to 1.0."
+   ]
+  ],
+  [
+   "METHOD 2",
+   "Same word, other context",
+   [
+    "Bigram partners of a shared topic word",
+    "('force') counted in two articles."
+   ]
+  ]
+ ],
+ "footer": "JUPYTER  /  Selenium · spaCy · newspaper3k · gensim. A three-person team; scraped data, notebooks and figures are in this repository."
+}
