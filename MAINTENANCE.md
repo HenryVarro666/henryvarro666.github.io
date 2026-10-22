@@ -47,6 +47,13 @@ shape: centered title, one-line subtitle, badges (including a link back to the h
 the poster, then Highlights / How it works / Quick start / Repository layout, with older notes
 folded into `<details>`.
 
+Every showcased repo has two READMEs: `README.md` (English, primary) and `README.zh-CN.md`
+(Simplified Chinese, same structure), switched by `**English** · [简体中文](README.zh-CN.md)` under the
+title. Both carry an `## Architecture` / `## 架构` section with a Mermaid flowchart of the real code
+structure (≤ ~16 nodes, labels in each README's language, no custom colours so dark mode works).
+Check diagrams before committing by rendering them with mermaid-cli; when a README changes, change
+the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
+
 ## Weekly check
 
 1. **Repo metadata.** For each entry, compare `lang`, `stars` and the summary with GitHub; update
