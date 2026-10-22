@@ -24,23 +24,46 @@
 {{- end }}
 
 {{- $others := where $pubs "first" "!=" true }}
-{{- with $others }}
-<h2 class="pub-group">Other papers</h2>
+{{- $published := slice }}{{ $preprints := slice }}
+{{- range $others }}{{ if hasPrefix .short "arXiv" }}{{ $preprints = $preprints | append . }}{{ else }}{{ $published = $published | append . }}{{ end }}{{ end }}
+
+{{- /* Peer-reviewed co-authored papers: by year, each with a one-paragraph summary. */}}
+{{- with $published }}
+<h2 class="pub-group">Conference and journal papers</h2>
 {{- $years := slice }}{{ range . }}{{ $years = $years | append .year }}{{ end }}
 {{- range sort (uniq $years) "value" "desc" }}
 {{- $y := . }}
-<h3 class="pub-year">{{ $y }}</h3>
+{{- $inYear := sort (where $published "year" $y) "rank" "asc" }}
+<h3 class="pub-year"><span class="y">{{ $y }}</span><span class="n">{{ len $inYear }} paper{{ if gt (len $inYear) 1 }}s{{ end }}</span></h3>
 <ol class="pub-list">
-  {{- range where $others "year" $y }}
+  {{- range $inYear }}
   {{- $href := "" }}{{ with .doi }}{{ $href = printf "https://doi.org/%s" . }}{{ else }}{{ with .arxiv }}{{ $href = printf "https://arxiv.org/abs/%s" . }}{{ end }}{{ end }}
   {{- $n := index ($cites.by_id | default dict) .id }}
   <li id="{{ .id }}">
     {{ if $href }}<a class="t" href="{{ $href }}">{{ .title }}</a>{{ else }}<span class="t">{{ .title }}</span>{{ end }}
     <span class="a">{{ partial "authors.html" (dict "list" .authors "max" 6 "equal" .equal "total" .authors_total) }}</span>
-    <span class="v">{{ .short }}{{ with .status }} · {{ . }}{{ end }}{{ if $n }} · cited by {{ $n }}{{ end }}</span>
+    <span class="v"><b class="venue">{{ .short }}</b>{{ with .status }} · {{ . }}{{ end }}{{ if $n }} · cited by {{ $n }}{{ end }}</span>
+    {{- with .summary }}
+    <p class="s">{{ . }}</p>
+    {{- end }}
   </li>
   {{- end }}
 </ol>
 {{- end }}
+{{- end }}
+
+{{- /* arXiv-only papers: listed, no summary. */}}
+{{- with $preprints }}
+<h2 class="pub-group">Preprints</h2>
+<ol class="pub-list pub-pre">
+  {{- range sort . "year" "desc" }}
+  {{- $n := index ($cites.by_id | default dict) .id }}
+  <li id="{{ .id }}">
+    <a class="t" href="https://arxiv.org/abs/{{ .arxiv }}">{{ .title }}</a>
+    <span class="a">{{ partial "authors.html" (dict "list" .authors "max" 6 "equal" .equal "total" .authors_total) }}</span>
+    <span class="v">arXiv {{ .arxiv }} · {{ .year }}{{ if $n }} · cited by {{ $n }}{{ end }}</span>
+  </li>
+  {{- end }}
+</ol>
 {{- end }}
 {{ end }}

@@ -60,8 +60,11 @@ folded into `<details>`.
    `docs/figures/overview.{png,svg}`.
 4. **Papers.** Look for new papers by Chao Cao with the lab's co-authors (dblp, arXiv, OpenAlex,
    IEEE Xplore, Springer). Add them to `data/publications.toml`; a new first-author paper gets a
-   full card (main figure, TL;DR, problem / approach / findings, BibTeX), with any part that could
-   not be verified listed in the PR.
+   full card (main figure, TL;DR, problem / approach / findings, BibTeX). A co-authored paper at a
+   conference or journal gets a `summary`: one paragraph on what it does and why it matters,
+   written from the full paper (not a reworded abstract), with numbers checked against its
+   tables, plus a `rank` within its year. An arXiv-only paper is only listed. Anything that could
+   not be verified is listed in the PR.
 5. **Build and look.** `hugo --gc --minify`, then check `/`, `/research/`, `/projects/`,
    `/publications/` at desktop and phone widths in light and dark.
 6. **Deliver as PRs.** All changes go to a branch and a pull request; nothing is pushed to

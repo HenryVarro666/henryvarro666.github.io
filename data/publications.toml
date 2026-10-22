@@ -1,6 +1,9 @@
 # Papers shown on /publications/.
 # first = true  -> full card: main figure (assets/pubs/<figure>), TL;DR, problem / approach / findings, BibTeX.
-# otherwise     -> one line in the year list. `equal` marks shared first authorship.
+# otherwise, peer-reviewed -> listed by year with `summary`: one paragraph, written from the full
+#               paper, on what it does and why it matters; `rank` orders papers within a year.
+# otherwise, arXiv only (`short` starts with "arXiv") -> listed under Preprints, no summary.
+# `equal` marks shared first authorship.
 # Citation counts come from data/citations.json (tools/citations.py, OpenAlex) by `id`.
 # Left out on purpose (do not re-add): GP-GPT, arXiv 2409.09825.
 
@@ -108,6 +111,8 @@ authors = ["Zihao Wu", "Lu Zhang", "Chao Cao", "Xiaowei Yu", "Zhengliang Liu", "
 equal = ["Zihao Wu", "Lu Zhang", "Chao Cao"]
 short = "IEEE Transactions on Big Data 11(3), 2025"
 year = 2025
+rank = 1
+summary = "Can a general-purpose LLM handle highly specialised clinical language, or does each hospital task still need a model fine-tuned on its own labelled data? The paper builds RadQNLI, a 9,838-pair radiology natural-language-inference benchmark from RadQA reports in MIMIC-III, and compares ChatGPT and GPT-4 (zero-shot, few-shot, chain-of-thought and a new instruction-response semantic alignment prompt) with open LLMs and five fine-tuned BERT-family models. With ten examples in the prompt, GPT-4 reached 0.84 accuracy, close to the BERT models fine-tuned on all 7,911 training pairs (0.85 on average), while the same models trained on ten examples averaged 0.52: evidence that one strong generic model can stand in for data-hungry task-specific ones."
 arxiv = "2304.09138"
 
 [[pub]]
@@ -116,6 +121,8 @@ title = "A Unified Continuous Staging Framework for Alzheimer's Disease and Lewy
 authors = ["Tong Chen", "Minheng Chen", "Jing Zhang", "Yan Zhuang", "Chao Cao", "Xiaowei Yu", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
 short = "MICCAI 2025"
 year = 2025
+rank = 3
+summary = "Alzheimer's disease and Lewy body dementia share symptoms and pathology, so patients are often misdiagnosed or diagnosed late, and most models treat diagnosis as fixed classes rather than a progression. This framework fuses two views of each brain from T1 MRI and DTI, an atlas-based structural connectome and a finer graph of 3-hinge gyri (cortical folding hubs), with graph networks and anatomy-aware cross-attention, then learns class prototypes on a tree that orders subjects from healthy through MCI to AD and LBD. On 308 subjects (77 per group) it reached 61.7% four-class accuracy against 54.9–57.1% for connectome-only classifiers, and the trees place LBD near MCI and AD, a non-invasive, continuous picture of where a patient sits between the two dementias."
 
 [[pub]]
 id = "lbd-transferability-transformer"
@@ -123,6 +130,8 @@ title = "Domain-Adaptive Diagnosis of Lewy Body Disease with Transferability Awa
 authors = ["Xiaowei Yu", "Jing Zhang", "Tong Chen", "Yan Zhuang", "Minheng Chen", "Chao Cao", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
 short = "MICCAI 2025"
 year = 2025
+rank = 4
+summary = "Lewy body disease has few labelled scans, while Alzheimer's datasets are large but come from other sites, scanners and protocols. TAT, a Vision Transformer on structural connectivity, learns from labelled ADNI subjects to diagnose an unlabelled LBD cohort: a patch-level discriminator scores how domain-invariant each connectivity patch is, those scores steer attention toward features that transfer, a global discriminator aligns whole-brain representations, and uncertain predictions are flagged as LBD, a class with no training labels. It is the first study of Alzheimer's-to-LBD domain adaptation; unlike closed-set baselines (ViT, TVT, SSRT) it can recognise LBD at all, which points to diagnosing rare diseases by borrowing from a related common one."
 arxiv = "2507.08839"
 
 [[pub]]
@@ -131,6 +140,8 @@ title = "Core-Periphery Principle Guided State Space Model for Functional Connec
 authors = ["Minheng Chen", "Xiaowei Yu", "Jing Zhang", "Tong Chen", "Chao Cao", "Yan Zhuang", "Yanjun Lyu", "Lu Zhang", "Tianming Liu", "Dajiang Zhu"]
 short = "MICCAI 2025"
 year = 2025
+rank = 5
+summary = "Disorder classification from fMRI connectivity usually relies on Transformers, whose cost grows quadratically with the number of brain regions and which ignore what is known about brain organisation. CP-SSM replaces self-attention with Mamba, a linear-time state-space model, and the feed-forward layer with a mixture of experts whose routing follows the core-periphery principle: core regions exchange information with every region, peripheral regions not with each other. It beat Transformer and graph baselines on autism (ABIDE, 1,009 subjects, AUROC 82.4 vs 79.6) and mild cognitive impairment (ADNI, 440 subjects, 80.7 vs 74.5), and its region weights highlight areas such as the precuneus in autism and the anterior cingulate in MCI."
 arxiv = "2503.14655"
 
 [[pub]]
@@ -140,6 +151,8 @@ authors = ["Yan Zhuang", "Minheng Chen", "Chao Cao", "Tong Chen", "Jing Zhang", 
 equal = ["Yan Zhuang", "Minheng Chen"]
 short = "MLMI @ MICCAI 2025, LNCS 16241"
 year = 2025
+rank = 6
+summary = "3-hinge gyri, the points where three gyral crests meet, act as fine-scale hubs, but analysing them one node at a time ignores how they group into communities. This paper partitions each person's GyralNet into subnetworks with a graph network trained on a differentiable spectral-modularity objective that, unlike earlier relaxations, also uses node attributes: neighbourhood structural similarity with anatomical labels, and fibre-shape features from DTI. On 1,056 HCP subjects, combining both feature types gave lower conductance, higher modularity and more consistent subnetworks across people than either alone, at 5–10 seconds per brain, which makes community-level analysis of folding hubs practical."
 doi = "10.1007/978-3-032-09513-8_46"
 arxiv = "2503.19823"
 
@@ -149,6 +162,8 @@ title = "Bridging Brain Connectomes and Clinical Reports for Early Alzheimer's D
 authors = ["Jing Zhang", "Xiaowei Yu", "Minheng Chen", "Lu Zhang", "Tong Chen", "Yan Zhuang", "Chao Cao", "Yanjun Lyu", "Li Su", "Tianming Liu", "Dajiang Zhu"]
 short = "MLMI @ MICCAI 2025"
 year = 2025
+rank = 7
+summary = "Vision-language models usually cut brain scans into patches like ordinary photos, although brain disorders are network-level problems. This work treats each region's structural-connection profile from DTI as a token and aligns these sub-network tokens with clinical reports (demographics, APOE4, MMSE, CDR and doctors' notes) at two levels: cross-attention between sub-networks and words, and contrastive alignment between whole-brain and whole-report embeddings. On 418 ADNI subjects it separated MCI from controls with 92.9% accuracy, against 73.8% from imaging alone and 87.0% from text alone, and the alignment exposes readable links such as cingulate sub-networks with tau-related terms."
 arxiv = "2508.06565"
 
 [[pub]]
@@ -157,6 +172,8 @@ title = "Brain-Adapter: Enhancing Neurological Disorder Analysis with Adapter-Tu
 authors = ["Jing Zhang", "Xiaowei Yu", "Yanjun Lyu", "Lu Zhang", "Tong Chen", "Chao Cao", "Yan Zhuang", "Minheng Chen", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2025"
 year = 2025
+rank = 8
+summary = "Multimodal LLMs could combine MRI with clinical notes for Alzheimer's diagnosis, but training them on 3D scans is expensive and medical datasets are small. Brain-Adapter places a small 3D convolutional bottleneck in front of a frozen medical multimodal LLM (M3D) to compress T1 MRI into its input space, aligns image and clinical-text embeddings with a CLIP-style loss, and fine-tunes only a few parameters. On 16,797 ADNI scans paired with clinical reports it classified Alzheimer's, MCI and normal controls with a macro F1 of 0.90, and with images alone it edged out 3D DenseNet121 and ResNet50: a cheap route for adapting foundation models to 3D neuroimaging."
 arxiv = "2501.16282"
 
 [[pub]]
@@ -165,6 +182,8 @@ title = "Using Structural Similarity and Kolmogorov-Arnold Networks for Anatomic
 authors = ["Minheng Chen", "Chao Cao", "Tong Chen", "Yan Zhuang", "Jing Zhang", "Yanjun Lyu", "Xiaowei Yu", "Lu Zhang", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2025"
 year = 2025
+rank = 10
+summary = "3-hinge gyri are stable folding hubs, but they are detected in each brain separately with no built-in correspondence across people, which blocks group studies built on them. This paper embeds every 3HG with a self-supervised Kolmogorov-Arnold Network autoencoder fed with multi-hop neighbourhood features weighted by structural similarity (degree sequences compared with dynamic time warping), and a reconstruction loss that up-weights the sparse non-zero entries. Trained on 1,064 HCP subjects (338,555 3HGs), the embeddings matched hubs across individuals with a single clear candidate in about 70% of cases, including frontal and parietal hubs where the earlier cortex2vec model failed."
 arxiv = "2410.23598"
 
 [[pub]]
@@ -173,6 +192,8 @@ title = "Unsupervised Cortical Surface Registration Network for Aligning GyralNe
 authors = ["Jiale Cheng", "Fenqiang Zhao", "Dan Hu", "Chao Cao", "Zhengwang Wu", "Xinrui Yuan", "Kangfu Han", "Lu Zhang", "Tianming Liu", "Dajiang Zhu", "Gang Li"]
 short = "ISBI 2025"
 year = 2025
+rank = 11
+summary = "Cortical surface registration aligns curvature and convexity but ignores the gyral network (GyralNet) and its 3-hinge hubs, and no atlas of them existed. This unsupervised framework turns GyralNet and 3HGs into geodesic distance maps on the sphere, then jointly learns an age-conditioned atlas and a multi-level spherical U-Net that registers each brain to it, coarse to fine. On 1,089 HCP scans it aligned GyralNet better than FreeSurfer and Spherical Demons (map correlation 85.2% vs 72.1–76.0%, overlap IoU 23.0% vs 14.0–15.2%), produced a more detailed atlas, and does both in about 5 seconds instead of hours."
 
 [[pub]]
 id = "ca-vqvae"
@@ -180,6 +201,8 @@ title = "Ca-VQVAE: Cortical Folding Aware Numerical Representation of White-Matt
 authors = ["Yanjun Lyu", "Jing Zhang", "Lu Zhang", "Tong Chen", "Xiaowei Yu", "Minheng Chen", "Yan Zhuang", "Chao Cao", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2025"
 year = 2025
+rank = 12
+summary = "Tractography is noisy and fibre bundles vary between people, which makes white matter hard to compare across brains. CA-VQVAE compresses the shape of each local fibre bundle into a discrete code with a vector-quantised autoencoder, and adds contrastive labels from nearby cortical folding landmarks (3-hinge gyri on a template brain) so bundles under the same fold land close together. On 500 HCP subjects it reconstructed bundle descriptors more accurately than a VAE or vanilla VQ-VAE (MSE 1.14 vs 17.41 and 1.53), and its codes picked out corresponding cortical areas across subjects, giving white matter a compact numerical description tied to cortical folding."
 
 [[pub]]
 id = "mci-spatiotemporal-transformer"
@@ -187,6 +210,8 @@ title = "Classification of Mild Cognitive Impairment Based on Dynamic Functional
 authors = ["Jing Zhang", "Yanjun Lyu", "Xiaowei Yu", "Lu Zhang", "Chao Cao", "Tong Chen", "Minheng Chen", "Yan Zhuang", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2025"
 year = 2025
+rank = 9
+summary = "Functional connectivity changes over the course of an fMRI scan, yet most studies of mild cognitive impairment treat it as static. This paper builds dynamic connectivity with sliding windows over 148 cortical regions and models it with a spatio-temporal Transformer (separate temporal and spatial blocks joined by global attention), plus a contrastive loss that pulls together subjects with the same diagnosis. On 345 ADNI subjects with 5-fold cross-validation it separated MCI from controls with 89.1% accuracy, against 82.4% without the contrastive term and 66.3% with static connectivity, showing that connectivity dynamics carry signal for catching the prodromal stage of Alzheimer's."
 arxiv = "2501.16409"
 
 [[pub]]
@@ -203,6 +228,8 @@ title = "DCMM-Transformer: Degree-Corrected Mixed-Membership Attention for Medic
 authors = ["Huimin Cheng", "Xiaowei Yu", "Shushan Wu", "Luyang Fang", "Chao Cao", "Jing Zhang", "Tianming Liu", "Dajiang Zhu", "Wenxuan Zhong", "Ping Ma"]
 short = "AAAI 2026"
 year = 2026
+rank = 2
+summary = "Vision Transformers decide where to attend from feature similarity alone, so a patch can attend to a region that merely looks alike but is clinically unrelated. DCMM-Transformer adds a learned community prior to attention: every patch gets soft memberships in latent communities (organ, lesion, background) and a degree term for hub regions such as a tumour core, and the resulting degree-corrected mixed-membership matrix is added to the attention logits. The model stays fully differentiable, where earlier stochastic-block-model masks were sampled and binary. Across chest X-ray, pneumothorax, mammography, fundus and ADNI connectivity data it raised average accuracy to 87.3%, from 83.6% for ViT and 83.1% for SBM-Transformer, with attention maps that stay on anatomically coherent regions."
 arxiv = "2511.12047"
 
 [[pub]]
@@ -211,6 +238,8 @@ title = "Gyri vs. Sulci: Core-Periphery Organization in Functional Brain Network
 authors = ["Xiaowei Yu", "Lu Zhang", "Chao Cao", "Tong Chen", "Yanjun Lyu", "Jing Zhang", "Tianming Liu", "Dajiang Zhu"]
 short = "MICCAI 2024"
 year = 2024
+rank = 1
+summary = "Gyri and sulci differ in anatomy and wiring, but how they divide the work of brain function was unclear. Using a Twin-Transformer that separates HCP task fMRI from seven tasks into spatial brain networks and their time courses, the paper measures how often gyral and sulcal voxels take part in the same network: gyri with gyri most, gyri with sulci next, sulci with sulci least, in every task and threshold tested (for example 0.44–0.54, 0.30–0.32 and 0.17–0.24). It frames gyri as a densely connected core that gathers and distributes information and sulci as a periphery for local processing, a basic organising principle for brain networks."
 
 [[pub]]
 id = "mci-finer-scale-connectome"
@@ -218,6 +247,8 @@ title = "Mild Cognitive Impairment Classification Using A Novel Finer-Scale Brai
 authors = ["Yanjun Lyu", "Lu Zhang", "Xiaowei Yu", "Chao Cao", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2024"
 year = 2024
+rank = 2
+summary = "Brain networks normally use atlas regions as nodes, assuming each region is uniform inside. This paper builds a finer-scale connectome whose nodes are 77 3-hinge gyri per hemisphere, matched across subjects with cortex2vec embeddings and the Hungarian algorithm, and compares it with AAL-90 and Destrieux connectomes for telling MCI from controls on 421 ADNI subjects with six standard classifiers. Structural connectivity between 3HGs reached 0.86–0.91 accuracy, against 0.73–0.78 for Destrieux and 0.53–0.62 for AAL-90, and functional connectivity improved too, suggesting that folding hubs capture neurodegeneration that region averages smooth over."
 
 [[pub]]
 id = "o1-evaluation"
@@ -261,6 +292,8 @@ authors = ["Yiwei Li", "Zihao Wu", "Huaqin Zhao", "Yifan Zhou", "Chao Cao", "Daj
 equal = ["Yiwei Li", "Zihao Wu"]
 short = "NeurIPS 2026"
 year = 2026
+rank = 1
+summary = "Medical image models are usually trained on images and labels alone, and earlier eye-tracking work used a radiologist's gaze only as a static heatmap. GazeWorld treats a chest X-ray as a world and the radiologist's fixations as a path through it: a causal Transformer learns to predict, in feature space, the next region the expert will look at and the regions not yet visited, so the image encoder absorbs the order in which experts gather evidence. Gaze is needed only for training (3,032 MIMIC-Eye images). The refined encoder beat MedCLIP, MGCA and other baselines in every CheXpert, RSNA Pneumonia and SIIM-ACR linear-probe setting (CheXpert with 1% of labels: 78.4 vs 74.7 AUROC) and in zero-shot classification, which makes expert reading behaviour a cheap supervision signal for label-scarce medical imaging."
 arxiv = "2605.23992"
 
 [[pub]]
@@ -269,5 +302,7 @@ title = "Artificial General Intelligence for Medical Imaging Analysis"
 authors = ["Xiang Li", "Lin Zhao", "Lu Zhang", "Zihao Wu", "Zhengliang Liu", "Hanqi Jiang", "Chao Cao", "Shaochen Xu", "Yiwei Li", "Haixing Dai", "Yixuan Yuan", "Jun Liu", "Gang Li", "Dajiang Zhu", "Pingkun Yan", "Quanzheng Li", "Wei Liu", "Tianming Liu", "Dinggang Shen"]
 short = "IEEE Reviews in Biomedical Engineering 18, 2025"
 year = 2025
+rank = 2
+summary = "A review of how large foundation models (language models, large vision models such as Segment Anything, and vision-language models) can be brought into medical imaging and healthcare. For each family it lays out roadmaps (expert-in-the-loop alignment, domain adaptation through prompts and adapters, knowledge graphs, federated multi-institution training, parameter-efficient fine-tuning), surveys uses from report generation to text-prompted segmentation and visual question answering, and names what still blocks clinical use: scarce paired data, privacy, expert-level accuracy, the long tail of rare diseases, bias and security. Its main message is that off-the-shelf general models fall short in medicine (zero-shot SAM trails specialised segmenters) and need medical data, adaptation and expert feedback."
 doi = "10.1109/RBME.2024.3493775"
 arxiv = "2306.05480"

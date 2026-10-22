@@ -645,20 +645,38 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   line-height: 1.5;
 }
 
+/* Year divider: a solid chip, the paper count, then a rule to the edge. */
 .pub-year {
-  margin: 1.5rem 0 0.4rem;
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 2.1rem 0 1rem;
+  font-size: var(--step--1);
   font-weight: 400;
-  color: var(--muted);
 }
+.pub-year::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.pub-year .y {
+  padding: 0.12rem 0.6rem;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.pub-year .n { color: var(--muted); font-size: var(--step--2); }
 .pub-list { list-style: none; margin: 0; padding: 0; }
-.pub-list li { margin: 0 0 0.85rem; }
+.pub-list li { margin: 0 0 1.5rem; }
 .pub-list .t { color: var(--ink); font-weight: 600; line-height: 1.4; }
 .pub-list a.t:hover { color: var(--accent-hover); }
-.pub-list .a { display: block; color: var(--muted); font-size: var(--step--1); }
+.pub-list .a { display: block; margin-top: 0.15rem; color: var(--muted); font-size: var(--step--1); }
 .pub-list .a .me { color: var(--ink); font-weight: 600; }
-.pub-list .v { display: block; color: var(--muted); font-size: var(--step--2); font-family: var(--font-mono); }
+.pub-list .v { display: block; margin-top: 0.1rem; color: var(--muted); font-size: var(--step--2); font-family: var(--font-mono); }
+.pub-list .v .venue { color: var(--ink); font-weight: 700; }
+.pub-list .s { margin: 0.5rem 0 0; color: var(--text); font-size: 0.94rem; line-height: 1.6; }
+.pub-pre { margin-top: 1rem; }
+.pub-pre li { margin-bottom: 0.9rem; }
 
 @media (max-width: 640px) {
   .item.has-fig { grid-template-columns: minmax(0, 1fr); }
