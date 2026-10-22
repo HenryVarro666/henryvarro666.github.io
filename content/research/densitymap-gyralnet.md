@@ -5,4 +5,4 @@ repo: "https://github.com/HenryVarro666/DensityMap-GyralNet"
 lang: Python
 topics: [brain-imaging]
 ---
-Extracts the gyral net — the network of gyral crests whose three-way junctions are 3-hinge gyri — from cortical surfaces. Reads VTK surface meshes with sulcal depth, isolates gyral regions, skeletonizes them with shortest paths and repairs missing crest links; run on HCP 32k surfaces.
+Extracts the gyral net — the network of gyral crests whose three-way junctions are 3-hinge gyri — from cortical surfaces. Reads VTK surface meshes with sulcal depth (or gradient-density maps, the “DensityMap” variant), isolates and thins gyral regions, grows a skeleton tree per region and repairs missing crest links along shortest paths; run on HCP surfaces.

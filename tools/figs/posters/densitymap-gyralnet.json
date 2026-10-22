@@ -13,7 +13,7 @@
    [
     "VTK surface meshes",
     "Sulcal depth per vertex",
-    "HCP surfaces, 32k mesh"
+    "HCP surfaces, 164k or 32k"
    ]
   ],
   [
@@ -29,9 +29,9 @@
    "03 / SKELETONIZE",
    "Gyral crests",
    [
-    "Skeleton tree per region",
-    "Dijkstra shortest paths",
-    "Repair missing crest links"
+    "Thin, then grow a tree",
+    "Dijkstra repairs gaps",
+    "Trim short branches"
    ]
   ],
   [
@@ -57,7 +57,7 @@
    "SCALE",
    "Built for batch runs",
    [
-    "One job per subject through Slurm",
+    "One run per subject, GNU parallel",
     "submission scripts."
    ]
   ],
