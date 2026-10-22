@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-intro: "Systems built end to end, plus course projects from 2022."
+intro: "Personal projects built end to end, and team course projects from graduate school."
 aliases: ["/coursework/"]
 cascade:
   - build:

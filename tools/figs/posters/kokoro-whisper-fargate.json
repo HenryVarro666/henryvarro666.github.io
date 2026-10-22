@@ -1,7 +1,7 @@
 {
  "accent": "#007F78",
  "pale": "#DDF3EA",
- "name": "KOKORO-AWS-DEMO",
+ "name": "KOKORO-WHISPER-FARGATE",
  "eyebrow": "SPEECH SERVICE / AWS",
  "title": "Open-weight speech, shipped.",
  "subtitle": "Kokoro-82M text-to-speech and Whisper ASR as a production-style AWS service.",

@@ -175,7 +175,7 @@ def anota(f):
     f.text(180, 254, "one Python process · SQLite · 3 dependencies", 13.5, "f-t", "middle", box=W - 24)
 
 
-@fig("kokoro-aws-demo", "kokoro-aws-demo",
+@fig("kokoro-whisper-fargate", "Kokoro + Whisper on AWS Fargate",
      "git push runs tests and cdk deploy through GitHub Actions with OIDC; the ARM64 image in ECR runs on "
      "ECS Fargate (Graviton) behind a load balancer, serving speech synthesis and transcription.")
 def kokoro(f):

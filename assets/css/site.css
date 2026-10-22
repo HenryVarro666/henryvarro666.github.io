@@ -344,6 +344,17 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 }
 .item-head .pin { color: var(--ink); }
 .item-head .status { font-family: var(--font-body); font-style: italic; }
+/* Project kind chips: personal work in the accent colour, course projects muted. */
+.item-head .status-personal-project,
+.item-head .status-course-project {
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: var(--step--2);
+  letter-spacing: 0.01em;
+}
+.item-head .status-personal-project { background: var(--fig-hl-soft); color: var(--accent); }
+.item-head .status-course-project { background: var(--wash); color: var(--muted); }
 .repo-meta {
   display: inline-flex;
   gap: 0.75rem;

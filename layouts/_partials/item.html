@@ -18,7 +18,7 @@
   <div class="item-head">
     {{- if $pinned }}<span class="pin" title="Pinned">★</span>{{ end }}
     {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.dateFormat | default "2006-01-02") }}</time>{{ end }}
-    {{- with .Params.status }}<span class="status">{{ . }}</span>{{ end }}
+    {{- with .Params.status }}<span class="status status-{{ . | urlize }}">{{ . }}</span>{{ end }}
     {{- if or .Params.lang .Params.stars }}
     <span class="repo-meta">
       {{- with .Params.lang }}<span>{{ . }}</span>{{ end }}

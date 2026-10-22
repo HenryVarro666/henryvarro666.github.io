@@ -83,7 +83,7 @@ the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
 - **open-llm-deid** (formerly Deid): the n2c2 2014 notes, model outputs on them and sentences
   extracted from them were removed from the whole history in October 2026; the data use agreement
   forbids redistribution. Never add n2c2 text or anything derived from it. `examples/` is synthetic.
-- **kokoro-aws-demo**: pushes to `main` deploy to AWS; any commit or PR title that touches it
+- **kokoro-whisper-fargate** (formerly kokoro-aws-demo): pushes to `main` deploy to AWS; any commit or PR title that touches it
   must carry `[skip deploy]`.
 - **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
   (`/coursework/` redirects there) and there is no notes section.
