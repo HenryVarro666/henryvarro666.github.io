@@ -1,6 +1,6 @@
 {{ define "main" }}
 <nav class="toolbar" aria-label="Topic">
-  <a href="{{ with site.GetPage "/topics" }}{{ .RelPermalink }}{{ end }}">all topics</a>
+  <a href="{{ with site.GetPage "/topics" }}{{ .RelPermalink }}{{ end }}">All topics</a>
   <span class="count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
 </nav>
 <div class="stream">

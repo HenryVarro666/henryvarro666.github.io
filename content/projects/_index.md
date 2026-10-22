@@ -1,5 +1,5 @@
 ---
-title: "projects"
+title: "Projects"
 intro: "Systems built end to end."
 cascade:
   - build:

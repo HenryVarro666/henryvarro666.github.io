@@ -27,31 +27,31 @@ capitalizeListTitles = false
   preview = false
 
 [[menus.main]]
-  name = "all"
+  name = "All"
   pageRef = "/"
   weight = 1
 [[menus.main]]
-  name = "research"
+  name = "Research"
   pageRef = "/research"
   weight = 2
 [[menus.main]]
-  name = "publications"
+  name = "Publications"
   pageRef = "/publications"
   weight = 3
 [[menus.main]]
-  name = "projects"
+  name = "Projects"
   pageRef = "/projects"
   weight = 4
 [[menus.main]]
-  name = "coursework"
+  name = "Coursework"
   pageRef = "/coursework"
   weight = 5
 [[menus.main]]
-  name = "notes"
+  name = "Notes"
   pageRef = "/notes"
   weight = 6
 [[menus.main]]
-  name = "contact"
+  name = "Contact"
   pageRef = "/contact"
   weight = 7
 

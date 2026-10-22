@@ -1,5 +1,5 @@
 ---
-title: "coursework"
+title: "Coursework"
 intro: "Course projects, 2022."
 cascade:
   - build:

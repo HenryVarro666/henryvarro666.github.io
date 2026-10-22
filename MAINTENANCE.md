@@ -67,6 +67,7 @@ folded into `<details>`.
 
 ## Standing exceptions
 
+- **Papers left out on purpose**: GP-GPT (arXiv 2409.09825). Do not add it back.
 - **Deid**: the repo holds the i2b2/n2c2 2014 de-identification files, whose data use agreement
   forbids redistribution. Leave the repo alone until the owner decides how to handle it.
 - **kokoro-aws-demo**: pushes to `main` deploy to AWS; any commit or PR title that touches it

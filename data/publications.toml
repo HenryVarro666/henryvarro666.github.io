@@ -2,6 +2,7 @@
 # first = true  -> full card: main figure (assets/pubs/<figure>), TL;DR, problem / approach / findings, BibTeX.
 # otherwise     -> one line in the year list. `equal` marks shared first authorship.
 # Citation counts come from data/citations.json (tools/citations.py, OpenAlex) by `id`.
+# Left out on purpose (do not re-add): GP-GPT, arXiv 2409.09825.
 
 # ------------------------------------------------------------------ first author
 
@@ -214,14 +215,6 @@ title = "Mild Cognitive Impairment Classification Using A Novel Finer-Scale Brai
 authors = ["Yanjun Lyu", "Lu Zhang", "Xiaowei Yu", "Chao Cao", "Tianming Liu", "Dajiang Zhu"]
 short = "ISBI 2024"
 year = 2024
-
-[[pub]]
-id = "gp-gpt"
-title = "GP-GPT: Large Language Model for Gene-Phenotype Mapping"
-authors = ["Yanjun Lyu", "Zihao Wu", "Lu Zhang", "Jing Zhang", "Yiwei Li", "Wei Ruan", "Zhengliang Liu", "Xiaowei Yu", "Chao Cao", "Tong Chen", "Minheng Chen", "Yan Zhuang", "Xiang Li", "Rongjie Liu", "Chao Huang", "Wentao Li", "Tianming Liu", "Dajiang Zhu"]
-short = "arXiv 2024"
-year = 2024
-arxiv = "2409.09825"
 
 [[pub]]
 id = "o1-evaluation"

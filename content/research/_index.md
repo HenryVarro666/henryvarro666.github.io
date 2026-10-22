@@ -1,5 +1,5 @@
 ---
-title: "research"
+title: "Research"
 intro: "Research code: speech generation, inference, brain imaging."
 cascade:
   - build:

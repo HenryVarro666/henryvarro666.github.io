@@ -1,4 +1,4 @@
 ---
-title: "notes"
+title: "Notes"
 intro: "Short write-ups."
 ---

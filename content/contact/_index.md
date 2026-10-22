@@ -1,5 +1,5 @@
 ---
-title: "contact"
+title: "Contact"
 intro: "Where to find me."
 # Add email or LinkedIn lines below.
 ---
