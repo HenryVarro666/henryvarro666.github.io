@@ -130,11 +130,11 @@ def deid(f):
     card(16, False)
     card(246, True)
     f.arrow(118, 121, 136, 121)
-    f.node(138, 84, 84, 74, ["open LLM"], hl=True, size=16, sub=["prompted or", "fine-tuned"], subsize=12.5)
+    f.node(138, 84, 84, 74, ["open LLM"], hl=True, size=16, sub=["zero-shot", "prompts"], subsize=12.5)
     f.arrow(224, 121, 244, 121)
     f.text(65, 216, "PHI in the text", 13.5, "f-m", "middle", box=110)
     f.text(295, 216, "PHI masked", 13.5, "f-m", "middle", box=110)
-    f.text(180, 250, "LLaMA 2 · Falcon-7B · Flan-T5", 15, "f-t", "middle", 600, box=W - 30)
+    f.text(180, 250, "LLaMA 1/2 · Falcon-7B · Flan-T5", 15, "f-t", "middle", 600, box=W - 30)
 
 
 # ---------------------------------------------------------------- projects

@@ -7,7 +7,7 @@ also the checklist for doing it by hand.
 
 | What | File(s) |
 |---|---|
-| One showcased repo | `content/{research,projects,coursework}/<slug>.md` (front matter: `title`, `date`, `repo`, `link`, `lang`, `stars`, `topics`, optional `paper`) |
+| One showcased repo | `content/{research,projects}/<slug>.md` (front matter: `title`, `date`, `repo`, `link`, `lang`, `stars`, `topics`, optional `paper`; course projects carry `status: "course project"`) |
 | Its overview figure | `assets/figs/<slug>.svg` — inlined next to the entry; drawn by `tools/figs/figures.py` |
 | Publications | `data/publications.toml` — one `[[pub]]` per paper; `first = true` gets the full card |
 | A paper's main figure | `assets/pubs/<id>.png` (or `.jpg`), referenced by `figure = "<file>"` |
@@ -42,7 +42,7 @@ python3 poster.py posters/ /tmp/posters      # writes <slug>.svg and <slug>.png,
 ```
 
 and copy the pair to the repo as `docs/figures/overview.{png,svg}`. Accent colours follow the
-homepage sections: research `#3157A4`, projects `#007F78`, coursework `#56688A`. READMEs share one
+homepage sections: research `#3157A4`, projects `#007F78`, course projects `#56688A`. READMEs share one
 shape: centered title, one-line subtitle, badges (including a link back to the homepage entry),
 the poster, then Highlights / How it works / Quick start / Repository layout, with older notes
 folded into `<details>`.
@@ -73,7 +73,18 @@ folded into `<details>`.
 ## Standing exceptions
 
 - **Papers left out on purpose**: GP-GPT (arXiv 2409.09825). Do not add it back.
-- **Deid**: the repo holds the i2b2/n2c2 2014 de-identification files, whose data use agreement
-  forbids redistribution. Leave the repo alone until the owner decides how to handle it.
+- **open-llm-deid** (formerly Deid): the n2c2 2014 notes, model outputs on them and sentences
+  extracted from them were removed from the whole history in October 2026; the data use agreement
+  forbids redistribution. Never add n2c2 text or anything derived from it. `examples/` is synthetic.
 - **kokoro-aws-demo**: pushes to `main` deploy to AWS; any commit or PR title that touches it
   must carry `[skip deploy]`.
+- **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
+  (`/coursework/` redirects there) and there is no notes section.
+
+## Authorship
+
+Every commit in these repositories is made as **Chao Cao
+<48014495+HenryVarro666@users.noreply.github.com>**. Before committing, run
+`git config user.name "Chao Cao"` and
+`git config user.email "48014495+HenryVarro666@users.noreply.github.com"`. Do not add
+`Co-Authored-By`, `Claude-Session` or "Generated with" lines to commits or pull requests.

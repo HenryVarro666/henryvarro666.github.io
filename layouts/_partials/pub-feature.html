@@ -17,7 +17,7 @@
   {{- $img := .Resize (printf "%dx webp q86 drawing" (math.Min .Width 1400 | int)) }}
   <figure class="pub-fig">
     <button type="button" data-zoom data-caption="{{ $p.figure_caption | plainify }}" aria-label="Enlarge the main figure of {{ $p.title }}">
-      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.figure_alt | default $p.figure_caption | plainify }}" loading="lazy" decoding="async">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $p.figure_alt | default $p.figure_caption | plainify }}" decoding="async">
     </button>
     {{- with $p.figure_caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
   </figure>

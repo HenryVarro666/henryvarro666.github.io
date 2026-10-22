@@ -1,0 +1,74 @@
+{
+ "accent": "#3157A4",
+ "pale": "#E0E8F6",
+ "name": "OPEN-LLM-DEID",
+ "eyebrow": "CLINICAL NLP / PRIVACY",
+ "title": "Can open 7B LLMs de-identify notes?",
+ "subtitle": "Zero-shot removal of protected health information from clinical notes with local models.",
+ "tagline": "LLaMA 1 / 2 7B, Falcon-7B and Flan-T5 under explicit, implicit and ask-then-delete prompts (2023).",
+ "steps": [
+  [
+   "01 / LOAD",
+   "514 test notes",
+   [
+    "n2c2 2014 de-id test set (XML)",
+    "11,462 gold PHI mentions",
+    "Synthetic example in examples/"
+   ]
+  ],
+  [
+   "02 / PROMPT",
+   "Three strategies",
+   [
+    "Explicit: list the PHI types",
+    "Implicit: just anonymize",
+    "General: ask, then delete"
+   ]
+  ],
+  [
+   "03 / REWRITE",
+   "Open models",
+   [
+    "LLaMA 1 and 2, 7B",
+    "Falcon-7B",
+    "Flan-T5-base"
+   ]
+  ],
+  [
+   "04 / SCORE",
+   "PHI left behind",
+   [
+    "Gold PHI still in the output",
+    "Share removed, per note",
+    "Untouched note = 0.597"
+   ]
+  ]
+ ],
+ "panels": [
+  [
+   "FINDING",
+   "Rewrite scores = pipeline",
+   [
+    "Saved outputs start with the prompt, so",
+    "LLaMA and Falcon sit at the 0.597 floor."
+   ]
+  ],
+  [
+   "ONLY REAL GAIN",
+   "Ask, then delete: 0.737",
+   [
+    "Asking Flan-T5 for the PHI and replacing",
+    "its answers kept the note and helped."
+   ]
+  ],
+  [
+   "CAVEAT",
+   "Flan-T5 rewrites: 0.97",
+   [
+    "Cut at the default 20 tokens: a fragment",
+    "of the note scores as removal."
+   ]
+  ]
+ ],
+ "footer": "2023 EXPERIMENTS  /  transformers · PyTorch  /  The n2c2 2014 notes need their own data use agreement."
+}
