@@ -7,4 +7,4 @@ stars: 47
 status: "course project"
 topics: [data-science, web]
 ---
-Django movie site with user- and item-based collaborative filtering (Pearson and cosine similarity) over ratings crawled from Douban, plus search, rating, favourites, an admin back end and review word clouds.
+Django movie site with user-based (Pearson) and item-based collaborative filtering and a most-viewed fallback, plus search, rating, favourites, an admin back end and review word clouds. Movie data is crawled from Douban; the bundled ratings are 2,200 random ones from 400 seeded accounts.

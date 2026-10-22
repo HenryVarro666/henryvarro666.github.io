@@ -4,25 +4,25 @@
  "name": "HEART DISEASE PREDICTION",
  "eyebrow": "COURSE PROJECT / DATA 603",
  "title": "Five models, one held-out test.",
- "subtitle": "Predicting heart disease from the four UCI heart-disease cohorts.",
- "tagline": "Cleveland, Hungary, Switzerland and VA Long Beach, merged and one-hot encoded.",
+ "subtitle": "Predicting heart disease from the UCI Cleveland cohort (303 patients).",
+ "tagline": "Data.csv, a recoded Cleveland table; the four-cohort merge is downloaded but not used.",
  "steps": [
   [
-   "01 / DOWNLOAD",
-   "Four cohorts",
+   "01 / DATA",
+   "Cleveland table",
    [
-    "UCI heart-disease files",
-    "Merged with headers",
-    "One CSV"
+    "Data.csv, 303 rows",
+    "Recoded UCI Cleveland",
+    "Four-cohort merge unused"
    ]
   ],
   [
    "02 / CLEAN",
    "Preprocess",
    [
-    "Drop rows with gaps",
     "Cast column types",
-    "One-hot cp, thal, slope"
+    "One-hot cp, thal, slope",
+    "Min-max scaled before split"
    ]
   ],
   [
@@ -65,8 +65,8 @@
    "CAVEAT",
    "One small split",
    [
-    "Treat the top three as a tie;",
-    "no cross-validated ranking."
+    "Scaler fitted before the split;",
+    "treat the top three as a tie."
    ]
   ]
  ],

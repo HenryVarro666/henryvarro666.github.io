@@ -5,7 +5,7 @@
  "eyebrow": "SENIOR PROJECT / WEB + RECSYS",
  "title": "Movies picked by people like you.",
  "subtitle": "A Django movie site with user- and item-based collaborative filtering.",
- "tagline": "Ratings and reviews crawled from Douban, stored in SQLite.",
+ "tagline": "Movie data crawled from Douban; the bundled ratings are seeded at random.",
  "steps": [
   [
    "01 / CRAWL",
@@ -17,29 +17,29 @@
    ]
   ],
   [
-   "02 / RATE",
-   "User actions",
+   "02 / SEED",
+   "Synthetic ratings",
    [
-    "Rate, comment, favourite",
-    "Search title or director",
-    "Browse by tag"
+    "400 random accounts",
+    "2,200 random 1-5 ratings",
+    "Plus ratings made on the site"
    ]
   ],
   [
    "03 / RECOMMEND",
    "Collaborative filtering",
    [
-    "User-CF: Pearson, cosine",
-    "Item-CF: similarity matrix",
-    "Most-viewed fallback"
+    "User-CF: Pearson, 15 users",
+    "Item-CF: 30 tag candidates",
+    "Tags or most-viewed fallback"
    ]
   ],
   [
-   "04 / MANAGE",
-   "Admin and extras",
+   "04 / SITE",
+   "Pages and admin",
    [
-    "Django admin back end",
-    "Review word clouds",
+    "Search, tags, favourites",
+    "Django admin, word clouds",
     "REST API endpoints"
    ]
   ]
@@ -47,17 +47,17 @@
  "panels": [
   [
    "FALLBACK",
-   "Never an empty list",
+   "User-CF fills to 15",
    [
-    "Under 15 picks? The rest are filled with",
-    "the most-viewed unrated movies."
+    "Under 15 picks? User-CF adds the",
+    "most-viewed unrated movies."
    ]
   ],
   [
    "STACK",
    "Django + SQLite",
    [
-    "Bootstrap 3 front end, a DRF API,",
+    "Bootstrap 3 and Vue pages, a DRF API,",
     "one command to run locally."
    ]
   ],

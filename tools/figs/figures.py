@@ -264,7 +264,7 @@ def heart(f):
     f.path(f"M{x0} 40 V200", "f-lnrule", 1.5)
     f.text(x0, 218, "0.5", 12.5, "f-m", "middle")
     f.text(x1, 218, "1.0", 12.5, "f-m", "middle")
-    f.text(180, 252, "UCI heart disease, four cohorts merged", 14, "f-t", "middle", box=W - 24)
+    f.text(180, 252, "UCI Cleveland data, 303 patients", 14, "f-t", "middle", box=W - 24)
 
 
 @fig("movie-recommendation-system", "Movie Recommendation System",
@@ -291,14 +291,14 @@ def movie(f):
         f.rect(212, y, 22, 30, "f-hl" if i == 0 else "f-node", rx=3, sw=1.4)
         f.rect(242, y + 6, 92 - i * 12, 8, "f-bar2" if i == 0 else "f-bar", rx=3, sw=0)
         f.rect(242, y + 18, 60 - i * 8, 7, "f-bar", rx=3, sw=0)
-    f.text(92, 210, "ratings (Douban)", 13.5, "f-m", "middle", box=150)
+    f.text(92, 210, "ratings (seeded)", 13.5, "f-m", "middle", box=150)
     f.text(274, 210, "user-CF · item-CF", 13.5, "f-m", "middle", box=140)
-    f.text(180, 248, "Django · SQLite · Pearson and cosine", 14.5, "f-t", "middle", box=W - 24)
+    f.text(180, 248, "Django · SQLite · Pearson user-CF", 14.5, "f-t", "middle", box=W - 24)
 
 
 @fig("policy-changes-prediction", "Policy Changes Prediction",
-     "Daily COVID-19 cases plotted with a national policy strictness level; each change in level is a "
-     "labelled event to predict.")
+     "Daily COVID-19 cases plotted with a national policy strictness level; each change in level is "
+     "marked on the case curve.")
 def policy(f):
     header(f, "policy strictness vs. daily cases")
     f.path("M30 190 H340", "f-lnrule", 1.5)
@@ -321,20 +321,20 @@ def policy(f):
         f.circle(x, lv[l], 4.5, "f-fillhl")
     f.text(158, 70, "policy level", 13.5, "f-h", "end", 600)
     f.text(70, 112, "cases", 13.5, "f-m")
-    f.text(180, 228, "policy changes lag case waves by ~1 month", 14.5, "f-t", "middle", 600, box=W - 24)
+    f.text(180, 228, "~1-month lag, read off the plot", 14.5, "f-t", "middle", 600, box=W - 24)
     f.text(180, 251, "OxCGRT policy tracker + CDC case counts", 13.5, "f-m", "middle", box=W - 24)
 
 
 @fig("public-space-tracking", "Public Space Tracking",
-     "People in a street video are detected, their centroids tracked across frames, and crossings of an "
-     "entry line counted; TensorFlow Object Detection and Detectron2 are compared.")
+     "People in a street video are detected with Faster R-CNN and their centroids linked across frames; "
+     "links that enter or leave a hand-drawn region are marked.")
 def tracking(f):
     header(f, "people tracking in a public space")
     f.rect(16, 42, 328, 158, "f-node")
     f.path("M118 200 L162 42", "f-lnrule", 1.5)
     f.path("M260 200 L210 42", "f-lnrule", 1.5)
-    f.path("M70 168 L300 168", "f-lnhl", 2, ' stroke-dasharray="6 5"')
-    f.text(306, 172, "entry", 12.5, "f-h", weight=600)
+    f.path("M196 148 H300 V196 H196 Z", "f-lnhl", 2, ' stroke-dasharray="6 5"')
+    f.text(300, 141, "region", 12.5, "f-h", "end", 600)
     people = [(146, 112, 20, 42, "M156 154 Q150 178 140 198"),
               (194, 84, 16, 34, "M202 118 Q214 150 232 198"),
               (228, 126, 22, 46, "M239 172 Q248 186 254 199"),
@@ -344,8 +344,8 @@ def tracking(f):
         f.path(trail, "f-ln", 1.6, ' stroke-dasharray="2 4"')
         f.rect(x, y, w, h, "f-lnhl", rx=2, sw=1.8)
         f.circle(x + w / 2, y + h / 2, 2.4, "f-fillhl")
-    f.text(180, 228, "detect → track centroids → count in/out", 14.5, "f-t", "middle", 600, box=W - 20)
-    f.text(180, 251, "TF Object Detection vs. Detectron2", 13.5, "f-m", "middle", box=W - 24)
+    f.text(180, 228, "detect → link centroids → mark enter/leave", 14.5, "f-t", "middle", 600, box=W - 20)
+    f.text(180, 251, "Faster R-CNN, TF2 Detection Zoo", 13.5, "f-m", "middle", box=W - 24)
 
 
 def build(site_dir: Path, solo_dir: Path):

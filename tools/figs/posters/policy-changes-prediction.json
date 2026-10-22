@@ -13,7 +13,7 @@
    [
     "OxCGRT policy levels",
     "CDC cases by state",
-    "About 500 MB in total"
+    "2020 to May 2022"
    ]
   ],
   [
@@ -29,7 +29,7 @@
    "03 / SMOOTH",
    "Case trend",
    [
-    "Weekend dips smoothed",
+    "States summed by date",
     "20-day moving average",
     "National new cases"
    ]
@@ -39,23 +39,23 @@
    "One timeline",
    [
     "Changes on the case curve",
-    "Omicron wave marked",
+    "Spike = change x case average",
     "Lag read off the plot"
    ]
   ]
  ],
  "panels": [
   [
-   "FINDING",
+   "OBSERVATION",
    "About a month to respond",
    [
-    "Policy changes trailed case waves",
-    "by roughly one month."
+    "Read off the plot: policy changes",
+    "trailed case waves; no lag computed."
    ]
   ],
   [
    "LATEST PEAK",
-   "Driven by Omicron",
+   "After Omicron arrived",
    [
     "The last wave followed Omicron's",
     "US arrival in late 2021."
@@ -66,9 +66,9 @@
    "No school-closing changes",
    [
     "The school-closing level stayed",
-    "flat through 2022."
+    "flat in 2022 (data ends in May)."
    ]
   ]
  ],
- "footer": "JUPYTER  /  pandas · matplotlib. Slides and the report are in this repository."
+ "footer": "JUPYTER  /  pandas · matplotlib. No predictive model yet; slides and the report are in this repository."
 }

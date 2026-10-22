@@ -6,4 +6,4 @@ lang: Jupyter
 status: "course project"
 topics: [computer-vision]
 ---
-Course 640 final project: detects people in street video with TensorFlow Object Detection and Detectron2, tracks box centroids across frames to count entries and exits, and draws an occupancy heatmap.
+Course 640 final project: detects people in street video with a Faster R-CNN model from the TF2 Detection Zoo, links each centroid to its nearest neighbour five frames later and marks links that enter or leave hand-drawn regions. Outputs are annotated videos and a centroid-dot heatmap; in/out totals are not computed.

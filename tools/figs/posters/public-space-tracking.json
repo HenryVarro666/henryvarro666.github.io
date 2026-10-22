@@ -3,9 +3,9 @@
  "pale": "#E3E8F1",
  "name": "PUBLIC SPACE TRACKING",
  "eyebrow": "COURSE PROJECT / COMPUTER VISION",
- "title": "Who comes in, who goes out.",
- "subtitle": "Detect, track and count people in public-space video.",
- "tagline": "TensorFlow Object Detection and Detectron2, compared on the same footage.",
+ "title": "Moves in and out, frame by frame.",
+ "subtitle": "Detect people in street video and link their centroids across frames.",
+ "tagline": "Faster R-CNN from the TF2 Detection Zoo; links marked against hand-drawn regions.",
  "steps": [
   [
    "01 / COMPRESS",
@@ -20,55 +20,55 @@
    "02 / DETECT",
    "People per frame",
    [
-    "Faster R-CNN (TF OD API)",
-    "Detectron2 alternative",
+    "Faster R-CNN, TF2 zoo",
+    "Person class only",
     "Boxes saved to CSV"
    ]
   ],
   [
-   "03 / TRACK",
-   "Centroid continuity",
+   "03 / LINK",
+   "Centroid links",
    [
-    "Nearest-centroid matching",
-    "5-frame continuity rule",
-    "One track per person"
+    "Nearest centroid 5 frames on",
+    "Long links dropped",
+    "No persistent tracks"
    ]
   ],
   [
-   "04 / COUNT",
-   "Entry line",
+   "04 / LABEL",
+   "Hand-drawn regions",
    [
-    "Track crosses the line",
-    "In and out counts",
-    "Occupancy heatmap"
+    "Link enters or leaves a box",
+    "Drawn in the counter video",
+    "No in/out totals"
    ]
   ]
  ],
  "panels": [
   [
    "INGESTION",
-   "Entrances as data",
+   "Regions as data",
    [
-    "Entry and exit lines are saved",
-    "to JSON for each camera view."
+    "Entrance and exit rectangles are drawn",
+    "with the mouse and saved to JSON."
    ]
   ],
   [
    "OUTPUTS",
    "Videos you can watch",
    [
-    "Annotated detection, counter and",
-    "optical-flow videos in demos/."
+    "Detection, counter and centroid-link",
+    "videos in demos/, plus a dot heatmap."
    ]
   ],
   [
    "NEXT STEP",
-   "A top-down heatmap",
+   "Counts and a floor plan",
    [
-    "A perspective transform would map",
-    "the heatmap onto a floor plan."
+    "In/out totals and a perspective",
+    "transform are not built yet."
    ]
   ]
  ],
- "footer": "PYTHON / JUPYTER  /  TensorFlow 2 · Detectron2 · OpenCV."
+ "footer": "PYTHON / JUPYTER  /  TensorFlow 2 · OpenCV. The Detectron2 notebook is the stock tutorial on sample images."
 }
