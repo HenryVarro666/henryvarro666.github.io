@@ -37,7 +37,7 @@
 <script type="application/ld+json">
 {{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" site.Params.name "url" site.BaseURL "jobTitle" site.Params.jobTitle }}
 {{- $person = merge $person (dict "affiliation" (dict "@type" "CollegeOrUniversity" "name" site.Params.affiliation)) }}
-{{- $same := slice }}{{ with site.Params.github }}{{ $same = $same | append . }}{{ end }}{{ with site.Params.scholar }}{{ $same = $same | append . }}{{ end }}
+{{- $same := slice }}{{ with site.Params.github }}{{ $same = $same | append . }}{{ end }}{{ with site.Params.scholar }}{{ $same = $same | append . }}{{ end }}{{ with site.Params.linkedin }}{{ $same = $same | append . }}{{ end }}
 {{- $person = merge $person (dict "sameAs" $same) }}
 {{ $person | jsonify | safeJS }}
 </script>

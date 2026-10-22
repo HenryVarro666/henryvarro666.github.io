@@ -17,6 +17,7 @@ capitalizeListTitles = false
   jobTitle = "PhD Candidate in Computer Science"
   affiliation = "University of Texas at Arlington"
   github = "https://github.com/HenryVarro666"
+  linkedin = "https://www.linkedin.com/in/chao-cao-167037246/"
   # email = "you@example.com"     # shown in the footer and on /contact when set
   scholar = "https://scholar.google.com/citations?user=NJWMZBsAAAAJ"
   # "next" = the grey NexT palette of the old ccao2679.com; remove the line for the teal default.
