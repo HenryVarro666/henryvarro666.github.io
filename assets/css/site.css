@@ -752,9 +752,17 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   border-bottom: 1px solid var(--rule);
   font-size: var(--step--1);
 }
-.doc-bar b { color: var(--ink); font-size: var(--step-0); font-weight: 600; }
-.doc-bar .note { color: var(--muted); }
-.doc-bar a { margin-left: auto; text-decoration: underline; text-underline-offset: 0.18em; }
+.doc-bar b {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: var(--step-0);
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.doc-bar .note { flex: none; color: var(--muted); white-space: nowrap; }
+.doc-bar a { flex: none; margin-left: auto; white-space: nowrap; text-decoration: underline; text-underline-offset: 0.18em; }
 .doc-close {
   width: 2rem;
   height: 2rem;
@@ -785,6 +793,8 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .doc-pages img:last-child { margin-bottom: 0; }
 @media (max-width: 560px) {
   .doc-view { width: 100vw; height: 100dvh; border-radius: 0; }
+  .doc-bar { gap: 0.8rem; }
+  .doc-bar .note { display: none; }
   .doc-pages { padding: 0.5rem; }
   .doc-pages img { margin-bottom: 0.5rem; }
 }

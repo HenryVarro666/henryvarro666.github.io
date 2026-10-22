@@ -5,12 +5,12 @@ lead: "PhD candidate in Computer Science and Engineering at the University of Te
 seeking: "Open to full-time machine learning engineer and research roles: multimodal models, LLM post-training and speech."
 email: "caochao0306@gmail.com"
 docs:
-  - label: "CV"
+  - label: "Research CV"
     file: "/chao-cao-cv.pdf"
-    note: "2 pages: research, publications, teaching · Oct 2026"
-  - label: "Résumé"
+    note: "2 pages · healthcare AI and medical imaging research · Sep 2026"
+  - label: "Data science résumé"
     file: "/chao-cao-resume.pdf"
-    note: "1 page · May 2026"
+    note: "1 page · machine learning, LLM systems and data pipelines · Oct 2026"
 profiles:
   - label: "GitHub"
     url: "https://github.com/HenryVarro666"
