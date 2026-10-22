@@ -11,7 +11,9 @@ also the checklist for doing it by hand.
 | Its overview figure | `assets/figs/<slug>.svg` — inlined next to the entry; drawn by `tools/figs/figures.py` |
 | Publications | `data/publications.toml` — one `[[pub]]` per paper; `first = true` gets the full card |
 | A paper's main figure | `assets/pubs/<id>.png` (or `.jpg`), referenced by `figure = "<file>"` |
-| Citation counts | `data/citations.json` — rewritten by `tools/citations.py` (OpenAlex) in the Pages workflow |
+| Citation counts | `data/citations.json` — per-paper counts, rewritten by `tools/citations.py` (OpenAlex) in the Pages workflow |
+| Google Scholar totals | `data/scholar.toml` — copied by hand from the owner's CV or profile (Scholar has no API); the weekly task does not change it |
+| Contact page, CV, résumé | `content/contact/_index.md` (front matter), `static/chao-cao-cv.pdf`, `static/chao-cao-resume.pdf` (phone number removed) |
 
 ## Overview figures
 

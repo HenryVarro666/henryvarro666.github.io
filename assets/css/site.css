@@ -668,3 +668,31 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 }
 .pub-authors .eq,
 .pub-list .eq { color: var(--muted); font-size: var(--step--2); }
+
+/* ---------- Contact ---------- */
+
+.contact { padding-top: 1.4rem; max-width: 42rem; }
+.contact-lead { margin: 0 0 0.3rem; color: var(--ink); font-size: 1.06rem; line-height: 1.5; }
+.contact-seeking { margin: 0 0 1.3rem; color: var(--text); line-height: 1.55; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 0.6rem 1.2rem;
+  margin: 0 0 1.3rem;
+  padding: 1.05rem 1.2rem;
+  background: var(--wash);
+  border-radius: 6px;
+  font-size: 0.97rem;
+}
+.contact-grid dt { color: var(--muted); font-size: var(--step--1); padding-top: 0.12rem; }
+.contact-grid dd { margin: 0; overflow-wrap: anywhere; }
+.contact-grid a { text-decoration: var(--link-line); }
+.contact-grid .ext { color: var(--accent); font-size: 0.85em; }
+.contact-grid .note { margin-left: 0.6rem; color: var(--muted); font-size: var(--step--1); }
+.contact-note { margin: 0; color: var(--muted); }
+@media (max-width: 560px) {
+  .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  .contact-grid dt { padding-top: 0.6rem; }
+  .contact-grid dt:first-child { padding-top: 0; }
+  .contact-grid .note { display: block; margin-left: 0; }
+}

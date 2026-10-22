@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="contact">
+  {{- with .Params.lead }}<p class="contact-lead">{{ . | markdownify }}</p>{{ end }}
+  {{- with .Params.seeking }}<p class="contact-seeking">{{ . | markdownify }}</p>{{ end }}
+  <dl class="contact-grid">
+    {{- with .Params.email }}
+    <dt>Email</dt><dd><a href="mailto:{{ . }}">{{ . }}</a></dd>
+    {{- end }}
+    {{- range .Params.docs }}
+    <dt>{{ .label }}</dt><dd><a href="{{ .file | relURL }}">PDF</a><span class="note">{{ .note }}</span></dd>
+    {{- end }}
+    {{- range .Params.profiles }}
+    <dt>{{ .label }}</dt><dd><a href="{{ .url }}">{{ .text }}<span class="ext" aria-hidden="true"> ↗</span></a></dd>
+    {{- end }}
+    {{- with .Params.lab }}
+    <dt>Lab</dt><dd>{{ . }}</dd>
+    {{- end }}
+    {{- with .Params.location }}
+    <dt>Location</dt><dd>{{ . }}</dd>
+    {{- end }}
+  </dl>
+  {{- with .Params.talk }}<p class="contact-note">{{ . | markdownify }}</p>{{ end }}
+  {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+</div>
+{{ end }}

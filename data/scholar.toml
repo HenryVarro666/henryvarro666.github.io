@@ -1,0 +1,5 @@
+# Google Scholar totals, copied by hand (Scholar has no API). Source: the owner's CV, Oct 2026.
+# Update these two numbers when the profile moves; per-paper counts on the page come from OpenAlex.
+citations = "1,000+"
+h_index = 11
+as_of = "Oct 2026"

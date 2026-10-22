@@ -3,9 +3,15 @@
 {{- $cites := site.Data.citations | default dict }}
 <div class="scholar">
   {{- with site.Params.scholar }}<a class="gs" href="{{ . }}">Google Scholar profile<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
+  {{- with site.Data.scholar }}
+  <span class="stat"><b>{{ .citations }}</b> citations</span>
+  <span class="stat">h-index <b>{{ .h_index }}</b></span>
+  <span class="src">Google Scholar, {{ .as_of }}{{ if $cites.total }} · per-paper counts below from OpenAlex{{ end }}</span>
+  {{- else }}
   {{- with $cites.total }}<span class="stat"><b>{{ . }}</b> citations</span>{{ end }}
   {{- with $cites.h_index }}<span class="stat">h-index <b>{{ . }}</b></span>{{ end }}
   {{- if $cites.total }}{{ with $cites.updated }}<span class="src">counts from OpenAlex across the papers below, refreshed weekly · {{ . }}</span>{{ end }}{{ end }}
+  {{- end }}
 </div>
 {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
 
@@ -19,7 +25,7 @@
 
 {{- $others := where $pubs "first" "!=" true }}
 {{- with $others }}
-<h2 class="pub-group">Co-authored papers</h2>
+<h2 class="pub-group">Other papers</h2>
 {{- $years := slice }}{{ range . }}{{ $years = $years | append .year }}{{ end }}
 {{- range sort (uniq $years) "value" "desc" }}
 {{- $y := . }}

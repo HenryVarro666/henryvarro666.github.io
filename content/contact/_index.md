@@ -1,8 +1,27 @@
 ---
 title: "Contact"
 intro: "Where to find me."
-# Add an email line below if wanted.
+lead: "PhD candidate in Computer Science and Engineering at the University of Texas at Arlington, graduating December 2026."
+seeking: "Open to full-time machine learning engineer and research roles: multimodal models, LLM post-training and speech."
+email: "caochao0306@gmail.com"
+docs:
+  - label: "CV"
+    file: "/chao-cao-cv.pdf"
+    note: "2 pages: research, publications, teaching · Oct 2026"
+  - label: "Résumé"
+    file: "/chao-cao-resume.pdf"
+    note: "1 page · May 2026"
+profiles:
+  - label: "GitHub"
+    url: "https://github.com/HenryVarro666"
+    text: "HenryVarro666"
+  - label: "LinkedIn"
+    url: "https://www.linkedin.com/in/chao-cao-167037246/"
+    text: "chao-cao-167037246"
+  - label: "Google Scholar"
+    url: "https://scholar.google.com/citations?user=NJWMZBsAAAAJ"
+    text: "Chao Cao"
+lab: "Dajiang Zhu's lab, Department of Computer Science and Engineering, UT Arlington"
+location: "Arlington, Texas"
+talk: "Happy to talk about brain imaging, TTS alignment and speech systems, or anything on this site."
 ---
-- GitHub: [github.com/HenryVarro666](https://github.com/HenryVarro666)
-- LinkedIn: [linkedin.com/in/chao-cao-167037246](https://www.linkedin.com/in/chao-cao-167037246/)
-- Google Scholar: [scholar.google.com/citations?user=NJWMZBsAAAAJ](https://scholar.google.com/citations?user=NJWMZBsAAAAJ)

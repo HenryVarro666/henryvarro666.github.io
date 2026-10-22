@@ -15,6 +15,7 @@ authors = ["Chao Cao", "Tong Chen", "Nan Zhao", "Minheng Chen", "Michael Qu", "Z
 equal = ["Chao Cao", "Tong Chen", "Nan Zhao"]
 venue = "IEEE International Symposium on Biomedical Imaging (ISBI), 2026"
 short = "ISBI 2026"
+status = "oral"
 year = 2026
 arxiv = "2601.08818"
 figure = "gs-net-isbi2026.png"
@@ -43,6 +44,7 @@ authors = ["Chao Cao", "Jiale Cheng", "Minheng Chen", "Jing Zhang", "Tianming Li
 equal = ["Chao Cao", "Jiale Cheng"]
 venue = "IEEE International Symposium on Biomedical Imaging (ISBI), 2026"
 short = "ISBI 2026"
+status = "oral"
 year = 2026
 doi = "10.1109/ISBI61048.2026.11515596"
 figure = "deep-gyralnet-isbi2026.png"
@@ -103,6 +105,7 @@ arxiv = "2602.01482"
 id = "radiology-nli-tradeoffs"
 title = "Exploring the Trade-Offs: Unified Large Language Models vs Local Fine-Tuned Models for Highly-Specific Radiology NLI Task"
 authors = ["Zihao Wu", "Lu Zhang", "Chao Cao", "Xiaowei Yu", "Zhengliang Liu", "Lin Zhao", "Yiwei Li", "Haixing Dai", "Chong Ma", "Gang Li", "Wei Liu", "Quanzheng Li", "Dinggang Shen", "Xiang Li", "Dajiang Zhu", "Tianming Liu"]
+equal = ["Zihao Wu", "Lu Zhang", "Chao Cao"]
 short = "IEEE Transactions on Big Data 11(3), 2025"
 year = 2025
 arxiv = "2304.09138"
@@ -198,8 +201,8 @@ arxiv = "2503.07640"
 id = "dcmm-transformer"
 title = "DCMM-Transformer: Degree-Corrected Mixed-Membership Attention for Medical Imaging"
 authors = ["Huimin Cheng", "Xiaowei Yu", "Shushan Wu", "Luyang Fang", "Chao Cao", "Jing Zhang", "Tianming Liu", "Dajiang Zhu", "Wenxuan Zhong", "Ping Ma"]
-short = "arXiv 2025"
-year = 2025
+short = "AAAI 2026"
+year = 2026
 arxiv = "2511.12047"
 
 [[pub]]
@@ -250,3 +253,21 @@ authors_total = 50
 short = "arXiv 2023"
 year = 2023
 arxiv = "2312.05256"
+
+[[pub]]
+id = "radiologist-reading-world-model"
+title = "A World Model of Radiologist Reading for Medical Image Representation Learning"
+authors = ["Yiwei Li", "Zihao Wu", "Huaqin Zhao", "Yifan Zhou", "Chao Cao", "Dajiang Zhu", "Tianming Liu", "Lin Zhao"]
+equal = ["Yiwei Li", "Zihao Wu"]
+short = "NeurIPS 2026"
+year = 2026
+arxiv = "2605.23992"
+
+[[pub]]
+id = "agi-medical-imaging"
+title = "Artificial General Intelligence for Medical Imaging Analysis"
+authors = ["Xiang Li", "Lin Zhao", "Lu Zhang", "Zihao Wu", "Zhengliang Liu", "Hanqi Jiang", "Chao Cao", "Shaochen Xu", "Yiwei Li", "Haixing Dai", "Yixuan Yuan", "Jun Liu", "Gang Li", "Dajiang Zhu", "Pingkun Yan", "Quanzheng Li", "Wei Liu", "Tianming Liu", "Dinggang Shen"]
+short = "IEEE Reviews in Biomedical Engineering 18, 2025"
+year = 2025
+doi = "10.1109/RBME.2024.3493775"
+arxiv = "2306.05480"
