@@ -950,6 +950,7 @@ body.homepage {
 .home-availability-heading h2 { margin: 0; color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.4; }
 .home-availability-start { margin: 0; padding: 4px 10px; border-radius: 4px; background: var(--home-button); color: var(--home-button-text); font-size: 13px; font-weight: 600; }
 .home-availability-roles { margin: 12px 0 8px; color: var(--ink); font-size: 14px; font-weight: 500; line-height: 1.7; }
+.home-availability-relocation { margin: 0 0 8px; color: var(--accent); font-size: 14px; line-height: 1.7; }
 .home-availability-footer { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; line-height: 1.7; }
 .home-availability-footer p { margin: 0; color: var(--text); }
 .home-availability-footer a { font-weight: 600; text-decoration: underline; white-space: nowrap; }
