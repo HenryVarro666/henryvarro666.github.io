@@ -32,6 +32,7 @@
     <p class="home-availability-start">{{ .start }}</p>
   </div>
   <p class="home-availability-roles">{{ .roles }}</p>
+  {{- with .relocation }}<p class="home-availability-relocation"><strong>{{ . }}</strong></p>{{ end }}
   <div class="home-availability-footer">
     <p>{{ .details }}</p>
     {{- with site.Params.email }}<a href="mailto:{{ . }}">Get in touch <span aria-hidden="true">↗</span></a>{{ end }}
