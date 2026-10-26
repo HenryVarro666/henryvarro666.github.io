@@ -944,6 +944,7 @@ body.homepage {
 .home-section-heading h2 { color: var(--ink); font-size: 27px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.5px; margin: 0; }
 .home-section-heading > a { font-size: 13px; }
 .home-section-note { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+.home-research-intro { max-width: 80ch; margin: 0 0 24px; font-size: 15px; line-height: 1.7; }
 .home-research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .home-research-item { border-left: 2px solid var(--rule); padding-left: 19px; }
 .home-research-item h3 { color: var(--ink); margin: 0 0 8px; font-size: 17px; font-weight: 500; line-height: 1.4; }
