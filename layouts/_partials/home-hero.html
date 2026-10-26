@@ -1,0 +1,28 @@
+{{- $about := site.GetPage "/about" }}
+{{- $contact := site.GetPage "/contact" }}
+<section class="home-hero" id="about" aria-labelledby="home-name">
+  <div class="home-heading">
+    <p class="home-kicker">Machine learning &amp; neuroimaging</p>
+    <h1 id="home-name">{{ site.Params.name }}</h1>
+    <p class="home-role">Ph.D. Candidate in Computer Science</p>
+    <p class="home-university">The University of Texas at Arlington</p>
+  </div>
+  <figure class="home-portrait">
+    <div class="home-photo">
+      <img src="{{ "images/chao-cao.jpg" | relURL }}" width="1024" height="1746" loading="eager" fetchpriority="high" alt="Chao Cao outdoors with palm trees in the background">
+    </div>
+    <figcaption>{{ site.Params.name }}</figcaption>
+  </figure>
+  <div class="home-bio">
+    <p>My research focuses on <strong>individualized cortical mapping</strong> and <strong>connectome analysis</strong>, exploring how brain structure and connectivity vary across individuals.</p>
+  </div>
+  <div class="home-profile-links" aria-label="CV and profiles">
+    {{- with $contact }}{{ range first 1 .Params.docs }}
+    <a class="home-cv" href="{{ .file | relURL }}">View CV <span aria-hidden="true">↗</span></a>
+    {{- end }}{{ end }}
+    {{- with site.Params.email }}<a href="mailto:{{ . }}">Email</a>{{ end }}
+    {{- with site.Params.github }}<a href="{{ . }}">GitHub</a>{{ end }}
+    {{- with site.Params.scholar }}<a href="{{ . }}">Scholar</a>{{ end }}
+  </div>
+</section>
+{{- with $about.Params.status }}<p class="home-availability">{{ . }}</p>{{ end }}

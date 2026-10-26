@@ -1,12 +1,41 @@
 {{ define "main" }}
-<div class="stream">
+{{ partial "home-hero.html" . }}
+<section class="home-research" aria-labelledby="home-research-title">
+  <div class="home-section-heading">
+    <h2 id="home-research-title">Research interests</h2>
+    <span class="home-section-note">Brain structure &amp; connectivity</span>
+  </div>
+  <div class="home-research-grid">
+    <article class="home-research-item">
+      <h3>Individualized cortical mapping</h3>
+      <p>Studying individual differences in cortical anatomy and their role in brain mapping.</p>
+    </article>
+    <article class="home-research-item">
+      <h3>Connectome analysis</h3>
+      <p>Exploring brain connectivity through computational methods and machine learning.</p>
+    </article>
+  </div>
+</section>
+{{- with site.GetPage "/about" }}
+<details class="home-background">
+  <summary>More about my research and experience</summary>
+  <div class="prose">{{ .Content }}</div>
+</details>
+{{- end }}
+<section class="home-work" aria-labelledby="home-work-title">
+  <div class="home-section-heading">
+    <h2 id="home-work-title">Research &amp; projects</h2>
+    <a href="{{ relref . "/publications" }}">View publications <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="stream">
   {{- range where site.RegularPages "Params.pinned" true }}
-  {{ partial "item.html" . }}
+    {{- if ne .File.ContentBaseName "about" }}{{ partial "item.html" . }}{{ end }}
   {{- end }}
   {{- $entries := slice }}
   {{- range site.RegularPages }}{{ if in site.Params.streamSections .Section }}{{ $entries = $entries | append . }}{{ end }}{{ end }}
   {{- range sort $entries "Date" "desc" }}
   {{ partial "item.html" . }}
   {{- end }}
-</div>
+  </div>
+</section>
 {{ end }}

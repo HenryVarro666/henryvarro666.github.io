@@ -43,7 +43,7 @@
 </script>
 {{- end }}
 </head>
-<body>
+<body{{ if .IsHome }} class="homepage"{{ end }}>
 {{ partial "banner.html" . }}
 <main class="column">
 {{ block "main" . }}{{ end }}

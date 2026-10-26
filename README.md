@@ -1,6 +1,6 @@
 # ccao2679.com · Hugo 版个人主页
 
-极简、以文字为主的时间流主页：一个 CSS 文件（压缩后约 6KB），不加载 webfont，只有十来行 JS 用来切换明暗模式。栏目页和话题页在构建时生成，部署在 GitHub Pages 上，不需要服务器。
+首页采用左侧简介、右侧照片的布局，下面保留研究与项目时间流；手机端自动改为上下排列。使用系统字体和一个 CSS 文件，支持明暗模式。栏目页和话题页在构建时生成，部署在 GitHub Pages 上，不需要服务器。
 
 ## 目录结构
 
@@ -8,13 +8,15 @@
 hugo.toml                 站点配置：名字、tagline、导航、GitHub 链接
 preview.toml              只在生成离线预览时叠加（.html 平铺 + 相对链接 + CSS 内联）
 content/
-  about.md                首页置顶条目（pinned: true）
+  about.md                首页展开区的完整介绍及求职状态（pinned: true）
   research/  projects/  coursework/  notes/
                           每个 .md 是一条条目，所在文件夹就是它的栏目
   publications/_index.md  论文页（内容来自 data/publications.toml）
   research/_index.md 等   栏目的一句话介绍（intro），显示在名字下面那一行
   contact/_index.md       联系方式页
 layouts/                  模板（baseof / home / section / term / taxonomy / page + _partials）
+layouts/_partials/home-hero.html  首页姓名、简短介绍、照片和 CV / 联系方式入口
+static/images/chao-cao.jpg 首页个人照片，取景由 CSS 控制
 assets/css/site.css       全部样式；颜色都在 :root 的 token 里（含 --fig-* 概览图配色）
 assets/figs/<slug>.svg    条目的概览图，和 content 里的文件同名就会自动显示在条目左侧
 assets/pubs/              论文主图
@@ -79,7 +81,8 @@ topics: [speech]          # 点状下划线的话题标签（最多 2 个，从�
 | 导航栏目 | `hugo.toml` 里的 `[[menus.main]]` |
 | 邮箱 / Google Scholar | 去掉 `hugo.toml` 里 `email`、`scholar` 两行前面的 `#` |
 | 配色 | `hugo.toml` 里的 `palette`：`"next"` 是旧站 NexT 的灰色系（当前），删掉这行就换回青色默认；具体色值在 `assets/css/site.css` 顶部的 token 里 |
-| 置顶简介 | `content/about.md` |
+| 首屏简短介绍和照片 | `layouts/_partials/home-hero.html`、`static/images/chao-cao.jpg`；比例和取景在 `assets/css/site.css` 的首页样式里 |
+| 完整介绍和求职状态 | `content/about.md`，显示在首页展开区及首屏下方 |
 | 新增/修改论文 | `data/publications.toml`，主图放 `assets/pubs/` |
 | 条目的概览图 | 改 `tools/figs/figures.py` 后运行它，输出到 `assets/figs/` |
 
