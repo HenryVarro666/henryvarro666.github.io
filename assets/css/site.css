@@ -948,10 +948,9 @@ body.homepage {
 .home-research-item { border-left: 2px solid var(--rule); padding-left: 19px; }
 .home-research-item h3 { color: var(--ink); margin: 0 0 8px; font-size: 17px; font-weight: 500; line-height: 1.4; }
 .home-research-item p { font-size: 13px; line-height: 1.75; margin: 0; }
-.home-background { margin-bottom: 34px; padding-bottom: 26px; border-bottom: 1px solid var(--rule); font-size: 14px; }
-.home-background summary { color: var(--accent); cursor: pointer; width: fit-content; }
-.home-background summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.home-background .prose { max-width: 75ch; }
+.home-background { padding: 30px 0 18px; border-top: 1px solid var(--rule); font-size: 15px; }
+.home-background .home-section-heading { margin-bottom: 16px; }
+.home-background .prose { max-width: 80ch; padding-top: 0; line-height: 1.7; }
 .home-work .stream { padding-top: 0; }
 .home-work .item { margin-inline: 0; padding-inline: 0; }
 
@@ -981,5 +980,4 @@ body.homepage {
 @media (pointer: coarse) {
   .homepage .mainnav a, .home-profile-links a { display: inline-flex; align-items: center; min-height: 44px; }
   .homepage #theme-toggle { min-width: 44px; min-height: 44px; }
-  .home-background summary { min-height: 44px; padding-block: 10px; }
 }
