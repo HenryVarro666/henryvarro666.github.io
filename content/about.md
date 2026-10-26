@@ -3,7 +3,7 @@ title: "PhD Candidate in Computer Science, UT Arlington"
 pinned: true
 availability:
   title: "Actively seeking full-time roles"
-  start: "Available January 2027"
+  start: "Available December 2026"
   roles: "Software Engineer · Machine Learning Engineer · Data Scientist · Research Scientist"
   relocation: "Open to relocation anywhere in the U.S. at my own expense."
   details: "Graduating December 2026 · Dallas–Fort Worth · On-site, hybrid or remote"
