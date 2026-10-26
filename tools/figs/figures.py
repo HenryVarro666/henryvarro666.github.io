@@ -170,6 +170,29 @@ def radqnli(f):
 
 
 # ---------------------------------------------------------------- projects
+@fig("medical-multi-agent-system", "Medical Multi-Agent System",
+     "Intake, Diagnosis, Treatment and Coding use an OpenAI-compatible model backend. "
+     "Diagnosis can retry Intake within a fixed budget; deterministic Audit screens for PHI patterns. "
+     "The workflow returns structured sections and errors.")
+def medical_agents(f):
+    header(f, "five-stage clinical workflow")
+    f.node(18, 76, 90, 56, "Intake", size=14, sub="structure", subsize=12)
+    f.node(134, 76, 92, 56, "Diagnosis", size=14, sub="symptom map", subsize=12)
+    f.node(250, 76, 92, 56, "Treatment", size=14, sub="DDI checks", subsize=12)
+    f.arrow(110, 104, 130, 104, head=6)
+    f.arrow(228, 104, 246, 104, head=6)
+    f.path("M180 74 V58 H63", sw=1.5)
+    f.arrow(63, 58, 63, 73, sw=1.5, head=6)
+    f.text(121, 50, "bounded retry", 11.5, "f-m", "middle", box=120)
+    f.node(250, 165, 92, 56, "Coding", size=14, sub="ICD-10", subsize=12)
+    f.node(134, 165, 92, 56, "Audit", hl=True, size=14, sub="PHI screen", subsize=12)
+    f.node(18, 165, 90, 56, "Result", size=14, sub="JSON + errors", subsize=11.5)
+    f.arrow(296, 134, 296, 161, head=6)
+    f.arrow(248, 193, 230, 193, head=6)
+    f.arrow(132, 193, 112, 193, head=6)
+    f.text(180, 251, "4 LLM stages · deterministic audit", 14, "f-t", "middle", box=W - 28)
+
+
 @fig("ai-medical-interpreter", "AI Medical Interpreter",
      "A Chinese-speaking patient and an English-speaking provider talk over the phone through Twilio and "
      "the OpenAI Realtime API; the call produces a live transcript and a SOAP note.")
