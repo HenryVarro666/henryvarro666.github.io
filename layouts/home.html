@@ -1,5 +1,13 @@
 {{ define "main" }}
 {{ partial "home-hero.html" . }}
+{{- with site.GetPage "/about" }}
+<section class="home-background" aria-labelledby="home-background-title">
+  <div class="home-section-heading">
+    <h2 id="home-background-title">Research &amp; experience</h2>
+  </div>
+  <div class="prose">{{ .Content }}</div>
+</section>
+{{- end }}
 <section class="home-research" aria-labelledby="home-research-title">
   <div class="home-section-heading">
     <h2 id="home-research-title">Research interests</h2>
@@ -16,12 +24,6 @@
     </article>
   </div>
 </section>
-{{- with site.GetPage "/about" }}
-<details class="home-background">
-  <summary>More about my research and experience</summary>
-  <div class="prose">{{ .Content }}</div>
-</details>
-{{- end }}
 <section class="home-work" aria-labelledby="home-work-title">
   <div class="home-section-heading">
     <h2 id="home-work-title">Research &amp; projects</h2>
