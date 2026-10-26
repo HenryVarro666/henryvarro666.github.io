@@ -25,4 +25,16 @@
     {{- with site.Params.scholar }}<a href="{{ . }}">Scholar</a>{{ end }}
   </div>
 </section>
-{{- with $about.Params.status }}<p class="home-availability">{{ . }}</p>{{ end }}
+{{- with $about.Params.availability }}
+<section class="home-availability" aria-labelledby="home-availability-title">
+  <div class="home-availability-heading">
+    <h2 id="home-availability-title">{{ .title }}</h2>
+    <p class="home-availability-start">{{ .start }}</p>
+  </div>
+  <p class="home-availability-roles">{{ .roles }}</p>
+  <div class="home-availability-footer">
+    <p>{{ .details }}</p>
+    {{- with site.Params.email }}<a href="mailto:{{ . }}">Get in touch <span aria-hidden="true">↗</span></a>{{ end }}
+  </div>
+</section>
+{{- end }}

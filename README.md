@@ -8,7 +8,7 @@
 hugo.toml                 站点配置：名字、tagline、导航、GitHub 链接
 preview.toml              只在生成离线预览时叠加（.html 平铺 + 相对链接 + CSS 内联）
 content/
-  about.md                照片介绍区下方直接显示的完整介绍及求职状态（pinned: true）
+  about.md                科研与工程经历；availability 字段控制首屏下方的求职提示区（pinned: true）
   research/  projects/  coursework/  notes/
                           每个 .md 是一条条目，所在文件夹就是它的栏目
   publications/_index.md  论文页（内容来自 data/publications.toml）
@@ -82,7 +82,7 @@ topics: [speech]          # 点状下划线的话题标签（最多 2 个，从�
 | 邮箱 / Google Scholar | 去掉 `hugo.toml` 里 `email`、`scholar` 两行前面的 `#` |
 | 配色 | `hugo.toml` 里的 `palette`：`"next"` 是旧站 NexT 的灰色系（当前），删掉这行就换回青色默认；具体色值在 `assets/css/site.css` 顶部的 token 里 |
 | 首屏简短介绍和照片 | `layouts/_partials/home-hero.html`、`static/images/chao-cao.jpg`；比例和取景在 `assets/css/site.css` 的首页样式里 |
-| 完整介绍和求职状态 | `content/about.md`，紧接照片介绍区直接显示，无需展开 |
+| 经历和求职状态 | `content/about.md`：正文直接展示经历；`availability` 字段设置求职提示区的岗位、入职时间和地点 |
 | 新增/修改论文 | `data/publications.toml`，主图放 `assets/pubs/` |
 | 条目的概览图 | 改 `tools/figs/figures.py` 后运行它，输出到 `assets/figs/` |
 

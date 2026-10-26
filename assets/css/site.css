@@ -938,7 +938,21 @@ body.homepage {
   transform-origin: 55% 48%;
 }
 .home-portrait figcaption { margin-top: 12px; color: var(--muted); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
-.home-availability { margin: 0 0 29px; color: var(--muted); font-size: 12px; }
+.home-availability {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: var(--wash);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+.home-availability-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 18px; }
+.home-availability-heading h2 { margin: 0; color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.4; }
+.home-availability-start { margin: 0; padding: 4px 10px; border-radius: 4px; background: var(--home-button); color: var(--home-button-text); font-size: 13px; font-weight: 600; }
+.home-availability-roles { margin: 12px 0 8px; color: var(--ink); font-size: 14px; font-weight: 500; line-height: 1.7; }
+.home-availability-footer { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; line-height: 1.7; }
+.home-availability-footer p { margin: 0; color: var(--text); }
+.home-availability-footer a { font-weight: 600; text-decoration: underline; white-space: nowrap; }
 .home-research { padding: 30px 0 32px; border-top: 1px solid var(--rule); }
 .home-section-heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
 .home-section-heading h2 { color: var(--ink); font-size: 27px; font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.5px; margin: 0; }
@@ -975,10 +989,11 @@ body.homepage {
   .home-bio { margin-top: 24px; }
   .home-bio p { font-size: 14px; }
   .home-profile-links { gap: 16px; row-gap: 12px; margin-top: 23px; }
+  .home-availability { padding: 18px; }
   .home-research-grid { grid-template-columns: 1fr; gap: 24px; }
   .home-section-heading h2 { font-size: 25px; }
 }
 @media (pointer: coarse) {
-  .homepage .mainnav a, .home-profile-links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .homepage .mainnav a, .home-profile-links a, .home-availability-footer a { display: inline-flex; align-items: center; min-height: 44px; }
   .homepage #theme-toggle { min-width: 44px; min-height: 44px; }
 }
