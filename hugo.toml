@@ -34,11 +34,11 @@ capitalizeListTitles = false
 [[menus.main]]
   name = "Research"
   pageRef = "/research"
-  weight = 2
+  weight = 3
 [[menus.main]]
   name = "Publications"
   pageRef = "/publications"
-  weight = 3
+  weight = 2
 [[menus.main]]
   name = "Projects"
   pageRef = "/projects"
