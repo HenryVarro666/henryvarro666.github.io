@@ -1,6 +1,5 @@
-{{- /* The banner is the same on every view. Only the one-line slot under the name
-       changes: tagline on home, the section intro on a section, the topic on a topic page,
-       the date on a note. One fixed line, so the banner height never jumps. */ -}}
+{{- /* Home uses a compact masthead above the portrait hero. Other views retain
+       the one-line section/topic slot and their existing navigation. */ -}}
 {{- $slot := site.Params.tagline }}
 {{- $intro := false }}
 {{- if .IsSection }}{{ with .Params.intro }}{{ $slot = . }}{{ $intro = true }}{{ end }}
@@ -10,10 +9,10 @@
 <header class="banner">
   <div class="banner-inner">
     <div class="name-row">
-      <p class="name"><a href="{{ site.Home.RelPermalink }}">{{ site.Params.name }}</a></p>
+      <p class="name"><a href="{{ site.Home.RelPermalink }}">{{ site.Params.name }}{{ if .IsHome }}<span class="home-name-dot">.</span>{{ end }}</a></p>
       <button id="theme-toggle" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg></button>
     </div>
-    <p class="slot{{ if $intro }} intro{{ end }}">{{ $slot | markdownify }}</p>
+    {{- if not .IsHome }}<p class="slot{{ if $intro }} intro{{ end }}">{{ $slot | markdownify }}</p>{{ end }}
     <nav class="mainnav" aria-label="Sections">
       {{- $here := . }}
       {{- range site.Menus.main }}
