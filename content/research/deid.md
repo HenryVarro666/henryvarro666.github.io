@@ -3,6 +3,7 @@ title: "Open-LLM De-identification"
 date: 2023-08-01
 repo: "https://github.com/HenryVarro666/open-llm-deid"
 lang: Python
+stack: ["PyTorch", "Hugging Face Transformers", "Accelerate"]
 stars: 1
 topics: [llm, healthcare]
 ---

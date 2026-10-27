@@ -3,6 +3,7 @@ title: "Covid Policy Effectiveness"
 date: 2021-12-15
 repo: "https://github.com/HenryVarro666/Covid-Policy-Effectiveness"
 lang: Jupyter
+stack: ["pandas", "scikit-learn", "Selenium"]
 status: "course project"
 topics: [data-science, healthcare]
 ---

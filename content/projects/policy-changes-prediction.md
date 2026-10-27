@@ -3,6 +3,7 @@ title: "Policy Changes Prediction"
 date: 2022-04-01
 repo: "https://github.com/HenryVarro666/policy-changes-prediction"
 lang: Jupyter
+stack: ["pandas", "Matplotlib", "Jupyter"]
 stars: 2
 status: "course project"
 topics: [data-science]

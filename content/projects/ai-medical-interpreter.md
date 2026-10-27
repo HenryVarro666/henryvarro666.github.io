@@ -3,6 +3,7 @@ title: "AI Medical Interpreter"
 date: 2026-05-01
 repo: "https://github.com/HenryVarro666/AI-medical-interpreter"
 lang: JavaScript
+stack: ["Node.js", "Express", "WebSocket", "Twilio", "OpenAI Realtime API"]
 status: "personal project"
 topics: [speech, healthcare]
 ---

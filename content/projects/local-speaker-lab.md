@@ -3,6 +3,7 @@ title: "Local Speaker Lab"
 date: 2026-10-01
 repo: "https://github.com/HenryVarro666/local-speaker-lab"
 lang: Python
+stack: ["PyTorch", "Qwen3-ASR", "pyannote.audio", "Ollama", "Gradio"]
 status: "personal project"
 topics: [speech]
 ---
