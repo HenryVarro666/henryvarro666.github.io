@@ -30,6 +30,11 @@
     {{- if $pinned }}{{ .Title }}
     {{- else }}<a href="{{ $link }}">{{ .Title }}{{ if $external }}<span class="ext" aria-hidden="true"> ↗</span>{{ else }}<span class="doc" aria-hidden="true"> ¶</span>{{ end }}</a>{{ end -}}
   </h2>
+  {{- with .Params.stack }}
+  <ul class="item-stack" aria-label="Technologies used" role="list">
+    {{- range . }}<li>{{ . }}</li>{{ end }}
+  </ul>
+  {{- end }}
   <div class="item-summary">
     {{- if or $external $pinned }}{{ .Content }}{{ else }}<p>{{ .Description | default .Summary | plainify }}</p>{{ end }}
     {{- with .Params.live }}<p class="live">{{ . }}</p>{{ end }}

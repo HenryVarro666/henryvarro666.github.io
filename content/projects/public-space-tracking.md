@@ -3,6 +3,7 @@ title: "Public Space Tracking"
 date: 2022-12-02
 repo: "https://github.com/HenryVarro666/Public-Space-Tracking"
 lang: Jupyter
+stack: ["TensorFlow", "OpenCV", "pandas", "NumPy"]
 status: "course project"
 topics: [computer-vision]
 ---

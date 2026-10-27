@@ -3,6 +3,7 @@ title: "Anota"
 date: 2026-07-01
 repo: "https://github.com/HenryVarro666/anota"
 lang: Python
+stack: ["FastAPI", "SQLite", "Docker"]
 status: "personal project"
 topics: [llm, speech]
 ---

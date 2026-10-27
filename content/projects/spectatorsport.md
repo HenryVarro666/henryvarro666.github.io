@@ -3,6 +3,7 @@ title: "Spectator Sport"
 date: 2022-05-17
 repo: "https://github.com/HenryVarro666/spectatorSport"
 lang: Jupyter
+stack: ["pandas", "scikit-learn", "Gensim", "Selenium"]
 status: "course project"
 topics: [data-science, nlp]
 ---

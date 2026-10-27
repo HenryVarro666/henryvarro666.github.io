@@ -3,6 +3,7 @@ title: "Medical Multi-Agent System"
 date: 2026-10-26
 repo: "https://github.com/HenryVarro666/Medical-Multi-Agent-System"
 lang: Python
+stack: ["LangGraph", "FastAPI", "Pydantic", "Docker"]
 status: "research prototype"
 topics: [llm, healthcare]
 ---

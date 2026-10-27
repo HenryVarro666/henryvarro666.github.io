@@ -3,6 +3,7 @@ title: "Movie Recommendation System"
 date: 2022-02-01
 repo: "https://github.com/HenryVarro666/Movie-Recommendation-System"
 lang: JavaScript
+stack: ["Django", "Django REST Framework", "Vue.js", "SQLite"]
 stars: 47
 status: "course project"
 topics: [data-science, web]

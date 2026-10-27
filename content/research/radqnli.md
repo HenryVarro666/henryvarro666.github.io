@@ -3,6 +3,7 @@ title: "RadQNLI: radiology NLI for LLMs"
 date: 2023-04-01
 repo: "https://github.com/HenryVarro666/RadQNLI"
 lang: Jupyter
+stack: ["OpenAI API", "pandas", "NLTK", "Hugging Face Evaluate"]
 topics: [llm, healthcare]
 paper: "radiology-nli-tradeoffs"
 ---

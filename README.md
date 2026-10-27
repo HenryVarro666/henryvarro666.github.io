@@ -48,6 +48,7 @@ date: 2026-10-01          # 只显示到月份；条目按日期倒序排列
 repo: "https://github.com/HenryVarro666/repo-name"
 link: "https://demo.example.com"   # 可选：有在线地址时标题链到这里
 lang: Python              # 可选：右上角的语言
+stack: [LangGraph, FastAPI, Pydantic] # 可选：标题下方的技术栈标签，按实际实现选 3–5 个
 stars: 3                  # 可选：右上角的星数（0 不显示）
 status: "updated monthly" # 可选：日期旁边的斜体状态
 live: "Live at example.com."  # 可选：会有一个很慢的“呼吸”效果

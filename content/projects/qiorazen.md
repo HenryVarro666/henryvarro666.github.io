@@ -4,6 +4,7 @@ date: 2026-04-01
 repo: "https://github.com/HenryVarro666/qiorazen"
 link: "https://qiorazen.com/"
 lang: TypeScript
+stack: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"]
 live: "Live at qiorazen.com."
 status: "personal project"
 topics: [web, llm]
