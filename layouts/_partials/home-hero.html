@@ -4,7 +4,7 @@
   <div class="home-heading">
     <p class="home-kicker">Machine learning &amp; neuroimaging</p>
     <h1 id="home-name">{{ site.Params.name }}</h1>
-    <p class="home-role">Ph.D. Candidate in Computer Science</p>
+    <p class="home-role">{{ site.Params.jobTitle }}</p>
     <p class="home-university">The University of Texas at Arlington</p>
   </div>
   <figure class="home-portrait">
@@ -14,7 +14,7 @@
     <figcaption>{{ site.Params.name }}</figcaption>
   </figure>
   <div class="home-bio">
-    <p>I build machine learning systems and the software around them, spanning medical imaging, multimodal LLMs, clinical agents, and speech. My work combines model training and evaluation with data pipelines, APIs, and full-stack development.</p>
+    <p>I defended my PhD dissertation on November 4, 2026. I build machine learning systems and the software around them, spanning medical imaging, multimodal LLMs, clinical agents, and speech. My work combines model training and evaluation with data pipelines, APIs, and full-stack development.</p>
   </div>
   <div class="home-profile-links" aria-label="CV and profiles">
     {{- with $contact }}{{ range first 1 .Params.docs }}

@@ -170,6 +170,85 @@ def radqnli(f):
 
 
 # ---------------------------------------------------------------- projects
+@fig("servicekb-rag", "ServiceKB RAG",
+     "Vector, keyword and entity retrieval feed rank fusion. Evidence checks determine whether "
+     "the system answers with citations or escalates the question.")
+def servicekb(f):
+    header(f, "retrieval for industrial field service")
+    for x, label in [(18, "Vector"), (132, "Keyword"), (246, "Entity")]:
+        f.node(x, 52, 96, 42, label, size=15)
+    f.arrow(66, 96, 135, 128)
+    f.arrow(180, 96, 180, 128)
+    f.arrow(294, 96, 225, 128)
+    f.node(96, 131, 168, 55, "Fuse and check", hl=True, size=15, sub="access and evidence", subsize=13)
+    f.arrow(130, 188, 86, 211)
+    f.arrow(230, 188, 274, 211)
+    f.node(18, 214, 136, 36, "Cited answer", size=15)
+    f.node(206, 214, 136, 36, "Escalate", size=15)
+
+
+@fig("2dto3d", "2Dto3D",
+     "A single photo produces an editable schematic. Overlapping views produce a color point cloud "
+     "for component review and reference-scale checks.")
+def equipment_3d(f):
+    header(f, "photovoltaic equipment geometry")
+    f.node(18, 54, 110, 54, "One photo", size=15)
+    f.arrow(130, 81, 150, 81)
+    f.node(154, 54, 188, 54, "Editable schematic", size=15, sub="visible components", subsize=13)
+    f.node(18, 126, 110, 54, "2–8 views", size=15)
+    f.arrow(130, 153, 150, 153)
+    f.node(154, 126, 188, 54, "Color point cloud", hl=True, size=15, sub="VGGT reconstruction", subsize=13)
+    f.arrow(248, 182, 248, 205)
+    f.node(154, 209, 188, 40, "Reference scale check", size=15)
+
+
+@fig("siglip-embedding-tool", "SigLIP Embedding Tool",
+     "A local image gallery and a text or image query are encoded into the same embedding space. "
+     "Cosine similarity ranks the matching images.")
+def siglip_embeddings(f):
+    header(f, "local text and image retrieval")
+    f.node(18, 51, 140, 48, "Image gallery", size=15)
+    f.node(202, 51, 140, 48, "Query", size=15, sub="text or image", subsize=13)
+    f.arrow(88, 101, 144, 127)
+    f.arrow(272, 101, 216, 127)
+    f.node(91, 130, 178, 54, "SigLIP 2 embeddings", hl=True, size=15, sub="shared space", subsize=13)
+    f.arrow(180, 186, 180, 210)
+    f.node(91, 213, 178, 39, "Rank by cosine similarity", size=14)
+
+
+@fig("parts-retrieval-demo", "Parts Retrieval Demo",
+     "One to three photos provide OCR and visual evidence for candidate ranking. "
+     "A vision model can optionally check the shortlist.")
+def parts_retrieval(f):
+    header(f, "electronic part identification")
+    f.node(112, 45, 136, 38, "1–3 photos", size=15)
+    f.arrow(146, 85, 88, 110)
+    f.arrow(214, 85, 272, 110)
+    f.node(18, 113, 140, 50, "OCR + catalog", size=15, sub="SQLite FTS5", subsize=13)
+    f.node(202, 113, 140, 50, "Visual matching", size=15, sub="SigLIP + shape", subsize=13)
+    f.arrow(88, 165, 140, 192)
+    f.arrow(272, 165, 220, 192)
+    f.node(90, 195, 180, 54, "Ranked candidates", hl=True, size=15, sub="optional visual check", subsize=13)
+
+
+@fig("job-search-dashboard", "Job Search Dashboard",
+     "Python validates local JSON records and generates an offline HTML dashboard. "
+     "The dashboard lists opportunities, applications and next steps.")
+def job_dashboard(f):
+    header(f, "a local application tracker")
+    f.node(18, 54, 94, 56, "Local JSON", size=14, sub="records", subsize=12)
+    f.arrow(114, 82, 128, 82, head=5)
+    f.node(131, 54, 98, 56, "Python", size=14, sub="validation", subsize=12)
+    f.arrow(231, 82, 245, 82, head=5)
+    f.node(248, 54, 94, 56, ["Offline", "HTML"], hl=True, size=14)
+    f.arrow(295, 112, 295, 144)
+    f.rect(18, 147, 324, 78)
+    f.text(180, 170, "Dashboard views", 15, "f-t", "middle", 600)
+    for x, label in [(28, "Opportunities"), (133, "Applications"), (238, "Next steps")]:
+        f.node(x, 182, 94, 31, label, size=12)
+    f.text(180, 252, "Demo runs on synthetic records", 14, "f-m", "middle", box=W - 28)
+
+
 @fig("medical-multi-agent-system", "Medical Multi-Agent System",
      "Intake, Diagnosis, Treatment and Coding use an OpenAI-compatible model backend. "
      "Diagnosis can retry Intake within a fixed budget; deterministic Audit screens for PHI patterns. "

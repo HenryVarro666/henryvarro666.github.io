@@ -12,9 +12,9 @@ capitalizeListTitles = false
 
 [params]
   name = "Chao Cao"
-  tagline = "CS PhD candidate · ML for medical imaging, multimodal LLMs and AI agents, speech"
-  description = "Chao Cao, CS PhD candidate at UT Arlington (December 2026): machine learning for medical imaging, multimodal LLM post-training, AI agents and speech systems. Open to software engineer, machine learning engineer, data scientist and research scientist roles."
-  jobTitle = "PhD Candidate in Computer Science"
+  tagline = "CS PhD · ML for medical imaging, multimodal LLMs, AI agents and speech"
+  description = "Chao Cao holds a PhD in Computer Science from UT Arlington and builds machine learning systems for medical imaging, multimodal LLMs, AI agents and speech. Open to software engineer, machine learning engineer, data scientist and research scientist roles."
+  jobTitle = "PhD in Computer Science"
   affiliation = "University of Texas at Arlington"
   github = "https://github.com/HenryVarro666"
   linkedin = "https://www.linkedin.com/in/chao-cao-167037246/"
