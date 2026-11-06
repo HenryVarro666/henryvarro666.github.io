@@ -1,8 +1,8 @@
 ---
 title: "Contact"
 intro: "Where to find me."
-lead: "PhD candidate in Computer Science and Engineering at the University of Texas at Arlington, graduating December 2026. I build machine learning systems for medical imaging and healthcare AI: PyTorch pipelines for large-scale MRI analysis, multimodal LLM post-training, agent-based clinical tools and speech systems."
-seeking: "Open to full-time **software engineer, machine learning engineer, data scientist and research scientist** roles from December 2026. Based in Dallas–Fort Worth; open to on-site, hybrid or remote. **Open to relocation anywhere in the U.S. at my own expense.**"
+lead: "I hold a PhD in Computer Science from the University of Texas at Arlington. I build machine learning systems for medical imaging and healthcare AI, including PyTorch pipelines for large-scale MRI analysis, multimodal LLM post-training, clinical agents and speech systems."
+seeking: "Open to full-time **software engineer, machine learning engineer, data scientist and research scientist** roles. My requested OPT start date is **December 11, 2026**. Based in Dallas–Fort Worth and open to on-site, hybrid or remote work. **Open to relocation anywhere in the U.S. at my own expense.**"
 email: "caochao0306@gmail.com"
 docs:
   - label: "Research CV"
