@@ -100,9 +100,22 @@ bibtex = '''
 id = "community-gyral-folding"
 title = "Community-Level Modeling of Gyral Folding Patterns for Robust and Anatomically Informed Individualized Brain Mapping"
 authors = ["Minheng Chen", "Tong Chen", "Yan Zhuang", "Chao Cao", "Jing Zhang", "Tianming Liu", "Lu Zhang", "Dajiang Zhu"]
-short = "arXiv 2026"
+short = "NeuroImage 338, 2026"
 year = 2026
+rank = 3
+summary = "3-hinge gyri are fine-scale folding hubs, but matching them one at a time across people is fragile: their positions shift, folds differ and MRI is noisy. This paper treats them as communities instead. Each 3-hinge gyrus is described by its local GyralNet topology and a profile of the fibre directions around it; a graph network trained per subject splits each hemisphere into 48 communities under modularity and spatial-continuity terms, a refinement step keeps them anatomically contiguous, and Joint Morphological-Geometric Matching aligns them across subjects from shape-feature distributions, spherical position and local context. On more than 1,000 HCP subjects the communities were more uniform in morphometry than atlas regions and lined up across people better than landmark- and embedding-based methods (region hit rate 0.80 against 0.72 for the best baseline on the Destrieux atlas), giving individual maps that stay anatomically meaningful."
+doi = "10.1016/j.neuroimage.2026.122037"
 arxiv = "2602.01482"
+
+[[pub]]
+id = "fine-scale-folding-msn-ad-lbd"
+title = "Fine-Scale Individualized Gyral Folding-Based Cortical Similarity Networks Reveal Distinct Organizational Patterns in Alzheimer's Disease and Lewy Body Dementia"
+authors = ["Minheng Chen", "Chao Cao", "Tong Chen", "Dunia Alhamad", "Tianming Liu", "Li Su", "Dajiang Zhu"]
+short = "Imaging Neuroscience 4, 2026"
+year = 2026
+rank = 4
+summary = "Alzheimer's disease and Lewy body dementia overlap clinically, and both regional MRI measures and atlas-based similarity networks can blur each person's folding geometry. This paper builds every brain's network in its own surface space, with no registration: nodes are cortical patches grown around automatically detected 3-hinge gyri (roughly 250–400 per brain), each described by five harmonised FreeSurfer measures, and edges are the similarity of those feature distributions, kept at 10% density. On 90 AD and 105 LBD patients from UK cohorts, it shows that the number of nodes itself drives global metrics such as efficiency and path length, so those group differences vanish once node count is accounted for, while inequality measures (degree, nodal efficiency, hub ratio) stay higher in LBD. Topology still separated the two diseases beyond node count (AUC 0.63, permutation p = 0.003): a modest signal, and a methodological warning for any individualised network study."
+doi = "10.1162/IMAG.a.1322"
 
 [[pub]]
 id = "radiology-nli-tradeoffs"
@@ -306,3 +319,19 @@ rank = 2
 summary = "A review of how large foundation models (language models, large vision models such as Segment Anything, and vision-language models) can be brought into medical imaging and healthcare. For each family it lays out roadmaps (expert-in-the-loop alignment, domain adaptation through prompts and adapters, knowledge graphs, federated multi-institution training, parameter-efficient fine-tuning), surveys uses from report generation to text-prompted segmentation and visual question answering, and names what still blocks clinical use: scarce paired data, privacy, expert-level accuracy, the long tail of rare diseases, bias and security. Its main message is that off-the-shelf general models fall short in medicine (zero-shot SAM trails specialised segmenters) and need medical data, adaptation and expert feedback."
 doi = "10.1109/RBME.2024.3493775"
 arxiv = "2306.05480"
+
+[[pub]]
+id = "random-walk-folding-msn-ad-lbd"
+title = "Probability-Invariant Random Walk Learning on Gyral Folding-Based Cortical Similarity Networks for Alzheimer's and Lewy Body Dementia Diagnosis"
+authors = ["Minheng Chen", "Tong Chen", "Chao Cao", "Jing Zhang", "Tianming Liu", "Li Su", "Dajiang Zhu"]
+short = "arXiv 2026"
+year = 2026
+arxiv = "2602.17557"
+
+[[pub]]
+id = "cross-atlas-fc-disentangled"
+title = "Learning Cross-Atlas Consistent Brain Disorder Representations via Disentangled Multi-Atlas Functional Connectivity Learning"
+authors = ["Minheng Chen", "Chao Cao", "Jing Zhang", "Tianming Liu", "Dajiang Zhu"]
+short = "arXiv 2026"
+year = 2026
+arxiv = "2605.07026"
