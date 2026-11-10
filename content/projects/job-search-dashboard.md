@@ -3,6 +3,7 @@ title: "Job Search Dashboard"
 date: 2026-10-30
 repo: "https://github.com/HenryVarro666/job-search-dashboard"
 lang: Python
+stars: 1
 stack: ["Python", "Vanilla JavaScript", "HTML", "SVG"]
 status: "personal project"
 topics: [web]

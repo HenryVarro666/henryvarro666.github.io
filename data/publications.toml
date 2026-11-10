@@ -231,8 +231,10 @@ arxiv = "2501.16409"
 id = "brainnet-moe"
 title = "BrainNet-MoE: Brain-Inspired Mixture-of-Experts Learning for Neurological Disease Identification"
 authors = ["Jing Zhang", "Xiaowei Yu", "Tong Chen", "Chao Cao", "Minheng Chen", "Yan Zhuang", "Yanjun Lyu", "Lu Zhang", "Li Su", "Tianming Liu", "Dajiang Zhu"]
-short = "arXiv 2025"
+short = "ICDM Workshops 2025"
 year = 2025
+rank = 13
+summary = "Lewy body dementia is the second most common neurodegenerative dementia and needs different care from Alzheimer's disease, yet the two overlap clinically and LBD is rare enough that deep models have little data to learn from. BrainNet-MoE treats each region's row of the DTI structural connectome as a sub-network and passes it through a mixture of experts arranged in three disease-specific groups; a gate scores how strongly each sub-network relates to each disease, and a small Transformer combines the sub-networks into a whole-brain representation, with extra losses that keep experts diverse, diseases apart and expert use balanced. On an in-house cohort of 166 subjects (23 controls, 77 LBD, 66 AD) it reached 82.76% three-way accuracy against 72.41% for the best baseline (ResNet-50) and pointed to regions such as the posterior cingulate for AD, a promising result from one train–test split of a small cohort."
 arxiv = "2503.07640"
 
 [[pub]]
@@ -335,3 +337,11 @@ authors = ["Minheng Chen", "Chao Cao", "Jing Zhang", "Tianming Liu", "Dajiang Zh
 short = "arXiv 2026"
 year = 2026
 arxiv = "2605.07026"
+
+[[pub]]
+id = "llm-college-applications"
+title = "Large Language Models for Assisting American College Applications"
+authors = ["Zhengliang Liu", "Weihang You", "Peng Shu", "Junhao Chen", "Yi Pan", "Hanqi Jiang", "Yiwei Li", "Zhaojun Ding", "Chao Cao", "Xinliang Li", "Yifan Zhou", "Ruidong Zhang", "Shaochen Xu", "Wei Ruan", "Huaqin Zhao", "Dajiang Zhu", "Tianming Liu"]
+short = "arXiv 2026"
+year = 2026
+arxiv = "2602.15850"
