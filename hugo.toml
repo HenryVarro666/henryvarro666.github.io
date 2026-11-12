@@ -55,6 +55,11 @@ capitalizeListTitles = false
 [markup.goldmark.renderer]
   unsafe = false
 
+# A Markdown image on its own line becomes a <figure> (layouts/_markup/render-image.html)
+# instead of sitting inside a <p>.
+[markup.goldmark.parser]
+  wrapStandAloneImageWithinParagraph = false
+
 # Math in notes: $…$ or \(…\) inline, $$…$$ or \[…\] on its own lines.
 # Rendered to HTML at build time (layouts/_markup/render-passthrough.html);
 # pages with math load only the KaTeX stylesheet, no JavaScript.

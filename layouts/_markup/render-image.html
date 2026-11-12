@@ -1,0 +1,25 @@
+{{- /* Images in notes. A page-bundle SVG is inlined, so its classes pick up the site's figure
+       colors and it follows the light/dark theme; other images stay <img>. An image on its
+       own line becomes a <figure>: the Markdown title is the caption, a click enlarges it. */ -}}
+{{- $u := urls.Parse .Destination }}
+{{- $res := false }}
+{{- if not $u.IsAbs }}{{ $res = .PageInner.Resources.Get (strings.TrimPrefix "./" $u.Path) }}{{ end }}
+{{- $src := .Destination }}
+{{- with $res }}{{ $src = .RelPermalink }}{{ end }}
+{{- $svg := and $res (eq $res.MediaType.SubType "svg") }}
+{{- if .IsBlock }}
+<figure class="note-fig">
+  <div class="note-fig-scroll">
+    <button class="note-fig-zoom" type="button" data-zoom data-caption="{{ .Title }}" aria-label="Enlarge the figure: {{ .PlainText }}">
+      {{- if $svg }}{{ $res.Content | safeHTML }}
+      {{- else }}<img src="{{ $src }}" alt="{{ .PlainText }}" loading="lazy" decoding="async"{{ with $res }}{{ if eq .ResourceType "image" }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}>
+      {{- end -}}
+    </button>
+  </div>
+  {{- with .Title }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

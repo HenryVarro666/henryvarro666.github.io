@@ -533,6 +533,36 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   overflow-y: hidden;
 }
 
+/* Figures in notes (layouts/_markup/render-image.html). SVGs are inlined so they follow the
+   theme; they keep a readable width and scroll sideways on phones; a click enlarges them. */
+.note-fig {
+  /* as wide as the page column, which is a little wider than the text measure */
+  width: min(calc(100vw - var(--gutter-l) - var(--gutter-r)), var(--measure-wide));
+  margin: 1.5rem 0 1.6rem;
+}
+.note-fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+.note-fig-zoom {
+  display: block;
+  width: 100%;
+  min-width: 33rem;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
+}
+.note-fig-zoom:hover .fig-svg { box-shadow: 0 0 0 1px var(--fig-line); }
+.note-fig-zoom img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.note-fig figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+.prose img { max-width: 100%; height: auto; }
+
 /* Contents box at the top of a note. */
 .toc {
   max-width: 66ch;
@@ -622,6 +652,26 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .fig-svg .f-onhl { fill: var(--fig-on-hl); }
 .fig-svg .f-dotink { fill: var(--ink); }
 .fig-svg .f-dotm { fill: var(--muted); }
+
+/* Note figures (tools/notes/): a second hue for errors, and two lighter steps of the highlight
+   for ordered families. The steps are mixed toward the figure ground, so they follow the theme. */
+:root { --fig-alt: #e05c26; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --fig-alt: #d95926; }
+}
+:root[data-theme="dark"] { --fig-alt: #d95926; }
+.fig-svg .f-alt { fill: var(--fig-alt); }
+.fig-svg .f-altsoft { fill: color-mix(in oklab, var(--fig-alt) 16%, var(--fig-bg)); stroke: var(--fig-alt); }
+.fig-svg .f-altarea { fill: var(--fig-alt); fill-opacity: 0.42; }
+.fig-svg .f-lnalt { stroke: var(--fig-alt); fill: none; }
+.fig-svg .f-lnhl2 { stroke: color-mix(in oklab, var(--fig-hl) 72%, var(--fig-bg)); fill: none; }
+.fig-svg .f-lnhl1 { stroke: color-mix(in oklab, var(--fig-hl) 46%, var(--fig-bg)); fill: none; }
+.fig-svg .f-fillhl2 { fill: color-mix(in oklab, var(--fig-hl) 72%, var(--fig-bg)); }
+.fig-svg .f-fillhl1 { fill: color-mix(in oklab, var(--fig-hl) 46%, var(--fig-bg)); }
+.fig-svg .f-lnbar { stroke: var(--fig-bar); fill: none; }
+.fig-svg .f-lnbar2 { stroke: var(--fig-bar-2); fill: none; }
+.fig-svg .f-ring { stroke: var(--fig-bg); }
+.fig-svg .f-hollow { fill: var(--fig-bg); stroke: var(--fig-hl); }
 
 .item-links {
   display: flex;

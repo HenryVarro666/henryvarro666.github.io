@@ -102,7 +102,16 @@ draft: false             # 模板默认是 true，正式构建会跳过草稿
 | 美元金额 | `\$500` | 不加反斜杠的 `$` 会被当成公式 |
 | 表格 | 普通 Markdown 表格 | 手机上可以左右滑动；第一列用深色显示，适合当行标题 |
 | 重点结论 | `> **Takeaway.** …` | 引用块显示为带色条的提示框 |
+| 图 | 单独一行 `![替代文字](fig.svg "图注")` | 图和 `index.md` 放在同一个文件夹。SVG 会直接内联进页面，用 `.fig-svg .f-*` 这些类取色，所以跟随明暗模式；点击放大，手机上可以左右滑动。PNG/JPG 也可以，按普通图片显示 |
 | 目录 | 不用写 | 有两个以上 `##`/`###` 标题时自动显示在标题下方 |
+
+笔记里的图由 `tools/notes/` 下的脚本生成，一篇笔记一个脚本（只用 Python 标准库）。脚本同时把正文引用的每个数字打印出来，改数据后重新运行，再对照正文：
+
+```bash
+python3 tools/notes/precision_vs_recall_figs.py   # 写出 content/notes/precision-vs-recall/*.svg 并打印数字
+```
+
+图里除了概览图已有的颜色类，还可以用 `f-alt` / `f-altsoft` / `f-lnalt`（第二种色相，表示错误）和 `f-lnhl1` / `f-lnhl2` / `f-fillhl1` / `f-fillhl2`（高亮色的两个浅色阶，用于有顺序的一组线或色块），定义在 `assets/css/site.css` 的 “Note figures” 一段。
 
 `content/notes/style-check.md` 是一个不公开的样式页（不进列表、不进 sitemap、noindex），地址是 `/notes/style-check/`，包含上面所有元素，改样式时可以在这里检查。
 
