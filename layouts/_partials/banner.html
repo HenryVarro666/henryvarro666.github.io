@@ -5,7 +5,10 @@
 {{- if .IsSection }}{{ with .Params.intro }}{{ $slot = . }}{{ $intro = true }}{{ end }}
 {{- else if eq .Kind "term" }}{{ $slot = printf "Everything tagged %s." .Title }}{{ $intro = true }}
 {{- else if eq .Kind "taxonomy" }}{{ $slot = "Every topic on this site." }}{{ $intro = true }}
-{{- else if .IsPage }}{{ $slot = .Date.Format "2006-01-02" }}{{ end }}
+{{- else if .IsPage }}{{ $slot = .Date.Format "2006-01-02" }}
+  {{- /* Notes get revised: show the last update when it is a later day. */ -}}
+  {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}{{ $slot = printf "%s · updated %s" $slot (.Lastmod.Format "2006-01-02") }}{{ end }}
+{{- end }}
 <header class="banner">
   <div class="banner-inner">
     <div class="name-row">

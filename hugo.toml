@@ -44,12 +44,31 @@ capitalizeListTitles = false
   pageRef = "/projects"
   weight = 4
 [[menus.main]]
+  name = "Notes"
+  pageRef = "/notes"
+  weight = 5
+[[menus.main]]
   name = "Contact"
   pageRef = "/contact"
   weight = 7
 
 [markup.goldmark.renderer]
   unsafe = false
+
+# Math in notes: $…$ or \(…\) inline, $$…$$ or \[…\] on its own lines.
+# Rendered to HTML at build time (layouts/_markup/render-passthrough.html);
+# pages with math load only the KaTeX stylesheet, no JavaScript.
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
+
+# Contents box on notes: h2 and h3.
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false
 
 [markup.highlight]
   noClasses = false

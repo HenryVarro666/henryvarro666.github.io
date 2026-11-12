@@ -1,0 +1,11 @@
+{{- /* Math between the passthrough delimiters in hugo.toml, rendered by KaTeX at build time.
+       Marks the page so baseof.html adds the KaTeX stylesheet. */ -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{- errorf "KaTeX could not render the math at %s: %s" $.Position . }}
+  {{- else }}
+    {{- .Value }}
+    {{- $.Page.Store.Set "hasMath" true }}
+  {{- end }}
+{{- end -}}

@@ -74,6 +74,38 @@ topics: [speech]          # 点状下划线的话题标签（最多 2 个，从�
 
 `research/`、`projects/`、`coursework/` 里的条目不会生成单独页面，标题直接链到 GitHub；`notes/` 里的文章会生成自己的页面。
 
+## 写一篇笔记（Notes）
+
+笔记放在 `content/notes/`，每篇会生成自己的页面，并按日期倒序列在 Notes 栏目里（不进首页 All）。有配图时用文件夹形式，图和正文放在一起：
+
+```bash
+hugo new content notes/precision-vs-recall/index.md   # 按 archetypes/notes.md 生成模板
+```
+
+```yaml
+---
+title: "Precision vs. recall: who pays for each mistake"
+date: 2026-11-12
+lastmod: 2026-11-20      # 修改后更新；和 date 不是同一天时，页头显示 “updated …”
+description: "一句话结论，显示在 Notes 列表里"   # 必填，否则列表里显示的是正文开头
+topics: [healthcare]     # 优先从上面 8 个话题里选；新话题也可以，会出现在 /topics/ 总表
+draft: false             # 模板默认是 true，正式构建会跳过草稿
+---
+```
+
+正文可以用：
+
+| 元素 | 写法 | 说明 |
+|---|---|---|
+| 行内公式 | `$P = \frac{TP}{TP+FP}$` 或 `\(…\)` | 构建时由 KaTeX 渲染，有公式的页面才加载 KaTeX 样式 |
+| 独立公式 | 单独几行 `$$ … $$` 或 `\[ … \]` | 太宽时可以左右滑动 |
+| 美元金额 | `\$500` | 不加反斜杠的 `$` 会被当成公式 |
+| 表格 | 普通 Markdown 表格 | 手机上可以左右滑动；第一列用深色显示，适合当行标题 |
+| 重点结论 | `> **Takeaway.** …` | 引用块显示为带色条的提示框 |
+| 目录 | 不用写 | 有两个以上 `##`/`###` 标题时自动显示在标题下方 |
+
+`content/notes/style-check.md` 是一个不公开的样式页（不进列表、不进 sitemap、noindex），地址是 `/notes/style-check/`，包含上面所有元素，改样式时可以在这里检查。
+
 ## 常改的地方
 
 | 想改什么 | 改哪里 |

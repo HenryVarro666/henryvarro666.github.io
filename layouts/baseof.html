@@ -10,6 +10,9 @@
 {{- $desc := site.Params.description }}
 {{- with .Description }}{{ $desc = . }}{{ else }}{{ with .Params.intro }}{{ $desc = . }}{{ end }}{{ end }}
 <meta name="description" content="{{ $desc }}">
+{{- with .Params.robots }}
+<meta name="robots" content="{{ . }}">
+{{- end }}
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}">
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
@@ -23,6 +26,12 @@
 {{- else }}
 {{- $css = $css | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+{{- /* Render the content first so the math hook can mark the page; the version must match
+       the KaTeX bundled with Hugo (see gohugo.io/functions/transform/tomath). */ -}}
+{{- $noop := .WordCount }}
+{{- if .Store.Get "hasMath" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css" integrity="sha384-u1zONI5gPXUx0UKI62c75/zww972y0v2rSK5ZYlVdS6xEuWDeZWUI66v6t1gvlXJ" crossorigin="anonymous">
 {{- end }}
 <script>
   (function () {

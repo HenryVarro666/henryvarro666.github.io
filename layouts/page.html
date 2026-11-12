@@ -8,6 +8,16 @@
     <div class="item-topics">{{ range . }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div>
     {{- end }}
   </header>
+  {{- /* Contents box: notes (toc is cascaded from content/notes/_index.md) with two or more headings. */ -}}
+  {{- if .Param "toc" }}
+  {{- $toc := .TableOfContents }}
+  {{- if ge (len (findRE `<li>` $toc)) 2 }}
+  <details class="toc" open>
+    <summary>Contents</summary>
+    {{ $toc }}
+  </details>
+  {{- end }}
+  {{- end }}
   <div class="prose">{{ .Content }}</div>
 </article>
 {{ end }}
