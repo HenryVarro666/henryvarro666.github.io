@@ -20,9 +20,11 @@ static/images/chao-cao.jpg 首页个人照片，取景由 CSS 控制
 assets/css/site.css       全部样式；颜色都在 :root 的 token 里（含 --fig-* 概览图配色）
 assets/figs/<slug>.svg    条目的概览图，和 content 里的文件同名就会自动显示在条目左侧
 assets/pubs/              论文主图
+i18n/                     界面固定文字的中英文（目录、更新于…）
 data/publications.toml    论文列表：first = true 的显示主图 + 讲解，其余简列
 data/citations.json       引用数快照（构建时由 tools/citations.py 从 OpenAlex 刷新）
 tools/figs/               概览图生成脚本（figures.py）
+tools/notes/              笔记配图的生成脚本，一篇笔记一个
 MAINTENANCE.md            每周维护的清单（定时任务按它执行）
 .github/workflows/hugo.yml  push 到 master 后自动构建并发布
 ```
@@ -104,6 +106,20 @@ draft: false             # 模板默认是 true，正式构建会跳过草稿
 | 重点结论 | `> **Takeaway.** …` | 引用块显示为带色条的提示框 |
 | 图 | 单独一行 `![替代文字](fig.svg "图注")` | 图和 `index.md` 放在同一个文件夹。SVG 会直接内联进页面，用 `.fig-svg .f-*` 这些类取色，所以跟随明暗模式；点击放大，手机上可以左右滑动。PNG/JPG 也可以，按普通图片显示 |
 | 目录 | 不用写 | 有两个以上 `##`/`###` 标题时自动显示在标题下方 |
+
+### 中英双语的笔记
+
+网站主体是英文；一篇笔记只要在自己的文件夹里多放一个 `index.zh.md`，就变成中英双语：
+
+| 文件 | 作用 |
+|---|---|
+| `index.md` | 英文正文，地址 `/notes/<slug>/` |
+| `index.zh.md` | 中文正文，地址 `/zh/notes/<slug>/`。标题和 `description` 写中文，`date`、`topics` 和英文版保持一致 |
+| `fig.svg` / `fig.zh.svg` | 同一张图的英文版和中文版。两份正文里都写 `![…](fig.svg "图注")`，Hugo 会自动取当前语言的那一张；没有 `.zh.svg` 时中文页用英文图 |
+
+有中文版的笔记，标题上方右侧会出现 `English | 中文` 切换，Notes 列表里这一条下面会出现“中文”链接，页面里还会带 `hreflang`，搜索引擎能把两个版本对应起来。界面上的固定文字（“目录”“更新于”）在 `i18n/en.toml` 和 `i18n/zh.toml`。
+
+目前只有笔记有中文页。首页、栏目页、话题页只生成英文版（`hugo.toml` 里 `[languages.zh]` 的 `disableKinds`），中文笔记页上的导航、话题标签都指回英文页面。以后要做整站中英切换，不用改结构：给其他内容补上 `.zh.md`，给导航补中文名，再把对应的类型从 `disableKinds` 里去掉。
 
 笔记里的图由 `tools/notes/` 下的脚本生成，一篇笔记一个脚本（只用 Python 标准库）。脚本同时把正文引用的每个数字打印出来，改数据后重新运行，再对照正文：
 

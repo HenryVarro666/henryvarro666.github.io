@@ -450,6 +450,22 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .post-head { padding-top: 1.2rem; }
 .post-head .back { font-size: var(--step--1); color: var(--muted); }
 .post-head .back:hover { color: var(--accent-hover); }
+/* Back link on the left; on a translated note, the language switch on the right. */
+.post-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.lang-switch { display: flex; gap: 0.15rem; margin-left: auto; font-size: var(--step--1); }
+.lang-switch a,
+.lang-switch span { padding: 0.05rem 0.5rem; border-radius: 2px; color: var(--muted); }
+.lang-switch a:hover { color: var(--accent-hover); }
+.lang-switch [aria-current] {
+  background: var(--nav-active);
+  color: var(--ink);
+  text-decoration: var(--nav-active-line);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+/* Chinese text reads better with more leading; italics do not suit it. */
+:lang(zh-CN) .prose { line-height: 1.85; }
+:lang(zh-CN) .prose em { font-style: normal; font-weight: 600; }
 .post-title {
   margin: 0.4rem 0 0.4rem;
   color: var(--ink);

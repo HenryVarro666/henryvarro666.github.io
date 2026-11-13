@@ -40,10 +40,12 @@
     {{- with .Params.live }}<p class="live">{{ . }}</p>{{ end }}
   </div>
   {{- /* Extra destinations, shown only when there is more than the title link. */ -}}
-  {{- if and (not $pinned) (or $paper (and .Params.link .Params.repo)) }}
+  {{- /* .Translations: the other-language versions of a note, when it has any. */ -}}
+  {{- if and (not $pinned) (or $paper (and .Params.link .Params.repo) .Translations) }}
   <p class="item-links">
     {{- if and .Params.link .Params.repo }}<a href="{{ .Params.repo }}">code<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
     {{- with $paper }}<a href="{{ relref $ "/publications" }}#{{ .id }}">paper: {{ .short }}</a>{{ end }}
+    {{- range .Translations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}">{{ .Language.Label }}</a>{{ end }}
   </p>
   {{- end }}
   {{- $terms := .GetTerms "topics" }}

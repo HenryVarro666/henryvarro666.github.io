@@ -3,8 +3,9 @@
 
     python3 tools/notes/precision_vs_recall_figs.py
 
-writes six SVGs next to the note and prints every number the text quotes, so the
-prose can be checked against one source. Standard library only.
+writes seven SVGs next to the note, in English (name.svg) and Chinese (name.zh.svg, which
+Hugo serves to index.zh.md), and prints every number the text quotes, so the prose can be
+checked against one source. Standard library only.
 
 The SVGs carry classes, not colors: the colors come from assets/css/site.css
 (.fig-svg .f-*), so the figures follow the light/dark toggle. They contain no ids,
@@ -27,6 +28,12 @@ from figlib import text_width  # noqa: E402  (rough text widths, to catch overfl
 
 OUT = ROOT / "content" / "notes" / "precision-vs-recall"
 ND = NormalDist()
+LANG = "en"
+
+
+def t(en: str, zh: str) -> str:
+    """The label for the language being drawn. Metric names stay in English in both."""
+    return zh if LANG == "zh" else en
 
 # ---- the real matrix ---------------------------------------------------------------
 N = 1_682_504          # screening mammograms
@@ -128,27 +135,30 @@ def pct(x: float, digits: int = 0) -> str:
 
 # ---- 1. anatomy of the matrix ------------------------------------------------------
 def fig_matrix() -> Canvas:
-    c = Canvas("confusion-matrix", 720, 404,
-               "A two-by-two confusion matrix. Rows are the truth, columns are the model's call. "
-               "Recall and specificity are read along the rows; precision and negative predictive "
-               "value are read down the columns.")
+    c = Canvas("confusion-matrix", 720, 404, t(
+        "A two-by-two confusion matrix. Rows are the truth, columns are the model's call. "
+        "Recall and specificity are read along the rows; precision and negative predictive "
+        "value are read down the columns.",
+        "二乘二的混淆矩阵：行是真实情况，列是模型的判定。recall 和 specificity 横着读，"
+        "precision 和 NPV 竖着读。"))
     x0, y0, cw, ch, gap = 162, 78, 166, 98, 6
     cx = [x0 + cw / 2, x0 + cw + gap + cw / 2]
     cy = [y0 + ch / 2, y0 + ch + gap + ch / 2]
     right, bottom = x0 + 2 * cw + gap, y0 + 2 * ch + gap
 
-    c.text((x0 + right) / 2, 26, "the model says", 12.5, "f-m", "middle")
-    c.text(cx[0], 62, "positive", 14, "f-t", "middle", 600)
-    c.text(cx[1], 62, "negative", 14, "f-t", "middle", 600)
-    c.text(24, cy[0] - 14, "the truth is", 12.5, "f-m")
-    c.text(24, cy[0] + 6, "positive", 14, "f-t", weight=600)
-    c.text(24, cy[1] - 14, "the truth is", 12.5, "f-m")
-    c.text(24, cy[1] + 6, "negative", 14, "f-t", weight=600)
+    pos, neg = t("positive", "阳性"), t("negative", "阴性")
+    c.text((x0 + right) / 2, 26, t("the model says", "模型判定"), 12.5, "f-m", "middle")
+    c.text(cx[0], 62, pos, 14, "f-t", "middle", 600)
+    c.text(cx[1], 62, neg, 14, "f-t", "middle", 600)
+    c.text(24, cy[0] - 14, t("the truth is", "真实情况"), 12.5, "f-m")
+    c.text(24, cy[0] + 6, pos, 14, "f-t", weight=600)
+    c.text(24, cy[1] - 14, t("the truth is", "真实情况"), 12.5, "f-m")
+    c.text(24, cy[1] + 6, neg, 14, "f-t", weight=600)
 
-    cells = [(0, 0, "TP", "true positive", "a hit", "f-hl"),
-             (0, 1, "FN", "false negative", "a miss", "f-altsoft"),
-             (1, 0, "FP", "false positive", "a false alarm", "f-altsoft"),
-             (1, 1, "TN", "true negative", "correctly left alone", "f-hl")]
+    cells = [(0, 0, "TP", t("true positive", "真阳性"), t("a hit", "抓到了"), "f-hl"),
+             (0, 1, "FN", t("false negative", "假阴性"), t("a miss", "漏报"), "f-altsoft"),
+             (1, 0, "FP", t("false positive", "假阳性"), t("a false alarm", "误报"), "f-altsoft"),
+             (1, 1, "TN", t("true negative", "真阴性"), t("correctly left alone", "正确放行"), "f-hl")]
     for r, k, abbr, name, nick, cls in cells:
         x, y = x0 + k * (cw + gap), y0 + r * (ch + gap)
         c.rect(x, y, cw, ch, cls, rx=6, sw=1.5)
@@ -159,7 +169,7 @@ def fig_matrix() -> Canvas:
     # rows -> recall, specificity
     bx = right + 10
     for r, (name, formula, aka) in enumerate([
-            ("Recall", "TP / (TP + FN)", "sensitivity, TPR"),
+            ("Recall", "TP / (TP + FN)", t("sensitivity, TPR", "即 sensitivity、TPR")),
             ("Specificity", "TN / (TN + FP)", "FPR = 1 − specificity")]):
         top, bot = y0 + r * (ch + gap) + 8, y0 + r * (ch + gap) + ch - 8
         c.path([(bx, top), (bx + 6, top), (bx + 6, bot), (bx, bot)], "f-ln", 1.5)
@@ -170,30 +180,73 @@ def fig_matrix() -> Canvas:
     # columns -> precision, NPV
     by = bottom + 10
     for k, (name, formula, aka) in enumerate([
-            ("Precision", "TP / (TP + FP)", "positive predictive value"),
-            ("NPV", "TN / (TN + FN)", "negative predictive value")]):
+            ("Precision", "TP / (TP + FP)", t("positive predictive value", "阳性预测值（PPV）")),
+            ("NPV", "TN / (TN + FN)", t("negative predictive value", "阴性预测值"))]):
         left, rt = x0 + k * (cw + gap) + 8, x0 + k * (cw + gap) + cw - 8
         c.path([(left, by), (left, by + 6), (rt, by + 6), (rt, by)], "f-ln", 1.5)
         c.text(cx[k], by + 28, name, 15, "f-t", "middle", 600)
         c.text(cx[k], by + 48, formula, 13.5, "f-t", "middle")
         c.text(cx[k], by + 67, aka, 12.5, "f-m", "middle")
 
-    for i, row in enumerate(["Across a row, the", "denominator is set by", "the world: these rates",
-                             "ignore prevalence."]):
+    for i, row in enumerate(t("Across a row, the|denominator is set by|the world: these rates|ignore prevalence.",
+                              "横着读：分母由|真实情况决定，|不受阳性占比影响。").split("|")):
         c.text(bx + 18, by + 22 + i * 16, row, 12.5, "f-m")
-    for i, row in enumerate(["Down a column, the", "denominator is set", "by the model: these",
-                             "move with prevalence."]):
+    for i, row in enumerate(t("Down a column, the|denominator is set|by the model: these|move with prevalence.",
+                              "竖着读：分母由|模型的判定决定，|会随阳性占比变化。").split("|")):
         c.text(24, by + 22 + i * 16, row, 12.5, "f-m")
+    return c
+
+
+# ---- 1b. the four rates as slices of the matrix -------------------------------------
+def fig_four_rates() -> Canvas:
+    c = Canvas("four-rates", 720, 246, t(
+        "Four small confusion matrices. Recall is TP over the top row, specificity is TN over the "
+        "bottom row, precision is TP over the left column, NPV is TN over the right column. "
+        f"For screening mammography they are {pct(RECALL, 1)}, {pct(SPEC, 1)}, {pct(PREC, 1)} and {pct(NPV, 2)}.",
+        "四个小混淆矩阵：recall 是 TP 除以第一行，specificity 是 TN 除以第二行，precision 是 TP 除以第一列，"
+        f"NPV 是 TN 除以第二列。乳腺筛查的数值依次是 {pct(RECALL, 1)}、{pct(SPEC, 1)}、{pct(PREC, 1)} 和 {pct(NPV, 2)}。"))
+    cells = {"TP": (0, 0), "FN": (0, 1), "FP": (1, 0), "TN": (1, 1)}
+    row = t("ignores prevalence", "不受阳性占比影响")
+    col = t("moves with prevalence", "随阳性占比变化")
+    panels = [
+        ("Recall", "TP", "FN", pct(RECALL, 1), t("of real positives,|the share caught", "真实阳性里，|抓到了多少"), row),
+        ("Specificity", "TN", "FP", pct(SPEC, 1), t("of real negatives,|the share left alone", "真实阴性里，|放过了多少"), row),
+        ("Precision", "TP", "FP", pct(PREC, 1), t("of alarms,|the share that are real", "报警的里面，|真有问题的占多少"), col),
+        ("NPV", "TN", "FN", pct(NPV, 2), t("of all-clears,|the share that are right", "放行的里面，|确实没事的占多少"), col),
+    ]
+    pw, gap, cw, ch, cg = 160, 16, 62, 38, 4
+    for i, (name, num, other, value, question, note) in enumerate(panels):
+        px0 = 16 + i * (pw + gap)
+        mid = px0 + pw / 2
+        gx, gy = mid - (2 * cw + cg) / 2, 44
+        c.text(mid, 28, name, 15, "f-t", "middle", 600)
+        for abbr, (r, k) in cells.items():
+            x, y = gx + k * (cw + cg), gy + r * (ch + cg)
+            if abbr == num:
+                c.rect(x, y, cw, ch, "f-fillhl", rx=4, sw=0)
+                c.text(x + cw / 2, y + ch / 2 + 5, abbr, 13.5, "f-onhl", "middle", 700)
+            elif abbr == other:
+                c.rect(x, y, cw, ch, "f-hl", rx=4, sw=1.5)
+                c.text(x + cw / 2, y + ch / 2 + 5, abbr, 13.5, "f-t", "middle", 600)
+            else:
+                c.rect(x, y, cw, ch, "f-node", rx=4, sw=1)
+                c.text(x + cw / 2, y + ch / 2 + 5, abbr, 13.5, "f-m", "middle")
+        c.text(mid, gy + 2 * ch + cg + 32, value, 20, "f-t", "middle", 700)
+        for j, line in enumerate(question.split("|")):
+            c.text(mid, gy + 2 * ch + cg + 54 + j * 16, line, 12.5, "f-m", "middle", box=pw + gap - 4)
+        c.text(mid, gy + 2 * ch + cg + 96, note, 12.5, "f-t", "middle", box=pw + gap - 4)
     return c
 
 
 # ---- 2. one threshold on two score distributions -----------------------------------
 def fig_threshold() -> Canvas:
-    c = Canvas("threshold", 720, 352,
-               "Two overlapping bell curves of model scores, one for actual negatives and one for "
-               f"actual positives, cut by a threshold. Positives left of the threshold are misses, "
-               f"{pct(1 - RECALL)} of positives; negatives right of it are false alarms, "
-               f"{pct(FPR)} of negatives.")
+    c = Canvas("threshold", 720, 352, t(
+        "Two overlapping bell curves of model scores, one for actual negatives and one for "
+        f"actual positives, cut by a threshold. Positives left of the threshold are misses, "
+        f"{pct(1 - RECALL)} of positives; negatives right of it are false alarms, "
+        f"{pct(FPR)} of negatives.",
+        f"两条重叠的分数分布，一条是真实阴性，一条是真实阳性，中间一条阈值。阈值左边的阳性是漏报，"
+        f"占阳性的 {pct(1 - RECALL)}；右边的阴性是误报，占阴性的 {pct(FPR)}。"))
     lo, hi, xl, xr, base, top = -3.4, 5.8, 40, 680, 250, 84
     sx = lambda s: xl + (s - lo) / (hi - lo) * (xr - xl)
     sy = lambda d: base - d / phi(0) * (base - top)
@@ -209,16 +262,19 @@ def fig_threshold() -> Canvas:
     c.path([(sx(s), sy(phi(s - MU))) for s in grid], "f-lnhl", 2)
     c.line(tx, 58, tx, base + 8, "f-lnink", 1.5)
 
-    c.text(tx, 48, "threshold", 13.5, "f-t", "middle", 600)
-    c.text(sx(0) - 14, 74, "actual negatives", 13, "f-m", "middle")
-    c.text(sx(MU) + 14, 74, "actual positives", 13, "f-m", "middle")
-    c.text(tx - 12, base + 24, f"misses (FN): {pct(1 - RECALL)} of positives", 13, "f-t", "end")
-    c.text(tx + 12, base + 24, f"false alarms (FP): {pct(FPR)} of negatives", 13, "f-t")
-    c.text(tx - 12, base + 44, "← called negative", 12.5, "f-m", "end")
-    c.text(tx + 12, base + 44, "called positive →", 12.5, "f-m")
-    c.text(xl, base + 24, "model score", 12.5, "f-m")
+    c.text(tx, 48, t("threshold", "阈值"), 13.5, "f-t", "middle", 600)
+    c.text(sx(0) - 14, 74, t("actual negatives", "真实阴性"), 13, "f-m", "middle")
+    c.text(sx(MU) + 14, 74, t("actual positives", "真实阳性"), 13, "f-m", "middle")
+    c.text(tx - 12, base + 24, t(f"misses (FN): {pct(1 - RECALL)} of positives",
+                                 f"漏报（FN）：占阳性的 {pct(1 - RECALL)}"), 13, "f-t", "end")
+    c.text(tx + 12, base + 24, t(f"false alarms (FP): {pct(FPR)} of negatives",
+                                 f"误报（FP）：占阴性的 {pct(FPR)}"), 13, "f-t")
+    c.text(tx - 12, base + 44, t("← called negative", "← 判为阴性"), 12.5, "f-m", "end")
+    c.text(tx + 12, base + 44, t("called positive →", "判为阳性 →"), 12.5, "f-m")
+    c.text(xl, base + 24, t("model score", "模型分数"), 12.5, "f-m")
     c.text((xl + xr) / 2, base + 80,
-           "Raise the threshold: fewer false alarms, more misses. Lower it: the reverse.",
+           t("Raise the threshold: fewer false alarms, more misses. Lower it: the reverse.",
+             "阈值调高：误报变少，漏报变多。调低则相反。"),
            13, "f-m", "middle")
     return c
 
@@ -231,10 +287,12 @@ PER_1000["TN"] = 1000 - sum(PER_1000.values())
 def fig_thousand() -> Canvas:
     k = PER_1000
     flagged, cleared = k["TP"] + k["FP"], k["FN"] + k["TN"]
-    c = Canvas("thousand-screens", 720, 388,
-               f"One thousand screening mammograms drawn as dots. {flagged} are called back: "
-               f"{k['TP']} cancers and {k['FP']} false alarms. {cleared} are cleared: "
-               f"{k['TN']} correctly, and {k['FN']} cancer is missed.")
+    c = Canvas("thousand-screens", 720, 388, t(
+        f"One thousand screening mammograms drawn as dots. {flagged} are called back: "
+        f"{k['TP']} cancers and {k['FP']} false alarms. {cleared} are cleared: "
+        f"{k['TN']} correctly, and {k['FN']} cancer is missed.",
+        f"把 1,000 次乳腺筛查画成点。{flagged} 次被叫回复查，其中 {k['TP']} 例是癌症，{k['FP']} 例是误报；"
+        f"{cleared} 次被放行，其中 {k['TN']} 例正确，漏掉 {k['FN']} 例癌症。"))
     rows, pitch, sw, y0 = 20, 13, 8.4, 70
 
     def column(x, start, n, cls):
@@ -263,14 +321,17 @@ def fig_thousand() -> Canvas:
     xb_end = block(xb, [(k["FN"], None), (k["TN"], "f-lnbar")])
     c.raw(f'<circle cx="{xb:.1f}" cy="{y0:.1f}" r="3.2" class="f-hollow" stroke-width="2"/>')
 
-    for x1, x2, label in [(xa, xa_end, f"{flagged} called back"), (xb, xb_end, f"{cleared} cleared")]:
+    for x1, x2, label in [(xa, xa_end, t(f"{flagged} called back", f"叫回复查 {flagged} 次")),
+                          (xb, xb_end, t(f"{cleared} cleared", f"放行 {cleared} 次"))]:
         a, b = x1 - sw / 2, x2 + sw / 2
         c.path([(a, 52), (a, 46), (b, 46), (b, 52)], "f-ln", 1.5)
         c.text((a + b) / 2, 34, label, 13.5, "f-t", "middle", 600)
 
     ly = y0 + rows * pitch + 22
-    items = [("f-fillhl", f"{k['TP']} cancers found (TP)"), ("f-alt", f"{k['FP']} false alarms (FP)"),
-             ("f-hollow", f"{k['FN']} cancer missed (FN)"), ("f-bar", f"{k['TN']} cleared (TN)")]
+    items = [("f-fillhl", t(f"{k['TP']} cancers found (TP)", f"查出癌症 {k['TP']} 例（TP）")),
+             ("f-alt", t(f"{k['FP']} false alarms (FP)", f"误报 {k['FP']} 例（FP）")),
+             ("f-hollow", t(f"{k['FN']} cancer missed (FN)", f"漏掉癌症 {k['FN']} 例（FN）")),
+             ("f-bar", t(f"{k['TN']} cleared (TN)", f"正确放行 {k['TN']} 例（TN）"))]
     x = 26
     for cls, label in items:
         extra = ' stroke-width="2"' if cls == "f-hollow" else ""
@@ -278,24 +339,29 @@ def fig_thousand() -> Canvas:
         c.raw(f'<circle cx="{x + 5:.1f}" cy="{ly - 4.5:.1f}" r="{r}" class="{cls}"{extra}/>')
         c.text(x + 16, ly, label, 13, "f-t")
         x += 16 + text_width(label, 13) + 24
-    c.text(26, ly + 26, f"Rounded to whole exams. Exact rates: recall {pct(RECALL, 1)}, "
-           f"specificity {pct(SPEC, 1)}, precision {pct(PREC, 1)}.", 12.5, "f-m")
+    c.text(26, ly + 26, t(f"Rounded to whole exams. Exact rates: recall {pct(RECALL, 1)}, "
+                          f"specificity {pct(SPEC, 1)}, precision {pct(PREC, 1)}.",
+                          f"按整数次取整。精确比率：recall {pct(RECALL, 1)}，specificity {pct(SPEC, 1)}，"
+                          f"precision {pct(PREC, 1)}。"), 12.5, "f-m")
     return c
 
 
 # ---- 4. precision against prevalence -----------------------------------------------
-DOMAIN_PREV = [("card fraud", 0.000658, "≈0.07% of volume"),
-               ("screening", PREV, f"{pct(PREV, 2)}"),
-               ("fake accounts", 0.04, "≈4% of users")]
+DOMAIN_PREV = [(("card fraud", "卡欺诈"), 0.000658, ("≈0.07% of volume", "约占交易额 0.07%")),
+               (("screening", "乳腺筛查"), PREV, (pct(PREV, 2), pct(PREV, 2))),
+               (("fake accounts", "虚假账户"), 0.04, ("≈4% of users", "约占用户 4%"))]
 FPR_FAMILY = [(FPR, "f-lnhl1"), (0.01, "f-lnhl2"), (0.001, "f-lnhl")]
 
 
 def fig_prevalence() -> Canvas:
-    c = Canvas("precision-vs-prevalence", 720, 392,
-               f"Precision plotted against prevalence on a log axis, at {pct(RECALL)} recall, for three "
-               f"false positive rates: {pct(FPR)}, 1% and 0.1%. Every curve collapses toward zero as "
-               f"positives get rarer; the screening mammography point sits at {pct(PREV, 2)} prevalence "
-               f"and {pct(PREC, 1)} precision.")
+    c = Canvas("precision-vs-prevalence", 720, 392, t(
+        f"Precision plotted against prevalence on a log axis, at {pct(RECALL)} recall, for three "
+        f"false positive rates: {pct(FPR)}, 1% and 0.1%. Every curve collapses toward zero as "
+        f"positives get rarer; the screening mammography point sits at {pct(PREV, 2)} prevalence "
+        f"and {pct(PREC, 1)} precision.",
+        f"recall 固定在 {pct(RECALL)} 时，precision 随阳性占比（对数坐标）的变化，三条线对应假阳性率 "
+        f"{pct(FPR)}、1% 和 0.1%。阳性越少，每条线都越接近零；乳腺筛查的点在阳性占比 {pct(PREV, 2)}、"
+        f"precision {pct(PREC, 1)}。"))
     xl, xr, yt, yb = 64, 690, 70, 306
     lo, hi = -4.0, math.log10(0.5)
     px = lambda p: xl + (math.log10(p) - lo) / (hi - lo) * (xr - xl)
@@ -307,14 +373,15 @@ def fig_prevalence() -> Canvas:
     for p, lab in [(1e-4, "0.01%"), (1e-3, "0.1%"), (1e-2, "1%"), (1e-1, "10%"), (0.5, "50%")]:
         c.line(px(p), yb, px(p), yb + 5, "f-lnrule", 1)
         c.text(px(p), yb + 21, lab, 12.5, "f-m", "middle")
-    c.text((xl + xr) / 2, yb + 46, "prevalence: share of cases that are truly positive (log scale)",
+    c.text((xl + xr) / 2, yb + 46, t("prevalence: share of cases that are truly positive (log scale)",
+                                     "阳性占比（prevalence）：真实阳性在全部样本中的比例（对数坐标）"),
            12.5, "f-m", "middle")
     c.text(22, yt - 12, "precision", 12.5, "f-m")
 
     for name, p, val in DOMAIN_PREV:
         c.line(px(p), yt - 8, px(p), yb, "f-lnrule", 1)
-        c.text(px(p), 26, name, 12.5, "f-t", "middle", 600)
-        c.text(px(p), 43, val, 12.5, "f-m", "middle")
+        c.text(px(p), 26, t(*name), 12.5, "f-t", "middle", 600)
+        c.text(px(p), 43, t(*val), 12.5, "f-m", "middle")
 
     grid = [10 ** (lo + i * (hi - lo) / 240) for i in range(241)]
     for fpr, cls in FPR_FAMILY:
@@ -325,21 +392,23 @@ def fig_prevalence() -> Canvas:
         lab = f"FPR {pct(fpr, 1 if fpr < 0.01 else 0)}"
         c.text(px(p62) - 10, py(0.62) + 4.5, lab, 13, "f-t", "end")
     c.dot(px(PREV), py(PREC), 5, "f-dotink")
-    c.text(px(PREV) + 8, py(PREC) - 14, f"{pct(PREC, 1)} precision", 13, "f-t")
+    c.text(px(PREV) + 8, py(PREC) - 14, t(f"{pct(PREC, 1)} precision", f"precision {pct(PREC, 1)}"), 13, "f-t")
     return c
 
 
 # ---- 5. ROC against precision-recall -----------------------------------------------
-PR_PREVS = [(0.5, "f-lnhl", "50% positive"), (0.05, "f-lnhl2", "5% positive"),
-            (PREV, "f-lnhl1", f"{pct(PREV, 2)} positive")]
+PR_PREVS = [(0.5, "f-lnhl", ("50% positive", "阳性占 50%")), (0.05, "f-lnhl2", ("5% positive", "阳性占 5%")),
+            (PREV, "f-lnhl1", (f"{pct(PREV, 2)} positive", f"阳性占 {pct(PREV, 2)}"))]
 
 
 def fig_roc_pr() -> Canvas:
     vals = ", ".join(pct(ppv(RECALL, FPR, p), 1 if p < 0.01 else 0) for p, _, _ in PR_PREVS)
-    c = Canvas("roc-vs-pr", 720, 372,
-               f"Left: one ROC curve with area {AUC:.2f}, the same at any prevalence. Right: the "
-               f"precision-recall curves of the same model when 50%, 5% and {pct(PREV, 2)} of cases "
-               f"are positive. At the marked operating point precision is {vals}.")
+    c = Canvas("roc-vs-pr", 720, 372, t(
+        f"Left: one ROC curve with area {AUC:.2f}, the same at any prevalence. Right: the "
+        f"precision-recall curves of the same model when 50%, 5% and {pct(PREV, 2)} of cases "
+        f"are positive. At the marked operating point precision is {vals}.",
+        f"左：一条 ROC 曲线，面积 {AUC:.2f}，阳性占比怎么变都一样。右：同一个模型在阳性占 50%、5% 和 "
+        f"{pct(PREV, 2)} 时的 PR 曲线，标出的工作点上 precision 分别是 {vals}。"))
     yt, yb, size = 70, 310, 240
     ts = [-4 + i * (MU + 8) / 400 for i in range(401)]
 
@@ -356,22 +425,23 @@ def fig_roc_pr() -> Canvas:
 
     # ROC
     x0 = 56
-    frame(x0, "ROC: the same curve at any prevalence", "recall (true positive rate)", "false positive rate")
+    frame(x0, t("ROC: the same curve at any prevalence", "ROC：阳性占比怎么变都是这条线"),
+          t("recall (true positive rate)", "recall（真阳性率）"), t("false positive rate", "假阳性率（FPR）"))
     c.line(x0, yb, x0 + size, yt, "f-lnrule", 1)
-    c.path([(x0 + size * rates(t)[1], yb - size * rates(t)[0]) for t in ts], "f-lnhl", 2)
+    c.path([(x0 + size * rates(th)[1], yb - size * rates(th)[0]) for th in ts], "f-lnhl", 2)
     ox, oy = x0 + size * FPR, yb - size * RECALL
     c.dot(ox, oy, 5, "f-dotink")
-    c.text(ox + 12, oy + 22, "operating point:", 12.5, "f-t")
-    c.text(ox + 12, oy + 38, f"recall {pct(RECALL)}, FPR {pct(FPR)}", 12.5, "f-t")
-    c.text(x0 + size - 8, yb - 14, f"area under the curve {AUC:.2f}", 12.5, "f-m", "end")
+    c.text(ox + 12, oy + 22, t("operating point:", "工作点："), 12.5, "f-t")
+    c.text(ox + 12, oy + 38, t(f"recall {pct(RECALL)}, FPR {pct(FPR)}", f"recall {pct(RECALL)}，FPR {pct(FPR)}"), 12.5, "f-t")
+    c.text(x0 + size - 8, yb - 14, t(f"area under the curve {AUC:.2f}", f"曲线下面积 {AUC:.2f}"), 12.5, "f-m", "end")
 
     # precision-recall
     x0 = 414
-    frame(x0, "Precision–recall: it depends on prevalence", "precision", "recall")
+    frame(x0, t("Precision–recall: it depends on prevalence", "PR 曲线：跟着阳性占比变"), "precision", "recall")
     for prev, cls, _ in PR_PREVS:
         pts = []
-        for t in ts:
-            r, f = rates(t)
+        for th in ts:
+            r, f = rates(th)
             if r > 0.004:
                 pts.append((x0 + size * r, yb - size * ppv(r, f, prev)))
         c.path(pts, cls, 2)
@@ -383,47 +453,54 @@ def fig_roc_pr() -> Canvas:
     for i, (_, cls, label) in enumerate(PR_PREVS):
         y = ly + i * 17
         c.line(x0 + 10, y - 4, x0 + 28, y - 4, cls, 2)
-        c.text(x0 + 35, y, label, 12.5, "f-t")
+        c.text(x0 + 35, y, t(*label), 12.5, "f-t")
     return c
 
 
 # ---- 6. several thresholds, graded actions -----------------------------------------
 ACTIONS = [
-    ("Screening mammogram", [(0.40, "f-bar", "back to routine screening"),
-                             (0.46, "f-fillhl1", "call back for more imaging"),
-                             (0.14, "f-fillhl", "biopsy")]),
-    ("Card payment", [(0.40, "f-bar", "approve"), (0.25, "f-fillhl1", "one-time code check"),
-                      (0.21, "f-fillhl2", "hold for review"), (0.14, "f-fillhl", "decline")]),
-    ("Account on a video platform", [(0.40, "f-bar", "no action"), (0.25, "f-fillhl1", "CAPTCHA / phone check"),
-                                     (0.21, "f-fillhl2", "limit reach, review"), (0.14, "f-fillhl", "remove")]),
+    (("Screening mammogram", "乳腺筛查"),
+     [(0.40, "f-bar", ("back to routine screening", "回到常规筛查")),
+      (0.46, "f-fillhl1", ("call back for more imaging", "叫回来加做影像")),
+      (0.14, "f-fillhl", ("biopsy", "活检"))]),
+    (("Card payment", "刷卡支付"),
+     [(0.40, "f-bar", ("approve", "放行")), (0.25, "f-fillhl1", ("one-time code check", "短信验证码")),
+      (0.21, "f-fillhl2", ("hold for review", "人工审核")), (0.14, "f-fillhl", ("decline", "拒绝交易"))]),
+    (("Account on a video platform", "短视频平台的账号"),
+     [(0.40, "f-bar", ("no action", "不处理")), (0.25, "f-fillhl1", ("CAPTCHA / phone check", "验证码 / 手机验证")),
+      (0.21, "f-fillhl2", ("limit reach, review", "限流并送审")), (0.14, "f-fillhl", ("remove", "封号"))]),
 ]
 
 
 def fig_actions() -> Canvas:
-    c = Canvas("graded-actions", 720, 372,
-               "Three score bars, one each for a screening mammogram, a card payment and an account on a "
-               "video platform. Each is cut by several thresholds into actions that get more costly "
-               "to the right: from no action, through a cheap check, to biopsy, decline or removal.")
+    c = Canvas("graded-actions", 720, 372, t(
+        "Three score bars, one each for a screening mammogram, a card payment and an account on a "
+        "video platform. Each is cut by several thresholds into actions that get more costly "
+        "to the right: from no action, through a cheap check, to biopsy, decline or removal.",
+        "三条分数条：乳腺筛查、刷卡支付、短视频平台的账号。每条被几个阈值切成几段，越往右动作代价越高："
+        "从不处理，到便宜的复核，再到活检、拒绝交易或封号。"))
     xl, xr, gap, bar_h = 24, 696, 2, 14
     y = 30
     for title, segs in ACTIONS:
-        c.text(xl, y, title, 14, "f-t", weight=600)
+        c.text(xl, y, t(*title), 14, "f-t", weight=600)
         x = xl
         for i, (share, cls, label) in enumerate(segs):
             w = share * (xr - xl)
             left = x + (gap / 2 if i else 0)
             right = x + w - (gap / 2 if i < len(segs) - 1 else 0)
             c.rect(left, y + 12, right - left, bar_h, cls, rx=3, sw=0)
-            c.text((left + right) / 2, y + 46, label, 13, "f-t", "middle", box=right - left - 6)
+            c.text((left + right) / 2, y + 46, t(*label), 13, "f-t", "middle", box=right - left - 6)
             x += w
         y += 88
     ay = y - 8
     c.arrow(xl, ay, xr, ay, "f-ln", "f-head", 1.5)
-    c.text(xl, ay + 22, "low score", 12.5, "f-m")
-    c.text(xr, ay + 22, "high score", 12.5, "f-m", "end")
-    c.text((xl + xr) / 2, ay + 22, "model score", 12.5, "f-m", "middle")
-    c.text(xl, ay + 46, "Low thresholds guard cheap, reversible actions: tune them for recall.", 13, "f-t")
-    c.text(xl, ay + 65, "High thresholds guard costly, hard-to-undo actions: tune them for precision.", 13, "f-t")
+    c.text(xl, ay + 22, t("low score", "分数低"), 12.5, "f-m")
+    c.text(xr, ay + 22, t("high score", "分数高"), 12.5, "f-m", "end")
+    c.text((xl + xr) / 2, ay + 22, t("model score", "模型分数"), 12.5, "f-m", "middle")
+    c.text(xl, ay + 46, t("Low thresholds guard cheap, reversible actions: tune them for recall.",
+                          "低阈值管的是便宜、可撤销的动作：按 recall 来调。"), 13, "f-t")
+    c.text(xl, ay + 65, t("High thresholds guard costly, hard-to-undo actions: tune them for precision.",
+                          "高阈值管的是代价高、难撤销的动作：按 precision 来调。"), 13, "f-t")
     return c
 
 
@@ -449,11 +526,18 @@ def numbers() -> str:
     add(f"prior odds {prior:.5f} (1 in {1 / prior:.0f})  posterior odds {prior * RECALL / FPR:.4f}  -> {pct(PREC, 2)}")
     add(f"false alarms per cancer found {FP / TP:.1f};  per 1,000: {PER_1000}")
     add(f"score model: threshold {T0:.3f}, separation {MU:.3f}, AUC {AUC:.3f}")
+    add("== the four rates, one at a time")
+    add(f"miss rate {pct(1 - RECALL, 1)}  false discovery rate {pct(1 - PREC, 1)}  call-backs per cancer found {(TP + FP) / TP:.1f}")
+    add(f"one point of specificity = {0.01 * (TN + FP):,.0f} exams;  lift of a call-back {PREC / PREV:.1f}x")
+    forate = FN / (FN + TN)
+    add(f"before the test 1 in {1 / PREV:.0f};  after a normal reading 1 in {1 / forate:.0f} (false omission rate {pct(forate, 3)}): risk cut {PREV / forate:.1f}x")
+    add(f"balanced accuracy {pct((RECALL + SPEC) / 2, 1)};  F1 with 'normal' as the positive class {2 * NPV * SPEC / (NPV + SPEC):.3f}")
+    add(f"99% specificity at 0.1% prevalence: {0.01 * 999 / 1:.1f} false alarms per fraud in the stream")
     add("== precision at 87% recall, by prevalence and FPR")
-    for name, p, _ in DOMAIN_PREV:
+    for (name, _), p, _ in DOMAIN_PREV:
         add(f"{name:14s} prev {pct(p, 3)}: " + "  ".join(f"FPR {pct(f, 1)} -> {pct(ppv(RECALL, f, p), 1)}" for f, _ in FPR_FAMILY))
     add("== same operating point on the PR curves")
-    add("  ".join(f"{lab}: {pct(ppv(RECALL, FPR, p), 1)}" for p, _, lab in PR_PREVS))
+    add("  ".join(f"{lab[0]}: {pct(ppv(RECALL, FPR, p), 1)}" for p, _, lab in PR_PREVS))
     add("== FPR needed for 50% precision: recall * prev / (1 - prev)")
     for p in (0.001, 0.0058, 0.04):
         add(f"prev {pct(p, 2)} at recall 80%: FPR <= {pct(0.8 * p / (1 - p), 3)}")
@@ -479,6 +563,8 @@ def numbers() -> str:
     add(f"27/30: {pct(lo, 1)} .. {pct(hi, 1)}")
     lo, hi = wilson(TP, TP + FN)
     add(f"{TP}/{TP + FN}: {pct(lo, 1)} .. {pct(hi, 1)}")
+    lo, hi = wilson(22, 25)
+    add(f"22/25: {pct(lo, 1)} .. {pct(hi, 1)}")
     add("== RadQNLI check: accuracy = prev*recall + (1-prev)*specificity, recall 0.53")
     for prev, acc in ((0.21, 0.81), (0.70, 0.6186)):
         spec = (acc - prev * 0.53) / (1 - prev)
@@ -486,13 +572,20 @@ def numbers() -> str:
     return "\n".join(out)
 
 
+FIGURES = (fig_matrix, fig_four_rates, fig_threshold, fig_thousand, fig_prevalence, fig_roc_pr, fig_actions)
+
+
 def main() -> int:
+    global LANG
     OUT.mkdir(parents=True, exist_ok=True)
     warnings = []
-    for fig in (fig_matrix(), fig_threshold(), fig_thousand(), fig_prevalence(), fig_roc_pr(), fig_actions()):
-        (OUT / f"{fig.name}.svg").write_text(fig.svg(), encoding="utf-8")
-        warnings += fig.warnings
-        print(f"wrote {fig.name}.svg ({fig.w}x{fig.h})")
+    for LANG, suffix in (("en", ""), ("zh", ".zh")):
+        for make in FIGURES:
+            fig = make()
+            (OUT / f"{fig.name}{suffix}.svg").write_text(fig.svg(), encoding="utf-8")
+            warnings += [f"[{LANG}] {w}" for w in fig.warnings]
+        print(f"wrote {len(FIGURES)} figures ({LANG})")
+    LANG = "en"
     print(numbers())
     for w in warnings:
         print("WARNING:", w)

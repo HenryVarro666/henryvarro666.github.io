@@ -1,19 +1,38 @@
 {{ define "main" }}
+{{- /* The section and topic pages exist only in the default language, so a translated note
+       links back to those. */ -}}
+{{- $d := hugo.Sites.Default }}
 <article class="post">
   <header class="post-head">
-    {{- with .Parent }}<a class="back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+    <div class="post-top">
+      {{- with .Parent }}{{ with $d.GetPage .Path }}<a class="back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}{{ end }}
+      {{- if .IsTranslated }}
+      <nav class="lang-switch" aria-label="{{ T "language" }}">
+        {{- range .AllTranslations }}
+        {{- if eq .Language.Lang $.Language.Lang }}
+        <span aria-current="true">{{ .Language.Label }}</span>
+        {{- else }}
+        <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}">{{ .Language.Label }}</a>
+        {{- end }}
+        {{- end }}
+      </nav>
+      {{- end }}
+    </div>
     <h1 class="post-title">{{ .Title }}</h1>
-    {{- $terms := .GetTerms "topics" }}
-    {{- with $terms }}
-    <div class="item-topics">{{ range . }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}</div>
+    {{- with .Params.topics }}
+    <div class="item-topics">
+      {{- range . }}{{ with $d.GetPage (printf "/topics/%s" (urlize .)) }}<a class="topic" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ end -}}
+    </div>
     {{- end }}
   </header>
   {{- /* Contents box: notes (toc is cascaded from content/notes/_index.md) with two or more headings. */ -}}
   {{- if .Param "toc" }}
   {{- $toc := .TableOfContents }}
-  {{- if ge (len (findRE `<li>` $toc)) 2 }}
-  <details class="toc" open>
-    <summary>Contents</summary>
+  {{- $n := len (findRE `<li>` $toc) }}
+  {{- if ge $n 2 }}
+  {{- /* A long list of headings starts folded, so the opening paragraph stays in view. */ -}}
+  <details class="toc"{{ if le $n 12 }} open{{ end }}>
+    <summary>{{ T "contents" }}</summary>
     {{ $toc }}
   </details>
   {{- end }}

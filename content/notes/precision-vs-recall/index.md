@@ -29,7 +29,7 @@ The confusion matrix is the place where all three become visible, so I start the
 
 Rows are the truth; columns are the model's call. Before reading anything else, pin down which class is "positive". By convention it is the rare one that triggers an action: the cancer, the fraud, the fake account. Every name below flips if that choice flips.
 
-Here is a real matrix: 1,682,504 screening mammograms read in U.S. community practice from 2007 to 2013, from the [Breast Cancer Surveillance Consortium](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/screening-sens-spec-false-negative-archive) (BCSC). "Positive" means cancer diagnosed within a year of the exam.
+Here is a real matrix: 1,682,504 screening mammograms read in U.S. community practice from 2007 to 2013 (the unit is an exam, not a woman), from the [Breast Cancer Surveillance Consortium](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/screening-sens-spec-false-negative-archive) (BCSC). "Positive" means cancer diagnosed within a year of the exam.
 
 | | Called back | Read as normal | Total |
 |---|---:|---:|---:|
@@ -70,11 +70,101 @@ The same six quantities carry different names in medicine, signal detection and 
 | **Precision**: positive predictive value (PPV) | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | Of my alarms, how many were real? |
 | **NPV**: negative predictive value | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | Of my all-clears, how many were right? |
 
+## The four rates, one at a time
+
+![Four small matrices, each highlighting the cell and the row or column that one rate uses](four-rates.svg "Figure 2. Each rate takes one correct cell and divides it by its row or its column. Same layout as Figure 1; the values are from the screening matrix.")
+
+The matrix has four cells and four natural rates. Each takes one of the two correct cells and divides it by its row or by its column, and each is the question of a different person.
+
+### Recall: of the real positives, how many did I catch?
+
+$$
+\text{recall} = \frac{TP}{TP + FN} = \frac{8{,}529}{9{,}812} = 86.9\%
+$$
+
+This is the question of whoever is responsible for the positives: the screening programme, the fraud team that owns the losses. Its complement is the miss rate; here 13.1% of cancers were read as normal.
+
+- **Blind to:** false alarms. FP is not in the formula, so recall says nothing about what catching those positives cost.
+- **Cheap way to 100%:** flag everything.
+- **Leads when:** a miss is the expensive error and something cheap follows a positive. Screening, a safety filter, removing names from clinical notes.
+- **Caveat:** recall is an average over the positives the model happened to see. Faint cases are easier to miss than obvious ones, so a population with a different mix of easy and hard cases has a different recall, even with the same model.
+
+### Specificity: of the real negatives, how many did I leave alone?
+
+$$
+\text{specificity} = \frac{TN}{TN + FP} = \frac{1{,}486{,}553}{1{,}672{,}692} = 88.9\%
+$$
+
+This is the question of whoever pays for false alarms in bulk. Its complement is the false positive rate, 11.1%.
+
+- **Blind to:** misses.
+- **Cheap way to 100%:** flag nothing.
+- **Leads when:** the action after a positive is costly or hard to undo: a confirmatory test, a declined payment, a removed account.
+- **Caveat:** percentages flatter it. Negatives are the huge majority, so one point of specificity here is 16,727 exams. A specificity of 99% sounds near-perfect; where one payment in a thousand is fraud, it means ten false alarms for every fraud in the stream. When positives are rare, count false alarms per thousand or per million negatives instead.
+
+### Precision: when I raise an alarm, how often is it real?
+
+$$
+\text{precision} = \frac{TP}{TP + FP} = \frac{8{,}529}{194{,}668} = 4.4\%
+$$
+
+This is the question of whoever receives the alarm: the woman called back, the analyst working an alert queue, the user whose account was flagged.
+
+- **Blind to:** misses. A model can be precise by being timid.
+- **Cheap way to 100%:** flag only the one case you are surest of.
+- **Leads when:** a person absorbs every alarm: a review queue with fixed capacity, or an action taken against a customer.
+- **Two ways to read it:** against the base rate, and upside down. A call-back raises the chance of cancer from 0.58% to 4.4%, a 7.5-fold lift. And $1/\text{precision}$ is workload: 23 call-backs for each cancer found.
+
+### NPV: when I give the all-clear, how often is it right?
+
+$$
+\text{NPV} = \frac{TN}{TN + FN} = \frac{1{,}486{,}553}{1{,}487{,}836} = 99.91\%
+$$
+
+This is the question of whoever is sent home: the woman told her mammogram is normal, the payment that goes through, the account left alone.
+
+- **Blind to:** false alarms.
+- **Cheap way to look good:** when positives are rare, clear everyone. That scores 99.42% here without reading a single image.
+- **Leads when:** a negative ends the process: rule-out tests, triage, automatic approval.
+- **How to read it:** on the complement, against the base rate. Before the reading, the chance of a cancer diagnosis within the year is 1 in 171. After a normal reading it is 1 in 1,160. The reading cut the risk about sevenfold; that is the real content of "99.91%".
+
+The complement of NPV, the false omission rate, is what a system leaves behind: cancers among the cleared, fraud among approved payments, fake accounts still active. "How much is left on the platform" is a number of this kind.
+
+### How the four fit together
+
+| | Recall | Specificity | Precision | NPV |
+|---|---|---|---|---|
+| Divides by | real positives | real negatives | alarms | all-clears |
+| Asked by | whoever must catch the positives | whoever pays for false alarms | whoever receives an alarm | whoever is sent home |
+| Screening | 86.9% | 88.9% | 4.4% | 99.91% |
+| Blind to | false alarms | misses | misses | false alarms |
+| Trivial maximum | flag everything | flag nothing | flag one sure case | flag nothing, if positives are rare |
+| Moves with prevalence | no | no | rises with it | falls as it rises |
+
+Two pairings are worth remembering.
+
+**Through the threshold, recall trades against specificity.** Lowering the threshold raises recall and lowers specificity, and nothing else about the model changes. The section on thresholds below shows it.
+
+**Across the diagonal, recall protects NPV and specificity protects precision.** High recall leaves few false negatives to hide among the all-clears; high specificity leaves few false positives to dilute the alarms. Clinicians remember this as SnNOut and SpPIn: a sensitive test, when negative, rules out; a specific test, when positive, rules in. [Pewsner and colleagues](https://doi.org/10.1136/bmj.329.7459.209) add the caution that ruling out also depends on specificity, and ruling in also on sensitivity. Prevalence matters as well: 88.9% specificity cannot rule anything in when only 0.58% of exams are positive.
+
+No one of the four can be reported alone. Each has a trivial way to reach its maximum, and each is blind to one kind of error. A useful report pairs a rate that is blind to false alarms with one that is blind to misses (recall with precision is the machine-learning habit, sensitivity with specificity the medical one) and adds the prevalence. Those three numbers are enough to rebuild the whole matrix.
+
+### One-number summaries
+
+Accuracy was the first attempt to fold the table into one number, and it fails when positives are rare. The other common ones:
+
+- **Balanced accuracy**, the mean of recall and specificity, is 87.9% here. It ignores prevalence, which fixes the main flaw of accuracy, but it still treats a miss and a false alarm as equally bad.
+- **$F_1$**, the harmonic mean of precision and recall, is 0.08 here. A harmonic mean stays close to the smaller of its two inputs, so $F_1$ is high only when both are. It ignores true negatives, and it depends on which class is called positive: score the same readers with "normal" as the positive class and $F_1$ is 0.94.
+- **$F_\beta$** lets recall count $\beta$ times as much as precision, without saying where $\beta$ comes from.
+- **Matthews correlation** uses all four cells and is 0.18 here.
+
+None of these says whether screening is worth doing, because none knows what a miss or a false alarm costs. I would rather write the costs down, which a later section does.
+
 ## Why precision collapses when positives are rare
 
-![One thousand dots: 116 called back, of which 5 are cancers; 884 cleared, of which 1 is a missed cancer](thousand-screens.svg "Figure 2. The BCSC rates applied to 1,000 screening mammograms. Almost everyone called back is healthy, because almost everyone screened is healthy.")
+![One thousand dots: 116 called back, of which 5 are cancers; 884 cleared, of which 1 is a missed cancer](thousand-screens.svg "Figure 3. The BCSC rates applied to 1,000 screening mammograms. Almost everyone called back is healthy, because almost everyone screened is healthy.")
 
-The screening test above catches 87% of cancers and clears 89% of healthy women, and still 96 of every 100 call-backs are false alarms. Nothing is wrong with the test. There are about 170 healthy women for every woman with cancer, so an 11% false positive rate applied to the large group swamps an 87% recall applied to the small one.
+The screening test above catches 87% of cancers and clears 89% of the exams with no cancer, and still 96 of every 100 call-backs are false alarms. Nothing is wrong with the test. There are about 170 cancer-free exams for every exam with cancer, so an 11% false positive rate applied to the large group swamps an 87% recall applied to the small one.
 
 Bayes' rule in odds form makes this a single multiplication:
 
@@ -89,7 +179,7 @@ $$
 \text{precision} = \frac{\text{recall} \cdot \pi}{\text{recall} \cdot \pi + \text{FPR} \cdot (1 - \pi)}
 $$
 
-![Precision plotted against prevalence on a log axis for false positive rates of 11%, 1% and 0.1%](precision-vs-prevalence.svg "Figure 3. Precision against prevalence at 87% recall, for three false positive rates. The lightest curve is the screening operating point. The vertical rules are rough prevalences for the three settings in this note: card fraud by value, screening from BCSC, fake accounts from Meta's estimate for Facebook.")
+![Precision plotted against prevalence on a log axis for false positive rates of 11%, 1% and 0.1%](precision-vs-prevalence.svg "Figure 4. Precision against prevalence at 87% recall, for three false positive rates. The lightest curve is the screening operating point. The vertical rules are rough prevalences for the three settings in this note: card fraud by value, screening from BCSC, fake accounts from Meta's estimate for Facebook.")
 
 Three things follow.
 
@@ -101,19 +191,17 @@ Three things follow.
 
 ## The matrix is a snapshot of one threshold
 
-![Two bell curves of scores, for actual negatives and actual positives, cut by a threshold; the tails on the wrong side are misses and false alarms](threshold.svg "Figure 4. One threshold on two score distributions, drawn at the screening operating point. Moving it trades misses for false alarms; nothing else about the model changes.")
+![Two bell curves of scores, for actual negatives and actual positives, cut by a threshold; the tails on the wrong side are misses and false alarms](threshold.svg "Figure 5. One threshold on two score distributions, drawn at the screening operating point. Moving it trades misses for false alarms; nothing else about the model changes.")
 
 A confusion matrix belongs to a model *at a threshold*. Sliding the threshold moves cases within a row: true positives become false negatives, or false positives become true negatives. So recall and the false positive rate rise and fall together, and precision is a by-product of where both land and of the prevalence.
 
 That is why two curves that describe the same model can tell such different stories.
 
-![Left, one ROC curve with area 0.95. Right, three precision-recall curves for the same model at 50%, 5% and 0.58% positives](roc-vs-pr.svg "Figure 5. One model (two unit-variance Gaussians fitted through the screening operating point), plotted two ways. The ROC curve cannot show prevalence; the precision-recall curves show little else.")
+![Left, one ROC curve with area 0.95. Right, three precision-recall curves for the same model at 50%, 5% and 0.58% positives](roc-vs-pr.svg "Figure 6. One model (two unit-variance Gaussians fitted through the screening operating point), plotted two ways. The ROC curve cannot show prevalence; the precision-recall curves show little else.")
 
 The ROC curve plots the two row rates against each other, so it is blind to prevalence. Its area here is 0.95 whether positives are half the data or one in 170. The precision-recall curve plots a row rate against a column rate. At the same operating point precision is 89%, 29% or 4.4% as positives go from 50% to 5% to 0.58%.
 
 [Saito and Rehmsmeier](https://doi.org/10.1371/journal.pone.0118432) argue that this makes ROC plots easy to misread on imbalanced data: a large pool of negatives makes specificity look reassuring. [Davis and Goadrich](https://doi.org/10.1145/1143844.1143874) prove the two spaces agree about dominance (a curve that wins everywhere in one wins everywhere in the other), and also that optimising ROC area does not optimise precision-recall area. My reading: use ROC to compare models, and the precision-recall curve at deployment prevalence to decide whether a model is usable.
-
-A note on single numbers. $F_1$ for the screening matrix is 0.08, which says nothing about whether screening is worth doing. $F_\beta$ lets recall count $\beta$ times as much as precision, without saying where $\beta$ comes from, and neither uses the true negatives. I would rather write the costs down.
 
 ## From costs to a threshold
 
@@ -161,7 +249,7 @@ Four practical complications:
 
 ### Medical screening: recall first, then a second test
 
-In the [BCSC benchmarks](https://doi.org/10.1148/radiol.2016161174), 11.6% of screening exams were called back and 5.1 cancers were found per 1,000 exams. Precision at that step was 4.4%. Among women who went on to a biopsy recommendation, it was 25.6%.
+In the [BCSC benchmarks](https://doi.org/10.1148/radiol.2016161174), 11.6% of screening exams were called back and 5.1 cancers were found per 1,000 exams. Precision at that step was 4.4%. Among exams that ended in a biopsy recommendation, it was 25.6%.
 
 A precision of 4.4% is acceptable because of what a positive triggers: more imaging, not treatment. The false alarm costs an appointment and some anxious days. The miss costs a cancer found a year or more later. With a cost ratio that lopsided, the threshold belongs low.
 
@@ -202,7 +290,7 @@ There is also a third axis the matrix has no cell for: **time**. An account remo
 
 ### What the three have in common
 
-![Three score bars, for a screening mammogram, a card payment and a platform account, each cut by several thresholds into graded actions](graded-actions.svg "Figure 6. One score, several thresholds. Low thresholds guard cheap, reversible actions; high thresholds guard costly ones. Segment widths are schematic.")
+![Three score bars, for a screening mammogram, a card payment and a platform account, each cut by several thresholds into graded actions](graded-actions.svg "Figure 7. One score, several thresholds. Low thresholds guard cheap, reversible actions; high thresholds guard costly ones. Segment widths are schematic.")
 
 None of the three picks precision over recall once. Each has rare positives and lopsided costs, and each answers with the same design: several thresholds on one score, with actions that get more expensive and less reversible as the score rises. The early, cheap stage is tuned for recall and tolerates terrible precision. The late, costly stage is tuned for precision and tolerates missing cases, because the earlier stage already caught the attention of a human or a second test. The trade-off is real at each threshold; the system as a whole gets both.
 
@@ -221,9 +309,9 @@ None of the three picks precision over recall once. Each has rare positives and 
 
 Three earlier projects of mine read differently with this in hand.
 
-**RadQNLI: accuracy fell, recall did not.** In [RadQNLI](https://github.com/HenryVarro666/RadQNLI) I tested ChatGPT on four radiology test sets whose negatives shared more and more words with the question. Accuracy fell from 0.81 to 0.62, which looks like a difficulty effect. But recall on the positive class stayed between 0.52 and 0.53 on every set, while the share of positives rose from 21% to 70% and precision rose from 0.56 to 0.89. A control with the same number of *random* negatives fell almost as far, from 0.83 to 0.64. Accuracy is $\pi \cdot \text{recall} + (1-\pi) \cdot \text{specificity}$, so with recall near 0.53 and specificity near 0.85, raising $\pi$ drags accuracy down toward recall. Most of the "harder test set" effect was class mix.
+**RadQNLI: accuracy fell, recall did not.** In [RadQNLI](https://github.com/HenryVarro666/RadQNLI) I tested ChatGPT on four radiology test sets whose negatives shared more and more words with the question. Accuracy fell from 0.81 to 0.62, which looks like a difficulty effect. But recall on the positive class stayed between 0.52 and 0.53 on every set, while the share of positives rose from 21% to 70% and precision rose from 0.56 to 0.89. A control with the same number of *random* negatives fell almost as far, from 0.83 to 0.64. The matrix separates two effects. Specificity did slip on the word-overlap negatives, from 0.89 to 0.84, while on random negatives it stayed near 0.92: that part is real difficulty. The rest is class mix. Accuracy is $\pi \cdot \text{recall} + (1-\pi) \cdot \text{specificity}$, so with recall stuck at 0.53, raising $\pi$ from 21% to 70% drags accuracy down toward recall.
 
-**Heart disease: which class was positive?** In my [heart-disease course project](https://github.com/HenryVarro666/heart-disease-prediction) the data file codes `target = 1` as *no disease*. Every per-class metric for class 1 therefore describes healthy patients, and "recall" for that class is what a clinician would call specificity. The test set had 61 patients in total, so recall for either class rests on roughly thirty cases and carries an interval about twenty points wide. And the headline number was ROC AUC, which says how well a model ranks but not where to cut.
+**Heart disease: which class was positive?** In my [heart-disease course project](https://github.com/HenryVarro666/heart-disease-prediction) the data file codes `target = 1` as *no disease*. Every per-class metric for class 1 therefore describes healthy patients, and "recall" for that class is what a clinician would call specificity. The 61 test patients split into 36 without disease and 25 with it, so recall for the disease class rests on 25 cases: 22 right out of 25 would be 88%, with a 95% interval from 70% to 96%. And the headline number was ROC AUC, which says how well a model ranks but not where to cut.
 
 **De-identification: a recall task with a misleading floor.** In [open-LLM de-identification](https://github.com/HenryVarro666/open-llm-deid) the costly error is a leaked name, so the task is recall-first; over-redaction only costs readability. The score I used counted the share of protected strings removed, and because of how matches were counted, a note that had not been touched at all already scored 0.597. Every result has to be read against that floor. It is the same lesson as "always negative gets 99.4%": check what doing nothing scores before trusting a metric.
 
@@ -238,5 +326,6 @@ Three earlier projects of mine read differently with this in hand.
 7. Meta Transparency Center. [Prevalence](https://transparency.meta.com/policies/improving/prevalence-metric/): how the share of fake accounts is estimated. The 4% figure as reported by [Social Media Today](https://www.socialmediatoday.com/news/meta-outlines-latest-data-on-content-removals-and-fake-accounts/807727/).
 8. TikTok Community Guidelines Enforcement Report, Q2 2026, as reported by the [Dhaka Tribune](https://www.dhakatribune.com/feature/tech/423261/tiktok-releases-q2-2026-community-guidelines).
 9. Xu T, Goossen G, Cevahir HK, et al. [Deep Entity Classification: Abusive Account Detection for Online Social Networks](https://www.usenix.org/conference/usenixsecurity21/presentation/xu-teng). USENIX Security 2021.
+10. Pewsner D, Battaglia M, Minder C, Marx A, Bucher HC, Egger M. [Ruling a diagnosis in or out with "SpPIn" and "SnNOut": a note of caution](https://doi.org/10.1136/bmj.329.7459.209). *BMJ* 2004;329:209–213.
 
 The figures and every number computed in this note come from one script, [`tools/notes/precision_vs_recall_figs.py`](https://github.com/HenryVarro666/henryvarro666.github.io/blob/master/tools/notes/precision_vs_recall_figs.py).

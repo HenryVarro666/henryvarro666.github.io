@@ -19,6 +19,11 @@
 {{- if not site.Params.preview }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:url" content="{{ .Permalink }}">
+{{- if .IsTranslated }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+{{- end }}
+{{- end }}
 {{- end }}
 {{- $css := resources.Get "css/site.css" | minify }}
 {{- if site.Params.inlineCSS }}

@@ -1,5 +1,7 @@
 {{- /* Home uses a compact masthead above the portrait hero. Other views retain
        the one-line section/topic slot and their existing navigation. */ -}}
+{{- /* Navigation always comes from the default-language site: a Chinese note keeps the English site around it. */ -}}
+{{- $d := hugo.Sites.Default }}
 {{- $slot := site.Params.tagline }}
 {{- $intro := false }}
 {{- if .IsSection }}{{ with .Params.intro }}{{ $slot = . }}{{ $intro = true }}{{ end }}
@@ -7,18 +9,18 @@
 {{- else if eq .Kind "taxonomy" }}{{ $slot = "Every topic on this site." }}{{ $intro = true }}
 {{- else if .IsPage }}{{ $slot = .Date.Format "2006-01-02" }}
   {{- /* Notes get revised: show the last update when it is a later day. */ -}}
-  {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}{{ $slot = printf "%s · updated %s" $slot (.Lastmod.Format "2006-01-02") }}{{ end }}
+  {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}{{ $slot = printf "%s · %s %s" $slot (T "updated") (.Lastmod.Format "2006-01-02") }}{{ end }}
 {{- end }}
 <header class="banner">
   <div class="banner-inner">
     <div class="name-row">
-      <p class="name"><a href="{{ site.Home.RelPermalink }}">{{ site.Params.name }}{{ if .IsHome }}<span class="home-name-dot">.</span>{{ end }}</a></p>
+      <p class="name"><a href="{{ $d.Home.RelPermalink }}">{{ site.Params.name }}{{ if .IsHome }}<span class="home-name-dot">.</span>{{ end }}</a></p>
       <button id="theme-toggle" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg></button>
     </div>
     {{- if not .IsHome }}<p class="slot{{ if $intro }} intro{{ end }}">{{ $slot | markdownify }}</p>{{ end }}
     <nav class="mainnav" aria-label="Sections">
       {{- $here := . }}
-      {{- range site.Menus.main }}
+      {{- range $d.Menus.main }}
         {{- $active := false }}
         {{- with .Page }}
           {{- if and .IsHome $here.IsHome }}{{ $active = true }}

@@ -10,7 +10,7 @@
 {{- if .IsBlock }}
 <figure class="note-fig">
   <div class="note-fig-scroll">
-    <button class="note-fig-zoom" type="button" data-zoom data-caption="{{ .Title }}" aria-label="Enlarge the figure: {{ .PlainText }}">
+    <button class="note-fig-zoom" type="button" data-zoom data-caption="{{ .Title }}" aria-label="{{ T "enlarge" }}: {{ .PlainText }}">
       {{- if $svg }}{{ $res.Content | safeHTML }}
       {{- else }}<img src="{{ $src }}" alt="{{ .PlainText }}" loading="lazy" decoding="async"{{ with $res }}{{ if eq .ResourceType "image" }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}>
       {{- end -}}
