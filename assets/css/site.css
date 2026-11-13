@@ -595,7 +595,12 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 }
 .prose img { max-width: 100%; height: auto; }
 
-/* Contents box at the top of a note. */
+/* Note contents fold inline on narrow screens and stick beside the article on wide ones. */
+.post-with-toc {
+  --contents-top: calc(var(--note-banner-height, 9rem) + env(safe-area-inset-top, 0px) + 1rem);
+}
+.post-with-toc .prose :is(h2, h3) { scroll-margin-top: var(--contents-top); }
+
 .toc {
   max-width: 66ch;
   margin-top: 1rem;
@@ -604,12 +609,41 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   border-radius: 3px;
   font-size: var(--step--1);
 }
-.toc summary { cursor: pointer; color: var(--muted); }
+.toc summary { cursor: pointer; color: var(--ink); font-weight: 600; }
 .toc ul { list-style: none; margin: 0.4rem 0 0; padding-left: 0; }
 .toc ul ul { margin-top: 0.15rem; padding-left: 1rem; }
 .toc li { margin: 0.2rem 0; }
-.toc a { color: var(--text); text-decoration: none; }
+.toc a { display: block; padding-block: 0.15rem; color: var(--text); line-height: 1.45; overflow-wrap: anywhere; }
 .toc a:hover { color: var(--accent-hover); }
+
+@media (min-width: 64rem) {
+  .column:has(> .post-with-toc) {
+    --toc-width: 13rem;
+    --toc-gap: 2rem;
+    max-width: calc(var(--measure-wide) + var(--toc-width) + var(--toc-gap));
+    /* Use the space to the left of the centered article when the window has room. */
+    margin-inline-start: max(0px, calc((100% - var(--measure-wide)) / 2 - var(--toc-width) - var(--toc-gap)));
+  }
+  .post-with-toc {
+    display: grid;
+    grid-template-columns: var(--toc-width) minmax(0, 1fr);
+    column-gap: var(--toc-gap);
+  }
+  .post-with-toc > :is(.post-head, .prose) { grid-column: 2; }
+  .post-with-toc > .toc {
+    grid-column: 1;
+    grid-row: 2;
+    position: sticky;
+    top: var(--contents-top);
+    align-self: start;
+    max-height: calc(100dvh - var(--contents-top) - 1rem);
+    overflow-y: auto;
+    border: 0;
+    border-inline-start: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 0.1rem 0.6rem 0.3rem 1rem;
+  }
+}
 
 /* ---------- Footer ---------- */
 
