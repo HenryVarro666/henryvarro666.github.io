@@ -9,7 +9,7 @@ topics: [data-science, healthcare]
 
 > **先说结论。** recall 是模型和阈值的性质；precision 还要再加上“模型跑在什么人群上”；该偏向哪个，取决于判为阳性之后要做什么动作。下面三个场景最后都不是二选一，而是在一个分数上切几个阈值，配上分级的动作。
 
-关于用词：指标名保留英文（precision、recall、specificity、NPV、accuracy），因为中文译名容易混，precision 常译精确率或查准率，recall 是召回率或查全率，accuracy 是准确率。“阳性”指我们要找的那一类（癌症、欺诈、虚假账户）；“阳性占比”就是 prevalence，医学上叫患病率。
+关于用词：指标名保留英文（precision、recall、specificity、NPV、accuracy；NPV 是 negative predictive value，阴性预测值），因为中文译名容易混，precision 常译精确率或查准率，recall 是召回率或查全率，accuracy 是准确率。“阳性”指我们要找的那一类（癌症、欺诈、虚假账户）；“阳性占比”就是 prevalence，医学上叫患病率。
 
 ## 问题在哪
 
@@ -25,11 +25,11 @@ topics: [data-science, healthcare]
 
 ## 一张表，三种读法
 
-![二乘二的混淆矩阵：recall 和 specificity 横着读，precision 和 NPV 竖着读](confusion-matrix.svg "图 1。四个格子和两种读法。recall 和 specificity 沿着行除，precision 和 NPV 沿着列除。")
+![二乘二的混淆矩阵：recall 和 specificity 横着读，precision 和 NPV 竖着读](confusion-matrix.svg "图 1。四个格子和两种读法。recall 和 specificity 沿着行除，precision 和 NPV 沿着列除。TPR：真阳性率（true positive rate）；FPR：假阳性率（false positive rate）。")
 
 ### 四个格子
 
-行是真实情况，列是模型的判定。读任何数字之前，先确定哪一类是“阳性”。习惯上是那个稀少、会触发动作的类别：癌症、欺诈、虚假账户。这个选择一换，下面所有名字都跟着换。
+行是真实情况，列是模型的判定。四个格子分别是真阳性（TP，true positive）、假阴性（FN，false negative）、假阳性（FP，false positive）和真阴性（TN，true negative）。读任何数字之前，先确定哪一类是“阳性”。习惯上是那个稀少、会触发动作的类别：癌症、欺诈、虚假账户。这个选择一换，下面所有名字都跟着换。
 
 下面是一张真实的混淆矩阵：2007 到 2013 年美国社区医疗机构的 1,682,504 次乳腺 X 线筛查（计数单位是“次检查”，不是“人”），数据来自 [Breast Cancer Surveillance Consortium](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/screening-sens-spec-false-negative-archive)（BCSC）。“阳性”指检查后一年内确诊癌症。
 
@@ -52,7 +52,7 @@ topics: [data-science, healthcare]
 
 沿着列除，分母是拿到某个结果的人数。
 
-- **Precision**（阳性预测值，PPV）：叫回复查的检查里，$8{,}529 / 194{,}668 = 4.4\%$ 确实是癌症。
+- **Precision**（阳性预测值，positive predictive value，PPV）：叫回复查的检查里，$8{,}529 / 194{,}668 = 4.4\%$ 确实是癌症。
 - **NPV**（阴性预测值）：判为正常的结果里，$1{,}486{,}553 / 1{,}487{,}836 = 99.91\%$ 是对的。
 
 拿到结果的人关心的是这两个数。它们取决于检查本身，也同样取决于阳性占比。
@@ -147,11 +147,11 @@ NPV 的反面叫 false omission rate，也就是系统漏在后面的那部分�
 
 | 比率 | 公式 | 筛查的数值 | 英文别名 | 中文叫法 |
 |---|---|---:|---|---|
-| **Recall** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 86.9% | sensitivity、TPR、hit rate、detection rate、统计功效 power（1&nbsp;−&nbsp;β） | 召回率、查全率、灵敏度、敏感度、真阳性率 |
+| **Recall** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 86.9% | sensitivity、true positive rate（TPR）、hit rate、detection rate、统计功效 power（1&nbsp;−&nbsp;β） | 召回率、查全率、灵敏度、敏感度、真阳性率 |
 | **Miss rate** | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 13.1% | false negative rate（FNR）、第二类错误率（β） | 漏报率、漏诊率、假阴性率 |
 | **Specificity** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 88.9% | true negative rate（TNR）、selectivity | 特异度、特异性、真阴性率 |
 | **False positive rate** | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 11.1% | FPR、fall-out、false alarm rate、第一类错误率（α） | 假阳性率、误报率、误诊率 |
-| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value（PPV）；乳腺筛查审计里叫 PPV1 | 精确率、查准率、精准率、阳性预测值 |
+| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value（PPV）；乳腺筛查审计里叫 PPV1（初次筛查判读的 PPV） | 精确率、查准率、精准率、阳性预测值 |
 | **False discovery rate** | FP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 95.6% | FDR，Benjamini–Hochberg 方法控制的就是它 | 错误发现率、伪发现率 |
 | **NPV** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 99.91% | negative predictive value | 阴性预测值 |
 | **False omission rate** | FN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 0.086% | FOR | 错误遗漏率 |
@@ -179,9 +179,9 @@ accuracy 是最早把整张表压成一个数的办法，阳性一少它就失�
 - **Balanced accuracy** 是 recall 和 specificity 的平均，这里是 87.9%。它不受阳性占比影响，补上了 accuracy 最大的毛病，但仍然把漏报和误报看得一样重。
 - **$F_1$** 是 precision 和 recall 的调和平均，这里是 0.08。调和平均总是贴近两者中较小的那个，所以只有两个都高，$F_1$ 才高。它不看 TN，还取决于把哪一类叫作阳性：同一批医生、同一批片子，把“正常”当作阳性类来算，$F_1$ 是 0.94。
 - **$F_\beta$** 让 recall 的分量是 precision 的 $\beta$ 倍，但不说明 $\beta$ 从哪来。
-- **约登指数**（Youden's J），recall + specificity − 1，这里是 0.76。它是工作点在 ROC 图上高出对角线的距离，代价未知时常用它来选阈值。它的另一个名字叫 informedness；竖着读的对应量是 precision + NPV − 1，叫 markedness，这里是 0.043。
-- **Matthews 相关系数**（MCC）四个格子都用上，这里是 0.18。它等于 informedness 和 markedness 的几何平均，所以横读、竖读只要有一边弱，它就低。
-- **诊断比值比**（diagnostic odds ratio），LR+ / LR−，这里是 53：有癌症时读片为阳性的几率，是没有癌症时的 53 倍。
+- **约登指数**（Youden's J），recall + specificity − 1，这里是 0.76。它是工作点在 ROC 图（receiver operating characteristic，受试者工作特征曲线，后文会讲）上高出对角线的距离，代价未知时常用它来选阈值。它的另一个名字叫 informedness；竖着读的对应量是 precision + NPV − 1，叫 markedness，这里是 0.043。
+- **Matthews 相关系数**（Matthews correlation coefficient，MCC）四个格子都用上，这里是 0.18。它等于 informedness 和 markedness 的几何平均，所以横读、竖读只要有一边弱，它就低。
+- **诊断比值比**（diagnostic odds ratio），即阳性似然比 LR+（positive likelihood ratio，recall / FPR）除以阴性似然比 LR−（negative likelihood ratio，(1 − recall) / specificity），这里是 53：有癌症时读片为阳性的几率，是没有癌症时的 53 倍。
 
 这些数都回答不了“筛查值不值得做”，因为它们都不知道一次漏报、一次误报各要付出什么。我更愿意把代价直接写出来，后面有一节专门做这件事。
 
@@ -224,7 +224,7 @@ $$
 
 ![左边是一条面积为 0.95 的 ROC 曲线；右边是同一个模型在阳性占 50%、5% 和 0.58% 时的三条 PR 曲线](roc-vs-pr.svg "图 6。同一个模型（两条方差为 1 的高斯分布，穿过筛查的工作点）的两种画法。ROC 曲线看不出阳性占比，PR 曲线几乎只在说阳性占比。")
 
-ROC 曲线画的是两个横着读的比率，所以它看不见阳性占比。不管阳性占一半还是 170 个里才有一个，这里的面积都是 0.95。PR 曲线画的是一个横着读的比率对一个竖着读的比率。同一个工作点上，阳性从 50% 降到 5% 再降到 0.58%，precision 依次是 89%、29% 和 4.4%。
+ROC 曲线（receiver operating characteristic）画的是两个横着读的比率，所以它看不见阳性占比。不管阳性占一半还是 170 个里才有一个，这里的面积都是 0.95。PR 曲线（precision-recall curve）画的是一个横着读的比率对一个竖着读的比率。同一个工作点上，阳性从 50% 降到 5% 再降到 0.58%，precision 依次是 89%、29% 和 4.4%。
 
 [Saito 和 Rehmsmeier](https://doi.org/10.1371/journal.pone.0118432) 认为，这使得 ROC 图在不平衡数据上很容易被误读：阴性的基数一大，specificity 看上去就让人放心。[Davis 和 Goadrich](https://doi.org/10.1145/1143844.1143874) 证明了两个空间在“谁压过谁”上是一致的（一条曲线在一个空间里处处占优，在另一个空间里也处处占优），同时也证明了优化 ROC 面积并不等于优化 PR 面积。我的做法是：比较模型用 ROC；判断模型能不能用，看上线环境阳性占比下的 PR 曲线。
 
@@ -336,9 +336,9 @@ recall 也并没有被推到 100%。每一轮筛查都会重复产生误报，�
 
 **RadQNLI：accuracy 掉了，recall 没动。** 在 [RadQNLI](https://github.com/HenryVarro666/RadQNLI) 里，我用四个放射学测试集测 ChatGPT，四个集合里的负例和问题的词汇重合度一个比一个高。accuracy 从 0.81 掉到 0.62，看上去是题目变难了。但阳性类的 recall 在每个集合上都在 0.52 到 0.53 之间；变的是阳性的占比，从 21% 升到 70%，precision 也跟着从 0.56 升到 0.89。换成同样数量的随机负例做对照，accuracy 几乎掉得一样多，从 0.83 到 0.64。用矩阵可以把两种效应分开：在词汇重合的负例上，specificity 确实从 0.89 滑到了 0.84，而在随机负例上它一直在 0.92 附近，这一部分才是真的变难了。其余的是类别比例造成的：accuracy 等于 $\pi \cdot \text{recall} + (1-\pi) \cdot \text{specificity}$，recall 停在 0.53，$\pi$ 从 21% 升到 70%，accuracy 自然被拉向 recall。
 
-**心脏病预测：哪一类才是阳性？** 在我的[心脏病课程项目](https://github.com/HenryVarro666/heart-disease-prediction)里，数据文件把 `target = 1` 编码成“没有病”。于是类别 1 的每一个指标描述的其实是健康人，这一类的“recall”在医生嘴里叫 specificity。61 个测试病人里 36 个没病、25 个有病，所以有病这一类的 recall 只建立在 25 个样本上：25 个里对 22 个是 88%，95% 区间是 70% 到 96%。而当时放在最前面的数字是 ROC AUC，它说明模型排序排得好不好，却不说明阈值该切在哪。
+**心脏病预测：哪一类才是阳性？** 在我的[心脏病课程项目](https://github.com/HenryVarro666/heart-disease-prediction)里，数据文件把 `target = 1` 编码成“没有病”。于是类别 1 的每一个指标描述的其实是健康人，这一类的“recall”在医生嘴里叫 specificity。61 个测试病人里 36 个没病、25 个有病，所以有病这一类的 recall 只建立在 25 个样本上：25 个里对 22 个是 88%，95% 区间是 70% 到 96%。而当时放在最前面的数字是 ROC AUC（ROC 曲线下面积，area under the curve），它说明模型排序排得好不好，却不说明阈值该切在哪。
 
-**去标识化：一个 recall 任务，和一个会骗人的下限。** 在 [open-LLM de-identification](https://github.com/HenryVarro666/open-llm-deid) 里，代价高的错误是漏掉一个名字，所以这是 recall 优先的任务；多遮掉一些只是影响可读性。我用的分数统计的是受保护的字符串被去掉了多少，而由于匹配的计数方式，一份完全没动过的病历就已经能拿 0.597。每个结果都得对着这个下限来读。这和“全判阴性也有 99.4%”是同一个教训：相信一个指标之前，先看看什么都不做能得几分。
+**去标识化：一个 recall 任务，和一个会骗人的下限。** 在 [open-LLM de-identification](https://github.com/HenryVarro666/open-llm-deid) 里（用开源大语言模型，即 LLM、large language model，从临床病历里去掉受保护的健康信息），代价高的错误是漏掉一个名字，所以这是 recall 优先的任务；多遮掉一些只是影响可读性。我用的分数统计的是受保护的字符串被去掉了多少，而由于匹配的计数方式，一份完全没动过的病历就已经能拿 0.597。每个结果都得对着这个下限来读。这和“全判阴性也有 99.4%”是同一个教训：相信一个指标之前，先看看什么都不做能得几分。
 
 ## 参考文献
 

@@ -2,16 +2,16 @@
 title: "ROC-AUC and PR-AUC: two areas, two questions"
 date: 2026-11-12T20:00:00-06:00
 lastmod: 2026-11-12T20:00:00-06:00
-description: "ROC-AUC is the chance that a random positive outranks a random negative; PR-AUC is the average precision met on the way down the list. Two models with the same ROC-AUC can differ fourfold in PR-AUC, and which one is better depends on where the list will be cut."
+description: "ROC-AUC, the area under the receiver operating characteristic curve, is the chance that a random positive outranks a random negative; PR-AUC, the area under the precision-recall curve, is the average precision met on the way down the list. Two models with the same ROC-AUC can differ fourfold in PR-AUC, and which one is better depends on where the list will be cut."
 topics: [data-science]
 ---
-The [previous note](/notes/precision-vs-recall/) looked at a classifier one threshold at a time. Most model comparisons skip the threshold and report an area instead: ROC-AUC, PR-AUC, or both. This note works out what each area measures, why the two can disagree about the same pair of models, and what I report.
+The [previous note](/notes/precision-vs-recall/) looked at a classifier one threshold at a time. Most model comparisons skip the threshold and report an area instead: ROC-AUC, the area under the curve (AUC) of the receiver operating characteristic (ROC); PR-AUC, the area under the precision-recall (PR) curve; or both. This note works out what each area measures, why the two can disagree about the same pair of models, and what I report.
 
 > **Takeaway.** ROC-AUC asks how often the model puts a random positive above a random negative. It ignores prevalence and gives every part of the ranking the same weight. PR-AUC, computed as average precision, asks how clean the list is as you walk down it. It moves with prevalence and is dominated by the top of the list. Neither picks a threshold. Report the one whose question matches the deployment, with its baseline and an interval, and put the operating-point numbers next to it.
 
 ## From one threshold to all of them
 
-Every threshold on the score gives one confusion matrix. Sweep the threshold from the highest score to the lowest and you get a sequence of matrices, one per cut. The two curves plot that same sequence on different axes:
+Every threshold on the score gives one confusion matrix, with its counts of true positives (TP), false positives (FP), true negatives (TN) and false negatives (FN). Sweep the threshold from the highest score to the lowest and you get a sequence of matrices, one per cut. The two curves plot that same sequence on different axes:
 
 | | ROC curve | Precision-recall curve |
 |---|---|---|
@@ -35,7 +35,7 @@ $$
 
 In Figure 1 there are 5 positives and 10 negatives, so 50 pairs. The positive is on top in 39 of them: ROC-AUC = 0.78. Walk down the list and draw the ROC curve as you go: each positive is a step up, each negative a step right. The cells below the staircase are exactly the pairs in which the positive came first, which is why the area and the pair count agree. The same number is the Mann–Whitney U statistic divided by the number of pairs; [Hanley and McNeil](https://doi.org/10.1148/radiology.143.1.7063747) made this three-way equivalence (area, correct ranking of a random pair, Wilcoxon statistic) the standard reading in radiology.
 
-The same quantity goes by AUROC, AUC, or, in medicine, the c-statistic (concordance). Credit scoring reports the Gini coefficient, 2 × AUC − 1, which is 0.80 for an AUC of 0.90.
+The same quantity goes by AUROC (area under the ROC curve), AUC, or, in medicine, the c-statistic (concordance). Credit scoring reports the Gini coefficient, 2 × AUC − 1, which is 0.80 for an AUC of 0.90.
 
 What follows from the pair reading:
 
@@ -122,7 +122,7 @@ Three practical consequences:
 
 ## Is PR-AUC the metric for imbalanced data?
 
-That is the common advice. The description of the widely used [ULB credit-card fraud dataset](https://api.openml.org/d/42175), in which 0.17% of transactions are fraud, recommends AUPRC because of the class imbalance.
+That is the common advice. The description of the widely used [credit-card fraud dataset](https://api.openml.org/d/42175) from the Machine Learning Group at ULB (Université libre de Bruxelles), in which 0.17% of transactions are fraud, recommends AUPRC (area under the precision-recall curve, i.e. PR-AUC) because of the class imbalance.
 
 McDermott and colleagues dispute the general claim. In their analysis the deciding factor is not imbalance at all but how the model will be used: whether the mistakes that matter sit near the top of the ranking or anywhere in it. They also show that AP can favour improvements in subgroups where positives are more common, which widens gaps between groups.
 

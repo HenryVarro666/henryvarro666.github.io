@@ -23,11 +23,11 @@ The confusion matrix is the place where all three become visible, so I start the
 
 ## One table, read three ways
 
-![A two-by-two confusion matrix with recall and specificity read along the rows and precision and NPV read down the columns](confusion-matrix.svg "Figure 1. The four cells and the two directions of reading. Recall and specificity divide along a row; precision and NPV divide down a column.")
+![A two-by-two confusion matrix with recall and specificity read along the rows and precision and negative predictive value (NPV) read down the columns](confusion-matrix.svg "Figure 1. The four cells and the two directions of reading. Recall and specificity divide along a row; precision and NPV divide down a column. TPR: true positive rate; FPR: false positive rate.")
 
 ### The four cells
 
-Rows are the truth; columns are the model's call. Before reading anything else, pin down which class is "positive". By convention it is the rare one that triggers an action: the cancer, the fraud, the fake account. Every name below flips if that choice flips.
+Rows are the truth; columns are the model's call. The four cells are the true positives (TP), false negatives (FN), false positives (FP) and true negatives (TN). Before reading anything else, pin down which class is "positive". By convention it is the rare one that triggers an action: the cancer, the fraud, the fake account. Every name below flips if that choice flips.
 
 Here is a real matrix: 1,682,504 screening mammograms read in U.S. community practice from 2007 to 2013 (the unit is an exam, not a woman), from the [Breast Cancer Surveillance Consortium](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/screening-sens-spec-false-negative-archive) (BCSC). "Positive" means cancer diagnosed within a year of the exam.
 
@@ -42,7 +42,7 @@ Here is a real matrix: 1,682,504 screening mammograms read in U.S. community pra
 Divide along a row and the denominator is the number of real positives or real negatives.
 
 - **Recall** (sensitivity): $8{,}529 / 9{,}812 = 86.9\%$ of cancers were called back.
-- **Specificity**: $1{,}486{,}553 / 1{,}672{,}692 = 88.9\%$ of healthy exams were read as normal. Its complement, the **false positive rate**, is 11.1%.
+- **Specificity**: $1{,}486{,}553 / 1{,}672{,}692 = 88.9\%$ of healthy exams were read as normal. Its complement, the **false positive rate** (FPR), is 11.1%.
 
 These two numbers describe the test. They do not depend on how many of the people screened have cancer.
 
@@ -50,7 +50,7 @@ These two numbers describe the test. They do not depend on how many of the peopl
 
 Divide down a column and the denominator is the number of exams that got a given answer.
 
-- **Precision** (positive predictive value): $8{,}529 / 194{,}668 = 4.4\%$ of call-backs were cancer.
+- **Precision** (positive predictive value, PPV): $8{,}529 / 194{,}668 = 4.4\%$ of call-backs were cancer.
 - **Negative predictive value**: $1{,}486{,}553 / 1{,}487{,}836 = 99.91\%$ of normal readings were right.
 
 These are what the person holding the result needs, and they depend on prevalence as much as on the test.
@@ -149,7 +149,7 @@ Each rate has a complement: the other cell of the same row or column, over the s
 | **Miss rate** | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 13.1% | false negative rate (FNR), type II error rate (β) |
 | **Specificity** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 88.9% | true negative rate (TNR), selectivity |
 | **False positive rate** | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 11.1% | FPR, fall-out, false alarm rate, type I error rate (α) |
-| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value (PPV); PPV1 in mammography audits |
+| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value (PPV); PPV1 in mammography audits (the PPV of the first, screening reading) |
 | **False discovery rate** | FP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 95.6% | FDR, the quantity the Benjamini–Hochberg procedure controls |
 | **NPV** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 99.91% | negative predictive value |
 | **False omission rate** | FN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 0.086% | FOR |
@@ -175,9 +175,9 @@ Accuracy was the first attempt to fold the table into one number, and it fails w
 - **Balanced accuracy**, the mean of recall and specificity, is 87.9% here. It ignores prevalence, which fixes the main flaw of accuracy, but it still treats a miss and a false alarm as equally bad.
 - **$F_1$**, the harmonic mean of precision and recall, is 0.08 here. A harmonic mean stays close to the smaller of its two inputs, so $F_1$ is high only when both are. It ignores true negatives, and it depends on which class is called positive: score the same readers with "normal" as the positive class and $F_1$ is 0.94.
 - **$F_\beta$** lets recall count $\beta$ times as much as precision, without saying where $\beta$ comes from.
-- **Youden's J**, recall + specificity − 1, is 0.76 here. It is how far the operating point sits above the diagonal of the ROC plot, and a common way to choose a threshold when costs are unknown. Its other name is informedness; its column twin, precision + NPV − 1, is called markedness and is 0.043 here.
+- **Youden's J**, recall + specificity − 1, is 0.76 here. It is how far the operating point sits above the diagonal of the ROC plot (receiver operating characteristic: recall against false positive rate, introduced below), and a common way to choose a threshold when costs are unknown. Its other name is informedness; its column twin, precision + NPV − 1, is called markedness and is 0.043 here.
 - **Matthews correlation** uses all four cells and is 0.18 here. It equals the geometric mean of informedness and markedness, so it is low whenever either reading of the table is weak.
-- **Diagnostic odds ratio**, LR+ / LR−, is 53 here: the odds of a positive reading are 53 times higher with cancer than without.
+- **Diagnostic odds ratio**, the positive likelihood ratio LR+ = recall / FPR divided by the negative likelihood ratio LR− = (1 − recall) / specificity, is 53 here: the odds of a positive reading are 53 times higher with cancer than without.
 
 None of these says whether screening is worth doing, because none knows what a miss or a false alarm costs. I would rather write the costs down, which a later section does.
 
@@ -302,7 +302,7 @@ Suppose a platform has a billion accounts, 4% of them fake, and a detector with 
 
 The two errors also land differently. A missed fake account spreads its cost thinly: slightly distorted rankings, inflated follower counts, less trustworthy ad metrics. A false positive lands on one person, who may have lost an audience or an income. So the action ladder matters more here than anywhere:
 
-- **Quiet, reversible actions run at high recall.** Not counting a suspicious account's likes, or asking for a CAPTCHA, costs a real user almost nothing.
+- **Quiet, reversible actions run at high recall.** Not counting a suspicious account's likes, or asking for a CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart), costs a real user almost nothing.
 - **Removal runs at very high precision,** usually with an appeal path, because it is the one action the user cannot undo.
 
 Measurement is the hardest of the three settings, because nobody hands over the truth. Precision is estimated by having people review a sample of actioned accounts; overturned appeals give a floor on false positives. Recall cannot be observed at all. It is inferred from the prevalence that sampling finds among the accounts still standing.
@@ -332,9 +332,9 @@ Three earlier projects of mine read differently with this in hand.
 
 **RadQNLI: accuracy fell, recall did not.** In [RadQNLI](https://github.com/HenryVarro666/RadQNLI) I tested ChatGPT on four radiology test sets whose negatives shared more and more words with the question. Accuracy fell from 0.81 to 0.62, which looks like a difficulty effect. But recall on the positive class stayed between 0.52 and 0.53 on every set, while the share of positives rose from 21% to 70% and precision rose from 0.56 to 0.89. A control with the same number of *random* negatives fell almost as far, from 0.83 to 0.64. The matrix separates two effects. Specificity did slip on the word-overlap negatives, from 0.89 to 0.84, while on random negatives it stayed near 0.92: that part is real difficulty. The rest is class mix. Accuracy is $\pi \cdot \text{recall} + (1-\pi) \cdot \text{specificity}$, so with recall stuck at 0.53, raising $\pi$ from 21% to 70% drags accuracy down toward recall.
 
-**Heart disease: which class was positive?** In my [heart-disease course project](https://github.com/HenryVarro666/heart-disease-prediction) the data file codes `target = 1` as *no disease*. Every per-class metric for class 1 therefore describes healthy patients, and "recall" for that class is what a clinician would call specificity. The 61 test patients split into 36 without disease and 25 with it, so recall for the disease class rests on 25 cases: 22 right out of 25 would be 88%, with a 95% interval from 70% to 96%. And the headline number was ROC AUC, which says how well a model ranks but not where to cut.
+**Heart disease: which class was positive?** In my [heart-disease course project](https://github.com/HenryVarro666/heart-disease-prediction) the data file codes `target = 1` as *no disease*. Every per-class metric for class 1 therefore describes healthy patients, and "recall" for that class is what a clinician would call specificity. The 61 test patients split into 36 without disease and 25 with it, so recall for the disease class rests on 25 cases: 22 right out of 25 would be 88%, with a 95% interval from 70% to 96%. And the headline number was ROC AUC, the area under the ROC curve, which says how well a model ranks but not where to cut.
 
-**De-identification: a recall task with a misleading floor.** In [open-LLM de-identification](https://github.com/HenryVarro666/open-llm-deid) the costly error is a leaked name, so the task is recall-first; over-redaction only costs readability. The score I used counted the share of protected strings removed, and because of how matches were counted, a note that had not been touched at all already scored 0.597. Every result has to be read against that floor. It is the same lesson as "always negative gets 99.4%": check what doing nothing scores before trusting a metric.
+**De-identification: a recall task with a misleading floor.** In [open-LLM de-identification](https://github.com/HenryVarro666/open-llm-deid), which asks open large language models (LLMs) to strip protected health information from clinical notes, the costly error is a leaked name, so the task is recall-first; over-redaction only costs readability. The score I used counted the share of protected strings removed, and because of how matches were counted, a note that had not been touched at all already scored 0.597. Every result has to be read against that floor. It is the same lesson as "always negative gets 99.4%": check what doing nothing scores before trusting a metric.
 
 ## References
 
