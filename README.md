@@ -129,6 +129,14 @@ draft: false             # 模板默认是 true，正式构建会跳过草稿
 python3 tools/notes/precision_vs_recall_figs.py   # 写出 content/notes/precision-vs-recall/*.svg 并打印数字
 ```
 
+需要真实模型和数据的笔记，把“跑模型”和“画图”分成两个脚本。例如 XGBoost 那篇：`xgboost_runs.py` 要装 `xgboost`、`scikit-learn`、`pandas`、`numpy`，并给出数据路径，跑完把结果写进 `tools/notes/xgboost_runs.json`（这个文件提交进仓库）；`xgboost_figs.py` 只用标准库，读这个 JSON 画图、打印数字。`tinyboost.py` 是从零写的 XGBoost 树算法，`xgboost_runs.py` 会逐棵树核对它和真库一致。
+
+```bash
+pip install xgboost scikit-learn pandas numpy
+python3 tools/notes/xgboost_runs.py --creditcard creditcard.csv --heart ../heart-disease-prediction
+python3 tools/notes/xgboost_figs.py
+```
+
 图里除了概览图已有的颜色类，还可以用 `f-alt` / `f-altsoft` / `f-lnalt`（第二种色相，表示错误）和 `f-lnhl1` / `f-lnhl2` / `f-fillhl1` / `f-fillhl2`（高亮色的两个浅色阶，用于有顺序的一组线或色块），定义在 `assets/css/site.css` 的 “Note figures” 一段。
 
 `content/notes/style-check.md` 是一个不公开的样式页（不进列表、不进 sitemap、noindex），地址是 `/notes/style-check/`，包含上面所有元素，改样式时可以在这里检查。
