@@ -2,7 +2,15 @@
 {{- /* The section and topic pages exist only in the default language, so a translated note
        links back to those. */ -}}
 {{- $d := hugo.Sites.Default }}
-<article class="post">
+{{- $toc := "" }}
+{{- if .Param "toc" }}
+  {{- with .TableOfContents }}
+    {{- if ge (len (findRE `<a href=` .)) 2 }}
+      {{- $toc = . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+<article class="post{{ if $toc }} post-with-toc{{ end }}">
   <header class="post-head">
     <div class="post-top">
       {{- with .Parent }}{{ with $d.GetPage .Path }}<a class="back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}{{ end }}
@@ -25,18 +33,30 @@
     </div>
     {{- end }}
   </header>
-  {{- /* Contents box: notes (toc is cascaded from content/notes/_index.md) with two or more headings. */ -}}
-  {{- if .Param "toc" }}
-  {{- $toc := .TableOfContents }}
-  {{- $n := len (findRE `<li>` $toc) }}
-  {{- if ge $n 2 }}
-  {{- /* A long list of headings starts folded, so the opening paragraph stays in view. */ -}}
-  <details class="toc"{{ if le $n 12 }} open{{ end }}>
-    <summary>{{ T "contents" }}</summary>
-    {{ $toc }}
+  {{- with $toc }}
+  <details class="toc" open>
+    <summary id="contents-label">{{ T "contents" }}</summary>
+    {{ replace . `<nav id="TableOfContents">` `<nav id="TableOfContents" aria-labelledby="contents-label">` | safeHTML }}
   </details>
-  {{- end }}
   {{- end }}
   <div class="prose">{{ .Content }}</div>
 </article>
+{{- if $toc }}
+<script>
+  (function () {
+    var post = document.querySelector(".post-with-toc");
+    var contents = post.querySelector(".toc");
+    var banner = document.querySelector("header.banner");
+    var wide = matchMedia("(min-width: 64rem)");
+    function updateContents() { contents.open = wide.matches; }
+    function updateBannerHeight() {
+      post.style.setProperty("--note-banner-height", banner.offsetHeight + "px");
+    }
+    updateContents();
+    updateBannerHeight();
+    wide.addEventListener("change", updateContents);
+    new ResizeObserver(updateBannerHeight).observe(banner);
+  })();
+</script>
+{{- end }}
 {{ end }}
