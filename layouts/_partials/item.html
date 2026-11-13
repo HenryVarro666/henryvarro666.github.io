@@ -25,6 +25,14 @@
       {{- with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
     </span>
     {{- end }}
+    {{- /* A note with a translation: the same two-way switch as on the note, current language first. */ -}}
+    {{- if and .Translations (not $external) }}
+    <span class="item-langs" aria-label="{{ T "language" }}">
+      {{- range .AllTranslations }}
+      <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}"{{ if eq .Language.Lang $.Language.Lang }} aria-current="true"{{ end }}>{{ .Language.Label }}</a>
+      {{- end }}
+    </span>
+    {{- end }}
   </div>
   <h2 class="item-title">
     {{- if $pinned }}{{ .Title }}
@@ -40,12 +48,10 @@
     {{- with .Params.live }}<p class="live">{{ . }}</p>{{ end }}
   </div>
   {{- /* Extra destinations, shown only when there is more than the title link. */ -}}
-  {{- /* .Translations: the other-language versions of a note, when it has any. */ -}}
-  {{- if and (not $pinned) (or $paper (and .Params.link .Params.repo) .Translations) }}
+  {{- if and (not $pinned) (or $paper (and .Params.link .Params.repo)) }}
   <p class="item-links">
     {{- if and .Params.link .Params.repo }}<a href="{{ .Params.repo }}">code<span class="ext" aria-hidden="true"> ↗</span></a>{{ end }}
     {{- with $paper }}<a href="{{ relref $ "/publications" }}#{{ .id }}">paper: {{ .short }}</a>{{ end }}
-    {{- range .Translations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}">{{ .Language.Label }}</a>{{ end }}
   </p>
   {{- end }}
   {{- $terms := .GetTerms "topics" }}

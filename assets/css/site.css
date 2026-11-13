@@ -360,6 +360,22 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   gap: 0.75rem;
   margin-left: auto;
 }
+/* Bilingual note in a list: a small two-way switch at the right of the date row.
+   Body font, because Chinese set in the mono face looks out of place. */
+.item-langs {
+  display: inline-flex;
+  margin-left: auto;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-size: var(--step--2);
+  line-height: 1.5;
+}
+.item-langs a { padding: 0.02rem 0.55rem; color: var(--muted); }
+.item-langs a + a { border-left: 1px solid var(--rule); }
+.item-langs a:hover { color: var(--accent-hover); text-decoration: none; }
+.item-langs a[aria-current] { background: var(--wash); color: var(--ink); }
 
 .item-title {
   margin: 0.25rem 0 0.35rem;

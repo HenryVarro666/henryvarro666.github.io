@@ -59,20 +59,9 @@ These are what the person holding the result needs, and they depend on prevalenc
 
 Accuracy adds the diagonal: 88.9%. A reader who called every exam normal would score 99.4% and find no cancers. Accuracy weights each cell by its count, so with 0.58% prevalence it is almost entirely a statement about healthy people.
 
-The same six quantities carry different names in medicine, signal detection and machine learning:
-
-| Quantity | Formula | The question it answers |
-|---|---|---|
-| **Recall**: sensitivity, true positive rate, hit rate | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | Of the real positives, how many did I catch? |
-| **Miss rate**: false negative rate, type II error rate | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | How many did I let through? |
-| **Specificity**: true negative rate | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | Of the real negatives, how many did I leave alone? |
-| **False positive rate**: fall-out, type I error rate | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | How many innocents did I flag? |
-| **Precision**: positive predictive value (PPV) | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | Of my alarms, how many were real? |
-| **NPV**: negative predictive value | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | Of my all-clears, how many were right? |
-
 ## The four rates, one at a time
 
-![Four small matrices, each highlighting the cell and the row or column that one rate uses](four-rates.svg "Figure 2. Each rate takes one correct cell and divides it by its row or its column. Same layout as Figure 1; the values are from the screening matrix.")
+![Four small matrices, each highlighting the cell and the row or column that one rate uses](four-rates.svg "Figure 2. Each rate takes one correct cell and divides it by its row or its column; under each is its complement, the other cell over the same total. Same layout as Figure 1; the values are from the screening matrix.")
 
 The matrix has four cells and four natural rates. Each takes one of the two correct cells and divides it by its row or by its column, and each is the question of a different person.
 
@@ -140,6 +129,7 @@ The complement of NPV, the false omission rate, is what a system leaves behind: 
 | Blind to | false alarms | misses | misses | false alarms |
 | Trivial maximum | flag everything | flag nothing | flag one sure case | flag nothing, if positives are rare |
 | Moves with prevalence | no | no | rises with it | falls as it rises |
+| Complement (1 − rate) | miss rate, 13.1% | false positive rate, 11.1% | false discovery rate, 95.6% | false omission rate, 0.086% |
 
 Two pairings are worth remembering.
 
@@ -149,6 +139,35 @@ Two pairings are worth remembering.
 
 No one of the four can be reported alone. Each has a trivial way to reach its maximum, and each is blind to one kind of error. A useful report pairs a rate that is blind to false alarms with one that is blind to misses (recall with precision is the machine-learning habit, sensitivity with specificity the medical one) and adds the prevalence. Those three numbers are enough to rebuild the whole matrix.
 
+### Eight rates, many names
+
+Each rate has a complement: the other cell of the same row or column, over the same total. So the matrix holds eight rates, in four pairs that add up to 100%. Medicine, statistics, signal detection and machine learning named them independently, which is why one number goes by several names.
+
+| Rate | Formula | Screening | Also called |
+|---|---|---:|---|
+| **Recall** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 86.9% | sensitivity, true positive rate (TPR), hit rate, detection rate, statistical power (1&nbsp;−&nbsp;β) |
+| **Miss rate** | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 13.1% | false negative rate (FNR), type II error rate (β) |
+| **Specificity** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 88.9% | true negative rate (TNR), selectivity |
+| **False positive rate** | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 11.1% | FPR, fall-out, false alarm rate, type I error rate (α) |
+| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value (PPV); PPV1 in mammography audits |
+| **False discovery rate** | FP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 95.6% | FDR, the quantity the Benjamini–Hochberg procedure controls |
+| **NPV** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 99.91% | negative predictive value |
+| **False omission rate** | FN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 0.086% | FOR |
+
+Two more rates describe the table rather than the model's accuracy: **prevalence**, (TP + FN) / N = 0.58%, and the **flag rate**, (TP + FP) / N = 11.6%, the share of cases called positive (also alert rate or positive rate).
+
+### Same word, different number
+
+The names collide, and a few collisions are worth knowing before reading anyone else's metrics.
+
+- **"Recall rate" in mammography is not recall.** Radiology audits use it for the share of screening exams called back: the [BCSC defines it](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/abnormal-interpretations-archive) as the percentage of exams with an abnormal initial interpretation. Here that is 11.6%, the flag rate. What machine learning calls recall is sensitivity there: 86.9%.
+- **"Detection rate"** usually means recall in security and fraud work. In screening, the [cancer detection rate](https://pmc.ncbi.nlm.nih.gov/articles/PMC2714544/table/T1) is cancers found per 1,000 exams, TP / N: 5.1 here.
+- **"Hit rate"** is recall in signal detection. Fraud teams also use it for alert quality, including [the ratio of good customers flagged to fraud caught](https://www.sardine.ai/learn/false-positive-rate).
+- **False positive *rate* and false positive *ratio*.** The rate divides by the real negatives. The ratio, common in fraud operations, [counts false positives per true fraud](https://socure.com/glossary/false-positive-ratio). For screening it is 22 to 1.
+- **"Our false positive rate is 90%"**, said of an alert queue, usually means that 90% of alerts were false. That is the false discovery rate, 1 − precision. The false positive rate of the same system is often well under 1%.
+
+The safe habit is to ask for the formula, or better, the four counts.
+
 ### One-number summaries
 
 Accuracy was the first attempt to fold the table into one number, and it fails when positives are rare. The other common ones:
@@ -156,7 +175,9 @@ Accuracy was the first attempt to fold the table into one number, and it fails w
 - **Balanced accuracy**, the mean of recall and specificity, is 87.9% here. It ignores prevalence, which fixes the main flaw of accuracy, but it still treats a miss and a false alarm as equally bad.
 - **$F_1$**, the harmonic mean of precision and recall, is 0.08 here. A harmonic mean stays close to the smaller of its two inputs, so $F_1$ is high only when both are. It ignores true negatives, and it depends on which class is called positive: score the same readers with "normal" as the positive class and $F_1$ is 0.94.
 - **$F_\beta$** lets recall count $\beta$ times as much as precision, without saying where $\beta$ comes from.
-- **Matthews correlation** uses all four cells and is 0.18 here.
+- **Youden's J**, recall + specificity − 1, is 0.76 here. It is how far the operating point sits above the diagonal of the ROC plot, and a common way to choose a threshold when costs are unknown. Its other name is informedness; its column twin, precision + NPV − 1, is called markedness and is 0.043 here.
+- **Matthews correlation** uses all four cells and is 0.18 here. It equals the geometric mean of informedness and markedness, so it is low whenever either reading of the table is weak.
+- **Diagnostic odds ratio**, LR+ / LR−, is 53 here: the odds of a positive reading are 53 times higher with cancer than without.
 
 None of these says whether screening is worth doing, because none knows what a miss or a false alarm costs. I would rather write the costs down, which a later section does.
 

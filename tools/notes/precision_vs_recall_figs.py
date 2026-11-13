@@ -199,7 +199,7 @@ def fig_matrix() -> Canvas:
 
 # ---- 1b. the four rates as slices of the matrix -------------------------------------
 def fig_four_rates() -> Canvas:
-    c = Canvas("four-rates", 720, 246, t(
+    c = Canvas("four-rates", 720, 272, t(
         "Four small confusion matrices. Recall is TP over the top row, specificity is TN over the "
         "bottom row, precision is TP over the left column, NPV is TN over the right column. "
         f"For screening mammography they are {pct(RECALL, 1)}, {pct(SPEC, 1)}, {pct(PREC, 1)} and {pct(NPV, 2)}.",
@@ -209,13 +209,17 @@ def fig_four_rates() -> Canvas:
     row = t("ignores prevalence", "不受阳性占比影响")
     col = t("moves with prevalence", "随阳性占比变化")
     panels = [
-        ("Recall", "TP", "FN", pct(RECALL, 1), t("of real positives,|the share caught", "真实阳性里，|抓到了多少"), row),
-        ("Specificity", "TN", "FP", pct(SPEC, 1), t("of real negatives,|the share left alone", "真实阴性里，|放过了多少"), row),
-        ("Precision", "TP", "FP", pct(PREC, 1), t("of alarms,|the share that are real", "报警的里面，|真有问题的占多少"), col),
-        ("NPV", "TN", "FN", pct(NPV, 2), t("of all-clears,|the share that are right", "放行的里面，|确实没事的占多少"), col),
+        ("Recall", "TP", "FN", pct(RECALL, 1), t("of real positives,|the share caught", "真实阳性里，|抓到了多少"), row,
+         t(f"miss rate {pct(1 - RECALL, 1)}", f"漏报率 {pct(1 - RECALL, 1)}")),
+        ("Specificity", "TN", "FP", pct(SPEC, 1), t("of real negatives,|the share left alone", "真实阴性里，|放过了多少"), row,
+         t(f"false positive rate {pct(FPR, 1)}", f"假阳性率 {pct(FPR, 1)}")),
+        ("Precision", "TP", "FP", pct(PREC, 1), t("of alarms,|the share that are real", "报警的里面，|真有问题的占多少"), col,
+         t(f"false discovery rate {pct(1 - PREC, 1)}", f"错误发现率 {pct(1 - PREC, 1)}")),
+        ("NPV", "TN", "FN", pct(NPV, 2), t("of all-clears,|the share that are right", "放行的里面，|确实没事的占多少"), col,
+         t(f"false omission rate {pct(1 - NPV, 3)}", f"错误遗漏率 {pct(1 - NPV, 3)}")),
     ]
     pw, gap, cw, ch, cg = 160, 16, 62, 38, 4
-    for i, (name, num, other, value, question, note) in enumerate(panels):
+    for i, (name, num, other, value, question, note, comp) in enumerate(panels):
         px0 = 16 + i * (pw + gap)
         mid = px0 + pw / 2
         gx, gy = mid - (2 * cw + cg) / 2, 44
@@ -235,6 +239,8 @@ def fig_four_rates() -> Canvas:
         for j, line in enumerate(question.split("|")):
             c.text(mid, gy + 2 * ch + cg + 54 + j * 16, line, 12.5, "f-m", "middle", box=pw + gap - 4)
         c.text(mid, gy + 2 * ch + cg + 96, note, 12.5, "f-t", "middle", box=pw + gap - 4)
+        c.line(mid - 34, gy + 2 * ch + cg + 108, mid + 34, gy + 2 * ch + cg + 108, "f-lnrule", 1)
+        c.text(mid, gy + 2 * ch + cg + 126, comp, 12.5, "f-m", "middle", box=pw + gap - 4)
     return c
 
 
@@ -526,6 +532,13 @@ def numbers() -> str:
     add(f"prior odds {prior:.5f} (1 in {1 / prior:.0f})  posterior odds {prior * RECALL / FPR:.4f}  -> {pct(PREC, 2)}")
     add(f"false alarms per cancer found {FP / TP:.1f};  per 1,000: {PER_1000}")
     add(f"score model: threshold {T0:.3f}, separation {MU:.3f}, AUC {AUC:.3f}")
+    add("== the eight rates")
+    add(f"recall {pct(RECALL, 1)} / miss {pct(1 - RECALL, 1)} | specificity {pct(SPEC, 1)} / FPR {pct(FPR, 1)} | "
+        f"precision {pct(PREC, 1)} / FDR {pct(1 - PREC, 1)} | NPV {pct(NPV, 2)} / FOR {pct(1 - NPV, 3)}")
+    add(f"flag rate (mammography 'recall rate') {pct((TP + FP) / N, 1)}  cancer detection rate {1000 * TP / N:.1f} per 1,000  FP per TP {FP / TP:.1f}")
+    J, MK = RECALL + SPEC - 1, PREC + NPV - 1
+    lrp, lrn = RECALL / FPR, (1 - RECALL) / SPEC
+    add(f"Youden J {J:.3f}  markedness {MK:.4f}  sqrt(J*MK) {math.sqrt(J * MK):.3f}  LR+ {lrp:.2f}  LR- {lrn:.3f}  DOR {lrp / lrn:.1f}")
     add("== the four rates, one at a time")
     add(f"miss rate {pct(1 - RECALL, 1)}  false discovery rate {pct(1 - PREC, 1)}  call-backs per cancer found {(TP + FP) / TP:.1f}")
     add(f"one point of specificity = {0.01 * (TN + FP):,.0f} exams;  lift of a call-back {PREC / PREV:.1f}x")

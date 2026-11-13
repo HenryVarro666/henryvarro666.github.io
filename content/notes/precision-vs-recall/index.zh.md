@@ -61,20 +61,9 @@ topics: [data-science, healthcare]
 
 accuracy 把对角线加起来：88.9%。一个把所有片子都判成正常的医生能拿 99.4%，同时一例癌症也找不到。accuracy 按数量给每个格子加权，阳性只占 0.58% 时，它几乎只在描述健康人。
 
-同样六个量，在医学、信号检测和机器学习里各有各的名字：
-
-| 量 | 公式 | 它回答的问题 |
-|---|---|---|
-| **Recall**：sensitivity、true positive rate、hit rate | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 真实阳性里，我抓到了多少？ |
-| **Miss rate**：false negative rate、第二类错误率 | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 我放过了多少？ |
-| **Specificity**：true negative rate | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 真实阴性里，我没去打扰的有多少？ |
-| **False positive rate**：fall-out、第一类错误率 | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 我冤枉了多少？ |
-| **Precision**：positive predictive value（PPV） | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 我报的警里，有多少是真的？ |
-| **NPV**：negative predictive value | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 我放行的里面，有多少是对的？ |
-
 ## 四个比率，一个一个看
 
-![四个小矩阵，各自标出一个比率用到的格子和它所在的行或列](four-rates.svg "图 2。每个比率都是拿一个判对的格子，除以它所在的行或列。布局和图 1 相同，数值来自上面的筛查矩阵。")
+![四个小矩阵，各自标出一个比率用到的格子和它所在的行或列](four-rates.svg "图 2。每个比率都是拿一个判对的格子，除以它所在的行或列；下面一行是它的反面，即同一行或列里的另一个格子除以同一个总数。布局和图 1 相同，数值来自上面的筛查矩阵。")
 
 矩阵有四个格子，也就有四个最自然的比率：各取一个判对的格子，除以它所在的行或者列。四个比率，其实是四种人在问的四个问题。
 
@@ -142,6 +131,7 @@ NPV 的反面叫 false omission rate，也就是系统漏在后面的那部分�
 | 看不见 | 误报 | 漏报 | 漏报 | 误报 |
 | 怎么白拿满分 | 全判阳性 | 全判阴性 | 只标最有把握的一个 | 阳性稀少时全判阴性 |
 | 随阳性占比变化吗 | 不变 | 不变 | 占比越高，它越高 | 占比越高，它越低 |
+| 反面（1 − 它） | 漏报率 13.1% | 假阳性率 11.1% | 错误发现率 95.6% | 错误遗漏率 0.086% |
 
 有两组搭配值得记住。
 
@@ -151,6 +141,37 @@ NPV 的反面叫 false omission rate，也就是系统漏在后面的那部分�
 
 四个比率没有一个可以单独汇报。每一个都有办法白拿满分，每一个都看不见一种错误。一份有用的报告，会把一个看不见误报的比率和一个看不见漏报的比率配在一起（机器学习习惯报 recall 和 precision，医学习惯报 sensitivity 和 specificity），再加上阳性占比。有这三个数，整张矩阵都能还原出来。
 
+### 八个比率，一堆名字
+
+每个比率都有一个“反面”：同一行或同一列里的另一个格子，除以同一个总数。所以一张矩阵里一共有八个比率，两两一对，每对加起来是 100%。医学、统计、信号检测和机器学习各自给它们起过名字，所以同一个数常常有好几个叫法，中文译名又多一层。
+
+| 比率 | 公式 | 筛查的数值 | 英文别名 | 中文叫法 |
+|---|---|---:|---|---|
+| **Recall** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 86.9% | sensitivity、TPR、hit rate、detection rate、统计功效 power（1&nbsp;−&nbsp;β） | 召回率、查全率、灵敏度、敏感度、真阳性率 |
+| **Miss rate** | FN&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FN) | 13.1% | false negative rate（FNR）、第二类错误率（β） | 漏报率、漏诊率、假阴性率 |
+| **Specificity** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 88.9% | true negative rate（TNR）、selectivity | 特异度、特异性、真阴性率 |
+| **False positive rate** | FP&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FP) | 11.1% | FPR、fall-out、false alarm rate、第一类错误率（α） | 假阳性率、误报率、误诊率 |
+| **Precision** | TP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 4.4% | positive predictive value（PPV）；乳腺筛查审计里叫 PPV1 | 精确率、查准率、精准率、阳性预测值 |
+| **False discovery rate** | FP&nbsp;/&nbsp;(TP&nbsp;+&nbsp;FP) | 95.6% | FDR，Benjamini–Hochberg 方法控制的就是它 | 错误发现率、伪发现率 |
+| **NPV** | TN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 99.91% | negative predictive value | 阴性预测值 |
+| **False omission rate** | FN&nbsp;/&nbsp;(TN&nbsp;+&nbsp;FN) | 0.086% | FOR | 错误遗漏率 |
+
+还有两个比率描述的是这张表本身，而不是模型准不准：**阳性占比**（prevalence），(TP + FN) / N = 0.58%；以及**标记率**（flag rate），(TP + FP) / N = 11.6%，也就是被判为阳性的样本占多少，也叫告警率、阳性率。
+
+### 同一个词，不同的数
+
+这些名字会撞车。读别人报的指标之前，下面几处值得先知道。
+
+- **乳腺筛查里的 “recall rate” 不是 recall。** 放射科审计用它表示被叫回复查的检查占比：[BCSC 的定义](https://www.bcsc-research.org/statistics/screening-performance-benchmarks-archive/abnormal-interpretations-archive)是初次判读为异常的检查所占的百分比。这里是 11.6%，也就是上面的标记率。机器学习里的 recall，在那里叫 sensitivity：86.9%。中文里更绕，因为 recall 本身就译作“召回率”。
+- **“误诊率”在医学统计教材里是假阳性率**，即 1 − 特异度；“漏诊率”是假阴性率，即 1 − 灵敏度（例如[这篇整理](https://damodev.csdn.net/68a6b7b64e4959284dabbe8a.html)）。按字面很容易把“误诊率”读成“诊断为阳性的人里有多少是错的”，那其实是错误发现率，1 − precision，筛查里两者差得很远：11.1% 对 95.6%。
+- **准确率和精确率。** “准确率”通常指 accuracy，precision 一般译作精确率或查准率；但也有资料把 precision 译成准确率。看到“准确率”，先看公式。
+- **“检出率”** 在风控、安全领域通常指 recall；在筛查里，[癌症检出率](https://pmc.ncbi.nlm.nih.gov/articles/PMC2714544/table/T1)是每 1,000 次检查查出几例癌症，即 TP / N：这里是 5.1。
+- **“Hit rate”** 在信号检测里是 recall。风控团队也拿它衡量告警质量，包括[被标记的正常客户和抓到的欺诈之比](https://www.sardine.ai/learn/false-positive-rate)。
+- **假阳性“率”（false positive rate）和假阳性“比”（false positive ratio）。** 前者除以真实阴性。后者在反欺诈运营里很常见，[数的是每抓到一笔真欺诈伴随几次误报](https://socure.com/glossary/false-positive-ratio)。换到筛查上是 22 比 1。
+- **“我们的假阳性率是 90%”**，如果说的是告警队列，通常意思是 90% 的告警是误报。这是错误发现率，1 − precision。同一个系统真正的假阳性率往往不到 1%。
+
+最稳妥的习惯：问清公式，最好直接要四个计数。
+
 ### 用一个数来概括
 
 accuracy 是最早把整张表压成一个数的办法，阳性一少它就失灵。其他常见的几个：
@@ -158,7 +179,9 @@ accuracy 是最早把整张表压成一个数的办法，阳性一少它就失�
 - **Balanced accuracy** 是 recall 和 specificity 的平均，这里是 87.9%。它不受阳性占比影响，补上了 accuracy 最大的毛病，但仍然把漏报和误报看得一样重。
 - **$F_1$** 是 precision 和 recall 的调和平均，这里是 0.08。调和平均总是贴近两者中较小的那个，所以只有两个都高，$F_1$ 才高。它不看 TN，还取决于把哪一类叫作阳性：同一批医生、同一批片子，把“正常”当作阳性类来算，$F_1$ 是 0.94。
 - **$F_\beta$** 让 recall 的分量是 precision 的 $\beta$ 倍，但不说明 $\beta$ 从哪来。
-- **Matthews 相关系数**（MCC）四个格子都用上，这里是 0.18。
+- **约登指数**（Youden's J），recall + specificity − 1，这里是 0.76。它是工作点在 ROC 图上高出对角线的距离，代价未知时常用它来选阈值。它的另一个名字叫 informedness；竖着读的对应量是 precision + NPV − 1，叫 markedness，这里是 0.043。
+- **Matthews 相关系数**（MCC）四个格子都用上，这里是 0.18。它等于 informedness 和 markedness 的几何平均，所以横读、竖读只要有一边弱，它就低。
+- **诊断比值比**（diagnostic odds ratio），LR+ / LR−，这里是 53：有癌症时读片为阳性的几率，是没有癌症时的 53 倍。
 
 这些数都回答不了“筛查值不值得做”，因为它们都不知道一次漏报、一次误报各要付出什么。我更愿意把代价直接写出来，后面有一节专门做这件事。
 
