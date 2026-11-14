@@ -1,0 +1,72 @@
+version: 2
+
+seeds:
+  - name: payment_statuses
+    description: Which accepted source statuses count toward captured dollars.
+    columns:
+      - name: payment_status
+        data_tests: [not_null, unique]
+
+models:
+  - name: stg_orders
+    description: One row per order, with source channel formatting cleaned up.
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+      - name: channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['web', 'store']
+  - name: stg_payments
+    description: One row per delivered payment revision; duplicates across deliveries are kept.
+    columns:
+      - name: delivery_id
+        data_tests: [not_null, unique]
+      - name: payment_status
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('payment_statuses')
+                field: payment_status
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+  - name: int_payments_current
+    description: Latest source revision per payment, including failed payments.
+    columns:
+      - name: payment_id
+        data_tests: [not_null, unique]
+  - name: int_payments_by_order
+    description: One row per order with recognized payment attempts.
+  - name: fct_orders
+    description: One row per order, including orders without payment attempts.
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+  - name: mart_daily_orders
+    description: >
+      One row per order date and channel. Captured amounts are attributed
+      to order date, even when capture arrives later. Paid means positive capture.
+
+unit_tests:
+  - name: includes_order_without_payment
+    model: fct_orders
+    given:
+      - input: ref('stg_orders')
+        rows:
+          - {order_id: a, ordered_on: '2026-01-01', channel: web, order_total_cents: 1000}
+          - {order_id: b, ordered_on: '2026-01-01', channel: web, order_total_cents: 500}
+      - input: ref('int_payments_by_order')
+        rows:
+          - {order_id: a, captured_cents: 700}
+    expect:
+      rows:
+        - {order_id: a, captured_cents: 700}
+        - {order_id: b, captured_cents: 0}

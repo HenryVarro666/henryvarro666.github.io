@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: shop
+    schema: raw
+    tables:
+      - name: orders
+        description: Current record for each synthetic order.
+      - name: payment_events
+        description: One row per delivered record, including replays and earlier revisions.

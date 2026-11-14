@@ -1,0 +1,8 @@
+orders_lab:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: orders_lab.duckdb
+      schema: analytics_dev
+      threads: 2
