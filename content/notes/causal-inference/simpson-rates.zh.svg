@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="fig-svg" role="img" viewBox="0 0 720 393" aria-label="低意愿与高意愿层内，提醒组购买率都更高。使用各自不同的用户构成时，总体方向逆转。把两组的用户构成统一后，方向再次转正。">
+<rect x="0" y="0" width="720" height="393" rx="8" class="f-bg"/>
+<text x="26" y="36" font-size="24" class="f-t" text-anchor="start" font-weight="670">同一批用户，两种平均方式</text>
+<rect x="27" y="57" width="25" height="12" rx="3" class="f-fillhl"/>
+<text x="61" y="69" font-size="16" class="f-t" text-anchor="start" font-weight="500">提供提醒</text>
+<rect x="158" y="57" width="25" height="12" rx="3" class="f-bar"/>
+<text x="192" y="69" font-size="16" class="f-t" text-anchor="start" font-weight="500">不提供提醒</text>
+<text x="660" y="69" font-size="16" class="f-m" text-anchor="end" font-weight="500">购买率</text>
+<line x1="26" y1="229" x2="692" y2="229" class="f-lnrule" stroke-width="2" stroke-linecap="round"/>
+<line x1="221" y1="90" x2="221" y2="371" class="f-lnrule" stroke-width="2" stroke-linecap="round"/>
+<text x="28" y="123" font-size="20" class="f-t" text-anchor="start" font-weight="620">低意愿</text>
+<text x="28" y="145" font-size="15" class="f-m" text-anchor="start" font-weight="500">分层内比较</text>
+<rect x="221" y="101" width="124.0" height="17" rx="3" class="f-fillhl"/>
+<rect x="221" y="126" width="62.0" height="17" rx="3" class="f-bar"/>
+<text x="354.0" y="115" font-size="16" class="f-t" text-anchor="start" font-weight="620">20%</text>
+<text x="292.0" y="140" font-size="16" class="f-t" text-anchor="start" font-weight="620">10%</text>
+<text x="28" y="191" font-size="20" class="f-t" text-anchor="start" font-weight="620">高意愿</text>
+<text x="28" y="213" font-size="15" class="f-m" text-anchor="start" font-weight="500">分层内比较</text>
+<rect x="221" y="169" width="403.0" height="17" rx="3" class="f-fillhl"/>
+<rect x="221" y="194" width="372.0" height="17" rx="3" class="f-bar"/>
+<text x="633.0" y="183" font-size="16" class="f-t" text-anchor="start" font-weight="620">65%</text>
+<text x="602.0" y="208" font-size="16" class="f-t" text-anchor="start" font-weight="620">60%</text>
+<text x="28" y="269" font-size="20" class="f-t" text-anchor="start" font-weight="620">直接合并</text>
+<text x="28" y="291" font-size="15" class="f-m" text-anchor="start" font-weight="500">沿用各组构成</text>
+<rect x="221" y="247" width="179.8" height="17" rx="3" class="f-fillhl"/>
+<rect x="221" y="272" width="310.0" height="17" rx="3" class="f-bar"/>
+<text x="409.8" y="261" font-size="16" class="f-t" text-anchor="start" font-weight="620">29%</text>
+<text x="540.0" y="286" font-size="16" class="f-t" text-anchor="start" font-weight="620">50%</text>
+<text x="28" y="345" font-size="20" class="f-t" text-anchor="start" font-weight="620">标准化后</text>
+<text x="28" y="367" font-size="15" class="f-m" text-anchor="start" font-weight="500">两组均按各半计算</text>
+<rect x="221" y="323" width="263.5" height="17" rx="3" class="f-fillhl"/>
+<rect x="221" y="348" width="217.0" height="17" rx="3" class="f-bar"/>
+<text x="493.5" y="337" font-size="16" class="f-t" text-anchor="start" font-weight="620">42.5%</text>
+<text x="447.0" y="362" font-size="16" class="f-t" text-anchor="start" font-weight="620">35%</text>
+</svg>

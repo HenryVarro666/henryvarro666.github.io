@@ -1,0 +1,31 @@
+<svg class="fig-svg" viewBox="0 0 720 353" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Conversion lift is 1 percentage point with a 95% interval of 0.40 to 1.60, above a 0.30 hurdle. Opt-out lift is 0.10 points with an upper bound of 0.222, beyond the 0.20 margin.">
+<title>Conversion clears its hurdle, opt-outs do not</title>
+<rect x="0" y="0" width="720" height="353" rx="8" class="f-bg"/>
+<text x="32" y="42" font-size="25" class="f-t" font-weight="650" text-anchor="start">Conversion clears its hurdle, opt-outs do not</text>
+<text x="34" y="83" font-size="19" class="f-t" font-weight="650" text-anchor="start">Conversion · two-sided 95% CI</text>
+<line x1="64" y1="150" x2="662" y2="150" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<line x1="64.0" y1="107" x2="64.0" y2="166" class="f-ln" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<line x1="163.66666666666669" y1="108" x2="163.66666666666669" y2="166" class="f-ln" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<line x1="196.63839333333334" y1="126" x2="595.8060511111111" y2="126" class="f-lnhl" stroke-width="5" stroke-linecap="round"/>
+<line x1="196.63839333333334" y1="118" x2="196.63839333333334" y2="134" class="f-lnhl" stroke-width="2" stroke-linecap="round"/>
+<line x1="595.8060511111111" y1="118" x2="595.8060511111111" y2="134" class="f-lnhl" stroke-width="2" stroke-linecap="round"/>
+<circle cx="396.22222222222223" cy="126" r="7" class="f-fillhl"/>
+<text x="396.22222222222223" y="108" font-size="16" class="f-h" font-weight="650" text-anchor="middle">+1.00</text>
+<text x="196.63839333333334" y="111" font-size="14" class="f-m" font-weight="400" text-anchor="middle">+0.40</text>
+<text x="595.8060511111111" y="111" font-size="14" class="f-m" font-weight="400" text-anchor="middle">+1.60</text>
+<text x="64" y="176" font-size="15" class="f-m" font-weight="400" text-anchor="middle">0</text>
+<text x="163.66666666666669" y="176" font-size="15" class="f-m" font-weight="400" text-anchor="middle">+0.30 hurdle</text>
+<text x="662" y="176" font-size="15" class="f-m" font-weight="400" text-anchor="end">pp</text>
+<line x1="33" y1="200" x2="688" y2="200" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="34" y="235" font-size="19" class="f-t" font-weight="650" text-anchor="start">Opt-outs · one-sided 95% upper bound</text>
+<line x1="64" y1="304" x2="662" y2="304" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<line x1="462.6666666666667" y1="257" x2="462.6666666666667" y2="320" class="f-lnalt" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<line x1="263.33333333333337" y1="280" x2="505.816154" y2="280" class="f-lnalt" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 5"/>
+<line x1="505.816154" y1="270" x2="505.816154" y2="290" class="f-lnalt" stroke-width="2" stroke-linecap="round"/>
+<circle cx="263.33333333333337" cy="280" r="7" class="f-alt"/>
+<text x="263.33333333333337" y="264" font-size="16" class="f-t" font-weight="650" text-anchor="middle">+0.10</text>
+<text x="505.816154" y="264" font-size="16" class="f-t" font-weight="650" text-anchor="middle">+0.222</text>
+<text x="64" y="328" font-size="15" class="f-m" font-weight="400" text-anchor="middle">0</text>
+<text x="462.6666666666667" y="328" font-size="15" class="f-m" font-weight="400" text-anchor="middle">+0.20 margin</text>
+<text x="662" y="328" font-size="15" class="f-m" font-weight="400" text-anchor="end">pp</text>
+</svg>

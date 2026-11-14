@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="fig-svg" role="img" viewBox="0 0 720 407" aria-label="Prior intent causes both the reminder offer and purchase. A mediator is on a causal path. Conditioning on a common effect can open a path.">
+<rect x="0" y="0" width="720" height="407" rx="8" class="f-bg"/>
+<text x="26" y="36" font-size="24" class="f-t" text-anchor="start" font-weight="670">Three causal paths to recognize</text>
+<rect x="278" y="59" width="164" height="52" rx="8" class="f-hl"/>
+<text x="360" y="91" font-size="18" class="f-t" text-anchor="middle" font-weight="620">Prior intent · X</text>
+<rect x="48" y="138" width="169" height="52" rx="8" class="f-node"/>
+<text x="132" y="170" font-size="18" class="f-t" text-anchor="middle" font-weight="500">Reminder offer · A</text>
+<rect x="503" y="138" width="169" height="52" rx="8" class="f-node"/>
+<text x="587" y="170" font-size="18" class="f-t" text-anchor="middle" font-weight="500">24 h purchase · Y</text>
+<line x1="278" y1="97" x2="224.0" y2="140.4" class="f-ln" stroke-width="2" stroke-linecap="round"/><polygon points="217,146 221.5,137.2 226.5,143.5" class="f-head"/>
+<line x1="442" y1="97" x2="496.0" y2="140.4" class="f-ln" stroke-width="2" stroke-linecap="round"/><polygon points="503,146 493.5,143.5 498.5,137.2" class="f-head"/>
+<line x1="225" y1="164" x2="486.0" y2="164.0" class="f-ln" stroke-width="2" stroke-linecap="round"/><polygon points="495,164 486.0,168.0 486.0,160.0" class="f-head"/>
+<text x="360" y="216" font-size="17" class="f-m" text-anchor="middle" font-weight="500">Condition on X to close A ← X → Y.</text>
+<rect x="24" y="241" width="326" height="143" rx="8" class="f-node"/>
+<rect x="370" y="241" width="326" height="143" rx="8" class="f-node"/>
+<text x="42" y="273" font-size="20" class="f-t" text-anchor="start" font-weight="630">Mediator</text>
+<text x="388" y="273" font-size="20" class="f-t" text-anchor="start" font-weight="630">Collider</text>
+<text x="187" y="312" font-size="24" class="f-h" text-anchor="middle" font-weight="650">A   →   M   →   Y</text>
+<text x="533" y="312" font-size="24" class="f-h" text-anchor="middle" font-weight="650">A   →   S   ←   U   →   Y</text>
+<text x="42" y="343" font-size="16" class="f-t" text-anchor="start" font-weight="500">M could be returning to checkout.</text>
+<text x="42" y="366" font-size="16" class="f-m" text-anchor="start" font-weight="500">Keep this path for the total effect.</text>
+<text x="388" y="343" font-size="16" class="f-t" text-anchor="start" font-weight="500">A and U both affect who is in S.</text>
+<text x="388" y="366" font-size="16" class="f-m" text-anchor="start" font-weight="500">Selecting S can open a path to Y.</text>
+</svg>

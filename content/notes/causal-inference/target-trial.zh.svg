@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="fig-svg" role="img" viewBox="0 0 720 290" aria-label="在结账决策时判断入组资格、记录事前意愿并分配策略。两组采用相同的后续 24 小时来记录购买。">
+<rect x="0" y="0" width="720" height="290" rx="8" class="f-bg"/>
+<text x="26" y="36" font-size="24" class="f-t" text-anchor="start" font-weight="670">从分配决定开始计时</text>
+<text x="253" y="81" font-size="17" class="f-h" text-anchor="middle" font-weight="640">分配时间</text>
+<text x="573" y="81" font-size="17" class="f-m" text-anchor="middle" font-weight="640">随访窗口结束</text>
+<line x1="35" y1="110" x2="660.0" y2="110.0" class="f-ln" stroke-width="2" stroke-linecap="round"/><polygon points="669,110 660.0,114.0 660.0,106.0" class="f-head"/>
+<line x1="253" y1="91" x2="253" y2="231" class="f-lnhl" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 5"/>
+<line x1="573" y1="91" x2="573" y2="231" class="f-lnrule" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 5"/>
+<text x="58" y="141" font-size="17" class="f-m" text-anchor="start" font-weight="500">分配前</text>
+<text x="253" y="141" font-size="17" class="f-h" text-anchor="middle" font-weight="500">t₀</text>
+<text x="573" y="141" font-size="17" class="f-t" text-anchor="middle" font-weight="500">t₀ + 24 小时</text>
+<rect x="33" y="163" width="190" height="70" rx="8" class="f-node"/>
+<text x="46" y="189" font-size="16" class="f-t" text-anchor="start" font-weight="600">判断是否符合入组条件</text>
+<text x="46" y="214" font-size="16" class="f-t" text-anchor="start" font-weight="500">记录事前意愿</text>
+<rect x="275" y="163" width="275" height="31" rx="5" class="f-hl"/>
+<rect x="275" y="202" width="275" height="31" rx="5" class="f-node"/>
+<text x="289" y="184" font-size="16" class="f-t" text-anchor="start" font-weight="560">提供提醒 · 记录是否购买</text>
+<text x="289" y="223" font-size="16" class="f-t" text-anchor="start" font-weight="560">不提供提醒 · 同样的观察窗口</text>
+<text x="28" y="267" font-size="17" class="f-m" text-anchor="start" font-weight="500">结局 = 在 [t₀, t₀ + 24 小时) 内至少购买一次。</text>
+</svg>
