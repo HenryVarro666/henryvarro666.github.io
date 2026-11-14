@@ -1,0 +1,32 @@
+<svg class="fig-svg" viewBox="0 0 720 353" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="符合条件的账户等概率分入现有结账流程和可选提醒两组。两组都记录 24 小时内是否购买。">
+<title>按账户随机分流，用同一口径量结果</title>
+<rect x="0" y="0" width="720" height="353" rx="8" class="f-bg"/>
+<text x="32" y="42" font-size="25" class="f-t" font-weight="650" text-anchor="start">按账户随机分流，用同一口径量结果</text>
+<rect x="30" y="134" width="172" height="88" rx="8" class="f-node"/>
+<text x="116" y="168" font-size="19" class="f-t" font-weight="650" text-anchor="middle">符合条件的用户</text>
+<text x="116" y="195" font-size="16" class="f-m" font-weight="400" text-anchor="middle">固定账户 ID</text>
+<line x1="204" y1="178" x2="238" y2="178" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 238 178 V 112 H 276 M 238 178 V 241 H 276" class="f-ln" stroke-width="2" stroke-linejoin="round"/>
+<path d="M 275 107 L 283 112 L 275 117 Z" class="f-head"/>
+<path d="M 275 236 L 283 241 L 275 246 Z" class="f-head"/>
+<text x="257" y="97" font-size="14" class="f-m" font-weight="400" text-anchor="middle">50%</text>
+<text x="257" y="267" font-size="14" class="f-m" font-weight="400" text-anchor="middle">50%</text>
+<rect x="288" y="74" width="194" height="77" rx="8" class="f-node"/>
+<text x="307" y="104" font-size="19" class="f-t" font-weight="650" text-anchor="start">A · 对照组</text>
+<text x="307" y="130" font-size="16" class="f-m" font-weight="400" text-anchor="start">保留现有结账流程</text>
+<rect x="288" y="203" width="194" height="77" rx="8" class="f-hl"/>
+<text x="307" y="233" font-size="19" class="f-t" font-weight="650" text-anchor="start">B · 实验组</text>
+<text x="307" y="259" font-size="16" class="f-m" font-weight="400" text-anchor="start">提供可选提醒</text>
+<line x1="486" y1="112" x2="527" y2="112" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 526 107 L 534 112 L 526 117 Z" class="f-head"/>
+<line x1="486" y1="241" x2="527" y2="241" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 526 236 L 534 241 L 526 246 Z" class="f-head"/>
+<rect x="540" y="74" width="150" height="77" rx="8" class="f-node"/>
+<rect x="540" y="203" width="150" height="77" rx="8" class="f-node"/>
+<text x="615" y="104" font-size="18" class="f-t" font-weight="650" text-anchor="middle">是否购买？</text>
+<text x="615" y="130" font-size="15" class="f-m" font-weight="400" text-anchor="middle">按用户 · 24 小时</text>
+<text x="615" y="233" font-size="18" class="f-t" font-weight="650" text-anchor="middle">是否购买？</text>
+<text x="615" y="259" font-size="15" class="f-m" font-weight="400" text-anchor="middle">按用户 · 24 小时</text>
+<line x1="31" y1="303" x2="689" y2="303" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="32" y="332" font-size="17" class="f-m" font-weight="400" text-anchor="start">保留首次分组，回访不改组。未看到提醒的用户也保留在原组。</text>
+</svg>

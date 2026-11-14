@@ -1,0 +1,25 @@
+<svg class="fig-svg" viewBox="0 0 720 309" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="分组时刻纳入 24 小时窗口，上界不纳入。窗口内两笔购买都对应同一个 1。分组前与恰好在 24 小时后的购买不计。">
+<title>每个用户只记一个二元结果</title>
+<rect x="0" y="0" width="720" height="309" rx="8" class="f-bg"/>
+<text x="32" y="42" font-size="25" class="f-t" font-weight="650" text-anchor="start">每个用户只记一个二元结果</text>
+<rect x="178" y="120" width="394" height="48" rx="0" class="f-fillsoft"/>
+<line x1="41" y1="144" x2="677" y2="144" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 677 139 L 685 144 L 677 149 Z" class="f-head"/>
+<line x1="178" y1="105" x2="178" y2="183" class="f-lnhl" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="572" y1="105" x2="572" y2="183" class="f-lnalt" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 5"/>
+<text x="178" y="93" font-size="17" class="f-t" font-weight="650" text-anchor="middle">分组 · 12:00</text>
+<text x="572" y="93" font-size="17" class="f-t" font-weight="650" text-anchor="middle">次日 · 12:00</text>
+<circle cx="93" cy="144" r="6" class="f-dotm"/>
+<circle cx="343" cy="144" r="8" class="f-fillhl"/>
+<circle cx="465" cy="144" r="8" class="f-fillhl"/>
+<circle cx="572" cy="144" r="6" class="f-alt"/>
+<text x="93" y="205" font-size="17" class="f-t" font-weight="400" text-anchor="middle">11:58</text>
+<text x="93" y="229" font-size="15" class="f-m" font-weight="400" text-anchor="middle">分组前</text>
+<text x="343" y="205" font-size="17" class="f-t" font-weight="400" text-anchor="middle">12:05</text>
+<text x="465" y="205" font-size="17" class="f-t" font-weight="400" text-anchor="middle">16:10</text>
+<text x="572" y="205" font-size="17" class="f-t" font-weight="400" text-anchor="middle">正好 +24 小时</text>
+<text x="572" y="229" font-size="15" class="f-m" font-weight="400" text-anchor="middle">不纳入窗口</text>
+<path d="M 343 215 V 232 H 465 V 215" class="f-lnhl" stroke-width="2"/>
+<text x="404" y="258" font-size="17" class="f-t" font-weight="650" text-anchor="middle">两笔购买，用户结果仍为 1</text>
+<text x="32" y="287" font-size="15" class="f-m" font-weight="400" text-anchor="start">按事件发生时间判断 · 示意图，刻度非等比例</text>
+</svg>

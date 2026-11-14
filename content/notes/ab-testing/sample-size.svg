@@ -1,0 +1,26 @@
+<svg class="fig-svg" viewBox="0 0 720 334" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="At a baseline of 10%, an uplift of 0.5 points needs 57,763 per arm, 1 point needs 14,751, and 2 points needs 3,841.">
+<title>Detecting smaller lifts takes more users</title>
+<rect x="0" y="0" width="720" height="334" rx="8" class="f-bg"/>
+<text x="32" y="42" font-size="25" class="f-t" font-weight="650" text-anchor="start">Detecting smaller lifts takes more users</text>
+<line x1="168.0" y1="89" x2="168.0" y2="256" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="168.0" y="278" font-size="13" class="f-m" font-weight="400" text-anchor="middle">0k</text>
+<line x1="290.5" y1="89" x2="290.5" y2="256" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="290.5" y="278" font-size="13" class="f-m" font-weight="400" text-anchor="middle">15k</text>
+<line x1="413.0" y1="89" x2="413.0" y2="256" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="413.0" y="278" font-size="13" class="f-m" font-weight="400" text-anchor="middle">30k</text>
+<line x1="535.5" y1="89" x2="535.5" y2="256" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="535.5" y="278" font-size="13" class="f-m" font-weight="400" text-anchor="middle">45k</text>
+<line x1="658.0" y1="89" x2="658.0" y2="256" class="f-lnrule" stroke-width="1" stroke-linecap="round"/>
+<text x="658.0" y="278" font-size="13" class="f-m" font-weight="400" text-anchor="middle">60k</text>
+<text x="140" y="129" font-size="17" class="f-t" font-weight="600" text-anchor="end">+0.5 pp</text>
+<rect x="168" y="108" width="471.73116666666664" height="30" rx="4" class="f-bar"/>
+<text x="627.7311666666667" y="129" font-size="16" class="f-t" font-weight="650" text-anchor="end">57,763</text>
+<text x="140" y="184" font-size="17" class="f-t" font-weight="600" text-anchor="end">+1.0 pp</text>
+<rect x="168" y="163" width="120.4665" height="30" rx="4" class="f-fillhl"/>
+<text x="298.4665" y="184" font-size="16" class="f-t" font-weight="650" text-anchor="start">14,751</text>
+<text x="140" y="239" font-size="17" class="f-t" font-weight="600" text-anchor="end">+2.0 pp</text>
+<rect x="168" y="218" width="31.368166666666667" height="30" rx="4" class="f-bar"/>
+<text x="209.36816666666667" y="239" font-size="16" class="f-t" font-weight="650" text-anchor="start">3,841</text>
+<text x="658" y="311" font-size="15" class="f-m" font-weight="400" text-anchor="end">Users per arm</text>
+<text x="31" y="311" font-size="15" class="f-m" font-weight="400" text-anchor="start">10% baseline · 80% power · two-sided α = 0.05</text>
+</svg>
