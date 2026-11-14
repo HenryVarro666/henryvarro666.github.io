@@ -1,0 +1,2 @@
+{{- $label := .Get 0 -}}
+<a href="{{ .Get 1 }}" target="_blank" rel="noopener" aria-label="{{ $label }} ({{ T "opens-in-new-tab" }})">{{ $label }}<span aria-hidden="true">&nbsp;↗</span></a>
