@@ -10,7 +10,7 @@
     {{- end }}
   {{- end }}
 {{- end }}
-<article class="post{{ if $toc }} post-with-toc{{ end }}">
+<article class="post{{ if $toc }} post-with-toc{{ end }}{{ if .Param "resourceGuide" }} resource-guide{{ end }}">
   <header class="post-head">
     <div class="post-top">
       {{- with .Parent }}{{ with $d.GetPage .Path }}<a class="back" href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}{{ end }}
@@ -46,16 +46,81 @@
   (function () {
     var post = document.querySelector(".post-with-toc");
     var contents = post.querySelector(".toc");
+    var prose = post.querySelector(".prose");
     var banner = document.querySelector("header.banner");
     var wide = matchMedia("(min-width: 64rem)");
-    function updateContents() { contents.open = wide.matches; }
+    var sections = Array.from(contents.querySelectorAll("nav a"), function (link) {
+      return { link: link, heading: document.getElementById(decodeURIComponent(link.hash.slice(1))) };
+    }).filter(function (section) { return section.heading; });
+    var currentLink = null;
+    var fragmentTop = null;
+    var frame = 0;
+
+    function updateCurrentSection() {
+      frame = 0;
+      if (!sections.length) return;
+      var page = document.scrollingElement;
+      if (fragmentTop !== null && Math.abs(page.scrollTop - fragmentTop) > 2) fragmentTop = null;
+      // Use the same offset as anchor jumps to choose the last heading above the reading area.
+      var readingLine = parseFloat(getComputedStyle(sections[0].heading).scrollMarginTop) + 4;
+      var nextLink = null;
+      for (var section of sections) {
+        if (section.heading.getBoundingClientRect().top > readingLine) break;
+        nextLink = section.link;
+      }
+      var remaining = page.scrollHeight - page.clientHeight - page.scrollTop;
+      if (remaining <= 2 && page.scrollTop > 0) {
+        // Follow the last section if it is too close to the bottom to reach the reading line.
+        // An explicit jump can select a nearby heading at the same scroll position.
+        var target = fragmentTop === null ? null : prose.querySelector(":target");
+        var jumpedTo = sections.find(function (section) { return section.heading === target; });
+        nextLink = (jumpedTo || sections[sections.length - 1]).link;
+      }
+      if (nextLink === currentLink) return;
+      if (currentLink) currentLink.removeAttribute("aria-current");
+      currentLink = nextLink;
+      if (!currentLink) return;
+      currentLink.setAttribute("aria-current", "location");
+
+      if (wide.matches && contents.open) {
+        var panel = contents.getBoundingClientRect();
+        var link = currentLink.getBoundingClientRect();
+        // Scroll the contents panel alone so keeping its current link visible never moves the article.
+        if (link.top < panel.top) contents.scrollTop += link.top - panel.top;
+        else if (link.bottom > panel.bottom) contents.scrollTop += link.bottom - panel.bottom;
+      }
+    }
+    function scheduleSectionUpdate() {
+      if (!frame) frame = requestAnimationFrame(updateCurrentSection);
+    }
+    function rememberFragment() {
+      fragmentTop = document.scrollingElement.scrollTop;
+      scheduleSectionUpdate();
+    }
+    function updateContents() {
+      contents.open = wide.matches;
+      scheduleSectionUpdate();
+    }
     function updateBannerHeight() {
       post.style.setProperty("--note-banner-height", banner.offsetHeight + "px");
+      scheduleSectionUpdate();
     }
     updateContents();
     updateBannerHeight();
     wide.addEventListener("change", updateContents);
-    new ResizeObserver(updateBannerHeight).observe(banner);
+    window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
+    window.addEventListener("resize", scheduleSectionUpdate);
+    window.addEventListener("hashchange", rememberFragment);
+    window.addEventListener("pageshow", rememberFragment);
+    contents.addEventListener("click", function (event) {
+      var link = event.target.closest("nav a");
+      if (link && link.hash === location.hash) requestAnimationFrame(rememberFragment);
+    });
+    if (window.ResizeObserver) {
+      var observer = new ResizeObserver(updateBannerHeight);
+      observer.observe(banner);
+      observer.observe(prose);
+    }
   })();
 </script>
 {{- end }}

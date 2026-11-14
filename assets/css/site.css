@@ -613,8 +613,44 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .toc ul { list-style: none; margin: 0.4rem 0 0; padding-left: 0; }
 .toc ul ul { margin-top: 0.15rem; padding-left: 1rem; }
 .toc li { margin: 0.2rem 0; }
-.toc a { display: block; padding-block: 0.15rem; color: var(--text); line-height: 1.45; overflow-wrap: anywhere; }
+.toc a {
+  position: relative;
+  display: block;
+  padding: 0.18rem 0.28rem 0.18rem 0.85rem;
+  border-radius: 3px;
+  color: var(--text);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
 .toc a:hover { color: var(--accent-hover); }
+.toc a[aria-current="location"] {
+  color: var(--fig-hl);
+  background: var(--wash);
+  font-weight: 600;
+}
+.toc a[aria-current="location"]::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.27rem;
+  top: 0.83em;
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.resource-guide .prose > ul > li {
+  margin: 0;
+  padding: 0.62rem 0;
+}
+.resource-guide .prose > ul > li > p { margin: 0; }
+.resource-guide .prose > ul > li + li { border-top: 1px solid var(--rule); }
+.resource-guide .prose > ul > li::marker { color: var(--fig-hl); }
+.resource-guide .prose > ul > li > p > strong:first-child a {
+  color: var(--ink);
+  font-size: var(--step-1);
+  overflow-wrap: anywhere;
+}
 
 @media (min-width: 64rem) {
   .column:has(> .post-with-toc) {
