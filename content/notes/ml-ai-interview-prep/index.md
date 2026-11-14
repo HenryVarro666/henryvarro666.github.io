@@ -10,67 +10,67 @@ This study guide covers machine learning (ML) and artificial intelligence (AI) i
 
 ## A 45-minute first pass
 
-1. **Explain a model for 15 minutes.** Pick an overfitting or evaluation question. Close the answer and spend one minute explaining how you would spot the problem and what you would check next. [MLQuestions fundamentals](https://github.com/andrewekhalel/MLQuestions#machine-learning-fundamentals)
+1. **Explain a model for 15 minutes.** Spend one minute explaining how you would spot overfitting and what you would check next. Read the answer after you finish. [MLQuestions on overfitting and underfitting](https://github.com/andrewekhalel/MLQuestions#explain-over--and-under-fitting-and-how-to-combat-them)
 2. **Write code for 20 minutes.** Implement softmax from scratch. Test it on large inputs, then add the same constant to every score and check that the output stays the same. [Deep-ML softmax exercise](https://www.deep-ml.com/problems/23)
-3. **Spend 10 minutes on a follow-up.** For classic ML, explain how raising a threshold changes false positives and false negatives. For language models, sketch which tokens each position can see through a causal mask. [Precision vs. recall](/notes/precision-vs-recall/) · [Zero to Hero GPT lesson](https://karpathy.ai/zero-to-hero.html)
+3. **Spend 10 minutes on a follow-up.** For classic ML, explain how raising a threshold changes false positives and false negatives. For language models, sketch which tokens each position can see through a causal mask. [Precision vs. recall](/notes/precision-vs-recall/) · [GPT causal mask code](https://github.com/karpathy/ng-video-lecture/blob/52201428ed7b46804849dea0b3ccf0de9df1a5c3/gpt.py#L64-L93)
 
 ## ML foundations: explain the choice
 
 - **[Probability Cheatsheet](https://github.com/wzchen/probability_cheatsheet)**\
   A compact reference for probability formulas and common distributions.\
-  **Study** Conditional probability, total expectation, and variance. Pick a two-stage sampling example and use conditioning to compute the overall expectation.
+  **Study** Use a two-stage sampling example to practice conditional probability and total expectation, then use the law of total variance to separate variation within groups from variation between groups. [Conditional probability · PDF page 1](https://www.wzchen.com/s/probability_cheatsheet.pdf#page=1) · [Total expectation and variance · PDF page 4](https://www.wzchen.com/s/probability_cheatsheet.pdf#page=4)
 
 - **[ML-NLP](https://github.com/NLP-LOVE/ML-NLP)**\
   Chinese-language notes on algorithms with code and interview topics.\
-  **Study** Compare logistic regression, decision trees, and ensembles. Explain what result would make you replace a logistic regression baseline.
+  **Study** Compare logistic regression, decision trees, and random forests. Explain what result would make you replace a logistic regression baseline. [Logistic regression](https://github.com/NLP-LOVE/ML-NLP/blob/master/Machine%20Learning/2.Logistics%20Regression/2.Logistics%20Regression.md) · [Decision trees](https://github.com/NLP-LOVE/ML-NLP/blob/master/Machine%20Learning/3.Desition%20Tree/Desition%20Tree.md) · [Random forests](https://github.com/NLP-LOVE/ML-NLP/blob/master/Machine%20Learning/3.1%20Random%20Forest/3.1%20Random%20Forest.md)
 
 - **[AIMLInterviews · ML Fundamentals](https://github.com/alirezadir/AIMLInterviews/blob/main/src/ml-fundamental.md)**\
   The fundamentals chapter of a broader technical interview guide.\
-  **Study** Use validation performance to distinguish underfitting from overfitting. Explain how you would split the data.
+  **Study** Use training and validation performance to distinguish underfitting from overfitting. Explain how you would split the data. [Bias and variance](https://github.com/alirezadir/AIMLInterviews/blob/main/src/ml-fundamental.md#bias--variance-underfittingoverfitting) · [Data splitting code](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLC/problems/classic_ml/dataset_split.py)
 
 - **[Educatum · AI/ML Interview Playbook](https://www.educatum.com/the-ai-ml-interview-playbook)**\
   Study paths and classic interview questions organized by topic.\
-  **Study** Pick a question on data leakage or class imbalance. With only 100 reviews available per day, choose a metric and explain how you would set the threshold on the validation set. [Areas under the receiver operating characteristic and precision–recall curves](/notes/roc-auc-vs-pr-auc/)
+  **Study** Explain how logistic regression can handle class imbalance. With only 100 alerts reviewed each day, choose a metric and explain how you would set a threshold on the validation set. [Educatum's class imbalance question](https://www.educatum.com/12355925845b81a98b05f8005cd3c9fd) · [ROC and precision–recall curves](/notes/roc-auc-vs-pr-auc/)
 
 - **[Data Science Interview Questions and Answers](https://github.com/youssefHosni/Data-Science-Interview-Questions-Answers)**\
   A question bank covering statistics, probability, and modeling.\
-  **Study** Review sampling and uncertainty, then design an A/B test. If each user can visit several times, explain the unit of randomization and the primary metric.
+  **Study** Use the central limit theorem to reason about uncertainty in a sample mean, then design an A/B test. If each user can visit several times, explain the unit of randomization and the primary metric. [Q1 · Central limit theorem](https://github.com/youssefHosni/Data-Science-Interview-Questions-Answers/blob/main/Statistics%20Interview%20Questions%20%26%20Answers%20for%20Data%20Scientists.md#q1-explain-the-central-limit-theorem-and-give-examples-of-when-you-can-use-it-in-a-real-world-problem) · [Q2 · A/B testing](https://github.com/youssefHosni/Data-Science-Interview-Questions-Answers/blob/main/Statistics%20Interview%20Questions%20%26%20Answers%20for%20Data%20Scientists.md#q2-briefly-explain-the-ab-testing-and-its-application-what-are-some-common-pitfalls-encountered-in-ab-testing)
 
 - **[MLQuestions](https://github.com/andrewekhalel/MLQuestions)**\
   Technical interview questions on machine learning and computer vision.\
-  **Study** Pick an evaluation question and revisit your first answer. Describe the pattern of training and validation performance that would make you suspect overfitting. [Model evaluation and validation questions](https://github.com/andrewekhalel/MLQuestions#model-evaluation-and-validation)
+  **Study** Explain why generating a fresh random data split for each model makes the evaluation results harder to compare. [MLQuestions on data splitting](https://github.com/andrewekhalel/MLQuestions#given-that-we-want-to-evaluate-the-performance-of-n-different-machine-learning-models-on-the-same-data-why-would-the-following-splitting-mechanism-be-incorrect)
 
 ## ML coding: from NumPy to a Transformer
 
 - **[Deep-ML](https://www.deep-ml.com/problems)**\
   Python exercises you can run and test in the browser.\
-  **Study** Work from matrix operations and gradient descent to multi-head attention. Write down the tensor shapes, then add a causal mask to your own implementation. [Multi-head attention exercise](https://www.deep-ml.com/problems/94)
+  **Study** Work from matrix operations and gradient descent to multi-head attention. Write down the tensor shapes, then add a causal mask to your own implementation. [Matrix–vector product](https://www.deep-ml.com/problems/1) · [Gradient descent for linear regression](https://www.deep-ml.com/problems/15) · [Multi-head attention](https://www.deep-ml.com/problems/94)
 
 - **[AIMLInterviews · ML Coding](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLC/ml-coding.md)**\
   Practice prompts for implementing algorithms and model components in interviews.\
-  **Study** Pick a familiar problem and implement it under a time limit. Test one example you can check by hand and one edge case.
+  **Study** Implement K-means assignments and updates under a time limit. Test a small example by hand, then test an empty cluster. [K-means notebook](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLC/notebooks/k_means_2.ipynb) · [Reference implementation](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLC/problems/classic_ml/kmeans.py)
 
 - **[Karpathy · Neural Networks: Zero to Hero](https://github.com/karpathy/nn-zero-to-hero)**\
   A hands-on course that starts with automatic differentiation and builds up to a small language model.\
-  **Study** Use micrograd to review computation graphs. Implement the forward and backward passes of a two-layer perceptron, then check one weight with finite differences.
+  **Study** Use micrograd to review computation graphs. Implement the forward and backward passes of a two-layer perceptron, then check one weight with finite differences. [micrograd notebook](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/micrograd/micrograd_lecture_first_half_roughly.ipynb) · [Two-layer backpropagation exercise](https://colab.research.google.com/drive/1WV2oi2fh9XXyldh02wupFQX0wh5ZC-z-?usp=sharing) · [Worked notebook](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part4_backprop.ipynb)
 
 - **[Stanford CS336 · Assignment 1](https://github.com/stanford-cs336/assignment1-basics)**\
   A course assignment that brings tokenization, Transformer components, and the training loop together.\
-  **Study** Implement one attention component and pass its tests before putting it back in the model. [Assignment handout](https://github.com/stanford-cs336/assignment1-basics/blob/main/cs336_assignment1_basics.pdf)
+  **Study** Implement scaled dot-product attention. Use the tests to check masking and inputs with extra batch dimensions. [Assignment problem · PDF page 24](https://cdn.jsdelivr.net/gh/stanford-cs336/assignment1-basics@a158843b20107949f1a8d7df1b05cd33b9166712/cs336_assignment1_basics.pdf#page=24) · [Attention tests](https://github.com/stanford-cs336/assignment1-basics/blob/a158843b20107949f1a8d7df1b05cd33b9166712/tests/test_model.py#L57-L71)
 
 ## ML system design: put the model in a product
 
 - **[AIMLInterviews · ML System Design](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLSD/ml-system-design.md)**\
   A framework for answering system design questions, with worked cases.\
-  **Study** Turn the product goal into something you can measure. Define the label and offline metric, then say what you would check after launch.
+  **Study** Turn the product goal into something you can measure. Define the label and offline metric, then say what you would check after launch. [Problem formulation](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLSD/ml-system-design.md#1-problem-formulation) · [Offline and online metrics](https://github.com/alirezadir/AIMLInterviews/blob/main/src/MLSD/ml-system-design.md#2-metrics-offline-and-online)
 
 - **[Chip Huyen · Machine Learning Systems Design](https://huyenchip.com/machine-learning-systems-design/toc.html)**\
   A guide to data pipelines, training, and serving.\
-  **Study** Read the data pipeline and serving sections. Check which training features are available at prediction time and how you would measure serving latency. [System design chapter](https://huyenchip.com/machine-learning-systems-design/design-a-machine-learning-system.html)
+  **Study** Check which training features are available at prediction time and how you would measure serving latency. [Data pipeline](https://huyenchip.com/machine-learning-systems-design/design-a-machine-learning-system.html#data-pipeline-698WI4R) · [Serving](https://huyenchip.com/machine-learning-systems-design/design-a-machine-learning-system.html#serving-091rIYw)
 
 - **[Datawhale fun-rec](https://github.com/datawhalechina/fun-rec)**\
   A Chinese-language recommendation systems textbook and exercises, from retrieval through reranking.\
-  **Study** Start with the two-tower model. Explain how many candidates each stage handles, then sketch how impressions become training feedback. [Two-tower model chapter](https://datawhalechina.github.io/fun-rec/chapter_1_retrieval/3.two_tower/index.html)
+  **Study** Start with the two-tower model. Explain how many candidates each stage handles, then sketch how impressions become training feedback. [Two-tower retrieval](https://datawhalechina.github.io/fun-rec/chapter_1_retrieval/3.two_tower/index.html) · [Ranking and preference prediction](https://datawhalechina.github.io/fun-rec/chapter_2_ranking/index.html)
 
 > **Interview follow-up** Offline ranking improves and the live click rate stays flat. Which check would you start with among experiment assignment, retrieval coverage, and serving latency? Explain what it could rule out.
 
@@ -80,42 +80,42 @@ This study guide covers machine learning (ML) and artificial intelligence (AI) i
 
 - **[Dive into LLMs](https://github.com/Lordog/dive-into-llms)**\
   Chinese-language labs from Shanghai Jiao Tong University coursework, including fine-tuning and deployment.\
-  **Study** Use the fine-tuning lab to identify the pretrained weights, the task data, and the parameters that get updated. Say how you would compare results before and after training. [Fine-tuning and deployment lab](https://github.com/Lordog/dive-into-llms/tree/main/documents/chapter1)
+  **Study** Use the fine-tuning lab to identify the pretrained weights, the task data, and the parameters that get updated. Say how you would compare results before and after training. [Fine-tuning modules](https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1/README.md#21-%E7%90%86%E8%A7%A3%E5%85%B3%E9%94%AE%E6%A8%A1%E5%9D%97) · [Fine-tuning notebook](https://github.com/Lordog/dive-into-llms/blob/main/documents/chapter1/dive-tuning.ipynb)
 
 - **[Educatum · Advanced language model and generative AI questions](https://www.educatum.com/llm-and-genai-advanced-interview-questions)**\
   A question bank for oral practice on language models and generative AI.\
-  **Study** Sketch a causal mask, then explain why training can process positions in parallel and generation decodes one token at a time.
+  **Study** Explain how self-attention assigns weights to input positions. Sketch a causal mask, then explain why training can process positions in parallel and generation decodes one token at a time. [Educatum's self-attention question](https://www.educatum.com/12555925845b81fd92a5c48f91079203) · [Causal mask code](https://github.com/karpathy/ng-video-lecture/blob/52201428ed7b46804849dea0b3ccf0de9df1a5c3/gpt.py#L64-L93)
 
 ### Retrieval and agents
 
 - **[Hands-On Large Language Models](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/tree/main/chapter08)**\
   Code from the book of the same name. Chapter 8 covers semantic search and retrieval-augmented generation (RAG).\
-  **Study** Run a retrieval example and pick a question it gets wrong. Inspect the retrieved evidence and generated answer separately.
+  **Study** Run a retrieval example from Chapter 8 and pick a question it gets wrong. Inspect the retrieved evidence and generated answer separately. [Chapter 8 notebook](https://github.com/HandsOnLLM/Hands-On-Large-Language-Models/blob/main/chapter08/Chapter%208%20-%20Semantic%20Search.ipynb) · [Open in Google Colab](https://colab.research.google.com/github/HandsOnLLM/Hands-On-Large-Language-Models/blob/main/chapter08/Chapter%208%20-%20Semantic%20Search.ipynb)
 
 - **[learn-harness-engineering](https://github.com/walkinglabs/learn-harness-engineering)**\
   Projects on agent workspaces, execution feedback, and verification.\
-  **Study** Try P05. Give the system an unsupported answer and see whether the verification step catches it. [P05 project brief](https://github.com/walkinglabs/learn-harness-engineering/blob/main/docs/en/projects/project-05-grounded-qa-verification/index.md)
+  **Study** Follow P05's generator and evaluator setup. Add a rubric check for whether the evidence supports the answer, then try it on an unsupported answer. [P05 project brief](https://github.com/walkinglabs/learn-harness-engineering/blob/main/docs/en/projects/project-05-grounded-qa-verification/index.md) · [Example evaluator rubric](https://github.com/walkinglabs/learn-harness-engineering/blob/main/projects/project-05/solution/gen-eval/evaluator-rubric.md)
 
 - **[Educatum · AI engineering questions](https://www.educatum.com/ai-engineering-interview-questions)**\
   Questions and answers for artificial intelligence engineering interviews.\
-  **Study** Pick a question to answer aloud, then practice a follow-up. What would you log to reproduce and diagnose a failed agent task?
+  **Study** Use the ReAct question to explain how an agent alternates actions and observations. Then say what you would log to reproduce and diagnose a failed task. [Educatum's ReAct question](https://www.educatum.com/31655925845b80128df5de4b76d09b73) · [LangSmith on traces](https://docs.langchain.com/langsmith/observability-concepts#traces)
 
 ### Inference and post-training
 
 - **[vLLM](https://github.com/vllm-project/vllm)**\
   An inference and serving engine for language models.\
-  **Study** Read how PagedAttention stores the key–value (KV) cache in blocks. Write a small cache, compare token-by-token decoding with a full forward pass, then reason about memory and latency as context grows. [PagedAttention documentation](https://docs.vllm.ai/en/latest/design/paged_attention/)
+  **Study** Read how PagedAttention stores the key–value (KV) cache in blocks. Write a small cache, compare token-by-token decoding with a full forward pass, then reason about memory and latency as context grows. [PagedAttention block concepts](https://docs.vllm.ai/en/latest/design/paged_attention/#concepts) · [Cache allocation function](https://github.com/vllm-project/vllm/blob/d64414d044a898c6db646dcecd122213accd1732/vllm/v1/core/kv_cache_manager.py#L400)
 
 - **[verl](https://github.com/verl-project/verl)**\
   A framework for post-training language models with reinforcement learning.\
-  **Study** Trace group relative policy optimization (GRPO). Follow several responses to the same prompt through reward scoring, advantage estimation, and the policy update. [GRPO documentation](https://verl.readthedocs.io/en/latest/algo/grpo.html)
+  **Study** Trace group relative policy optimization (GRPO). Follow several responses to the same prompt through reward scoring, advantage estimation, and the policy update. [GRPO example configuration](https://verl.readthedocs.io/en/latest/algo/grpo.html#reference-example) · [Advantage calculation function](https://github.com/verl-project/verl/blob/61adb0c7eb90730306e7794c2bf248331211e657/verl/trainer/ppo/core_algos.py#L268-L331)
 
 ## More questions and practice
 
 - **[Cheng Zhang's ML engineering question bank](https://chengz.art/en/mle-prep)**\
   Interview questions organized by topic and difficulty.\
-  **Study** Pick a weak topic, answer three questions aloud, and write down the first follow-up that stops you.
+  **Study** Explain why cross-entropy works for classification, then pick two more questions on topics you find difficult. Write down the first follow-up that stops you. [Cross-entropy question · jumps in browsers that support text fragments](https://chengz.art/en/mle-prep#:~:text=%E8%A7%A3%E9%87%8A%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86%E5%8F%8A%E5%85%B6%E5%9C%A8%E5%88%86%E7%B1%BB%E4%BB%BB%E5%8A%A1%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E3%80%82)
 
 - **[Silvia Sapora's ML interview guide](https://silviasapora.github.io/blog/ml-interviews.html)**\
   A preparation guide with programming and debugging exercises.\
-  **Study** Time yourself on one implementation or debugging exercise, then redo the part you missed the next day.
+  **Study** Pick one exercise from the coding and debugging checklist and solve it under a time limit. Redo the part you missed the next day. [ML coding and debugging checklist](https://silviasapora.github.io/blog/ml-interviews.html#prep-technical:~:text=ML%20coding%20and%20debugging)
