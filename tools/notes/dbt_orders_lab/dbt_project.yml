@@ -1,0 +1,24 @@
+name: orders_lab
+version: '1.0.0'
+config-version: 2
+profile: orders_lab
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+models:
+  orders_lab:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  orders_lab:
+    payment_statuses:
+      +column_types:
+        counts_as_capture: boolean
