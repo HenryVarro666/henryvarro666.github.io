@@ -133,6 +133,18 @@ python3 tools/notes/precision_vs_recall_figs.py   # 写出 content/notes/precisi
 
 `content/notes/style-check.md` 是一个不公开的样式页（不进列表、不进 sitemap、noindex），地址是 `/notes/style-check/`，包含上面所有元素，改样式时可以在这里检查。
 
+## Vault（密码保护的栏目）
+
+页脚的 Vault 链接通向一个需要密码的栏目，进去之后和 Notes 一样是文章列表，导航里多一个 Vault。它的 Markdown 源稿不放在这个仓库里，仓库里只有加密后的页面（`static/vault/`、`static/zh/vault/`）。
+
+新增或修改一篇：在仓库外的源稿文件夹里按 Notes 的写法放一个 `文章名/index.md`（要中文版就再放 `index.zh.md`），然后运行
+
+```bash
+STATICRYPT_PASSWORD='密码' python3 tools/vault/build.py /path/to/vault-src
+```
+
+脚本用本站模板渲染、逐页加密，再写回 `static/`；提交这些加密文件即可上线。需要本机装有 Hugo 和 Node.js。图片、附件这类非 HTML 文件不会被加密，脚本不会复制它们。
+
 ## 常改的地方
 
 | 想改什么 | 改哪里 |
