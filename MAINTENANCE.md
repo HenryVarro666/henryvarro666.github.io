@@ -85,6 +85,9 @@ the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
   forbids redistribution. Never add n2c2 text or anything derived from it. `examples/` is synthetic.
 - **kokoro-whisper-fargate** (formerly kokoro-aws-demo): pushes to `main` deploy to AWS; any commit or PR title that touches it
   must carry `[skip deploy]`.
+- **`static/vault/index.html`** is a password-encrypted private page, generated with staticrypt;
+  its plaintext source is kept outside this repository. Leave the file as it is: do not edit,
+  reformat, move or delete it, and do not link to it from any page.
 - **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
   (`/coursework/` redirects there) and there is no notes section.
 
