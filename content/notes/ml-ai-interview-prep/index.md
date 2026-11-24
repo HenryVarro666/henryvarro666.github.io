@@ -7,7 +7,6 @@ resourceGuide: true
 ---
 
 This study guide covers machine learning (ML) and artificial intelligence (AI) interviews. Try the first practice session, then pick the topic your interview calls for. Spend more time on data splits and evaluation for data science, system design for applied ML engineering, and implementation and debugging for research engineering or large language model (LLM) roles.
-For a worked consumer banking example, practice the fraud model case and the 60-minute panel. [Chase fraud modeling interview practice](/notes/chase-risk-interview-prep/)
 
 ## A 45-minute first pass
 
