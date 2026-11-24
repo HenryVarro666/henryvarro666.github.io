@@ -7,6 +7,7 @@ resourceGuide: true
 ---
 
 这份笔记面向机器学习（ML）、机器学习工程师（MLE）和人工智能（AI）方向的面试。先做第一轮练习，再按面试内容选专题。数据科学多练数据切分和评估，应用型 MLE 加练系统设计，研究工程和大语言模型（LLM）岗位多练 Transformer 实现与调试。
+消费银行风控方向可以接着练反欺诈案例和三人模拟面试。 [Chase 反欺诈建模面试准备](/zh/notes/chase-risk-interview-prep/)
 
 ## 第一轮：45 分钟
 
