@@ -90,7 +90,9 @@ the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
   outside this repository; the script's docstring gives the source layout and the command. Do not
   edit, reformat, move or delete the encrypted files by hand. The "Vault" tab exists only inside
   the Vault pages; on the public site the one link to it is "Vault" in the footer
-  (`layouts/_partials/footer.html`). Do not link to it from anywhere else.
+  (`layouts/_partials/footer.html`). Do not link to it from anywhere else. Material written for
+  one specific application or interview, and anything that names the people involved, belongs
+  in the Vault and not in a public section; a note that was moved there must not be added back.
 - **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
   (`/coursework/` redirects there) and there is no notes section.
 
