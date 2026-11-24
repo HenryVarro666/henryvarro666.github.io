@@ -16,6 +16,29 @@ Requisition **210788388** covers fraud ranking for transactions and applications
 
 A Plano candidate for **Risk Strategic Analytics, Associate** reported that three colleagues covered a business case, technical questions, and behavioral questions in the second round in 2023. A separate, family-posted account of a 2022 **Risk Modeling Program** interview describes a research presentation and a conversation about explaining work to people outside statistics. These are observations from adjacent roles. The mock panel, interview prompts and worked scenarios below are original practice examples with invented details. [Plano candidate report](https://www.glassdoor.com/Interview/JPMorganChase-Interview-Questions-E5224839.htm?filter.jobTitleExact=+Risk+Strategic+Analytics%2C+Associate) · [Risk Modeling Program account](https://www.1point3acres.com/bbs/thread-1085929-1-1.html)
 
+## What medical imaging can teach a fraud modeler {#structural-modeling}
+
+Tatyana Good lists research at Temple University on how branching anatomy appears in medical images. A 2013 paper she lists, published under the author name Tatyana Nuzhnaya, used adaptive thresholds to find candidate branch points and k-means to locate them more precisely. The authors measured both detection quality and distance from the true branch point. A system could find the right branch yet put its junction in the wrong place. A public CCB Risk Modeling team update lists Good among those promoted to Executive Director in 2026. [Research profile](https://www.linkedin.com/in/tatyana-good-2a38966) · [Springer paper](https://link.springer.com/chapter/10.1007/978-3-642-39094-4_55) · [Team update](https://www.linkedin.com/in/brian-dainton-57059457)
+
+**Practice question.** How would you apply experience with cortical folding networks to fraud detection?
+
+**Spoken answer.** “In brain imaging, the choice of landmarks and connections determines which anatomical patterns a model can see. I would bring that same discipline to fraud. Two accounts using the same device minutes apart may reveal a pattern that either account’s history misses. A family sharing a tablet can create the same pattern. I would compare a transaction-only model with one that adds device-sharing features, using the same review capacity. Then I would inspect which legitimate customers the added features flag. In the imaging project I would keep repeat scans from one patient together. With transactions I would replay decisions in time order, with only the relationships we knew at each decision.”
+
+**Rehearsal.** Choose one cortical landmark and explain how an extraction error changes the graph. Name the comparison that would reveal its effect. Use a result you measured and identify the decision you made yourself. Deep-GyralNet, for example, reported 98% average completeness and a 94% reduction in processing time against the conventional pipeline on Human Connectome Project data. Be prepared to explain the denominator for completeness and which part of the study you owned. [Deep-GyralNet paper](https://pubmed.ncbi.nlm.nih.gov/42436826/)
+
+## A transaction graph at authorization time {#transaction-graph}
+
+Fang-Yu Lin is a co-inventor on a JPMorgan Chase patent application published in April 2025. It describes encoding transactions on customer–merchant graph edges and applying a time cutoff when retrieving history. A separate patent granted in August 2026 describes testing a challenger model and tuning the rules that use its scores. Its published application discusses the delay between a transaction and confirmation of fraud. These records describe proposed methods and granted claims. [Graph application](https://patents.google.com/patent/US20250131436A1/en) · [USPTO grant](https://patentsgazette.uspto.gov/week31/OG/html/1549-1/US12700003-20260804.html) · [Retraining application](https://patents.google.com/patent/US20230385836A1/en)
+
+**Practice question.** At 10:00, an authorization arrives. A 09:57 device link reaches the feature store at 10:03. The chargeback arrives two weeks later. Which information can the score use?
+
+**Spoken answer.** “I can use the fields in the authorization request. For the historical graph I would use the last snapshot available to the scorer and apply eligible updates through 10:00, excluding the current transaction from historical counts. The 09:57 link arrived too late for this decision. The later chargeback can become an evaluation label once the observation window matures. I would log the feature version, replay this example offline and check it against the original score. If a graph feed lags beyond its freshness limit, I would route to a tested fallback and track the affected volume.”
+
+**Rehearsal.** Replay the existing model and a challenger on the same mature cohort. Keep review capacity fixed. Compare fraud dollars detected, legitimate transactions delayed and the slowest response times. Explain when a better risk ranking would still lead you to postpone launch.
+
+
+**What can you say while labels are pending?** I would compare equally aged cohorts and report unresolved outcomes. I could report latency, queue depth, coverage and action rates today. I would use a sufficiently mature later holdout for the loss claim and check whether different review or decline policies change which outcomes we see.
+
 ## Run a 60-minute mock panel
 
 | Minutes | Interviewer prompt | What the listener should hear |
@@ -57,3 +80,5 @@ In one week, 200 of 100,000 payments were eventually confirmed as fraudulent. Op
 Pick a project where a real result changed your next step. Say who used it, what you personally chose, how the baseline performed on the same data, and the outcome you could verify. If the result was measured offline, give the evaluation window and describe what you would test in production. Research experience can supply a strong example when you can explain why a promising first experiment failed and how you found the problem.
 
 For a disagreement, practice this sequence aloud. “My colleague preferred [action] because [reason]. I was concerned about [consequence]. We compared [options] on [evidence]. That changed my view about [point]. We agreed to [decision], then observed [actual outcome].” Before finishing, ask the team which decision a new associate would own and what evidence would convince them that the decision had improved customer outcomes.
+
+To implement the evaluation steps with synthetic data, try the companion lab. [Fraud detection practice and Python lab](/notes/fraud-detection-practice/)

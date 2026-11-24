@@ -6,11 +6,11 @@ topics: [data-science, ml-systems]
 resourceGuide: true
 ---
 
-这份笔记面向 **JPMorganChase Risk Program Senior Associate** 和相近的反欺诈建模岗位。问题和参考答案用英文，推导、追问和业务口径用中文。先口答，再对照参考答案。方括号处填入自己能举证的经历，案例数字用来做演算。
+这份笔记面向 **JPMorganChase Risk Program Senior Associate** 和相近的反欺诈建模岗位。问题和参考答案用英文，推导、追问和业务口径用中文。先口答，再对照参考答案。方括号处填入自己能举证的经历，案例数字用来做演算。人物部分根据公开职业资料和技术成果设计练习。
 
 **下载**　[PDF 讲义](/notes/chase-risk-interview-prep/chase-risk-interview-prep.pdf) · [可编辑 Word](/notes/chase-risk-interview-prep/chase-risk-interview-prep.docx)
 
-**快速复习**　[逻辑回归](#logistic-regression) · [ROC/AUC 手算](#roc-auc) · [Python/pandas](#python-pandas) · [模型上线演算](#review-capacity) · [60 分钟模拟](#mock-interview)
+**快速复习**　[人物背景](#professional-background) · [交易图](#transaction-graph) · [逻辑回归](#logistic-regression) · [ROC/AUC 手算](#roc-auc) · [Python/pandas](#python-pandas) · [模型上线演算](#review-capacity) · [60 分钟模拟](#mock-interview)
 
 ## 练习路线 {#study-route}
 
@@ -97,6 +97,72 @@ JPMorganChase · Risk Program Senior Associate · 公开复习资料
 > In the research setting, I could observe [what you measured], but I had no way to observe [business outcome]. My first practical test would be [small feasible trial]. I would compare it with [current process] under the same [constraints]. Before starting, I would agree with the decision maker on which result would justify a wider rollout.
 
 研究经历也可以讲扎实，尤其是从研究指标走到业务决策之间还缺哪项证据。
+
+## 人物背景与技术追问 {#professional-background}
+
+### 人物背景与结构建模 {#structural-modeling}
+
+**Tatyana Good｜从医学影像到 CCB 风险建模**
+
+Tatyana Good 的公开职业资料列出 JPMorgan Chase 与 Temple University 阶段的解剖分支结构研究。其履历列出的 ICIAR 论文在出版页上署名 Tatyana Nuzhnaya，研究怎样在乳管 X 光图像中发现和定位分支点，以 precision、recall 和定位误差分别评估检测与定位。CCB Risk Modeling 负责人 Morgan Dean 的公开团队晋升动态把 Good 列入 2026 年升任 Executive Director 的成员。
+
+练习时，把你项目的节点和边讲清楚，再说明如何证明结构信号有用，以及错误的边怎样改变最终结果。
+
+**What would persuade you that the graph representation is worth keeping?**
+
+> I would first define what a node and an edge mean and explain which decision the representation is meant to improve. I would compare a feature-only baseline, the baseline with simple graph features, and a graph model on the same held-out units. For imaging, I would keep scans from the same subject together, check errors at the landmarks, and consider site-level holdouts if there are enough sites. For payments, I would build each graph as it was available at scoring time and compare at the same review capacity. If simple features recover the lift and serve faster, I would keep them.
+
+追问 “Which part of your thesis was yours?” 用一句话点明个人决定，接着给对应的对照实验。可用一张项目事实卡写下对照方法、划分单位、评价指标和一个实际失败例子。
+
+**如何把脑影像研究讲给银行听**
+
+可以用 Deep-GyralNet 补一个实测结果，再交代个人贡献。论文在 HCP 数据上报告平均完整度 98%，相对传统流程处理时间减少 94%。可追问结构完整度的分母及跨站点评估。 [Deep-GyralNet 论文](https://pubmed.ncbi.nlm.nih.gov/42436826/)
+
+> In cortical imaging, my work focused on extracting meaningful structure from noisy data. The transferable skill is turning that structure into features, building a simpler baseline, and testing when the extra complexity helps. For fraud, the graph evolves, and both edges and labels can arrive after the decision. I would test whether the new representation improves fraud dollars captured at a fixed review budget on a later period with mature labels.
+
+- [Tatyana Good 公开职业资料](https://www.linkedin.com/in/tatyana-good-2a38966)
+- [ICIAR 2013 论文及摘要 · Springer](https://link.springer.com/chapter/10.1007/978-3-642-39094-4_55)
+- [Morgan Dean 的 2026 CCB Risk Modeling 团队晋升动态 · LinkedIn](https://www.linkedin.com/in/brian-dainton-57059457)
+### 实时交易图与时点泄漏 {#transaction-graph}
+
+**Fang-Yu Lin｜支付反欺诈公开发明**
+
+Fang-Yu Lin 的公开职业资料列出 JPMorgan Chase。JPMorgan Chase Bank 的公开申请 US20250131436A1 把 Lin 列为共同发明人，描述银行卡和商户之间的交易图、紧凑的边记录和带时间截断的聚合。已授权的 US12700003B2 也列出 Lin，内容涉及使用历史交易比较候选模型、优化规则及模型进入生产的条件。
+
+**A Monday payment arrives late. Would it appear in a feature scored on Tuesday?**
+
+假设周二 09:00 评分。交易 A 于周一 15:00 发生、周一 15:01 入库。交易 B 于周一 18:00 发生、周二 09:07 入库。交易 C 于周二 09:01 发生、09:02 入库。这三笔均关联同一卡；这里计算 24 小时内已知的历史交易数。
+
+> The feature is one. A was within the lookback window and visible at decision time. B was an earlier event, but its record arrived seven minutes after scoring. C occurred after the decision. I’d enforce both event time and availability time in training, and test parity between historical replay and the online feature service.
+
+同一时间戳有多笔记录时，按真实生产顺序或预先定义的事件序列复现同刻行为。邻居的历史欺诈确认也需按标签可见时间截断。
+
+**Would you put a GNN in the authorization path?**
+
+> I’d first test a tabular baseline, then add simple point-in-time graph features. I’d consider a GNN only if we see consistent incremental value at the same review capacity. Before putting either into authorization, I’d measure p99 latency and feature freshness. I’d also test what happens for new entities, stale edges and a missing graph service. A versioned fallback can keep scoring while we investigate the dependency.
+
+- [Fang-Yu Lin 公开职业资料](https://www.linkedin.com/in/fang-yu-lin-314a9146)
+- [实时交易图 · 公开专利申请 US20250131436A1](https://patents.google.com/patent/US20250131436A1/en)
+- [高频重训与规则优化 · 美国专利商标局 US12700003B2](https://patentsgazette.uspto.gov/week31/OG/html/1549-1/US12700003-20260804.html)
+### 标签成熟、重训与放量 {#label-maturity}
+
+**The challenger looks worse this week. Most fraud labels are pending. What do you do?**
+
+> I would compare transactions at the same outcome age and report how much of the cohort is still unresolved. For the launch decision I’d use a later holdout with sufficiently mature labels, chosen after inspecting how long confirmation takes by channel. For this week I can report alert and action rates, latency, feature coverage and review backlog. I’d avoid treating pending outcomes as legitimate, and I’d check whether the policy itself changes which outcomes we can observe.
+
+这道题同时考时间口径与观察偏差。人工复核更容易发现部分欺诈，直接拒绝则可能根本看不到最终核实结果。用可比较的观测范围做评估，并说明需要怎样的独立核验或对照实验。
+
+**How could you learn from recent data without assuming the missing labels are clean?**
+
+> I’d start with a mature-label baseline and quantify how confirmation delay varies by channel or fraud type. A time-to-confirmation model is a possible way to use newer censored observations. I’d replay historical cutoffs, train using only information visible at the time, and judge the candidate against what was eventually confirmed within a defined horizon. If that does not improve later decisions, I would keep the simpler mature-label policy.
+
+分别记下交易发生时间、数据和标签的可见时间，以及上线决策时间。公开申请讨论生存分析作为处理确认滞后的一种方案，可用这个例子练习解释右删失与历史回放。
+
+**The challenger improves confirmed fraud capture. How would you roll it out?**
+
+> I’d compare model and policy together at the same review capacity or customer friction. In shadow mode I’d check latency, coverage and how often the new policy would change an action. Then I’d propose a limited rollout with an appropriate comparison group, a customer-friction limit and a rollback owner. I’d use leading operational signals to catch problems early and wait for mature outcome labels before claiming net savings.
+
+- [延迟标签与生存分析 · 公开申请 US20230385836A1](https://patents.google.com/patent/US20230385836A1/en)
 
 ## 统计与 Python 面试题 {#statistics-python}
 
@@ -472,3 +538,5 @@ C: “Product wants fewer verification prompts. Operations wants less fraud. Wha
 - [JPMorganChase Fraud Optimization 与 Quant Analytics 面后反馈 · Reddit](https://www.reddit.com/r/JPMorganChase/comments/1uq48x9/interview_coming_up_for_jpmorgan_quant_analytics/)
 
 也可复习网站上的通用机器学习题和生产模型评估案例。 [ML 基础与 AI 面试复习路线](/zh/notes/ml-ai-interview-prep/)
+
+可以用配套实验，在合成数据上亲手跑一遍评估。 [反欺诈检测练习与 Python 实验](/zh/notes/fraud-detection-practice/)
