@@ -87,7 +87,8 @@ the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
   must carry `[skip deploy]`.
 - **`static/vault/index.html`** is a password-encrypted private page, generated with staticrypt;
   its plaintext source is kept outside this repository. Leave the file as it is: do not edit,
-  reformat, move or delete it, and do not link to it from any page.
+  reformat, move or delete it. The only link to it is "Vault" in the site footer
+  (`layouts/_partials/footer.html`); do not link to it from anywhere else.
 - **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
   (`/coursework/` redirects there) and there is no notes section.
 
