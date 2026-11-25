@@ -10,6 +10,16 @@
     {{- end }}
   {{- end }}
 {{- end }}
+{{- /* A page in two languages can show both at once: the "Both" button in the language switch
+       pairs each block with its translation (layouts/_partials/both-languages.html). It is
+       offered only when the two versions have the same outline, so sections can be matched. */ -}}
+{{- $other := false }}
+{{- if eq (len .Translations) 1 }}
+  {{- $t := index .Translations 0 }}
+  {{- if eq (delimit (findRE `<h[2-6]` .Content) "") (delimit (findRE `<h[2-6]` $t.Content) "") }}
+    {{- $other = $t }}
+  {{- end }}
+{{- end }}
 <article class="post{{ if $toc }} post-with-toc{{ end }}{{ if .Param "resourceGuide" }} resource-guide{{ end }}">
   <header class="post-head">
     <div class="post-top">
@@ -22,6 +32,9 @@
         {{- else }}
         <a href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}">{{ .Language.Label }}</a>
         {{- end }}
+        {{- end }}
+        {{- with $other }}
+        <button class="both-toggle" type="button" aria-pressed="false" title="{{ T "both-languages-title" }}" data-src="{{ .RelPermalink }}" data-lang="{{ .Language.Locale }}">{{ T "both-languages" }}</button>
         {{- end }}
       </nav>
       {{- end }}
@@ -40,7 +53,16 @@
   </details>
   {{- end }}
   <div class="prose">{{ .Content }}</div>
+  {{- with $other }}
+  {{- /* A self-contained build (the Vault, the offline preview) cannot fetch the other page. */ -}}
+  {{- if site.Params.embedTranslation }}
+  <template class="both-source">{{ .Content }}</template>
+  {{- end }}
+  {{- end }}
 </article>
+{{- if $other }}
+{{ partial "both-languages.html" . }}
+{{- end }}
 {{- if $toc }}
 <script>
   (function () {

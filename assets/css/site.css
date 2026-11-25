@@ -472,7 +472,8 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .lang-switch a,
 .lang-switch span { padding: 0.05rem 0.5rem; border-radius: 2px; color: var(--muted); }
 .lang-switch a:hover { color: var(--accent-hover); }
-.lang-switch [aria-current] {
+.lang-switch [aria-current],
+.both-toggle[aria-pressed="true"] {
   background: var(--nav-active);
   color: var(--ink);
   text-decoration: var(--nav-active-line);
@@ -639,14 +640,14 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
   background: currentColor;
 }
 
-.resource-guide .prose > ul > li {
+.resource-guide :is(.prose, .both-row > div) > ul > li {
   margin: 0;
   padding: 0.62rem 0;
 }
-.resource-guide .prose > ul > li > p { margin: 0; }
-.resource-guide .prose > ul > li + li { border-top: 1px solid var(--rule); }
-.resource-guide .prose > ul > li::marker { color: var(--fig-hl); }
-.resource-guide .prose > ul > li > p > strong:first-child a {
+.resource-guide :is(.prose, .both-row > div) > ul > li > p { margin: 0; }
+.resource-guide :is(.prose, .both-row > div) > ul > li + li { border-top: 1px solid var(--rule); }
+.resource-guide :is(.prose, .both-row > div) > ul > li::marker { color: var(--fig-hl); }
+.resource-guide :is(.prose, .both-row > div) > ul > li > p > strong:first-child a {
   color: var(--ink);
   font-size: var(--step-1);
   overflow-wrap: anywhere;
@@ -678,6 +679,74 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
     border-inline-start: 1px solid var(--rule);
     border-radius: 0;
     padding: 0.1rem 0.6rem 0.3rem 1rem;
+  }
+}
+
+/* ---------- Both languages at once ---------- */
+
+/* "Both" in the language switch of a bilingual note pairs every block with its translation
+   (layouts/_partials/both-languages.html). Narrow window: the translation follows its block,
+   marked by a rule in the margin. Wide window: two columns, the page's own language on the left. Code, a
+   formula or a figure that the two versions share is shown once, centred across the row. */
+.both-toggle {
+  padding: 0.05rem 0.5rem;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.both-toggle:hover { color: var(--accent-hover); }
+.both-toggle[aria-busy] { cursor: progress; }
+/* While both are shown, the page's own language is a way back to one language. */
+.is-both .lang-switch [aria-current] {
+  background: none;
+  color: var(--muted);
+  text-decoration: none;
+  cursor: pointer;
+}
+.is-both .lang-switch [aria-current]:hover { color: var(--accent-hover); }
+
+.is-both .prose { max-width: none; }
+.both-row { display: grid; grid-template-columns: minmax(0, 1fr); }
+.both-row > div { min-width: 0; max-width: 66ch; }
+.both-row > :lang(en) { line-height: 1.6; }
+.both-row > :lang(en) em { font-style: italic; font-weight: inherit; }
+.both-row > :lang(zh-CN) { line-height: 1.85; }
+.both-row > :lang(zh-CN) em { font-style: normal; font-weight: 600; }
+.both-row:not(.both-shared) .note-fig { width: 100%; }
+
+@media not all and (min-width: 48rem) {
+  .both-own:not(:only-child) > :last-child { margin-bottom: 0.5rem; }
+  /* The rule sits in the page gutter, so the translation keeps the full text width. */
+  .both-other {
+    margin-bottom: 1.15rem;
+    margin-inline-start: calc(-0.55rem - 2px);
+    padding-inline-start: 0.55rem;
+    border-inline-start: 2px solid var(--fig-line);
+  }
+  .both-other > :last-child { margin-bottom: 0; }
+  .both-head .both-other { margin-bottom: 0.5rem; }
+  .both-head .both-other > * {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: var(--step-0);
+    font-weight: 500;
+  }
+}
+@media (min-width: 48rem) {
+  .column:has(> .post.is-both) { max-width: 78rem; }
+  .both-row { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+  .both-own { grid-column: 1; }
+  .both-other { grid-column: 2; }
+  .both-shared > div { grid-column: 1 / -1; width: 100%; max-width: var(--measure-wide); margin-inline: auto; }
+}
+@media (min-width: 64rem) {
+  .column:has(> .post-with-toc.is-both) {
+    max-width: calc(78rem + var(--toc-width) + var(--toc-gap));
+    margin-inline: auto;
   }
 }
 
