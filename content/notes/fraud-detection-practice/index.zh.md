@@ -15,6 +15,8 @@ topics: [data-science]
 
 时间紧的话，先练银行数据科学 panel 面试里最常被提到的几题：[类别不平衡](#imbalance)、[bagging 和 boosting](#trees)、[正则](#regularization)、[特征选择](#feature-selection)，以及[实时系统设计](#system-design)。
 
+欺诈以外的基础题，比如假设检验、回归、经典算法和神经网络，见[机器学习与统计基础](/zh/notes/ml-stats-fundamentals/)。
+
 有三篇笔记把单个主题讲得更细：[precision 和 recall](/zh/notes/precision-vs-recall/)、[ROC-AUC 和 PR-AUC](/zh/notes/roc-auc-vs-pr-auc/)、[A/B 测试](/zh/notes/ab-testing/)。[MLOps 学习笔记](/zh/notes/mlops-learning-guide/)里有可以运行的练习，把[泄漏](/zh/notes/mlops-learning-guide/#time-leakage)和[监控](/zh/notes/mlops-learning-guide/#monitoring)讲得更完整。
 
 关于用词：precision、recall 等指标名沿用英文。false positive rate（FPR，假阳性率）指正常交易里被误报的比例；false positive ratio（误报比）是欺诈团队常用的口径，指每抓到一笔欺诈误伤几位正常客户。

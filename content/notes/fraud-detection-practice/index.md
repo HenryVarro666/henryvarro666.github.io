@@ -15,6 +15,8 @@ Cover the answer, speak for 60 to 90 seconds, then compare and note only what yo
 
 If time is short, start with the topics candidates most often report from data science panels at banks: [class imbalance](#imbalance), [bagging and boosting](#trees), [regularization](#regularization), [feature selection](#feature-selection) and [the real-time system design](#system-design).
 
+For fundamentals outside fraud, such as hypothesis tests, regression, the classic algorithms and neural networks, see [Machine learning and statistics fundamentals](/notes/ml-stats-fundamentals/).
+
 Three earlier notes go deeper on single topics: [precision and recall](/notes/precision-vs-recall/), [ROC-AUC and PR-AUC](/notes/roc-auc-vs-pr-auc/), and [A/B testing](/notes/ab-testing/). The [MLOps guide](/notes/mlops-learning-guide/) covers [leakage](/notes/mlops-learning-guide/#time-leakage) and [monitoring](/notes/mlops-learning-guide/#monitoring) with a runnable lab.
 
 ## Fundamentals in a fraud setting {#fundamentals}
