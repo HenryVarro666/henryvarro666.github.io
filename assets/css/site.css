@@ -524,6 +524,12 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 }
 .prose blockquote > :last-child { margin-bottom: 0; }
 
+/* A folded aside in a note (the built-in "details" shortcode). */
+.prose details { margin: 0 0 1rem; }
+.prose summary { cursor: pointer; color: var(--muted); font-size: var(--step--1); }
+.prose details[open] > summary { margin-bottom: 0.6rem; }
+.prose details > :last-child { margin-bottom: 0; }
+
 /* Tables: wrapped by layouts/_markup/render-table.html so wide ones scroll on phones. */
 .table-wrap {
   overflow-x: auto;
@@ -709,6 +715,13 @@ main { flex: 1; padding-block: 0.6rem 2.5rem; }
 .is-both .lang-switch [aria-current]:hover { color: var(--accent-hover); }
 
 .is-both .prose { max-width: none; }
+.both-title {
+  margin: -0.15rem 0 0.4rem;
+  color: var(--muted);
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.3;
+}
 .both-row { display: grid; grid-template-columns: minmax(0, 1fr); }
 .both-row > div { min-width: 0; max-width: 66ch; }
 .both-row > :lang(en) { line-height: 1.6; }
