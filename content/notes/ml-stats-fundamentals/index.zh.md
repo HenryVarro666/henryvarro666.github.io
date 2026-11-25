@@ -14,6 +14,8 @@ topics: [data-science]
 
 时间紧的话，先练[假设检验](#testing)、[模型评估](#evaluation)和[经典算法](#algorithms)，这三块最容易被追问。
 
+第二篇[机器学习与统计基础（二）](/zh/notes/ml-stats-next-layer/)接着讲推导、评分卡、图、生存分析和 SQL 套路。
+
 关于用词：precision、recall、AUC 等指标名和常见算法名沿用英文，面试时本来也是用英文说。
 
 ## 概率 {#probability}
