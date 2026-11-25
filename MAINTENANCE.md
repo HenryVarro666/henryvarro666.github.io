@@ -93,6 +93,9 @@ the other language in the same commit. `PROBLEM.md` has a `PROBLEM.zh.md` twin.
   (`layouts/_partials/footer.html`). Do not link to it from anywhere else. Material written for
   one specific application or interview, and anything that names the people involved, belongs
   in the Vault and not in a public section; a note that was moved there must not be added back.
+  A full build replaces every encrypted page from the sources it is given. If your sources do
+  not hold the latest version of every post, rebuild with `--only <post>` so that the other
+  posts are left alone.
 - **Coursework and Notes** were folded away in October 2026: course projects live in `projects/`
   (`/coursework/` redirects there) and there is no notes section.
 

@@ -143,7 +143,7 @@ python3 tools/notes/precision_vs_recall_figs.py   # 写出 content/notes/precisi
 STATICRYPT_PASSWORD='密码' python3 tools/vault/build.py /path/to/vault-src
 ```
 
-脚本用本站模板渲染、逐页加密，再写回 `static/`；提交这些加密文件即可上线。需要本机装有 Hugo 和 Node.js。文章文件夹里的图片会被写进页面里一起加密；附件这类其他文件无法加密，脚本不会复制它们。
+脚本用本站模板渲染、逐页加密，再写回 `static/`；提交这些加密文件即可上线。只想更新其中几篇时，在命令末尾加 `--only 文章名`（可以写多个），其余加密页面和栏目列表保持原样；手里的源稿不是每一篇都最新时，一定要这样用。需要本机装有 Hugo 和 Node.js。文章文件夹里的图片会被写进页面里一起加密；附件这类其他文件无法加密，脚本不会复制它们。
 
 ## 常改的地方
 
