@@ -25,6 +25,9 @@ capitalizeListTitles = false
   streamSections = ["research", "projects"]
   dateFormat = "2006-01"
   inlineCSS = false
+  # true on a self-contained build (the Vault, the offline preview): a bilingual page then carries
+  # its translation, so the "Both" view works without fetching the other page.
+  embedTranslation = false
   preview = false
 
 [[menus.main]]

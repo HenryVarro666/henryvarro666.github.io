@@ -1,0 +1,209 @@
+{{- /* "Both": show a bilingual page in its two languages at once. The page's own blocks are
+       paired with the blocks of the translation, section by section (sections are matched by
+       position, which the template has checked). Inside a section, blocks are paired from the
+       start for as long as their types agree, then from the end; whatever is left in the
+       middle is shown as one group, and blocks that only one version has join the block
+       before them. So a translation pairs paragraph by paragraph when it keeps the same
+       sequence of paragraphs, lists, tables and quotes.
+       Nothing is shown twice. A block with the same text in both versions, or such a
+       paragraph inside a quote or a list item, appears once: on the side of the language it
+       is written in, or across the row when it is in neither (code, a formula). A figure
+       appears once, in the page's own language. The language test tells Chinese from English,
+       the site's two languages.
+       The translation comes from the <template> on a self-contained build and is fetched from
+       its own page otherwise. The choice is remembered, so the next note opens the same way. */ -}}
+<script>
+  (function () {
+    var post = document.querySelector("article.post");
+    var button = post.querySelector(".both-toggle");
+    var prose = post.querySelector(".prose");
+    var here = post.querySelector(".lang-switch [aria-current]");
+    var KEY = "note-languages";
+    var own = null;      // the page's blocks in their original order, while "Both" is on
+    var pending = null;  // the translation's blocks, loaded once
+    var masked = [];     // the page's own paragraphs that are hidden while "Both" is on
+
+    var texts = new WeakMap();
+    function text(el) {
+      if (!texts.has(el)) texts.set(el, el.textContent.replace(/\s+/g, " ").trim());
+      return texts.get(el);
+    }
+    function kind(el) { return el.tagName + "." + (el.classList[0] || ""); }
+    // "zh" or "en"; "" for a block that is in neither language.
+    function language(el) {
+      if (el.matches("figure, pre, .highlight, .katex-display")) return "";
+      var copy = el.cloneNode(true);
+      copy.querySelectorAll(".katex, code, svg").forEach(function (n) { n.remove(); });
+      var han = (copy.textContent.match(/[\u3400-\u9fff]/g) || []).length;
+      var latin = (copy.textContent.match(/[A-Za-z]/g) || []).length;
+      return han || latin ? (han * 3 > latin ? "zh" : "en") : "";
+    }
+    function sections(blocks) {
+      var out = [{ head: null, body: [] }];
+      blocks.forEach(function (el) {
+        if (/^H[2-6]$/.test(el.tagName)) out.push({ head: el, body: [] });
+        else out[out.length - 1].body.push(el);
+      });
+      return out;
+    }
+    // Rows of [own blocks, translated blocks] for one section.
+    function align(a, b) {
+      var rows = [], tail = [], start = 0, endA = a.length, endB = b.length;
+      while (start < endA && start < endB && kind(a[start]) === kind(b[start])) { rows.push([[a[start]], [b[start]]]); start++; }
+      while (endA > start && endB > start && kind(a[endA - 1]) === kind(b[endB - 1])) tail.unshift([[a[--endA]], [b[--endB]]]);
+      var restA = a.slice(start, endA), restB = b.slice(start, endB);
+      if (rows.length && !(restA.length && restB.length)) {
+        rows[rows.length - 1][0].push(...restA);
+        rows[rows.length - 1][1].push(...restB);
+      } else if (restA.length || restB.length) {
+        rows.push([restA, restB]);
+      }
+      return rows.concat(tail);
+    }
+    // Paragraphs inside quotes and lists: the level below a block at which text can repeat.
+    function inner(blocks) {
+      return blocks.reduce(function (all, block) {
+        return block.matches("blockquote, ul, ol") ? all.concat(Array.from(block.querySelectorAll("p"))) : all;
+      }, []);
+    }
+    function load() {
+      if (pending) return pending;
+      var base = new URL(button.dataset.src, location.href);
+      var embedded = post.querySelector("template.both-source");
+      var source = embedded
+        ? Promise.resolve(embedded.content)
+        : fetch(base).then(function (reply) {
+            if (!reply.ok) throw new Error(reply.status);
+            return reply.text();
+          }).then(function (html) {
+            return new DOMParser().parseFromString(html, "text/html").querySelector("article.post .prose");
+          });
+      pending = source.then(function (root) {
+        var blocks = Array.from(document.importNode(root, true).children);
+        blocks.forEach(function (block) {
+          // The page's own headings keep the anchors; links resolve against the translation's address.
+          [block].concat(Array.from(block.querySelectorAll("[id]"))).forEach(function (el) {
+            if (!el.closest("svg")) el.removeAttribute("id");
+          });
+          block.querySelectorAll("a[href], img[src]").forEach(function (el) {
+            var name = el.hasAttribute("href") ? "href" : "src", value = el.getAttribute(name);
+            if (value.charAt(0) !== "#") el.setAttribute(name, new URL(value, base).href);
+          });
+        });
+        return blocks;
+      });
+      pending.catch(function () { pending = null; });
+      return pending;
+    }
+    function cell(blocks, name, lang) {
+      var el = document.createElement("div");
+      el.className = name;
+      el.lang = lang;
+      el.append(...blocks);
+      return el;
+    }
+    function build(theirs) {
+      var mine = sections(Array.from(prose.children)), other = sections(theirs);
+      var matched = mine.length === other.length && mine.every(function (s, i) {
+        return (s.head && s.head.tagName) === (other[i].head && other[i].head.tagName);
+      });
+      var rows = [];
+      if (matched) {
+        mine.forEach(function (s, i) {
+          if (s.head) rows.push([[s.head], [other[i].head], "both-head"]);
+          rows = rows.concat(align(s.body, other[i].body));
+        });
+      } else {
+        rows.push([Array.from(prose.children), theirs]);
+      }
+      var theirLanguage = button.dataset.lang.slice(0, 2);
+      var view = document.createDocumentFragment();
+      rows.forEach(function (r) {
+        var ours = r[0].slice(), others = [];
+        var figure = ours.some(function (el) { return el.matches("figure"); });
+        r[1].forEach(function (el) {
+          if (figure && el.matches("figure")) return;
+          var twin = r[0].find(function (x) { return text(x) === text(el); });
+          if (!twin) others.push(el);
+          else if (!r[2] && language(el) === theirLanguage) { ours.splice(ours.indexOf(twin), 1); others.push(el); }
+        });
+        var paragraphs = inner(ours);
+        inner(others).forEach(function (el) {
+          var twin = paragraphs.find(function (x) { return !x.hidden && text(x) === text(el); });
+          if (!twin) return;
+          var extra = language(el) === theirLanguage ? twin : el;
+          // keep the last paragraph of a quote or an item, so no empty box or bullet is left
+          if (extra.parentNode.querySelectorAll(":scope > :not([hidden])").length < 2) return;
+          if (extra === el) el.remove(); else { twin.hidden = true; masked.push(twin); }
+        });
+        var shared = r[1].length && !others.length && ours.every(function (el) { return !language(el); });
+        var row = document.createElement("div");
+        row.className = "both-row" + (r[2] ? " " + r[2] : "") + (shared ? " both-shared" : "");
+        if (ours.length) row.append(cell(ours, "both-own", document.documentElement.lang));
+        if (others.length) row.append(cell(others, "both-other", button.dataset.lang));
+        if (row.firstChild) view.append(row);
+      });
+      return view;
+    }
+    // Keep the first block that starts below the banner where it is while the layout changes.
+    function keepPlace(change) {
+      var blocks = own || Array.from(prose.children);
+      var banner = document.querySelector("header.banner");
+      var line = banner ? banner.getBoundingClientRect().bottom : 0;
+      var mark = blocks.find(function (el) { return el.isConnected && el.getBoundingClientRect().top >= line; });
+      var before = mark ? mark.getBoundingClientRect().top : 0, scrolled = window.scrollY > 0;
+      change();
+      if (scrolled && mark && mark.isConnected) window.scrollBy(0, mark.getBoundingClientRect().top - before);
+    }
+    function remember(on) {
+      try { if (on) localStorage.setItem(KEY, "both"); else localStorage.removeItem(KEY); } catch (e) {}
+    }
+    function show() {
+      button.setAttribute("aria-busy", "true");
+      return load().then(function (theirs) {
+        if (own) return;
+        keepPlace(function () {
+          var blocks = Array.from(prose.children);
+          var view = build(theirs.map(function (el) { return el.cloneNode(true); }));
+          own = blocks;
+          prose.replaceChildren(view);
+          post.classList.add("is-both");
+        });
+        button.setAttribute("aria-pressed", "true");
+      }).catch(function () {
+        remember(false);
+      }).then(function () {
+        button.removeAttribute("aria-busy");
+      });
+    }
+    function hide() {
+      if (!own) return;
+      keepPlace(function () {
+        masked.forEach(function (el) { el.hidden = false; });
+        masked = [];
+        prose.replaceChildren(...own);
+        own = null;
+        post.classList.remove("is-both");
+      });
+      button.setAttribute("aria-pressed", "false");
+    }
+    button.addEventListener("click", function () {
+      if (own) { remember(false); hide(); } else { remember(true); show(); }
+    });
+    // Choosing one language again, here or on the other page, ends the paired view.
+    post.querySelector(".lang-switch").addEventListener("click", function (event) {
+      var choice = event.target.closest("a, [aria-current]");
+      if (!choice) return;
+      remember(false);
+      if (choice === here) hide();
+    });
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    if (stored === "both") {
+      show().then(function () {
+        var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (target) target.scrollIntoView();
+      });
+    }
+  })();
+</script>

@@ -21,6 +21,8 @@ The source folder is laid out like a section under content/:
 Needs Hugo (the version in .github/workflows/hugo.yml) and Node.js; StatiCrypt is fetched with
 npx. The password is read from the environment and is never written to disk. The salt in
 staticrypt.json is not secret; keeping it stable lets a remembered login survive a rebuild.
+A post with a Chinese version carries its translation inside each encrypted page (the site
+parameter embedTranslation), so the "Both" view works without fetching the other page.
 Only HTML pages are encrypted. An image that a post embeds from its own folder is written into
 the page as a data URI, so it is encrypted with the page. Any other file (a download, say) is
 not copied, and the script warns if a page links to one.
@@ -88,7 +90,8 @@ def main():
             shutil.rmtree(site / "static" / target, ignore_errors=True)
         shutil.copytree(src, site / "content" / "vault")
 
-        env = dict(os.environ, HUGO_PARAMS_INLINECSS="true", HUGO_ENVIRONMENT="production")
+        env = dict(os.environ, HUGO_PARAMS_INLINECSS="true", HUGO_PARAMS_EMBEDTRANSLATION="true",
+                   HUGO_ENVIRONMENT="production")
         env.pop("STATICRYPT_PASSWORD")
         run(["hugo", "--gc", "--minify", "-d", str(out)], cwd=site, env=env)
 

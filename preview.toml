@@ -8,4 +8,5 @@ disableKinds = ["rss", "sitemap"]
 
 [params]
   inlineCSS = true
+  embedTranslation = true
   preview = true
