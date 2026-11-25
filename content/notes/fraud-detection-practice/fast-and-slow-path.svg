@@ -1,0 +1,56 @@
+<svg class="fig-svg" viewBox="0 0 720 408" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A payment request passes through feature lookup, scoring and a decision in about 100 milliseconds. Below, an event log feeds stream updates to the features and, after labels mature, retraining of the model, while monitoring watches both.">
+<title>A fast path that decides, a slow path that learns</title>
+<rect x="0" y="0" width="720" height="408" rx="8" class="f-bg"/>
+<text x="24" y="40" font-size="24" class="f-t" text-anchor="start" font-weight="650">A fast path that decides, a slow path that learns</text>
+<text x="24" y="70" font-size="14" class="f-m" text-anchor="start">FAST PATH · every payment · about 100 ms</text>
+<text x="24" y="232" font-size="14" class="f-m" text-anchor="start">SLOW PATH · seconds to weeks</text>
+<rect x="24" y="82" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="99.0" y="114" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Payment</text>
+<text x="99.0" y="138" font-size="14.5" class="f-m" text-anchor="middle">authorization</text>
+<text x="99.0" y="158" font-size="14.5" class="f-m" text-anchor="middle">request</text>
+<rect x="24" y="244" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="99.0" y="276" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Monitor</text>
+<text x="99.0" y="300" font-size="14.5" class="f-m" text-anchor="middle">latency, drift,</text>
+<text x="99.0" y="320" font-size="14.5" class="f-m" text-anchor="middle">alerts, outcomes</text>
+<rect x="198" y="82" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="273.0" y="114" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Features</text>
+<text x="273.0" y="138" font-size="14.5" class="f-m" text-anchor="middle">online store</text>
+<text x="273.0" y="158" font-size="14.5" class="f-m" text-anchor="middle">lookup</text>
+<rect x="198" y="244" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="273.0" y="276" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Stream</text>
+<text x="273.0" y="300" font-size="14.5" class="f-m" text-anchor="middle">counters updated</text>
+<text x="273.0" y="320" font-size="14.5" class="f-m" text-anchor="middle">within seconds</text>
+<rect x="372" y="82" width="150" height="92" rx="8" class="f-hl" stroke-width="1.5"/>
+<text x="447.0" y="114" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Score</text>
+<text x="447.0" y="138" font-size="14.5" class="f-m" text-anchor="middle">model output</text>
+<text x="447.0" y="158" font-size="14.5" class="f-m" text-anchor="middle">in a few ms</text>
+<rect x="372" y="244" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="447.0" y="276" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Retrain</text>
+<text x="447.0" y="300" font-size="14.5" class="f-m" text-anchor="middle">mature labels,</text>
+<text x="447.0" y="320" font-size="14.5" class="f-m" text-anchor="middle">validate, shadow</text>
+<rect x="546" y="82" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="621.0" y="114" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Decide</text>
+<text x="621.0" y="138" font-size="14.5" class="f-m" text-anchor="middle">approve, step up</text>
+<text x="621.0" y="158" font-size="14.5" class="f-m" text-anchor="middle">or decline</text>
+<rect x="546" y="244" width="150" height="92" rx="8" class="f-node" stroke-width="1.5"/>
+<text x="621.0" y="276" font-size="19" class="f-t" text-anchor="middle" font-weight="650">Event log</text>
+<text x="621.0" y="300" font-size="14.5" class="f-m" text-anchor="middle">features, score,</text>
+<text x="621.0" y="320" font-size="14.5" class="f-m" text-anchor="middle">action taken</text>
+<line x1="176" y1="128.0" x2="189" y2="128.0" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 189 123.0 L 197 128.0 L 189 133.0 Z" class="f-head"/>
+<line x1="350" y1="128.0" x2="363" y2="128.0" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 363 123.0 L 371 128.0 L 363 133.0 Z" class="f-head"/>
+<line x1="524" y1="128.0" x2="537" y2="128.0" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 537 123.0 L 545 128.0 L 537 133.0 Z" class="f-head"/>
+<line x1="621.0" y1="176" x2="621.0" y2="233" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 616.0 233 L 621.0 241 L 626.0 233 Z" class="f-head"/>
+<line x1="273.0" y1="242" x2="273.0" y2="185" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 268.0 185 L 273.0 177 L 278.0 185 Z" class="f-head"/>
+<line x1="447.0" y1="242" x2="447.0" y2="185" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 442.0 185 L 447.0 177 L 452.0 185 Z" class="f-head"/>
+<line x1="544" y1="290.0" x2="531" y2="290.0" class="f-ln" stroke-width="2" stroke-linecap="round"/>
+<path d="M 531 285.0 L 523 290.0 L 531 295.0 Z" class="f-head"/>
+<path d="M 621.0 338 V 362 H 273.0 V 347" class="f-ln" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 268.0 347 L 273.0 339 L 278.0 347 Z" class="f-head"/>
+<text x="24" y="392" font-size="14" class="f-m" text-anchor="start">If a lookup or the model times out, rules decide and the fallback is counted.</text>
+</svg>

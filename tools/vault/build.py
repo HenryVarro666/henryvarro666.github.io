@@ -5,6 +5,11 @@ This script renders them with the site's own templates in a temporary copy of th
 encrypts every rendered page with StatiCrypt, and writes only the encrypted pages back here.
 
     STATICRYPT_PASSWORD='...' python3 tools/vault/build.py /path/to/vault-src
+    STATICRYPT_PASSWORD='...' python3 tools/vault/build.py /path/to/vault-src --only some-post
+
+With --only and one or more post folder names, just those posts are replaced, in both
+languages. Every other encrypted file, the section list included, stays as it is. Use it when
+your source folder does not hold the latest version of every post.
 
 The source folder is laid out like a section under content/:
 
@@ -59,9 +64,15 @@ def inline_images(plain, out, inlined):
 
 
 def main():
-    if len(sys.argv) != 2:
+    args, only = sys.argv[1:], []
+    if "--only" in args:  # replace just these posts; every other encrypted file stays as it is
+        cut = args.index("--only")
+        args, only = args[:cut], args[cut + 1:]
+        if not only:
+            sys.exit("--only needs at least one post folder name.")
+    if len(args) != 1:
         sys.exit(__doc__)
-    src = Path(sys.argv[1]).resolve()
+    src = Path(args[0]).resolve()
     if not (src / "_index.md").is_file():
         sys.exit(f"{src} has no _index.md")
     if ROOT in src.parents or src == ROOT:
@@ -82,10 +93,17 @@ def main():
         run(["hugo", "--gc", "--minify", "-d", str(out)], cwd=site, env=env)
 
         pages = [p for target in TARGETS for p in sorted((out / target).rglob("index.html"))]
+        if only:
+            missing = [slug for slug in only
+                       if not any((out / t / slug / "index.html").is_file() for t in TARGETS)]
+            if missing:
+                sys.exit(f"--only: no post named {', '.join(missing)} in {src}")
+            pages = [p for p in pages if p.parent.name in only
+                     and p.parent.parent in [out / t for t in TARGETS]]
         if not pages:
             sys.exit("Hugo rendered no Vault pages.")
         others = [p for target in TARGETS for p in sorted((out / target).rglob("*"))
-                  if p.is_file() and p.name != "index.html"]
+                  if p.is_file() and p.name != "index.html" and (not only or p.parent.name in only)]
 
         written, inlined, linked = [], set(), set()
         for page in pages:
@@ -122,6 +140,12 @@ def main():
             written.append((rel, len(cipher)))
 
         for target in TARGETS:
+            if only:
+                for slug in only:
+                    if (enc / target / slug).is_dir():
+                        shutil.rmtree(ROOT / "static" / target / slug, ignore_errors=True)
+                        shutil.copytree(enc / target / slug, ROOT / "static" / target / slug)
+                continue
             shutil.rmtree(ROOT / "static" / target, ignore_errors=True)
             if (enc / target).is_dir():
                 shutil.copytree(enc / target, ROOT / "static" / target)

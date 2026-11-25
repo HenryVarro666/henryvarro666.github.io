@@ -1,17 +1,19 @@
 ---
 title: "Fraud detection modeling: practice questions with worked answers"
 date: 2026-11-23T20:00:00-06:00
-lastmod: 2026-11-23T20:00:00-06:00
-description: "Practice questions on fraud modeling with worked answers: class imbalance, metrics, time-based validation, late labels, thresholds from costs, two case walk-throughs, probability drills, and tested Python, SQL and PySpark code."
+lastmod: 2026-11-25T04:00:00-06:00
+description: "Practice questions on fraud modeling with worked answers: class imbalance, metrics, time-based validation, late labels, feature selection, thresholds from costs, three case walk-throughs, a real-time system design, probability drills, and tested Python, SQL and PySpark code."
 topics: [data-science]
 ---
-I put this set together while preparing for applied machine learning (ML) interviews on fraud and risk modeling. It has four parts: fundamentals as they show up in fraud, two case walk-throughs, probability drills, and coding exercises with tested code. Each answer is written the way I would say it: the conclusion first, then the reason, the trade-off, and how I would check it.
+I put this set together while preparing for applied machine learning (ML) interviews on fraud and risk modeling. It has five parts: fundamentals as they show up in fraud, case walk-throughs, a system design walk-through, probability drills, and coding exercises with tested code. Each answer is written the way I would say it: the conclusion first, then the reason, the trade-off, and how I would check it.
 
 > **Takeaway.** Most fraud modeling questions come back to four habits: measure at the operating point on later data, build every feature as of decision time, treat labels as late and biased, and let costs set the threshold.
 
 ## How to use this set {#how-to}
 
 Cover the answer, speak for 60 to 90 seconds, then compare and note only what you missed. Unless a question says otherwise, the setting is a bank that scores payments in real time, with about one fraud per thousand transactions.
+
+If time is short, start with the topics candidates most often report from data science panels at banks: [class imbalance](#imbalance), [bagging and boosting](#trees), [regularization](#regularization), [feature selection](#feature-selection) and [the real-time system design](#system-design).
 
 Three earlier notes go deeper on single topics: [precision and recall](/notes/precision-vs-recall/), [ROC-AUC and PR-AUC](/notes/roc-auc-vs-pr-auc/), and [A/B testing](/notes/ab-testing/). The [MLOps guide](/notes/mlops-learning-guide/) covers [leakage](/notes/mlops-learning-guide/#time-leakage) and [monitoring](/notes/mlops-learning-guide/#monitoring) with a runnable lab.
 
@@ -79,13 +81,25 @@ Three problems.
 
 **Noise.** Some reported fraud is first-party or friendly fraud, where a real customer disputes a real purchase, and some fraud is never reported. I keep label sources separate and, where possible, model third-party fraud, first-party fraud and scams as different targets.
 
-### Random forest and gradient boosting {#trees}
+### Bagging and boosting {#trees}
 
-**Question.** Compare random forest with gradient boosting. Why does boosting usually win on tabular data?
+**Question.** Compare bagging with boosting, using random forest and gradient boosting as the examples. Why does boosting usually win on tabular data?
 
-Both are tree ensembles. A random forest grows deep trees independently on bootstrap samples with random feature subsets and averages them, which mainly reduces variance.
+Bagging trains many models independently on resampled data and averages them. Boosting trains them one after another, each correcting the errors of those before it. Random forest and gradient boosting are the tree versions of the two ideas.
+
+A random forest grows deep trees independently on bootstrap samples with random feature subsets and averages them, which mainly reduces variance.
 
 Gradient boosting grows shallow trees one after another, each fitted to the gradient of the loss of the current ensemble. That mainly reduces bias, and shrinkage, subsampling and regularization keep the variance in check.
+
+| | Bagging: random forest | Boosting: gradient boosting |
+|---|---|---|
+| How the trees are built | Independently, in parallel | In sequence, each on what is still wrong |
+| What it mainly reduces | Variance | Bias |
+| The individual tree | Deep; overfits on its own | Shallow; underfits on its own |
+| Adding more trees | Levels off and does no harm | Overfits in the end, so stop early |
+| Mislabeled examples | Averaged out | Chased harder each round unless regularized |
+
+The last row matters in fraud, where some labels are wrong. I limit depth, use shrinkage and stop early, and I do not push a boosted model to fit the last few training cases.
 
 [XGBoost](https://arxiv.org/abs/1603.02754) adds a second-order approximation of the loss, L1 and L2 penalties on leaf weights, and a learned default direction for missing values. LightGBM uses histogram binning and leaf-wise growth, so it is faster on large data and overfits more easily without limits on leaves.
 
@@ -163,6 +177,22 @@ Anomaly detection, such as an isolation forest or the reconstruction error of an
 
 So I use it as a complement: anomaly scores as input features, and as a monitoring tool that surfaces emerging clusters for analysts to review and label.
 
+### Outliers {#outliers}
+
+**Question.** How do you detect and handle outliers?
+
+First I ask what the outlier is: a data error, a rare but real value, or the thing I am looking for. In fraud it is often the third, so I never delete extremes by rule.
+
+**Detecting.** For one variable I use the median and the median absolute deviation (MAD), or the interquartile range, because the mean and the standard deviation are themselves pulled by the outlier. Amounts are heavily right-skewed, so I look on a log scale. For several variables together, I use an isolation forest or the distance to the nearest neighbors. And I compare a value with the customer's own history as well as with the population: \$3,000 is ordinary for one account and extreme for another.
+
+**Handling, by cause.**
+
+- **Errors**, such as a negative amount, an impossible timestamp or a duplicated row: fix or remove them at the source, and count them. A jump in the error count is a data-quality alert.
+- **Real extremes:** keep them. Trees split on order, so a huge value does not distort them. For linear models and neural networks I cap or log-transform the feature, with the caps learned on the training window only.
+- **Metrics:** a few very large frauds can dominate anything measured in dollars, so I report results by count and by value.
+
+The [robust z-score exercise](#robust-z) codes the per-account version.
+
 ### Reinforcement learning and bandits {#bandits}
 
 **Question.** Where could reinforcement learning fit in fraud?
@@ -187,6 +217,30 @@ Five families:
 
 All of them are computed point-in-time, and all must be available inside the latency budget at decision time. The [first coding exercise](#velocity) builds the velocity family.
 
+### Feature selection {#feature-selection}
+
+**Question.** You have a few thousand candidate features. How do you decide which ones go into the model?
+
+With boosted trees I treat selection as a question of stability and cost more than of accuracy, because the model tolerates irrelevant features fairly well. I work in five passes:
+
+1. **Remove what cannot be used.** Anything not available at decision time, anything not permitted for this decision, and fields that are constant or almost always missing.
+2. **Remove what will not last.** Features whose distribution moves a lot from month to month (PSI), or whose relationship with fraud changes sign across time folds.
+3. **Thin out redundancy.** Among highly correlated features I keep the one that is cheapest to serve and easiest to explain.
+4. **Rank by contribution on later data.** Permutation importance or mean absolute SHAP on an out-of-time sample. Importance counted from training splits is biased toward features with many distinct values, as [Strobl and colleagues](https://pmc.ncbi.nlm.nih.gov/articles/PMC1796903) showed for random forests.
+5. **Confirm by ablation.** Drop a group, retrain, and compare at the operating point. If recall at the alert budget does not move, the group goes.
+
+The textbook answer sorts the methods into three families:
+
+| Family | Examples | Where I use it |
+|---|---|---|
+| Filter | Missing rate, variance, univariate AUC, correlation | A cheap first cut |
+| Embedded | L1 penalty, tree gain, SHAP | The main ranking |
+| Wrapper | Recursive elimination, forward selection, ablation | The final check on a short list, because each step retrains |
+
+Two cautions. Selection is part of training, so it happens inside each training fold; choosing features on all the data and then cross-validating leaks. And a feature that is weak on its own can matter in an interaction, so the filter pass should be gentle.
+
+The payoff is mostly operational: fewer pipelines to break, lower serving latency, and less to monitor and to document for model review.
+
 ### L1 and L2 regularization {#regularization}
 
 **Question.** What is the difference between L1 and L2 regularization?
@@ -196,6 +250,23 @@ L2 penalizes squared weights. It shrinks all coefficients smoothly toward zero a
 L1 penalizes absolute values. Its constraint region has corners on the axes, so the optimum often lands with some coefficients exactly zero. It selects features, and it picks somewhat arbitrarily among correlated ones.
 
 In Bayesian terms, L2 is a Gaussian prior on the weights and L1 is a Laplace prior, and the penalized fit is the maximum a posteriori (MAP) estimate. Both trade a little bias for lower variance.
+
+Elastic net mixes the two penalties, which keeps the sparsity of L1 and treats groups of correlated features more evenly. The inputs have to be on the same scale first, or the penalty treats features unequally.
+
+A penalty is only one kind of regularization. Early stopping, shrinkage, row and column subsampling, a minimum leaf size, dropout and data augmentation all limit how closely a model can fit its training data.
+
+### Classic ML quick checks {#classic-ml}
+
+Short answers to the textbook questions that tend to open a panel:
+
+| Question | Answer |
+|---|---|
+| How does a decision tree choose a split? | For each feature and candidate cut it computes the drop in impurity (Gini or entropy for classification, variance for regression), weighted by the size of the children, and takes the largest. It is greedy: the best split now, with no look-ahead. Depth limits, a minimum leaf size and pruning keep it from memorizing. |
+| Underfitting or overfitting? | Underfitting: training and validation error are both high (bias). Overfitting: training error is low and validation error is much higher (variance). The first needs more capacity or better features. The second needs more data, regularization or a simpler model. |
+| Why is logistic regression still used in risk? | Its coefficients read as log-odds, monotonic effects are easy to enforce and to explain, it is stable on little data, and its scores are usually close to calibrated. It is the usual baseline, and often the model a tree ensemble has to beat. |
+| How do you choose k in k-means? | There is no label to optimize, so I combine the elbow in within-cluster variance, the silhouette score, whether the clusters stay put across resamples, and whether the business can use the segments. Standardize first, because k-means uses Euclidean distance. |
+| Validation data or test data? | Validation data is used to make choices (hyperparameters, features, thresholds), so its score is optimistic. Test data is used once, after every choice is made. In fraud it comes from a later period. |
+| A dataset does not fit in memory in Python. What do you do? | Read only the columns I need, from a columnar format such as Parquet. Use compact dtypes and categoricals. Process in chunks, or push the aggregation down to SQL or Spark. Vectorize instead of looping. Develop on a sample that keeps all the fraud. |
 
 ### Deep learning quick checks {#deep-learning}
 
@@ -212,7 +283,7 @@ Short answers for the questions that follow when the interviewer wants to test f
 
 ### A seven-step frame {#frame}
 
-Both cases use the same frame. I say the frame first, then fill it in.
+The cases use the same frame. I say the frame first, then fill it in.
 
 1. **Clarify:** which fraud, what action follows the score, the latency budget and the review capacity.
 2. **Target and label:** the unit of prediction, where the label comes from, how long it takes to mature.
@@ -287,6 +358,134 @@ I would also use external identity and bureau data where the bank is permitted t
 **How do the signals differ between identity theft and a synthetic identity?** With identity theft, the identity is real and has a long history, but the contact details and device do not match that history. The victim eventually complains, so a label arrives. With a synthetic identity, the elements have never been seen together, the history is thin or recent, and several identities may share a phone, address or device. No victim complains, so the loss is often booked as a credit loss and the fraud label is missing.
 
 **Fraud is 0.5% of applications and the team can manually review 2% of them. How do you use the queue?** I rank by expected loss, not by probability alone. The very top goes to automatic rejection only if precision there is high enough. The next slice, sized to the 2% capacity, goes to manual review. I track precision in the queue and recall overall, feed reviewer decisions back as labels, and send a small random sample to review as well, so the labels are not biased toward what the model already believes.
+
+### Case 3: a sudden spike in transactions {#case-spike}
+
+**Prompt.** Transaction volume jumps far above forecast within an hour. How do you investigate and respond?
+
+I take five questions in order.
+
+**Is it real?** I rule out a measurement problem first: events replayed after a retry, a batch that posted late, a time-zone or pipeline change. I compare the number of rows with the number of distinct transaction IDs, and one data source with another.
+
+**Where is it?** I break the increase down by channel, merchant, device, IP range, card range, geography, amount band, and new against existing accounts. A rise spread across everything usually has an ordinary cause, such as a holiday, payday or a promotion. A rise that sits in a few merchants, devices or one amount band looks like an attack.
+
+| Segment | Usual per hour | This hour | Change |
+|---|---:|---:|---:|
+| All transactions | 50,000 | 70,000 | +20,000 |
+| One merchant, amounts under \$2 | 300 | 19,300 | +19,000 |
+| Everything else | 49,700 | 50,700 | +1,000 |
+
+In this made-up example, volume is up 40%, and 95% of the increase is one merchant and one amount band. Everything else is up 2%.
+
+**Does it look like fraud?** I match the concentration to known patterns. Many small authorizations across many cards at one merchant, with a high decline rate, is card testing. One device or IP range logging in to many accounts is credential stuffing ahead of account takeover. A burst of first-time payees is a scam or mule campaign. Labels will take weeks, so I read the early signals: the score distribution inside the spike, authorization declines, and customer contacts.
+
+**What do I do now?** Something proportionate to the segment: a velocity rule, step-up authentication or a rate limit on the affected merchant, device cluster or card range, and a call to fraud operations. I avoid a blanket block, which mostly hits good customers. If the spike is legitimate, I check instead that the review queue and the service can absorb it, and that velocity features are not turning a normal peak into false alerts.
+
+**What changes afterwards?** I label the incident, measure what the stopgap rule cost in false positives, add the pattern to the features or the next retrain, add the alert that would have fired earlier, and retire the rule on a date.
+
+> **Takeaway.** Concentration is the tell: an ordinary peak lifts every segment, and an attack lifts a few.
+
+### A neighboring case: credit risk for loan applicants {#case-credit}
+
+**Prompt.** How would you assess credit risk for loan applicants using data?
+
+The frame is the same and the target is different. I predict the probability of default: for example, that the borrower becomes 90 days past due within the first 12 to 24 months.
+
+- **Data.** Credit bureau history (payment record, utilization, length of history, recent inquiries), income and existing debt, the application itself, and the applicant's relationship with the bank, such as deposits and cash flow.
+- **Model.** A logistic regression scorecard as the baseline, and often as the production model. Gradient-boosted trees with monotonic constraints as the challenger.
+- **Evaluation.** Out of time. AUC or the Kolmogorov-Smirnov statistic for ranking, and calibration by score band, because the probability feeds pricing and loss estimates.
+- **Decision.** Approve or decline, then the limit and the price. Expected loss is the probability of default times the loss given default times the exposure.
+- **Missing outcomes.** Repayment is observed only for approved applicants, the same selection problem as in [fraud labels](#labels). Credit modeling calls the remedies reject inference.
+- **Explanations.** In the United States a lender must tell a declined applicant the main reasons, and may not use protected characteristics. Reason codes and fair-lending tests are requirements, so explainability is part of the design.
+
+| | Fraud | Credit risk |
+|---|---|---|
+| What is predicted | The payment or the applicant is not genuine | A genuine customer will not repay |
+| Base rate | About 0.1% of transactions | Often a few percent of accounts |
+| Label delay | Days to weeks | Months to years |
+| Adversary | Yes, and it adapts | No, but the economy shifts |
+| Time to decide | Milliseconds | Seconds to days |
+| Modeling habits | Boosted trees, frequent refresh | Scorecards or constrained trees, slow refresh, reason codes |
+
+## System design: a real-time fraud detection system {#system-design}
+
+[Case 1](#case-transactions) designs the model. A system design round asks for the service around it, usually as "design a real-time fraud detection system for a bank's payments". I answer in five steps: requirements, the two paths, the latency budget, failure handling and monitoring.
+
+### Requirements first {#sd-requirements}
+
+| What I ask | What I assume if nobody answers |
+|---|---|
+| Where does the decision sit? | Inline, before the payment is authorized |
+| How fast? | About 100 ms end to end at the 99th percentile |
+| How much traffic? | Thousands of requests per second at peak, with holiday bursts |
+| What if the model is unavailable? | The payment still gets an answer |
+| Which actions? | Approve, step up, decline, or hold for review |
+| What must be kept? | Enough to reproduce any decision later: inputs, model version, rules version |
+
+### A fast path and a slow path {#sd-paths}
+
+![A payment request passes through feature lookup, scoring and a decision in about 100 milliseconds. Below, an event log feeds stream updates to the features and, after labels mature, retraining of the model, while monitoring watches both.](fast-and-slow-path.svg "Figure 1: The top row answers one payment. The bottom row feeds it: counters within seconds, a retrained model after labels mature.")
+
+The fast path answers one payment:
+
+1. **Decision service.** Receives the authorization request, enforces the time budget, and always returns an answer.
+2. **Feature retrieval.** Request fields, plus precomputed features fetched by key from a low-latency online store. Slow-moving aggregates, such as a 90-day average or graph features, are refreshed in batch. Fast-moving ones, such as the count in the last hour, are updated by a stream processor within seconds.
+3. **Scoring.** The model is loaded in memory with a pinned version. Boosted trees score in a few milliseconds or less.
+4. **Rules and policy.** Hard rules first, such as blocked lists and limits. Then thresholds on the score, by amount and segment, map to an action.
+5. **Logging.** The features as served, the score, the versions and the action go to an event log, off the critical path.
+
+The slow path learns from what happened:
+
+1. **Stream updates.** A stream processor reads the event log and updates the counters that the next request will read.
+2. **Labels.** Disputes, chargebacks and analyst outcomes are joined to the logged events by transaction ID, weeks later.
+3. **Training data.** Built from the logged features, so it is point-in-time by construction and matches what serving saw.
+4. **Release.** Out-of-time validation, independent review, shadow mode, a small share of traffic, then full traffic, with the previous version one step away.
+
+### A latency budget {#sd-latency}
+
+| Step | Budget |
+|---|---:|
+| Network and request parsing | 10 ms |
+| Feature lookups, in parallel | 30 ms |
+| Model scoring | 10 ms |
+| Rules and decision | 10 ms |
+| Headroom for retries and the tail | 40 ms |
+| **Total** | **100 ms** |
+
+The numbers are illustrative. Two points carry over to any real system: feature retrieval, not the model, usually takes the most time, and the budget is for the slowest 1% of requests, not the average.
+
+### When something fails {#sd-failure}
+
+| Failure | Response |
+|---|---|
+| A feature lookup times out | Use a default plus a "missing" flag that the model saw in training, and count it |
+| The streaming counters fall behind | Serve the last value with its age, and alert on the lag |
+| The model is down or slow | Fall back to rules alone, with conservative limits on large amounts |
+| The same request arrives twice | An idempotency key returns the first decision, and the counters are not updated twice |
+| A bad model release | Shadow mode first, then a small share of traffic, with a one-step rollback |
+| A traffic burst | Stateless decision services scaled out; the store partitioned by account or card |
+
+### What to monitor after launch {#sd-monitoring}
+
+| Layer | What I watch | Visible within |
+|---|---|---|
+| Service | Latency at the median and the 99th percentile, error and timeout rate, fallback rate | Minutes |
+| Data | Missing rate, feature freshness, feature drift (PSI) | Hours |
+| Score | Score distribution, alert rate, decline and step-up rate by segment | Hours |
+| Outcome | Recall, value detection rate, false positive ratio, calibration | Weeks, once labels mature |
+| Business | Fraud loss in basis points of volume, customer contacts and complaints, review backlog | Weeks |
+
+The first three layers are the early warning, because the outcome layer waits for labels. Each alert has an owner and an action agreed in advance.
+
+### Follow-ups to the design {#sd-follow-ups}
+
+**Why not call a large neural network or a language model inline?** Latency, cost and reproducibility. The inline decision has milliseconds, and it must give the same answer when replayed. Heavy models can still contribute offline. They produce embeddings or text-derived features that the fast model reads from the store, or they support case review after the decision.
+
+**How do you keep training and serving consistent?** One definition per feature, shared by the batch and the streaming computation. Training data comes from the features logged at serving time. And a replay test recomputes a sample offline and compares it with the logged values.
+
+**Where do people fit?** The middle band of scores goes to a review queue sized to capacity. Reviewer outcomes become labels. Reviewers are also the first to see a new pattern, so the system needs a channel for them to report it.
+
+**How do you change a threshold safely?** Scores are logged, so I can replay last month's traffic through the new threshold and see the alert volume and the decline rate before anything changes. Then the change is staged like a model release.
 
 ## Probability and statistics drills {#drills}
 
@@ -378,7 +577,7 @@ ROC-AUC is the probability that a randomly chosen fraud gets a higher score than
 
 ## Coding exercises {#coding}
 
-Download [fraud-practice-lab.py](/notes/fraud-detection-practice/fraud-practice-lab.py) and run it with Python 3.10 or later, NumPy and pandas. It generates its own data and prints every number in this note. If scikit-learn or DuckDB is installed, it also cross-checks the AUC and the SQL query.
+Download [fraud-practice-lab.py](/notes/fraud-detection-practice/fraud-practice-lab.py) and run it with Python 3.10 or later, NumPy and pandas. It generates its own data and prints every number in this note. If scikit-learn or DuckDB is installed, it also cross-checks the AUC and the SQL queries.
 
 ```bash
 python3 fraud-practice-lab.py
@@ -530,6 +729,130 @@ def correct_for_downsampling(p_sampled, beta):
 
 `correct_for_downsampling(0.5, 0.01)` returns 0.0099 and `correct_for_downsampling(0.9, 0.01)` returns 0.083.
 
+### Duplicate transactions in SQL {#duplicates}
+
+**Prompt.** Write a query that finds duplicate transactions.
+
+I ask what "duplicate" means. The same transaction ID twice is a pipeline problem, and `GROUP BY transaction_id HAVING COUNT(*) > 1` finds it. The more useful case is a repeat: the same account, merchant and amount within a short time of the previous one.
+
+```sql
+SELECT account_id, merchant_id, amount, ts
+FROM (
+  SELECT t.*,
+         LAG(ts) OVER (PARTITION BY account_id, merchant_id, amount ORDER BY ts) AS prev_ts
+  FROM transactions AS t
+) AS x
+WHERE prev_ts IS NOT NULL
+  AND ts - prev_ts <= INTERVAL 60 SECOND;
+```
+
+The same in pandas:
+
+```python
+def flag_near_duplicates(df, seconds=60):
+    keys = ["account_id", "merchant_id", "amount"]
+    df = df.sort_values(keys + ["ts"]).reset_index(drop=True)
+    gap = df.groupby(keys)["ts"].diff().dt.total_seconds()
+    df["near_duplicate"] = gap.le(seconds)   # the first row of each group has no gap -> False
+    return df
+```
+
+On seven test rows, both versions flag two: the \$25 payments at 10:00:20 and 10:00:50, which follow one at 10:00:00 at the same merchant. A fourth payment five minutes later is not flagged, and neither are rows that differ in merchant, account or amount.
+
+Three things to say out loud. Each row is compared with the one before it, so a run of repeats is flagged from the second row on and the first is kept. A repeat is not always an error: two coffees in a minute are real. And the pipeline itself should deduplicate on an idempotency key, not on matching fields.
+
+### Amounts that are unusual for the account {#robust-z}
+
+**Prompt.** Write a function that flags transactions whose amount is unusual for the account, using only that account's earlier transactions.
+
+```python
+import numpy as np
+import pandas as pd
+
+def robust_z(s, min_history=5, mad_floor=0.05):
+    med = s.expanding(min_history).median().shift()          # shift: the current row is excluded
+    mad = s.expanding(min_history).apply(
+        lambda w: np.median(np.abs(w - np.median(w))), raw=True).shift()
+    return 0.6745 * (s - med) / mad.clip(lower=mad_floor)
+
+def flag_unusual_amounts(df, threshold=3.5, min_history=5):
+    df = df.sort_values(["account_id", "ts"]).reset_index(drop=True)
+    log_amount = np.log1p(df["amount"])                      # amounts are heavily right-skewed
+    df["robust_z"] = log_amount.groupby(df["account_id"]).transform(
+        robust_z, min_history=min_history)
+    df["unusual"] = df["robust_z"].abs() > threshold
+    return df
+```
+
+This is the [modified z-score](https://itl.nist.gov/div898/handbook/eda/section3/eda35h.htm): the distance from the median in units of the MAD, scaled by 0.6745 so that it reads like an ordinary z-score, with 3.5 as the usual cutoff. Here are one account's last four transactions, after five ordinary ones between \$20 and \$30:
+
+| Amount | Robust z | Flagged | Ordinary z |
+|---:|---:|---|---:|
+| \$21 | −1.03 | no | −0.87 |
+| \$900 | 29.28 | yes | 25.68 |
+| \$26 | 0.41 | no | −0.30 |
+| \$850 | 18.90 | yes | 2.42 |
+
+The last row is the reason to use the median. Once the \$900 payment is in the history, the mean and the standard deviation are inflated, and an ordinary z-score rates \$850 at 2.4, under a cutoff of 3. The median and the MAD barely move, so the robust score still flags it. Both scores are computed on log amounts.
+
+Four things to say out loud. `shift()` keeps the current row out of its own baseline. A new account has no baseline, so its first rows get no score and need a peer-group fallback. The floor on the MAD avoids dividing by zero when every earlier amount is the same. And unusual is not fraudulent: this is a feature or a review queue, not a decision.
+
+### Warm-ups {#warmups}
+
+Some data science interview loops include one or two easy algorithm questions. These six cover the patterns that come up most: a hash map, sorting, a running best, and a sliding window.
+
+```python
+from collections import defaultdict
+
+def two_sum(nums, target):                 # indices of two numbers that add up to target
+    seen = {}
+    for i, x in enumerate(nums):
+        if target - x in seen:
+            return seen[target - x], i
+        seen[x] = i
+    return None
+
+def group_anagrams(words):                 # words that use the same letters
+    groups = defaultdict(list)
+    for w in words:
+        groups["".join(sorted(w))].append(w)
+    return list(groups.values())
+
+def max_subarray(nums):                    # largest sum of a contiguous run
+    best = cur = nums[0]
+    for x in nums[1:]:
+        cur = max(x, cur + x)
+        best = max(best, cur)
+    return best
+
+def max_profit(prices):                    # buy and sell as often as you like
+    return sum(max(b - a, 0) for a, b in zip(prices, prices[1:]))
+
+def min_abs_difference(nums):              # smallest gap between any two values
+    s = sorted(nums)
+    return min(b - a for a, b in zip(s, s[1:]))
+
+def longest_unique_substring(s):           # longest substring without a repeated character
+    start, best, last = 0, 0, {}
+    for i, ch in enumerate(s):
+        if ch in last and last[ch] >= start:
+            start = last[ch] + 1
+        last[ch] = i
+        best = max(best, i - start + 1)
+    return best
+```
+
+| Function | Idea | Time | Check |
+|---|---|---|---|
+| `two_sum` | Remember each value's index and look up the complement | $O(n)$ | `two_sum([40, 15, 25, 60], 85)` returns `(2, 3)` |
+| `group_anagrams` | Sorted letters are the group key | $O(n \cdot k \log k)$ | `listen`, `silent` and `enlist` share a group |
+| `max_subarray` | Extend the current run or start a new one | $O(n)$ | `[3, -4, 5, -1, 2, -6, 4]` gives 6 |
+| `max_profit` | Add up every rise | $O(n)$ | `[10, 7, 12, 9, 15, 14]` gives 11 |
+| `min_abs_difference` | After sorting, the closest pair is adjacent | $O(n \log n)$ | `[31, 8, 20, 14]` gives 6 |
+| `longest_unique_substring` | Move the window start past the last repeat | $O(n)$ | `"fraudfree"` gives 6 |
+
+The edge cases to name before coding: no valid pair, all-negative numbers, prices that only fall, and an empty string.
+
 ## One-page review {#review}
 
 | Item | In one line |
@@ -543,8 +866,12 @@ def correct_for_downsampling(p_sampled, beta):
 | Interval for recall | $\pm 1.96\sqrt{r(1-r)/n_{\text{fraud}}}$: it depends on the number of frauds |
 | `scale_pos_weight` | Negatives divided by positives: about 999 at a 0.1% fraud rate |
 | Model governance | SR 26-2 replaced SR 11-7 on April 17, 2026 |
+| Bagging and boosting | Bagging averages independent deep trees and cuts variance; boosting adds shallow trees in sequence and cuts bias |
+| Feature selection | Usable, stable, not redundant, ranked on later data, confirmed by ablation |
+| Real-time design | A fast path that decides in about 100 ms and a slow path that learns; rules as the fallback |
+| A spike in volume | First real or artifact, then where it sits: an ordinary peak lifts every segment, an attack lifts a few |
 
-Phrases worth having ready: point-in-time features, out-of-time validation, label maturity, control group, champion-challenger, shadow mode, value detection rate, false positive ratio, step-up authentication, training-serving skew.
+Phrases worth having ready: point-in-time features, out-of-time validation, label maturity, control group, champion-challenger, shadow mode, value detection rate, false positive ratio, step-up authentication, training-serving skew, idempotency key, fallback, feature freshness.
 
 ## References {#references}
 
@@ -554,5 +881,7 @@ Phrases worth having ready: point-in-time features, out-of-time validation, labe
 4. Lundberg SM, Lee S-I. [A unified approach to interpreting model predictions](https://arxiv.org/abs/1705.07874). NeurIPS 2017.
 5. Board of Governors of the Federal Reserve System. [SR 26-2: Revised guidance on model risk management](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm). April 17, 2026.
 6. Bowman MW. [Artificial intelligence in the financial system](https://www.federalreserve.gov/newsevents/speech/bowman20260501a.htm). Speech, May 1, 2026.
+7. Strobl C, Boulesteix A-L, Zeileis A, Hothorn T. [Bias in random forest variable importance measures: illustrations, sources and a solution](https://pmc.ncbi.nlm.nih.gov/articles/PMC1796903). BMC Bioinformatics 2007, 8:25.
+8. NIST/SEMATECH. [e-Handbook of statistical methods, section 1.3.5.17: Detection of outliers](https://itl.nist.gov/div898/handbook/eda/section3/eda35h.htm). It gives the modified z-score of Iglewicz and Hoaglin (1993).
 
-Every number in this note is printed by [`fraud-practice-lab.py`](/notes/fraud-detection-practice/fraud-practice-lab.py). The SQL and PySpark versions of the velocity feature were checked against the pandas output with DuckDB 2.0 and PySpark 4.3.
+Every number in this note is printed by [`fraud-practice-lab.py`](/notes/fraud-detection-practice/fraud-practice-lab.py). The SQL and PySpark versions of the velocity feature were checked against the pandas output with DuckDB 2.0 and PySpark 4.3, and the duplicate-transaction query with DuckDB 2.0.
