@@ -34,7 +34,7 @@
         {{- end }}
         {{- end }}
         {{- with $other }}
-        <button class="both-toggle" type="button" aria-pressed="false" title="{{ T "both-languages-title" }}" data-src="{{ .RelPermalink }}" data-lang="{{ .Language.Locale }}">{{ T "both-languages" }}</button>
+        <button class="both-toggle" type="button" aria-pressed="false" title="{{ T "both-languages-title" }}" data-src="{{ .RelPermalink }}" data-lang="{{ .Language.Locale }}" data-title="{{ .Title }}">{{ T "both-languages" }}</button>
         {{- end }}
       </nav>
       {{- end }}

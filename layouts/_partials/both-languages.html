@@ -10,6 +10,9 @@
        is written in, or across the row when it is in neither (code, a formula). A figure
        appears once, in the page's own language. The language test tells Chinese from English,
        the site's two languages.
+       A heading written as "Question / 问题" keeps another version's heading and adds its own
+       wording; beside that other version only the added wording is shown. The translation's
+       title is shown under the page title.
        The translation comes from the <template> on a self-contained build and is fetched from
        its own page otherwise. The choice is remembered, so the next note opens the same way. */ -}}
 <script>
@@ -22,6 +25,8 @@
     var own = null;      // the page's blocks in their original order, while "Both" is on
     var pending = null;  // the translation's blocks, loaded once
     var masked = [];     // the page's own paragraphs that are hidden while "Both" is on
+    var title = post.querySelector(".post-title");
+    var subtitle = null; // the translation's title, while "Both" is on
 
     var texts = new WeakMap();
     function text(el) {
@@ -59,6 +64,15 @@
         rows.push([restA, restB]);
       }
       return rows.concat(tail);
+    }
+    // The other version's heading, reduced to what it adds to the page's own; null if nothing.
+    function added(own, other) {
+      var a = text(own), b = text(other);
+      if (a === b || a.indexOf(b + " / ") === 0) return null;
+      if (b.indexOf(a + " / ") === 0 && other.childNodes.length === 1) {
+        other.textContent = other.textContent.trim().slice(own.textContent.trim().length).replace(/^\s*\/\s*/, "");
+      }
+      return other;
     }
     // Paragraphs inside quotes and lists: the level below a block at which text can repeat.
     function inner(blocks) {
@@ -121,11 +135,14 @@
       rows.forEach(function (r) {
         var ours = r[0].slice(), others = [];
         var figure = ours.some(function (el) { return el.matches("figure"); });
-        r[1].forEach(function (el) {
+        if (r[2]) {
+          var rest = added(r[0][0], r[1][0]);
+          if (rest) others.push(rest);
+        } else r[1].forEach(function (el) {
           if (figure && el.matches("figure")) return;
           var twin = r[0].find(function (x) { return text(x) === text(el); });
           if (!twin) others.push(el);
-          else if (!r[2] && language(el) === theirLanguage) { ours.splice(ours.indexOf(twin), 1); others.push(el); }
+          else if (language(el) === theirLanguage) { ours.splice(ours.indexOf(twin), 1); others.push(el); }
         });
         var paragraphs = inner(ours);
         inner(others).forEach(function (el) {
@@ -168,6 +185,13 @@
           own = blocks;
           prose.replaceChildren(view);
           post.classList.add("is-both");
+          if (title && button.dataset.title && button.dataset.title !== title.textContent.trim()) {
+            subtitle = document.createElement("p");
+            subtitle.className = "both-title";
+            subtitle.lang = button.dataset.lang;
+            subtitle.textContent = button.dataset.title;
+            title.after(subtitle);
+          }
         });
         button.setAttribute("aria-pressed", "true");
       }).catch(function () {
@@ -183,6 +207,8 @@
         masked = [];
         prose.replaceChildren(...own);
         own = null;
+        if (subtitle) subtitle.remove();
+        subtitle = null;
         post.classList.remove("is-both");
       });
       button.setAttribute("aria-pressed", "false");
