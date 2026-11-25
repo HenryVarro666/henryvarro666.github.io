@@ -14,6 +14,8 @@ Cover the answer, say it aloud, then compare. Where an answer quotes a number, t
 
 If time is short, do [hypothesis testing](#testing), [model evaluation](#evaluation) and [classic algorithms](#algorithms) first. They produce the most follow-up questions.
 
+A second note, [the next layer](/notes/ml-stats-next-layer/), continues with derivations, scorecards, graphs, survival analysis and SQL patterns.
+
 ## Probability {#probability}
 
 **State Bayes' rule. When does the prior matter most?** $P(A \mid B) = P(B \mid A)\,P(A) / P(B)$. The prior matters most when the event is rare. At a 0.1% base rate, a detector with 90% recall and a 1% false positive rate still gives a posterior of only about 8%. The practice set [works that number](/notes/fraud-detection-practice/#drill-bayes).
