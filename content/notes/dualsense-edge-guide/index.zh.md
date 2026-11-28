@@ -2,11 +2,12 @@
 title: "PS5 精英手柄（DualSense Edge）新手上手指南"
 date: 2026-11-28
 description: "第一次拿到 DualSense Edge：连接充电、认按键、回主页、换摇杆帽和背面键、配置文件与 Fn 键、更新和重设，步骤都对照索尼官方中文支持页。"
+topics: [gaming]
 ---
 
 这篇写给第一次拿到 PS5 精英手柄（官方名叫 DualSense Edge 无线控制器）的人。从头读下来，你能把手柄连上主机、认全按键、回到主页，再用上它比普通 PS5 手柄多出来的东西：可换的摇杆帽和背面键、可调的扳机键程、用 Fn 键切换的配置文件。
 
-文中的操作步骤都对照索尼 PlayStation 官网的简体中文支持页，引号里是官方原话，链接放在每一节开头和文末，核对日期是 2026-11-27。主机系统更新后菜单名可能会变，以你屏幕上显示的为准。
+文中的操作步骤都对照索尼 PlayStation 官网的简体中文支持页，引号里是官方原话，链接放在每一节开头和文末，核对日期是 2026-11-28。主机系统更新后菜单名可能会变，以你屏幕上显示的为准。
 
 ## 1. 盒子里有什么 {#in-the-box}
 
@@ -212,7 +213,7 @@ description: "第一次拿到 DualSense Edge：连接充电、认按键、回主
 
 ## 官方资料 {#sources}
 
-以下都是索尼 PlayStation 官网的中文页面，2026-11-27 逐一打开核对过：
+以下都是索尼 PlayStation 官网的中文页面，2026-11-28 逐一打开核对过：
 
 - [DualSense Edge 产品页](https://www.playstation.com/zh-hans-cn/accessories/dualsense-edge-wireless-controller/)：盒内配件
 - [PS5 按键功能](https://www.playstation.com/zh-hans-hk/support/hardware/ps5-button-functions/)：各按键的作用
