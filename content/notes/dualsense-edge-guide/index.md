@@ -2,6 +2,7 @@
 title: "Getting started with the PS5 DualSense Edge controller"
 date: 2026-11-28
 description: "First time with a DualSense Edge: connect and charge it, learn the buttons, get back to the home screen, swap stick caps and back buttons, set up profiles and the Fn button, update and reset it. Each step follows Sony's support pages."
+topics: [gaming]
 ---
 
 This note is for someone holding a PS5 DualSense Edge wireless controller for the first time. Read it top to bottom and you will have the controller connected to the console, know every button, and be able to get back to the home screen. After that come the parts a standard PS5 controller does not have: swappable stick caps and back buttons, adjustable trigger travel, and profiles you switch with the Fn button.
